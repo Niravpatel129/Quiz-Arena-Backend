@@ -13,7 +13,6 @@ module.exports = (server) => {
 
     gameHandlers(socket, io);
     chatHandlers(socket, io);
-
     socket.on('disconnect', () => {
       console.log('User disconnected:', socket.id);
     });
