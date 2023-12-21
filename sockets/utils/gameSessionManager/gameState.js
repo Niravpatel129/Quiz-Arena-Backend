@@ -1,4 +1,4 @@
-const GameSession = require('../models/GameSession');
+const GameSession = require('../../../models/GameSession');
 
 const startGame = async (gameId) => {
   let session = await GameSession.findOne({ gameId: gameId });
