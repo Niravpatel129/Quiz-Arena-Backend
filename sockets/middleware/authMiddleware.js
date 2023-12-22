@@ -1,12 +1,13 @@
 const jwt = require('jsonwebtoken');
-
-const SECRET_KEY = process.env.JWT_SECRET;
+const cookieParser = require('../../helpers/parseCookies');
+require('dotenv').config();
 
 const authMiddleware = (socket, next) => {
-  const token = socket.handshake.query.token;
+  let token = socket.request.headers.cookie;
+  token = cookieParser(token).token;
   console.log('🚀  token:', token);
 
-  jwt.verify(token, SECRET_KEY, (err, decoded) => {
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) {
       console.log('🚀  err:', err);
       return next(new Error('Authentication error'));

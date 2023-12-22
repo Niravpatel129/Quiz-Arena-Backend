@@ -3,8 +3,8 @@ const gameHandlers = require('./eventHandlers/gameHandlers');
 const chatHandlers = require('./eventHandlers/chatHandlers');
 const authMiddleware = require('./middleware/authMiddleware');
 
-module.exports = (server) => {
-  const io = socketIO(server);
+module.exports = (server, config) => {
+  const io = socketIO(server, config);
 
   io.use(authMiddleware);
 

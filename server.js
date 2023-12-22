@@ -25,4 +25,9 @@ server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-initializeSockets(server);
+initializeSockets(server, {
+  cors: {
+    origin: 'http://localhost:19006',
+    credentials: true,
+  },
+});
