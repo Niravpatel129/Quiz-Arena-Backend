@@ -4,7 +4,12 @@ require('dotenv').config();
 
 const authMiddleware = (socket, next) => {
   let token = socket.request.headers.cookie;
+  console.log('🚀  token:', token);
   token = cookieParser(token).token;
+
+  if (!token) {
+    return next(new Error('token not found'));
+  }
 
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) {
