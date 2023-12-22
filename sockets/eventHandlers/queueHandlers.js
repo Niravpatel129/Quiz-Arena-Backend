@@ -1,7 +1,5 @@
-const joinQueue = require('./queue/joinQueue');
-const leaveQueue = require('./queue/leaveQueue');
+const { joinQueue } = require('./queue/joinQueue');
 
 module.exports = (socket, io) => {
   joinQueue(socket, io);
-  leaveQueue(socket, io);
 };

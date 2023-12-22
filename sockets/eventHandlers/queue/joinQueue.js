@@ -2,6 +2,29 @@ const startGame = require('../../utils/gameSessionManager/startGame');
 
 const queueStore = {};
 
+const RemoveFromQueue = (socket, io) => {
+  let foundCategory = null;
+
+  for (let category in queueStore) {
+    for (let player of queueStore[category]) {
+      if (player.socketId === socket.id) {
+        foundCategory = category;
+        break;
+      }
+    }
+    if (foundCategory) break;
+  }
+
+  if (foundCategory) {
+    // Remove the player from the set
+    queueStore[foundCategory] = new Set(
+      [...queueStore[foundCategory]].filter((player) => player.socketId !== socket.id),
+    );
+
+    io.emit('queue_update', { category: foundCategory, queue: [...queueStore[foundCategory]] });
+  }
+};
+
 const joinQueue = (socket, io) => {
   socket.on('join_queue', (category) => {
     try {
@@ -32,6 +55,13 @@ const joinQueue = (socket, io) => {
       socket.emit('error', { message: error.message });
     }
   });
+
+  socket.on('leave_queue', () => {
+    RemoveFromQueue(socket, io);
+  });
 };
 
-module.exports = joinQueue;
+module.exports = {
+  joinQueue,
+  RemoveFromQueue,
+};
