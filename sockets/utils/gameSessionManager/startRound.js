@@ -9,6 +9,14 @@ const handleTimeUp = async (sessionId, roundNumber, players, io) => {
     return;
   }
 
+  const allPlayersAnswered = gameSession.players.every((player) =>
+    player.answers.some((ans) => ans.roundNumber === gameSession.currentRound),
+  );
+
+  if (allPlayersAnswered) {
+    return;
+  }
+
   const nextRoundNumber = roundNumber + 1;
 
   if (nextRoundNumber <= gameSession.rounds.length) {

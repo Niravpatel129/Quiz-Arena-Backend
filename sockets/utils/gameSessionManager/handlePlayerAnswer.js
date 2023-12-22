@@ -1,4 +1,6 @@
 const GameSession = require('../../../models/GameSession');
+const endGame = require('./endGame');
+const startRound = require('./startRound');
 // Other imports as required
 
 const handlePlayerAnswer = async (sessionId, playerSocketId, answer, io) => {
@@ -31,6 +33,21 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, io) => {
   player.answers.push({ roundNumber: gameSession.currentRound, answer, isCorrect });
 
   await gameSession.save();
+
+  const allPlayersAnswered = gameSession.players.every((player) =>
+    player.answers.some((ans) => ans.roundNumber === gameSession.currentRound),
+  );
+
+  if (allPlayersAnswered) {
+    // Move to the next round or end the game
+    if (gameSession.currentRound >= gameSession.rounds.length) {
+      // End the game
+      endGame(sessionId, gameSession.players, io);
+    } else {
+      // Start the next round
+      startRound(sessionId, gameSession.currentRound + 1, gameSession.players, io);
+    }
+  }
 
   // Notify the player about the result
   io.to(playerSocketId).emit('answer_result', { isCorrect, currentScore: player.score });
