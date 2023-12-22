@@ -8,10 +8,14 @@ const joinQueue = (socket, io) => {
       if (!queueStore[category]) {
         queueStore[category] = new Set();
       }
-      queueStore[category].add(socket.id);
+      queueStore[category].add({
+        socketId: socket.id,
+        userId: socket.user.user.id,
+        name: socket.user.user.name,
+      });
 
       console.log(`🚀  ${socket.id} joined the queue for category:`, category);
-      console.log(`🚀  Current queue for ${category}:`, [...queueStore[category]]);
+      // console.log(`🚀  Current queue for ${category}:`, [...queueStore[category]]);
 
       io.emit('queue_update', { category, queue: [...queueStore[category]] });
 

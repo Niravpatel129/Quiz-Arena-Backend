@@ -1,11 +1,34 @@
 const mongoose = require('mongoose');
 
-const gameSessionSchema = new mongoose.Schema({
-  gameId: String,
-  players: [String],
-  currentQuestion: Number,
-  questions: [String],
-  gameStarted: Boolean,
+const optionSchema = new mongoose.Schema({
+  optionText: String,
+  isCorrect: Boolean,
 });
 
-module.exports = mongoose.model('GameSession', gameSessionSchema);
+const roundSchema = new mongoose.Schema({
+  questionText: String,
+  options: [optionSchema],
+  correctAnswer: String,
+  helperImage: String,
+  timeLimit: Number,
+  roundNumber: Number,
+});
+
+const gameSessionSchema = new mongoose.Schema({
+  category: String,
+  players: [
+    {
+      id: String,
+      name: String,
+      score: { type: Number, default: 0 },
+    },
+  ],
+  rounds: [roundSchema],
+  currentRound: { type: Number, default: 0 },
+  startTime: Date,
+  endTime: Date,
+});
+
+const GameSession = mongoose.model('GameSession', gameSessionSchema);
+
+module.exports = GameSession;
