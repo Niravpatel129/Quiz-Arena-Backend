@@ -4,7 +4,6 @@ require('dotenv').config();
 
 const authMiddleware = (socket, next) => {
   let token = socket.request.headers.cookie;
-  console.log('🚀  token:', token);
   token = cookieParser(token).token;
 
   if (!token) {
