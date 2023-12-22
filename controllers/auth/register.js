@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
 
 const register = async (req, res) => {
-  console.log('register');
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
