@@ -64,6 +64,71 @@ const easyQuestions = [
     timeLimit: 30,
     roundNumber: 5,
   },
+  {
+    questionText: 'What is the boiling point of water?',
+    options: [
+      { optionText: '100 degrees Celsius', isCorrect: true },
+      { optionText: '90 degrees Celsius', isCorrect: false },
+      { optionText: '120 degrees Celsius', isCorrect: false },
+      { optionText: '80 degrees Celsius', isCorrect: false },
+    ],
+    correctAnswer: '100 degrees Celsius',
+    helperImage: 'image_url_for_boiling_water_question',
+    timeLimit: 30,
+    roundNumber: 6,
+  },
+  {
+    questionText: 'Which animal is known as the King of the Jungle?',
+    options: [
+      { optionText: 'Elephant', isCorrect: false },
+      { optionText: 'Lion', isCorrect: true },
+      { optionText: 'Tiger', isCorrect: false },
+      { optionText: 'Giraffe', isCorrect: false },
+    ],
+    correctAnswer: 'Lion',
+    helperImage: 'image_url_for_lion_question',
+    timeLimit: 30,
+    roundNumber: 7,
+  },
+  {
+    questionText: 'How many colors are there in a rainbow?',
+    options: [
+      { optionText: '5', isCorrect: false },
+      { optionText: '7', isCorrect: true },
+      { optionText: '6', isCorrect: false },
+      { optionText: '8', isCorrect: false },
+    ],
+    correctAnswer: '7',
+    helperImage: 'image_url_for_rainbow_question',
+    timeLimit: 30,
+    roundNumber: 8,
+  },
+  {
+    questionText: 'What is the hardest natural substance on Earth?',
+    options: [
+      { optionText: 'Gold', isCorrect: false },
+      { optionText: 'Iron', isCorrect: false },
+      { optionText: 'Diamond', isCorrect: true },
+      { optionText: 'Silver', isCorrect: false },
+    ],
+    correctAnswer: 'Diamond',
+    helperImage: 'image_url_for_diamond_question',
+    timeLimit: 30,
+    roundNumber: 9,
+  },
+  {
+    questionText: 'What gas do plants absorb from the air during photosynthesis?',
+    options: [
+      { optionText: 'Oxygen', isCorrect: false },
+      { optionText: 'Carbon Dioxide', isCorrect: true },
+      { optionText: 'Nitrogen', isCorrect: false },
+      { optionText: 'Hydrogen', isCorrect: false },
+    ],
+    correctAnswer: 'Carbon Dioxide',
+    helperImage: 'image_url_for_photosynthesis_question',
+    timeLimit: 30,
+    roundNumber: 10,
+  },
 ];
 
 module.exports = easyQuestions;
