@@ -1,10 +1,10 @@
-const io = require('socket.io')();
+const socketIO = require('socket.io');
 const gameHandlers = require('./eventHandlers/gameHandlers');
-const chatHandlers = require('./eventHandlers/chatHandlers.js');
+const chatHandlers = require('./eventHandlers/chatHandlers');
 const authMiddleware = require('./middleware/authMiddleware');
 
 module.exports = (server) => {
-  io.attach(server);
+  const io = socketIO(server);
 
   io.use(authMiddleware);
 
@@ -13,6 +13,7 @@ module.exports = (server) => {
 
     gameHandlers(socket, io);
     chatHandlers(socket, io);
+
     socket.on('disconnect', () => {
       console.log('User disconnected:', socket.id);
     });
