@@ -29,7 +29,7 @@ async function endGame(sessionId, players, io) {
   console.log('game_over');
   players.forEach((playerSocketId) => {
     io.to(playerSocketId.socketId).emit('game_over', {
-      finalScores: gameSession.players,
+      gameSession: gameSession,
     });
   });
 }
