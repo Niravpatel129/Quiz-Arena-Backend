@@ -52,6 +52,10 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, io) => {
   // Notify the player about the result
   io.to(playerSocketId).emit('answer_result', { isCorrect, currentScore: player.score });
 
+  // emit opponent_guessed to other player
+  const opponent = gameSession.players.find((p) => p.socketId !== playerSocketId);
+  io.to(opponent.socketId).emit('opponent_guessed', { isCorrect, currentScore: opponent.score });
+
   // Check if all players have answered to move to the next round or end game
   // This logic depends on your game's rules
 };
