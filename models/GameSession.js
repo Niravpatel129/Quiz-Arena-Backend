@@ -21,6 +21,14 @@ const gameSessionSchema = new mongoose.Schema({
       id: String,
       name: String,
       score: { type: Number, default: 0 },
+      socketId: String,
+      answers: [
+        {
+          roundNumber: Number,
+          answer: String,
+          isCorrect: Boolean,
+        },
+      ],
     },
   ],
   rounds: [roundSchema],

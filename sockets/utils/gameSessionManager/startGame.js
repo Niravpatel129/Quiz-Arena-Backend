@@ -10,9 +10,10 @@ const startGame = async (category, players, io) => {
   let gameSession = new GameSession({
     category: category,
     players: players.map((playerSocketId) => ({
-      playerSocketId: playerSocketId.socketId,
+      socketId: playerSocketId.socketId,
       id: playerSocketId.userId,
       name: playerSocketId.name,
+      score: 0,
     })),
     rounds: rounds,
     startTime: new Date(),
