@@ -21,13 +21,16 @@ const login = async (req, res) => {
       return res.status(400).json({ msg: 'Invalid password' });
     }
 
-    const payload = { user: { id: user.id } };
-    jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '5h' }, (err, token) => {
-      if (err) throw err;
-      res.json({ token });
-    });
+    const payload = { user: { id: user._id } };
+
+    const token = jwt.sign(payload, process.env.JWT_SECRET);
+
+    res
+      .cookie('token', token, { httpOnly: true, secure: true, sameSite: 'none' })
+      .status(200)
+      .send({ token });
   } catch (err) {
-    console.error(err.message);
+    console.error('login error: ', err.message);
     res.status(500).send('Server error');
   }
 };
