@@ -2,7 +2,7 @@ const GameSession = require('../../../models/GameSession');
 const endGame = require('./endGame');
 const startRound = require('./startRound');
 
-const totalTime = 30;
+const totalTime = 10;
 
 const calculateTimeBasedScore = (timeRemaining) => {
   const baseScore = 5; // Base score for a correct answer
@@ -19,12 +19,11 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
     return;
   }
 
+  console.log('🚀  gameSession:', gameSession);
   const currentRound = gameSession.rounds[gameSession.currentRound - 1];
 
   // Find the player in the session
   const player = gameSession.players.find((p) => p.socketId === playerSocketId);
-  console.log('🚀  gameSession.players:', gameSession.players);
-  console.log('🚀  playerSocketId:', playerSocketId);
 
   if (!player) {
     console.log('Player not found in game session.');
@@ -33,12 +32,16 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
 
   // Check if the answer is correct
   const isCorrect = answer === currentRound.correctAnswer;
+  console.log('🚀  currentRound.correctAnswer:', currentRound.correctAnswer);
+  console.log('🚀  answer:', answer);
   let points = 0;
 
   // Update player's score and answer history
   if (isCorrect) {
     points = calculateTimeBasedScore(timeRemaining);
     player.score += points; // Assuming each round has a points value
+  } else {
+    console.log('wrong answer');
   }
   player.answers.push({ roundNumber: gameSession.currentRound, answer, isCorrect, points });
 

@@ -3,8 +3,6 @@ const handlePlayerAnswer = require('../../utils/gameSessionManager/handlePlayerA
 const submitAnswer = (socket, io) => {
   socket.on('submit_answer', async (data) => {
     try {
-      console.log('submit_answer', data);
-
       // Extract necessary information from the data
       const { sessionId, answer, timeRemaining } = data;
       const playerSocketId = socket.id; // Assuming the socket ID represents the player
