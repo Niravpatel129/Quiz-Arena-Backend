@@ -3,11 +3,9 @@ const Question = require('../../models/Question');
 const updateQuestion = async (req, res) => {
   try {
     const { id } = req.params;
-    const { question, answer } = req.body;
     const questionToUpdate = await Question.findById(id);
     if (questionToUpdate) {
-      questionToUpdate.question = question;
-      questionToUpdate.answer = answer;
+      questionToUpdate.question = req.body;
       await questionToUpdate.save();
       res.json(questionToUpdate);
     } else {
