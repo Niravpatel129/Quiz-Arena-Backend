@@ -5,7 +5,7 @@ const submitAnswer = (socket, io) => {
     try {
       // Extract necessary information from the data
       const { sessionId, answer, timeRemaining } = data;
-      const playerSocketId = socket.id; // Assuming the socket ID represents the player
+      const playerSocketId = socket.id;
 
       // Call the handlePlayerAnswer function
       await handlePlayerAnswer(sessionId, playerSocketId, answer, timeRemaining, io);

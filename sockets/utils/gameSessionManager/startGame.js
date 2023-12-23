@@ -3,8 +3,6 @@ const generateRoundsForCategory = require('./generateRounds');
 const startRound = require('./startRound');
 
 const startGame = async (category, players, io) => {
-  // console.log(`Game starting for category: ${category} with players:`, players);
-
   const rounds = await generateRoundsForCategory(category);
 
   let gameSession = new GameSession({

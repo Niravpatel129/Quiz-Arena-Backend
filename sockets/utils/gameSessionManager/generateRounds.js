@@ -3,12 +3,6 @@ const easyQuestions = require('./questions/easy_questions');
 
 const timeLimit = 10;
 async function fetchQuestionsForCategory(category, numberOfRounds) {
-  // Fetch questions based on the category and number of rounds
-  // This is a placeholder - you'll need to implement the actual logic
-  // depending on your data source (database, external API, etc.)
-  // get random index from easyQuestions
-  // 0 to easyQuestions.length - 1
-
   const questions = [];
 
   for (let i = 0; i < numberOfRounds; i++) {
@@ -30,7 +24,7 @@ async function fetchQuestionsForCategory(category, numberOfRounds) {
 
 // Function to generate rounds for a given category
 async function generateRoundsForCategory(category) {
-  const numberOfRounds = 3; // Define the number of rounds per game
+  const numberOfRounds = 10;
   const rounds = await fetchQuestionsForCategory(category, numberOfRounds);
   return rounds;
 }

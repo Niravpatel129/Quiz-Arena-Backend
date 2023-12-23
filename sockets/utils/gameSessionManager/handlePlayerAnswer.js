@@ -2,13 +2,9 @@ const GameSession = require('../../../models/GameSession');
 const endGame = require('./endGame');
 const startRound = require('./startRound');
 
-const totalTime = 10;
-
 const calculateTimeBasedScore = (timeRemaining) => {
-  const baseScore = 5; // Base score for a correct answer
-  const timeScoreMultiplier = 0.1; // Multiplier for the time-based score
-  const timeScore = (totalTime - timeRemaining) * timeScoreMultiplier;
-  return baseScore + Math.floor(timeScore);
+  const baseScore = 20;
+  return baseScore - Math.floor(timeRemaining);
 };
 
 const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaining, io) => {
