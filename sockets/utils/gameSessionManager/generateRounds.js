@@ -23,7 +23,7 @@ async function fetchQuestionsForCategory(category, numberOfRounds) {
   //   });
   // }
 
-  return easyQuestions;
+  return easyQuestions.slice(0, numberOfRounds);
 }
 
 // Function to generate rounds for a given category

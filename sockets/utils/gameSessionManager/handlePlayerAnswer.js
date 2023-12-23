@@ -1,9 +1,17 @@
 const GameSession = require('../../../models/GameSession');
 const endGame = require('./endGame');
 const startRound = require('./startRound');
-// Other imports as required
 
-const handlePlayerAnswer = async (sessionId, playerSocketId, answer, io) => {
+const totalTime = 30;
+
+const calculateTimeBasedScore = (timeRemaining) => {
+  const baseScore = 5; // Base score for a correct answer
+  const timeScoreMultiplier = 0.1; // Multiplier for the time-based score
+  const timeScore = (totalTime - timeRemaining) * timeScoreMultiplier;
+  return baseScore + Math.floor(timeScore);
+};
+
+const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaining, io) => {
   const gameSession = await GameSession.findById(sessionId);
 
   if (!gameSession) {
@@ -25,12 +33,14 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, io) => {
 
   // Check if the answer is correct
   const isCorrect = answer === currentRound.correctAnswer;
+  let points = 0;
 
   // Update player's score and answer history
   if (isCorrect) {
-    player.score += 5; // Assuming each round has a points value
+    points = calculateTimeBasedScore(timeRemaining);
+    player.score += points; // Assuming each round has a points value
   }
-  player.answers.push({ roundNumber: gameSession.currentRound, answer, isCorrect });
+  player.answers.push({ roundNumber: gameSession.currentRound, answer, isCorrect, points });
 
   await gameSession.save();
 

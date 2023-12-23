@@ -6,11 +6,11 @@ const submitAnswer = (socket, io) => {
       console.log('submit_answer', data);
 
       // Extract necessary information from the data
-      const { sessionId, answer } = data;
+      const { sessionId, answer, timeRemaining } = data;
       const playerSocketId = socket.id; // Assuming the socket ID represents the player
 
       // Call the handlePlayerAnswer function
-      await handlePlayerAnswer(sessionId, playerSocketId, answer, io);
+      await handlePlayerAnswer(sessionId, playerSocketId, answer, timeRemaining, io);
     } catch (error) {
       console.error('Error handling submit_answer:', error);
       socket.emit('error', { message: error.message });

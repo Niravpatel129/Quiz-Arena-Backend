@@ -27,6 +27,7 @@ const gameSessionSchema = new mongoose.Schema({
           roundNumber: Number,
           answer: String,
           isCorrect: Boolean,
+          points: Number,
         },
       ],
     },
