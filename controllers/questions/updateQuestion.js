@@ -1,3 +1,5 @@
+const Question = require('../../models/Question');
+
 const updateQuestion = async (req, res) => {
   try {
     const { id } = req.params;
