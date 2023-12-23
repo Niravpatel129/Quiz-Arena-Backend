@@ -18,6 +18,15 @@ const userSchema = new Schema(
       trim: true,
       minlength: 3,
     },
+    friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    notifications: [
+      {
+        type: { type: String }, // e.g., 'friendRequest', 'gameInvite'
+        from: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        message: String,
+        createdAt: { type: Date, default: Date.now },
+      },
+    ],
     elo: {
       type: eloSchema,
       default: () => ({
