@@ -19,11 +19,13 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
 
     const setCategory = `elo.rating.${category}`;
 
-    const res = await User.findByIdAndUpdate(playerId, {
+    await User.findByIdAndUpdate(playerId, {
       $set: {
         [setCategory]: updatedRating,
       },
     });
+
+    console.log('🚀  user, results, new rating:', player.username, gameResults, updatedRating);
   } catch (err) {
     console.log(err);
   }

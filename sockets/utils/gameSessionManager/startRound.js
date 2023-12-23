@@ -5,7 +5,6 @@ const handleTimeUp = async (sessionId, roundNumber, players, io) => {
   const gameSession = await GameSession.findById(sessionId);
 
   if (!gameSession || gameSession.currentRound !== roundNumber) {
-    console.log('Game session not found or round number mismatch.');
     return;
   }
 
