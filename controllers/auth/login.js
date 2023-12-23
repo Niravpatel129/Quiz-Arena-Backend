@@ -10,8 +10,10 @@ const login = async (req, res) => {
   }
 
   const { username, password } = req.body;
+
   try {
-    let user = await User.findOne({ username });
+    let user = await User.findOne({ username: new RegExp('^' + username + '$', 'i') });
+
     if (!user) {
       return res.status(400).json({ msg: 'Invalid Credentials' });
     }

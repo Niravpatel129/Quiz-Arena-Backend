@@ -27,6 +27,7 @@ const RemoveFromQueue = (socket, io) => {
 
 const joinQueue = (socket, io) => {
   socket.on('join_queue', (category) => {
+    console.log(`🚀  ${socket.id} joined the queue for category:`, category);
     try {
       if (!queueStore[category]) {
         queueStore[category] = new Set();
@@ -36,9 +37,6 @@ const joinQueue = (socket, io) => {
         userId: socket.user.user.id,
         name: socket.user.user.name,
       });
-
-      console.log(`🚀  ${socket.id} joined the queue for category:`, category);
-      // console.log(`🚀  Current queue for ${category}:`, [...queueStore[category]]);
 
       io.emit('queue_update', { category, queue: [...queueStore[category]] });
 
