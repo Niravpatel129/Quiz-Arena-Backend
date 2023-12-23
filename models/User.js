@@ -17,6 +17,10 @@ const userSchema = new Schema(
       trim: true,
       minlength: 3,
     },
+    elo: {
+      type: Schema.Types.ObjectId,
+      ref: 'Elo',
+    },
   },
   {
     timestamps: true,
