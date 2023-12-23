@@ -3,6 +3,8 @@ const getAllUsers = require('./getAllUsers');
 const getUserById = require('./getUserById');
 const updateUser = require('./updateUser');
 const deleteUser = require('./deleteUser');
+const addFriend = require('./addFriend');
+const getFriends = require('./getFriends');
 
 module.exports = {
   createUser,
@@ -10,4 +12,6 @@ module.exports = {
   getUserById,
   updateUser,
   deleteUser,
+  addFriend,
+  getFriends,
 };
