@@ -17,6 +17,7 @@ app.use(
       'http://localhost:19006',
       'https://soft-kataifi-4add35.netlify.app',
       'https://quiz-arena1.netlify.app',
+      'http://localhost:3000',
       '*',
     ],
     credentials: true,

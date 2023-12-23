@@ -6,7 +6,7 @@ const router = express.Router();
 // Mount the route modules
 router.use('/users', require('./users'));
 router.use('/auth', require('./auth'));
-// router.use('/questions', questionRoutes);
+router.use('/question', require('./questions'));
 // router.use('/categories', categoryRoutes);
 
 // Exporting the base router
