@@ -4,7 +4,7 @@ const updateQuestion = async (req, res) => {
   try {
     const { id } = req.params;
     const { question, answer } = req.body;
-    const questionToUpdate = await Question.findByPk(id);
+    const questionToUpdate = await Question.findById(id);
     if (questionToUpdate) {
       questionToUpdate.question = question;
       questionToUpdate.answer = answer;
