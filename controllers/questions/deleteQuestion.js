@@ -1,3 +1,5 @@
+const QuestionModel = require('../../models/Question');
+
 const deleteQuestion = async (req, res) => {
   try {
     const { id } = req.params;
