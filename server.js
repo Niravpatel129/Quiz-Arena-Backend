@@ -18,6 +18,7 @@ app.use(
       'https://soft-kataifi-4add35.netlify.app',
       'https://quiz-arena1.netlify.app',
       'http://localhost:3000',
+      'https://lucky-taiyaki-f522c5.netlify.app',
       '*',
     ],
     credentials: true,
