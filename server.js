@@ -13,7 +13,12 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {});
 
 app.use(
   cors({
-    origin: ['http://localhost:19006', 'https://soft-kataifi-4add35.netlify.app', '*'],
+    origin: [
+      'http://localhost:19006',
+      'https://soft-kataifi-4add35.netlify.app',
+      'https://quiz-arena1.netlify.app',
+      '*',
+    ],
     credentials: true,
   }),
 );
