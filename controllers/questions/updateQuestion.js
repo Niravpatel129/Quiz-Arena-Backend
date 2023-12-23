@@ -18,7 +18,7 @@ const updateQuestion = async (req, res) => {
     return res.status(200).json(questionToUpdate);
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ message: 'Internal server error' });
+    return res.status(500).json({ message: 'Error updating question' });
   }
 };
 
