@@ -11,6 +11,7 @@ module.exports = (server, config) => {
 
   io.on('connection', (socket) => {
     socket.emit('connection', null);
+    socket.emit('connect');
 
     gameHandlers(socket, io);
     queueHandlers(socket, io);
