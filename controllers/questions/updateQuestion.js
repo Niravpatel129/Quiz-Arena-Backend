@@ -5,7 +5,7 @@ const updateQuestion = async (req, res) => {
     const { id } = req.params;
     const questionToUpdate = await Question.findById(id);
     if (questionToUpdate) {
-      questionToUpdate.question = req.body;
+      questionToUpdate = req.body;
       await questionToUpdate.save();
       res.json(questionToUpdate);
     } else {
