@@ -15,7 +15,6 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
     return;
   }
 
-  console.log('🚀  gameSession:', gameSession);
   const currentRound = gameSession.rounds[gameSession.currentRound - 1];
 
   // Find the player in the session
@@ -28,8 +27,6 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
 
   // Check if the answer is correct
   const isCorrect = answer === currentRound.correctAnswer;
-  console.log('🚀  currentRound.correctAnswer:', currentRound.correctAnswer);
-  console.log('🚀  answer:', answer);
   let points = 0;
 
   // Update player's score and answer history

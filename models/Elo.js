@@ -1,17 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const ratingSchema = new Schema({
+  Logos: { type: Number, default: 1200 },
+  'League of Legends': { type: Number, default: 1200 },
+  Valorant: { type: Number, default: 1200 },
+});
+
 const eloSchema = new Schema(
   {
-    userId: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-      required: true,
-    },
     rating: {
-      type: Number,
-      required: true,
-      default: 1200,
+      type: ratingSchema,
     },
     gamesPlayed: {
       type: Number,
@@ -42,6 +41,4 @@ const eloSchema = new Schema(
   },
 );
 
-const Elo = mongoose.model('Elo', eloSchema);
-
-module.exports = Elo;
+module.exports = eloSchema;

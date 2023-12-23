@@ -1,4 +1,33 @@
 const GameSession = require('../../../models/GameSession');
+const User = require('../../../models/User');
+const Elo = require('../../../models/Elo');
+
+const updatePlayerRating = async ({ playerId, category, gameResults }) => {
+  try {
+    const player = await User.findById(playerId);
+
+    if (!player) {
+      console.log('Player not found.');
+      return;
+    }
+
+    let updatedRating = (player.elo.rating[category] += gameResults === 'win' ? 32 : -32);
+
+    if (gameResults === 'draw') {
+      updatedRating = player.elo.rating[category] += 10;
+    }
+
+    const setCategory = `elo.rating.${category}`;
+
+    const res = await User.findByIdAndUpdate(playerId, {
+      $set: {
+        [setCategory]: updatedRating,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 async function endGame(sessionId, players, io) {
   const gameSession = await GameSession.findById(sessionId);
@@ -9,17 +38,53 @@ async function endGame(sessionId, players, io) {
     return;
   }
 
-  // Determine the winner (or winners in case of a tie)
-  let maxScore = -1;
-  let winners = [];
-  gameSession.players.forEach((player) => {
-    if (player.score > maxScore) {
-      maxScore = player.score;
-      winners = [player];
-    } else if (player.score === maxScore) {
-      winners.push(player);
-    }
-  });
+  // check if won or lost compared to the other player
+  const player1 = gameSession.players[0];
+  const player2 = gameSession.players[1];
+  const player1Score = player1.score;
+  const player2Score = player2.score;
+
+  if (player1Score > player2Score) {
+    // player 1 won
+    await updatePlayerRating({
+      playerId: player1.id,
+      category: gameSession.category,
+      gameResults: 'win',
+    });
+    await updatePlayerRating({
+      playerId: player2.id,
+      category: gameSession.category,
+      gameResults: 'lost',
+    });
+  }
+
+  if (player1Score < player2Score) {
+    // player 2 won
+    await updatePlayerRating({
+      playerId: player2.id,
+      category: gameSession.category,
+      gameResults: 'win',
+    });
+    await updatePlayerRating({
+      playerId: player1.id,
+      category: gameSession.category,
+      gameResults: 'lost',
+    });
+  }
+
+  if (player1Score === player2Score) {
+    // draw
+    await updatePlayerRating({
+      playerId: player2.id,
+      category: gameSession.category,
+      gameResults: 'draw',
+    });
+    await updatePlayerRating({
+      playerId: player1.id,
+      category: gameSession.category,
+      gameResults: 'draw',
+    });
+  }
 
   // Update the game session with the end time and save
   gameSession.endTime = new Date();
