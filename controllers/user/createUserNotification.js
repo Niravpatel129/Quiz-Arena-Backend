@@ -8,7 +8,6 @@ const createUserNotification = async (req, res) => {
     let message = '';
 
     const senderUser = await User.findById(userId);
-    console.log('🚀  senderUser:', senderUser);
     const recieverUser = await User.findById(receiverId);
 
     // user who is receiving the notification

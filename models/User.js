@@ -21,11 +21,11 @@ const userSchema = new Schema(
     friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     notifications: [
       {
-        type: { type: String }, // e.g., 'friendRequest', 'gameInvite'
+        type: { type: String },
         from: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
         message: String,
         createdAt: { type: Date, default: Date.now },
-        options: [{ type: mongoose.Schema.Types.Mixed }],
+        options: { type: mongoose.Schema.Types.Mixed },
       },
     ],
     elo: {

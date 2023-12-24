@@ -5,6 +5,8 @@ const startRound = require('./startRound');
 const startGame = async (category, players, io) => {
   const rounds = await generateRoundsForCategory(category);
 
+  console.log('🚀  startGame triggered');
+
   let gameSession = new GameSession({
     category: category,
     players: players.map((playerSocketId) => {
