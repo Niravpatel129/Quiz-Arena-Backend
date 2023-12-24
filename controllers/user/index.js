@@ -5,6 +5,8 @@ const updateUser = require('./updateUser');
 const deleteUser = require('./deleteUser');
 const addFriend = require('./addFriend');
 const getFriends = require('./getFriends');
+const getUserNotifications = require('./getUserNotifications');
+const createUserNotification = require('./createUserNotification');
 
 module.exports = {
   createUser,
@@ -14,4 +16,6 @@ module.exports = {
   deleteUser,
   addFriend,
   getFriends,
+  getUserNotifications,
+  createUserNotification,
 };

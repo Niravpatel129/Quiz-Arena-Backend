@@ -7,5 +7,7 @@ router.get('/', userController.getAllUsers);
 router.get('/friends', verifyToken, userController.getFriends);
 router.post('/', userController.createUser);
 router.post('/addFriend', verifyToken, userController.addFriend);
+router.get('/notifications', verifyToken, userController.getUserNotifications);
+router.post('/notifications', userController.createUserNotification);
 
 module.exports = router;
