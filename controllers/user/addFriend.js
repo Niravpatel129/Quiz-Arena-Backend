@@ -10,8 +10,15 @@ const addFriend = async (req, res) => {
     if (!user || !friend) {
       return res.status(404).json({ message: 'User not found' });
     }
+
+    // Check if the friend is already in the user's friend list
+    if (user.friends.includes(friendId)) {
+      return res.status(400).json({ message: 'Already friends' });
+    }
+
     user.friends.push(friendId);
     friend.friends.push(userId);
+
     await user.save();
     await friend.save();
 
