@@ -2,6 +2,8 @@
 const easyQuestions = require('./questions/easy_questions');
 
 const timeLimit = 10;
+const totalNumberOfRounds = 8;
+
 async function fetchQuestionsForCategory(category, numberOfRounds) {
   const questions = [];
 
@@ -24,8 +26,7 @@ async function fetchQuestionsForCategory(category, numberOfRounds) {
 
 // Function to generate rounds for a given category
 async function generateRoundsForCategory(category) {
-  const numberOfRounds = 10;
-  const rounds = await fetchQuestionsForCategory(category, numberOfRounds);
+  const rounds = await fetchQuestionsForCategory(category, totalNumberOfRounds);
   return rounds;
 }
 
