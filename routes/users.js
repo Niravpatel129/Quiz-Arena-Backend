@@ -9,5 +9,6 @@ router.post('/', userController.createUser);
 router.post('/addFriend', verifyToken, userController.addFriend);
 router.get('/notifications', verifyToken, userController.getUserNotifications);
 router.post('/notifications', verifyToken, userController.createUserNotification);
+router.delete('/notifications/:notificationId', verifyToken, userController.deleteUserNotification);
 
 module.exports = router;
