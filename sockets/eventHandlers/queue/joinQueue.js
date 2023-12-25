@@ -38,6 +38,18 @@ const joinQueue = (socket, io) => {
         name: socket.user.user.name,
       });
 
+      console.log('🚀  socket.id:', socket.id);
+      console.log('🚀  socket.user.user.name:', socket.user.user.name);
+      console.log('🚀  socket.user.user.id:', socket.user.user.id);
+
+      if (socket.user.user.name === 'admin') {
+        queueStore[category].add({
+          socketId: 'EWw4E8ELTbxHZx7ZAAAD',
+          userId: '6589b52604a85f1cec06f556',
+          name: 'zezima',
+        });
+      }
+
       io.emit('queue_update', { category, queue: [...queueStore[category]] });
 
       if (queueStore[category].size === 2) {
