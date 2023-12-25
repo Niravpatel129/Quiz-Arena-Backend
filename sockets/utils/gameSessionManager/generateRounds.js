@@ -6,7 +6,7 @@ const totalNumberOfRounds = 8;
 async function fetchQuestionsForCategory(category, numberOfRounds) {
   if (!category) return null;
 
-  const questionsModel = await Question.find({ category: 'logos' });
+  const questionsModel = await Question.find({ category: category.toLowerCase() });
 
   const questions = [];
 
