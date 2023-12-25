@@ -1,20 +1,23 @@
-// Mock function to simulate fetching questions from a database or API
-const easyQuestions = require('./questions/easy_questions');
+const Question = require('../../../models/Question');
 
 const timeLimit = 10;
 const totalNumberOfRounds = 8;
 
 async function fetchQuestionsForCategory(category, numberOfRounds) {
+  if (!category) return null;
+
+  const questionsModel = await Question.find({ category: category || 'logos' });
+
   const questions = [];
 
   for (let i = 0; i < numberOfRounds; i++) {
-    const randomIndex = Math.floor(Math.random() * easyQuestions.length);
+    const randomIndex = Math.floor(Math.random() * questionsModel.length);
 
     questions.push({
-      questionText: easyQuestions[randomIndex].questionText,
-      options: easyQuestions[randomIndex].options,
-      correctAnswer: easyQuestions[randomIndex].correctAnswer,
-      helperImage: easyQuestions[randomIndex].helperImage,
+      questionText: questionsModel[randomIndex].question,
+      options: questionsModel[randomIndex].answers,
+      correctAnswer: questionsModel[randomIndex].correctAnswer,
+      helperImage: questionsModel[randomIndex].helperImage,
       timeLimit: timeLimit,
       category: category,
       roundNumber: i + 1,
