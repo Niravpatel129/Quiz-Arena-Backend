@@ -1,5 +1,6 @@
 const GameSession = require('../../../models/GameSession');
 
+// Pretty sure we arn't using this code
 const createSession = async (gameId) => {
   let existingSession = await GameSession.findOne({ gameId: gameId });
   if (existingSession) {

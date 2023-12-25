@@ -22,6 +22,7 @@ const gameSessionSchema = new mongoose.Schema({
       name: String,
       score: { type: Number, default: 0 },
       socketId: String,
+      playerInformation: { type: mongoose.Schema.Types.Mixed },
       answers: [
         {
           roundNumber: Number,
