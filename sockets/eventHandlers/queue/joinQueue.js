@@ -44,7 +44,7 @@ const joinQueue = (socket, io) => {
 
       if (socket.user.user.name === 'admin') {
         queueStore[category].add({
-          socketId: 'EWw4E8ELTbxHZx7ZAAAD',
+          socketId: 'EWw4E8ELTbxHZx7ZAAABOT',
           userId: '6589b52604a85f1cec06f556',
           name: 'zezima',
         });

@@ -1,5 +1,7 @@
 const GameSession = require('../../../models/GameSession');
+const botAnswer = require('./botAnswer');
 const endGame = require('./endGame');
+const handlePlayerAnswer = require('./handlePlayerAnswer');
 
 const handleTimeUp = async (sessionId, roundNumber, players, io) => {
   const gameSession = await GameSession.findById(sessionId);
@@ -79,7 +81,9 @@ const startRound = async (sessionId, roundNumber, players, io) => {
     });
   });
 
-  // Set a timer for the time limit of the question
+  const bot = players.find((player) => player.socketId === 'EWw4E8ELTbxHZx7ZAAABOT');
+  if (bot) botAnswer(io, bot, gameSession);
+
   setTimeout(() => {
     handleTimeUp(sessionId, roundNumber, players, io);
   }, currentRound.timeLimit * 1000);
