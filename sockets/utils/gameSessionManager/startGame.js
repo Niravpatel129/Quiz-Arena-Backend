@@ -16,14 +16,16 @@ const startGame = async (category, players, io) => {
         id: playerSocketId.userId,
         name: playerSocketId.name,
         playerInformation: {
-          Elo: player.elo,
+          elo: {
+            ...player.elo.toObject(),
+            rating: player.elo.rating[category],
+          },
         },
         score: 0,
       })),
   );
 
   const mappedPlayers = await Promise.all(playerPromises);
-  console.log('🚀  mappedPlayers:', mappedPlayers[0].playerInformation);
 
   let gameSession = new GameSession({
     category: category,
