@@ -11,8 +11,14 @@ const questionSchema = new mongoose.Schema({
   },
   answers: [
     {
-      type: String,
-      required: true,
+      optionText: {
+        type: String,
+        required: true,
+      },
+      isCorrect: {
+        type: Boolean,
+        required: true,
+      },
     },
   ],
   correctAnswer: {
