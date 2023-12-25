@@ -8,6 +8,7 @@ const handleTimeUp = async (sessionId, roundNumber, players, io) => {
     return;
   }
 
+  // Logic for when both players answered before time up
   const allPlayersAnswered = gameSession.players.every((player) =>
     player.answers.some((ans) => ans.roundNumber === gameSession.currentRound),
   );
@@ -16,6 +17,28 @@ const handleTimeUp = async (sessionId, roundNumber, players, io) => {
     return;
   }
 
+  // Logic for handling no answer from player
+  gameSession.players.forEach(async (player, index) => {
+    if (!player.answers[roundNumber - 1]) {
+      console.log(
+        player.name,
+        'we should add a 0 here for this point for this player and assume he did not answer',
+      );
+
+      gameSession.players[index].answers.push({
+        roundNumber: gameSession.currentRound,
+        answer: 'no answer',
+        isCorrect: false,
+        points: 0,
+      });
+    } else {
+      console.log(player.name, 'player answered do nothing');
+    }
+  });
+
+  gameSession.markModified('players');
+  await gameSession.save();
+  // Increment the round number
   const nextRoundNumber = roundNumber + 1;
 
   if (nextRoundNumber <= gameSession.rounds.length) {
