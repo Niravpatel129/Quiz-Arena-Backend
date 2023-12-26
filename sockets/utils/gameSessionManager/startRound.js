@@ -70,6 +70,7 @@ const startRound = async (sessionId, roundNumber, players, io) => {
         players: gameSession.players,
         currentRound: gameSession.currentRound,
         startTime: gameSession.startTime,
+        category: gameSession.category,
       },
       sessionId,
       roundNumber,

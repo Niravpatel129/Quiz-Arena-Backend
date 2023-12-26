@@ -8,6 +8,7 @@ const createSession = async (gameId) => {
   }
 
   let newSession = new GameSession({
+    category: 'test',
     gameId: gameId,
     players: [],
     currentQuestionIndex: 0,

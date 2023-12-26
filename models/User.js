@@ -40,6 +40,10 @@ const userSchema = new Schema(
       }),
     },
     profile: {
+      avatar: {
+        type: String,
+        default: 'https://storage.googleapis.com/pai-images/04a4d16220a645408362ae47deb07737.jpeg',
+      },
       country: {
         type: String,
         default: 'ww',

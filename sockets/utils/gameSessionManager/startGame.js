@@ -4,6 +4,7 @@ const generateRoundsForCategory = require('./generateRounds');
 const startRound = require('./startRound');
 
 const startGame = async (category, players, io) => {
+  console.log('🚀  category:', category);
   const rounds = await generateRoundsForCategory(category);
 
   console.log('🚀  startGame triggered');
@@ -15,6 +16,7 @@ const startGame = async (category, players, io) => {
         socketId: playerSocketId.socketId,
         id: playerSocketId.userId,
         name: playerSocketId.name,
+        category: category,
         playerInformation: {
           elo: {
             ...player.elo.toObject(),
@@ -22,6 +24,7 @@ const startGame = async (category, players, io) => {
           },
           tag: player.profile.tag,
           experience: player.profile.experience,
+          avatar: player.profile.avatar,
           country: player.profile.country,
         },
         score: 0,
