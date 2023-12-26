@@ -26,6 +26,13 @@ const RemoveFromQueue = (socket, io) => {
 };
 
 const joinQueue = (socket, io) => {
+  socket.on('add_bot', (category) => {
+    console.log('🚀  add_bot:', category);
+    addBotToQueue(category);
+
+    checkQueueSize(category, io);
+  });
+
   socket.on('join_queue', (category) => {
     console.log(`🚀  ${socket.id} joined the queue for category:`, category);
     try {
@@ -42,24 +49,16 @@ const joinQueue = (socket, io) => {
       console.log('🚀  socket.user.user.name:', socket.user.user.name);
       console.log('🚀  socket.user.user.id:', socket.user.user.id);
 
-      if (socket.user.user.name === 'admin') {
-        queueStore[category].add({
-          socketId: 'EWw4E8ELTbxHZx7ZAAABOT',
-          userId: '6589b52604a85f1cec06f556',
-          name: 'zezima',
-        });
-      }
+      checkQueueSize(category, io);
 
-      io.emit('queue_update', { category, queue: [...queueStore[category]] });
+      // if (queueStore[category].size === 2) {
+      //   startGame(category, [...queueStore[category]], io);
+      //   queueStore[category].forEach((playerSocketId) => {
+      //     queueStore[category].delete(playerSocketId);
+      //   });
+      // }
 
-      if (queueStore[category].size === 2) {
-        startGame(category, [...queueStore[category]], io);
-        queueStore[category].forEach((playerSocketId) => {
-          queueStore[category].delete(playerSocketId);
-        });
-      }
-
-      io.emit('queue_update', { category, queue: [...queueStore[category]] });
+      // io.emit('queue_update', { category, queue: [...queueStore[category]] });
     } catch (error) {
       console.log('🚀  error:', error);
       socket.emit('error', { message: error.message });
@@ -69,6 +68,25 @@ const joinQueue = (socket, io) => {
   socket.on('leave_queue', () => {
     RemoveFromQueue(socket, io);
   });
+};
+
+const addBotToQueue = (category) => {
+  queueStore[category].add({
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOT',
+    userId: '6589b52604a85f1cec06f556',
+    name: 'zezima',
+  });
+};
+
+const checkQueueSize = (category, io) => {
+  if (queueStore[category].size === 2) {
+    startGame(category, [...queueStore[category]], io);
+    queueStore[category].forEach((playerSocketId) => {
+      queueStore[category].delete(playerSocketId);
+    });
+  }
+
+  io.emit('queue_update', { category, queue: [...queueStore[category]] });
 };
 
 module.exports = {

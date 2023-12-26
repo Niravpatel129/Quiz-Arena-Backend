@@ -1,7 +1,6 @@
 const GameSession = require('../../../models/GameSession');
 const botAnswer = require('./botAnswer');
 const endGame = require('./endGame');
-const handlePlayerAnswer = require('./handlePlayerAnswer');
 
 const handleTimeUp = async (sessionId, roundNumber, players, io) => {
   const gameSession = await GameSession.findById(sessionId);
