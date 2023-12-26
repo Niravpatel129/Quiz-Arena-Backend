@@ -20,6 +20,9 @@ const startGame = async (category, players, io) => {
             ...player.elo.toObject(),
             rating: player.elo.rating[category],
           },
+          tag: player.profile.tag,
+          experience: player.profile.experience,
+          country: player.profile.country,
         },
         score: 0,
       })),
@@ -40,7 +43,6 @@ const startGame = async (category, players, io) => {
     io.to(playerSocketId.socketId).emit('game_start', { category });
   });
 
-  // Start the first round
   startRound(gameSession._id, 1, players, io);
 };
 

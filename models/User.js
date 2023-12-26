@@ -39,6 +39,20 @@ const userSchema = new Schema(
         history: [],
       }),
     },
+    profile: {
+      country: {
+        type: String,
+        default: 'ww',
+      },
+      experience: {
+        type: Number,
+        default: 0,
+      },
+      tag: {
+        type: String,
+        default: 'Explorer',
+      },
+    },
   },
   {
     timestamps: true,
