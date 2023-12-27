@@ -1,6 +1,6 @@
 const gameSessionManager = require('../../utils/gameSessionManager');
 
-const startGame = (socket, io) => {
+const checkConnection = (socket, io) => {
   socket.on('check_connection', (gameData) => {
     try {
       console.log('🚀  gameData:', gameData);
@@ -13,4 +13,4 @@ const startGame = (socket, io) => {
   });
 };
 
-module.exports = startGame;
+module.exports = checkConnection;
