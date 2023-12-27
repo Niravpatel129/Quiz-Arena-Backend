@@ -1,11 +1,9 @@
 const GameSession = require('../../../models/GameSession');
-const gameSessionManager = require('../../utils/gameSessionManager');
 
 const checkConnection = (socket, io) => {
   socket.on('check_connection', async (gameData) => {
     try {
-      console.log('🚀  gameData.gameSession.sessionId:', gameData.gameSession.sessionId);
-      const session = await GameSession.findById(gameData.gameSession.sessionId);
+      const session = await GameSession.findById(gameData.sessionId);
       console.log('🚀  session:', session);
 
       if (session?.endTime) {
