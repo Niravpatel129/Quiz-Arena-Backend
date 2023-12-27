@@ -11,7 +11,7 @@ const getAverageRatingAcrossAllCategories = async (req, res) => {
           },
         },
       },
-    ]);
+    ]).limit(100);
 
     res.json(averageRatings);
   } catch (error) {
