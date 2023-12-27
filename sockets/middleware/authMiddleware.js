@@ -3,7 +3,7 @@ const cookieParser = require('../../helpers/parseCookies');
 require('dotenv').config();
 
 const authMiddleware = (socket, next) => {
-  let token = socket.request.headers.cookie;
+  let token = socket.request?.headers?.cookie;
   token = cookieParser(token).token;
 
   if (!token) {

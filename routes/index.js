@@ -6,6 +6,7 @@ router.use('/users', require('./users'));
 router.use('/auth', require('./auth'));
 router.use('/question', require('./questions'));
 router.use('/leaderboards', require('./leaderboards'));
+router.use('/matchHistory', require('./matchHistory'));
 
 // Exporting the base router
 module.exports = router;
