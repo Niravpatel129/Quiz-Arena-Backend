@@ -46,7 +46,7 @@ const userSchema = new Schema(
       },
       country: {
         type: String,
-        default: 'ww',
+        default: 'aq',
       },
       experience: {
         type: Number,
