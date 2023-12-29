@@ -66,6 +66,9 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
 
 const botAnswer = async (io, botPlayer, gameSession) => {
   try {
+    // delay 3 seconds
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
     const sessionId = gameSession._id;
     const playerSocketId = botPlayer.socketId;
     const answer = gameSession.rounds[gameSession.currentRound - 1].correctAnswer;
