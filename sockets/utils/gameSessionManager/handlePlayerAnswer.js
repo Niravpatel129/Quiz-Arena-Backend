@@ -10,7 +10,7 @@ const calculateTimeBasedScore = (timeRemaining) => {
 
 const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaining, io) => {
   try {
-    const gameSession = await GameSession.findById(sessionId);
+    let gameSession = await GameSession.findById(sessionId);
 
     if (!gameSession) {
       console.log('Game session not found.');
@@ -18,8 +18,6 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
     }
 
     const currentRound = gameSession.rounds[gameSession.currentRound - 1];
-
-    // Find the player in the session
     const player = gameSession.players.find((p) => p.socketId === playerSocketId);
 
     if (!player) {
@@ -27,45 +25,42 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
       return;
     }
 
-    // Check if the answer is correct
     const isCorrect = answer === currentRound.correctAnswer;
     let points = 0;
 
-    // Update player's score and answer history
     if (isCorrect) {
       points = 20 - calculateTimeBasedScore(timeRemaining);
-      player.score += points; // Assuming each round has a points value
+      player.score += points;
     } else {
       console.log('wrong answer');
     }
     player.answers.push({ roundNumber: gameSession.currentRound, answer, isCorrect, points });
 
-    await gameSession.save();
+    // Save with error handling for potential version conflicts
+    gameSession = await gameSession.save().catch((err) => {
+      if (err.name === 'VersionError') {
+        console.error('VersionError encountered. Retrying...');
+        throw err;
+      }
+      throw err;
+    });
 
     const allPlayersAnswered = gameSession.players.every((player) =>
       player.answers.some((ans) => ans.roundNumber === gameSession.currentRound),
     );
 
     if (allPlayersAnswered) {
-      // Move to the next round or end the game
       if (gameSession.currentRound >= gameSession.rounds.length) {
-        // End the game
-        endGame(sessionId, gameSession.players, io);
+        await endGame(sessionId, gameSession.players, io);
       } else {
-        // Start the next round
-        startRound(sessionId, gameSession.currentRound + 1, gameSession.players, io);
+        await startRound(sessionId, gameSession.currentRound + 1, gameSession.players, io);
       }
     }
 
-    // Notify the player about the result
     io.to(playerSocketId).emit('answer_result', { isCorrect, currentScore: player.score });
 
-    // emit opponent_guessed to other player
     const opponent = gameSession.players.find((p) => p.socketId !== playerSocketId);
     io.to(opponent.socketId).emit('opponent_guessed', { isCorrect, currentScore: opponent.score });
-
-    // Check if all players have answered to move to the next round or end game
-    // This logic depends on your game's rules
   } catch (error) {
     console.error('Error handling player answer:', error);
   }
