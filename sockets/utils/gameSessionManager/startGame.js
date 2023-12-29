@@ -7,8 +7,6 @@ const startGame = async (category, players, io) => {
   console.log('🚀  category:', category);
   const rounds = await generateRoundsForCategory(category);
 
-  console.log('🚀  startGame triggered');
-
   const playerPromises = players.map((playerSocketId) =>
     User.findById(playerSocketId.userId)
       .populate('elo')

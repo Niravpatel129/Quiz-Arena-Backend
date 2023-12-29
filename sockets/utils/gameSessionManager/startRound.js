@@ -77,6 +77,7 @@ const startRound = async (sessionId, roundNumber, players, io) => {
       timeLimit: currentRound.timeLimit,
       options: currentRound.options,
       helperImage: currentRound.helperImage,
+      rounds: gameSession.rounds,
     });
   });
 
