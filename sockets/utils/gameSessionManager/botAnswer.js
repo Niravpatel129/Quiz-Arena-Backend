@@ -2,9 +2,10 @@ const GameSession = require('../../../models/GameSession');
 const endGame = require('./endGame');
 const startRound = require('./startRound');
 
+const baseTime = 10;
+
 const calculateTimeBasedScore = (timeRemaining) => {
-  const baseScore = 20;
-  return baseScore - Math.floor(timeRemaining);
+  return Math.floor(baseTime - timeRemaining);
 };
 
 // Duplicate logic for the bot!
@@ -32,7 +33,7 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
 
   // Update player's score and answer history
   if (isCorrect) {
-    points = calculateTimeBasedScore(timeRemaining);
+    points = 20 - calculateTimeBasedScore(timeRemaining);
     player.score += points; // Assuming each round has a points value
   } else {
     console.log('wrong answer');
@@ -64,16 +65,11 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
   io.to(opponent.socketId).emit('opponent_guessed', { isCorrect, currentScore: opponent.score });
 };
 
-const botAnswer = async (io, botPlayer, gameSession) => {
+const botAnswer = async (io, botPlayer, sessionId, correctAnswer, timeRemaining) => {
   try {
-    // delay 3 seconds
-
-    const sessionId = gameSession._id;
     const playerSocketId = botPlayer.socketId;
-    const answer = gameSession.rounds[gameSession.currentRound - 1].correctAnswer;
-    const timeRemaining = '3';
 
-    await handlePlayerAnswer(sessionId, playerSocketId, answer, timeRemaining, io);
+    await handlePlayerAnswer(sessionId, playerSocketId, correctAnswer, timeRemaining, io);
   } catch (err) {
     console.log(err);
   }

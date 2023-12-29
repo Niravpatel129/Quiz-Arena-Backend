@@ -2,9 +2,10 @@ const GameSession = require('../../../models/GameSession');
 const endGame = require('./endGame');
 const startRound = require('./startRound');
 
+const baseTime = 10;
+
 const calculateTimeBasedScore = (timeRemaining) => {
-  const baseScore = 20;
-  return baseScore - Math.floor(timeRemaining);
+  return Math.floor(baseTime - timeRemaining);
 };
 
 const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaining, io) => {
@@ -31,7 +32,7 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
 
   // Update player's score and answer history
   if (isCorrect) {
-    points = calculateTimeBasedScore(timeRemaining);
+    points = 20 - calculateTimeBasedScore(timeRemaining);
     player.score += points; // Assuming each round has a points value
   } else {
     console.log('wrong answer');

@@ -81,8 +81,8 @@ const startRound = async (sessionId, roundNumber, players, io) => {
     });
   });
 
-  const bot = players.find((player) => player.socketId === 'EWw4E8ELTbxHZx7ZAAABOT');
-  if (bot) botAnswer(io, bot, gameSession);
+  // const bot = players.find((player) => player.socketId === 'EWw4E8ELTbxHZx7ZAAABOT');
+  // if (bot) botAnswer(io, bot, gameSession);
 
   setTimeout(() => {
     handleTimeUp(sessionId, roundNumber, players, io);
