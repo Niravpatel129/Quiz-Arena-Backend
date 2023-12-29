@@ -1,7 +1,7 @@
 const Question = require('../../../models/Question');
 
 const timeLimit = 10;
-const totalNumberOfRounds = 8;
+const totalNumberOfRounds = 7;
 
 async function fetchQuestionsForCategory(category, numberOfRounds) {
   if (!category) return null;
