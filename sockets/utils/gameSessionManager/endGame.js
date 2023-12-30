@@ -90,6 +90,8 @@ async function endGame(sessionId, players, io) {
   }
 
   gameSession.endTime = new Date();
+  gameSession.winnerId = player1Score > player2Score ? player1.id : player2.id;
+  gameSession.loserId = player1Score > player2Score ? player2.id : player1.id;
   await gameSession.save();
   player1.playerInformation.elo.ratingChange = player1RatingChange;
   player2.playerInformation.elo.ratingChange = player2RatingChange;
