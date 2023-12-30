@@ -6,29 +6,37 @@ const createQuestion = async (req, res) => {
       return res.status(400).json({ message: 'Invalid input format. Expected an array.' });
     }
 
-    // Use Promise.all to handle multiple asynchronous operations
     const results = await Promise.all(
-      req.body.map(async (questionData) => {
-        // Check if the question already exists
-        const existingQuestion = await QuestionModel.findOne({ content: questionData.content });
-        if (existingQuestion) {
-          console.log('Duplicate question found:', questionData.content);
-          return null; // Skip adding this question
-        }
+      req.body.map((questionData) => {
+        questionData.category = questionData.category.toLowerCase();
 
         const question = new QuestionModel(questionData);
         return question.save();
       }),
     );
 
-    // Filter out null values (skipped questions)
-    const addedQuestions = results.filter((result) => result !== null);
-
-    res.status(201).json(addedQuestions);
+    res.status(201).json(results);
   } catch (err) {
     console.error('createQuestion', err);
+
+    // Handle duplicate key error
+    if (err.code === 11000) {
+      return res.status(409).json({ message: 'Duplicate question detected' });
+    }
+
     res.status(500).json({ message: 'Something went wrong' });
   }
 };
+
+// const something = async () => {
+//   console.log('something');
+//   // Delete all questiosn with category: "General Knowledge"
+//   const result = await QuestionModel.deleteMany({ category: 'General Knowledge' });
+
+//   // Log the result of the deletion
+//   console.log(`${result.deletedCount} questions deleted.`);
+// };
+
+// something();
 
 module.exports = createQuestion;
