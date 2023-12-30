@@ -8,7 +8,7 @@ async function fetchQuestionsForCategory(category, numberOfRounds) {
 
   const questionsModel = await Question.find({ category: category.toLowerCase() });
 
-  if (!questionsModel) return null;
+  if (questionsModel.length === 0) return null;
 
   const questions = [];
 
