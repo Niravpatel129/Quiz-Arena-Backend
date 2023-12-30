@@ -23,16 +23,6 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
 
         const currentRound = gameSession.rounds[gameSession.currentRound - 1];
 
-        // dont allow answer if already answered for this round
-        if (
-          gameSession.players.some((player) =>
-            player.answers.some((ans) => ans.roundNumber === gameSession.currentRound),
-          )
-        ) {
-          console.log('Player already answered for this round.');
-          return;
-        }
-
         const player = gameSession.players.find((p) => p.socketId === playerSocketId);
 
         if (!player) {
