@@ -8,13 +8,23 @@ const createQuestion = async (req, res) => {
 
     // Use Promise.all to handle multiple asynchronous operations
     const results = await Promise.all(
-      req.body.map((questionData) => {
+      req.body.map(async (questionData) => {
+        // Check if the question already exists
+        const existingQuestion = await QuestionModel.findOne({ content: questionData.content });
+        if (existingQuestion) {
+          console.log('Duplicate question found:', questionData.content);
+          return null; // Skip adding this question
+        }
+
         const question = new QuestionModel(questionData);
         return question.save();
       }),
     );
 
-    res.status(201).json(results);
+    // Filter out null values (skipped questions)
+    const addedQuestions = results.filter((result) => result !== null);
+
+    res.status(201).json(addedQuestions);
   } catch (err) {
     console.error('createQuestion', err);
     res.status(500).json({ message: 'Something went wrong' });
