@@ -23,6 +23,21 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
 
         const currentRound = gameSession.rounds[gameSession.currentRound - 1];
 
+        // dont allow answer if already answered for this round using playerSocketId
+        const alreadyAnswered = gameSession.players.some((player) =>
+          player.answers.some(
+            (ans) =>
+              ans.roundNumber === gameSession.currentRound && player.socketId === playerSocketId,
+          ),
+        );
+
+        if (alreadyAnswered) {
+          console.log('🚀  skipping because alreadyAnswered:', alreadyAnswered);
+          return;
+        } else {
+          console.log('🚀  not alreadyAnswered:', alreadyAnswered);
+        }
+
         const player = gameSession.players.find((p) => p.socketId === playerSocketId);
 
         if (!player) {
