@@ -33,6 +33,8 @@ const gameSessionSchema = new mongoose.Schema({
       ],
     },
   ],
+  winnerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  loserId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   rounds: [roundSchema],
   currentRound: { type: Number, default: 0 },
   startTime: Date,
