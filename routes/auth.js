@@ -21,4 +21,6 @@ router.post(
   authController.login,
 );
 
+router.post('/apple', authController.appleLogin);
+
 module.exports = router;
