@@ -4,18 +4,23 @@ const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
 
 // Register function
-const register = async (username, password) => {
+const register = async (email, password) => {
   try {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
+    console.log('🚀  password:', password);
+    console.log('🚀  email:', email);
+    console.log('🚀 creating account');
+
     const newUser = new User({
-      username,
+      email,
       password: hashedPassword,
     });
 
     await newUser.save();
 
+    console.log('🚀  newUser:', newUser);
     return newUser;
   } catch (err) {
     console.error('register error: ', err.message);
@@ -27,16 +32,25 @@ const register = async (username, password) => {
 const login = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
+    console.log('🚀  errors:', errors);
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { username, password } = req.body;
+  const { email, password, username } = req.body;
+
+  if (!email || !password) {
+    console.log('🚀  password:', password);
+    console.log('🚀  email:', email);
+    console.log('Please enter all fields');
+    return res.status(400).json({ msg: 'Please enter all fields' });
+  }
 
   try {
-    let user = await User.findOne({ username: new RegExp('^' + username + '$', 'i') });
+    let user = await User.findOne({ email: new RegExp('^' + email + '$', 'i') });
 
     if (!user) {
-      user = await register(username, password); // Register the user if not found
+      console.log('user not found');
+      user = await register(email, password);
     } else {
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
@@ -44,14 +58,31 @@ const login = async (req, res) => {
       }
     }
 
-    const payload = { user: { id: user._id, name: user.username } };
+    if (username && username !== user.username) {
+      console.log('updating username');
+      user.username = username;
+      await user.save();
+    }
+
+    const payload = { user: { id: user._id, name: user.username, email: user.email } };
 
     const token = jwt.sign(payload, process.env.JWT_SECRET);
 
     res
       .cookie('token', token, { httpOnly: true, secure: true, sameSite: 'none' })
       .status(200)
-      .send({ token });
+      .send({
+        token,
+        user: {
+          id: user._id,
+          username: user.username,
+          email: user.email,
+          elo: user.elo,
+          profile: user.profile,
+          friends: user.friends,
+          notifications: user.notifications,
+        },
+      });
   } catch (err) {
     console.error('login error: ', err.message);
     res.status(500).send('Server error');
