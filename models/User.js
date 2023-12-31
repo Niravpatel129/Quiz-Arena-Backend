@@ -60,6 +60,11 @@ const userSchema = new Schema(
         default: 'Explorer',
       },
     },
+    misc: {
+      appleId: String,
+      facebookId: String,
+      googleId: String,
+    },
   },
   {
     timestamps: true,
