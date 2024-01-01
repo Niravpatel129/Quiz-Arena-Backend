@@ -9,7 +9,7 @@ const calculateTimeBasedScore = (timeRemaining) => {
 };
 
 // Duplicate logic for the bot!
-const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaining, io) => {
+const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaining, io, round) => {
   const gameSession = await GameSession.findById(sessionId);
 
   if (!gameSession) {
@@ -18,6 +18,12 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
   }
 
   const currentRound = gameSession.rounds[gameSession.currentRound - 1];
+
+  // Check if the round is still active
+  if (round !== gameSession.currentRound) {
+    console.log('Round has already ended.');
+    return;
+  }
 
   // Find the player in the session
   const player = gameSession.players.find((p) => p.socketId === playerSocketId);
@@ -65,11 +71,19 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
   io.to(opponent.socketId).emit('opponent_guessed', { isCorrect, currentScore: opponent.score });
 };
 
-const botAnswer = async (io, botPlayer, sessionId, correctAnswer, timeRemaining) => {
+const botAnswer = async (io, botPlayer, sessionId, correctAnswer, timeRemaining, currentRound) => {
   try {
     const playerSocketId = botPlayer.socketId;
+    console.log('🚀  currentRound:', currentRound);
 
-    await handlePlayerAnswer(sessionId, playerSocketId, correctAnswer, timeRemaining, io);
+    await handlePlayerAnswer(
+      sessionId,
+      playerSocketId,
+      correctAnswer,
+      timeRemaining,
+      io,
+      currentRound,
+    );
   } catch (err) {
     console.log(err);
   }
