@@ -3,6 +3,7 @@ const User = require('../../../models/User');
 
 const updatePlayerRating = async ({ playerId, category, gameResults }) => {
   try {
+    console.log('🚀  category:', category);
     const player = await User.findById(playerId);
 
     if (!player) {
@@ -21,14 +22,16 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
       ratingChange = 10;
     }
 
-    updatedRating = player.elo.rating[category] + ratingChange;
+    updatedRating = (player.elo.rating[category] || 1200) + ratingChange;
     const setCategory = `elo.rating.${category}`;
 
-    await User.findByIdAndUpdate(playerId, {
+    const user = await User.findByIdAndUpdate(playerId, {
       $set: {
         [setCategory]: updatedRating,
       },
     });
+
+    console.log('🚀  user:', user);
 
     console.log('🚀  user, results, new rating:', player.username, gameResults, updatedRating);
     return ratingChange;

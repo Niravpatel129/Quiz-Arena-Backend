@@ -5,12 +5,13 @@ const ratingSchema = new Schema({
   Logos: { type: Number, default: 1200 },
   'League of Legends': { type: Number, default: 1200 },
   Valorant: { type: Number, default: 1200 },
+  'General Knowledge': { type: Number, default: 1200 },
 });
 
 const eloSchema = new Schema(
   {
     rating: {
-      type: ratingSchema,
+      type: Schema.Types.Mixed,
     },
     gamesPlayed: {
       type: Number,

@@ -34,7 +34,12 @@ const userSchema = new Schema(
     elo: {
       type: eloSchema,
       default: () => ({
-        rating: { Logos: 1200, 'League of Legends': 1200, Valorant: 1200 },
+        rating: {
+          Logos: 1200,
+          'League of Legends': 1200,
+          Valorant: 1200,
+          'General Knowledge': 1200,
+        },
         gamesPlayed: 0,
         wins: 0,
         losses: 0,
