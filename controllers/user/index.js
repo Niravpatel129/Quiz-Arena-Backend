@@ -12,7 +12,6 @@ const deleteUserNotification = require('./deleteUserNotification');
 module.exports = {
   createUser,
   getAllUsers,
-  getUserById,
   updateUser,
   deleteUser,
   addFriend,
@@ -20,4 +19,5 @@ module.exports = {
   getUserNotifications,
   createUserNotification,
   deleteUserNotification,
+  getUserById,
 };
