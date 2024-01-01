@@ -19,12 +19,6 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
 
   const currentRound = gameSession.rounds[gameSession.currentRound - 1];
 
-  // Check if the round is still active
-  if (round !== gameSession.currentRound) {
-    console.log('Round has already ended.');
-    return;
-  }
-
   // Find the player in the session
   const player = gameSession.players.find((p) => p.socketId === playerSocketId);
 
