@@ -6,9 +6,10 @@ const totalNumberOfRounds = 7;
 async function fetchQuestionsForCategory(category, numberOfRounds) {
   if (!category) return null;
 
-  const questionsModel = await Question.find({
-    category: { $regex: new RegExp(category, 'i') },
-  });
+  const questionsModel = await Question.aggregate([
+    { $match: { category: { $regex: new RegExp(category, 'i') } } },
+    { $sample: { size: 10 } },
+  ]);
 
   if (questionsModel.length === 0) return null;
 
