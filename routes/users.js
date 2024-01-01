@@ -4,7 +4,7 @@ const userController = require('../controllers/user');
 const { verifyToken } = require('../sockets/middleware/jwtMiddleware');
 
 router.get('/', userController.getAllUsers);
-router.get('/:userId', userController.getUserById);
+router.get('/:userId', verifyToken, userController.getUserById);
 router.get('/friends', verifyToken, userController.getFriends);
 router.post('/', userController.createUser);
 router.post('/addFriend', verifyToken, userController.addFriend);
