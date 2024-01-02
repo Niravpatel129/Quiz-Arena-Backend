@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { check } = require('express-validator');
 const authController = require('../controllers/auth');
+const { verifyToken } = require('../sockets/middleware/jwtMiddleware');
 
 router.post(
   '/register',
@@ -20,6 +21,8 @@ router.post(
   ],
   authController.login,
 );
+
+router.get('/validate-token', verifyToken, authController.validateToken);
 
 router.post('/apple', authController.appleLogin);
 
