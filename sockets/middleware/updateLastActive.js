@@ -11,6 +11,17 @@ async function updateLastActive(req, res, next) {
   }
 }
 
+async function updateLastActiveSocket(userId) {
+  try {
+    if (!userId) return;
+
+    await User.findByIdAndUpdate(userId, { lastActive: new Date() });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
   updateLastActive,
+  updateLastActiveSocket,
 };

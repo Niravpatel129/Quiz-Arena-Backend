@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { verifyToken } = require('../sockets/middleware/jwtMiddleware');
 const chatController = require('../controllers/chatController');
+const { updateLastActive } = require('../sockets/middleware/updateLastActive');
 
 // Get chats for a user
 router.get('/user/:userId', verifyToken, chatController.getUserChats);
@@ -10,7 +11,7 @@ router.get('/user/:userId', verifyToken, chatController.getUserChats);
 router.get('/:chatId', verifyToken, chatController.getChatById);
 
 // Create a new chat
-router.post('/create', verifyToken, chatController.createChat);
+router.post('/create', verifyToken, updateLastActive, chatController.createChat);
 
 // Send a message in a specific chat
 router.post('/send/:chatId', verifyToken, chatController.sendMessage);

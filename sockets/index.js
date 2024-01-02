@@ -4,6 +4,7 @@ const authMiddleware = require('./middleware/authMiddleware');
 const queueHandlers = require('./eventHandlers/queueHandlers');
 const { RemoveFromQueue } = require('./eventHandlers/queue/joinQueue');
 const challengeHandlers = require('./eventHandlers/challengeHandlers');
+const { updateLastActiveSocket } = require('./middleware/updateLastActive');
 
 module.exports = (server, config) => {
   const io = socketIO(server, config);
@@ -12,6 +13,8 @@ module.exports = (server, config) => {
 
   io.on('connection', (socket) => {
     socket.emit('connection', null);
+
+    updateLastActiveSocket(socket.user.user.id);
 
     gameHandlers(socket, io);
     queueHandlers(socket, io);
