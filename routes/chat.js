@@ -13,6 +13,6 @@ router.get('/:chatId', verifyToken, chatController.getChatById);
 router.post('/create', verifyToken, chatController.createChat);
 
 // Send a message in a specific chat
-router.post('/:chatId/send', verifyToken, chatController.sendMessage);
+router.post('/send/:chatId', verifyToken, chatController.sendMessage);
 
 module.exports = router;

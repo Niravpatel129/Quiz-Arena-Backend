@@ -8,25 +8,34 @@ const chatReturnFormat = (rawChat, myUserId) => {
   );
 
   return {
+    _id: rawChat._id,
     chatingWith: {
       name: otherParticipant.username,
       avatar: otherParticipant.profile.avatar,
       lastActive: otherParticipant.lastActive,
     },
-    chatMessages: [
-      {
-        name: 'John',
-        message: 'Hello, how are you?',
-        isSender: true,
-        sentAgo: '7 mins ago',
-      },
-      {
-        name: 'LTX Sam',
-        message: 'I am good, how are you?',
-        isSender: false,
-        sentAgo: '6 mins ago',
-      },
-    ],
+    chatMessages: rawChat.messages.map((message) => {
+      return {
+        name: message?.sender?.username || 'Unknown',
+        message: message.message,
+        isSender: message.sender?._id.toString() === myUserId || false,
+        sentAgo: message.timestamp,
+      };
+    }),
+    // chatMessages: [
+    //   {
+    //     name: 'John',
+    //     message: 'Hello, how are you?',
+    //     isSender: true,
+    //     sentAgo: '7 mins ago',
+    //   },
+    //   {
+    //     name: 'LTX Sam',
+    //     message: 'I am good, how are you?',
+    //     isSender: false,
+    //     sentAgo: '6 mins ago',
+    //   },
+    // ],
   };
 };
 
@@ -35,12 +44,14 @@ const createChat = async (req, res) => {
     const { userId } = req;
     const { friendId } = req.body;
 
+    if (!friendId) return res.status(400).send('friendId is required');
+
     const existingChat = await Chat.findOne({
       participants: {
         $all: [new mongoose.Types.ObjectId(userId), new mongoose.Types.ObjectId(friendId)],
       },
       chatType: 'individual',
-    }).populate('participants');
+    }).populate('participants messages.sender');
 
     if (existingChat) {
       return res.json(chatReturnFormat(existingChat, userId));
@@ -49,11 +60,14 @@ const createChat = async (req, res) => {
       const newChat = new Chat({
         participants: [userId, friendId],
         chatType: 'individual',
-      }).populate('participants');
+      });
 
       await newChat.save();
 
-      res.status(201).json(chatReturnFormat(newChat, userId));
+      const populatedNewChat = await Chat.findById(newChat._id).populate(
+        'participants messages.sender',
+      );
+      res.status(201).json(chatReturnFormat(populatedNewChat, userId));
     }
   } catch (error) {
     console.log('🚀  error:', error);
