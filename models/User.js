@@ -73,7 +73,6 @@ const userSchema = new Schema(
 
     lastActive: {
       type: Date,
-      default: Date.now,
     },
   },
   {
