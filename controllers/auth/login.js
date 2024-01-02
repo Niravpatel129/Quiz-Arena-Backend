@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
 
 // Register function
-const register = async (email, password) => {
+const register = async (email, password, country) => {
   try {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -16,6 +16,9 @@ const register = async (email, password) => {
     const newUser = new User({
       email,
       password: hashedPassword,
+      profile: {
+        country: country || 'aq',
+      },
     });
 
     await newUser.save();
@@ -36,7 +39,7 @@ const login = async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { email, password, username } = req.body;
+  const { email, password, username, country } = req.body;
 
   if (!email || !password) {
     console.log('🚀  password:', password);
@@ -50,7 +53,7 @@ const login = async (req, res) => {
 
     if (!user) {
       console.log('user not found');
-      user = await register(email, password);
+      user = await register(email, password, country);
     } else {
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
