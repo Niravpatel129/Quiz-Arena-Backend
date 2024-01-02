@@ -7,36 +7,32 @@ const createQuestion = async (req, res) => {
     }
 
     const results = await Promise.all(
-      req.body.map((questionData) => {
+      req.body.map(async (questionData) => {
         questionData.category = questionData.category.toLowerCase();
 
-        const question = new QuestionModel(questionData);
-        return question.save();
+        try {
+          const question = new QuestionModel(questionData);
+          const savedQuestion = await question.save();
+          return savedQuestion;
+        } catch (err) {
+          if (err.code === 11000) {
+            // Log duplicate key error and return null to indicate skipping
+            console.error('Duplicate question detected, skipping:', questionData);
+            return null;
+          }
+          throw err; // Re-throw other errors to be caught by outer try-catch
+        }
       }),
     );
 
-    res.status(201).json(results);
+    // Filter out null values which represent skipped duplicates
+    const filteredResults = results.filter((result) => result !== null);
+
+    res.status(201).json(filteredResults);
   } catch (err) {
     console.error('createQuestion', err);
-
-    // Handle duplicate key error
-    if (err.code === 11000) {
-      return res.status(409).json({ message: 'Duplicate question detected' });
-    }
-
     res.status(500).json({ message: 'Something went wrong' });
   }
 };
-
-// const something = async () => {
-//   console.log('something');
-//   // Delete all questiosn with category: "General Knowledge"
-//   const result = await QuestionModel.deleteMany({ category: 'General Knowledge' });
-
-//   // Log the result of the deletion
-//   console.log(`${result.deletedCount} questions deleted.`);
-// };
-
-// something();
 
 module.exports = createQuestion;
