@@ -70,6 +70,11 @@ const userSchema = new Schema(
       facebookId: String,
       googleId: String,
     },
+
+    lastActive: {
+      type: Date,
+      default: Date.now,
+    },
   },
   {
     timestamps: true,

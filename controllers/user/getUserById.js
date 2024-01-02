@@ -14,17 +14,17 @@ const getUserById = async (req, res) => {
     console.log('🚀  user:', user);
 
     const DataToSend = {
-      userId: '6591c1859fa3eac30e5e9ecb',
-      username: 'John Doe',
+      userId: user._id,
+      username: user.username,
       avatar:
         user.profile.avatar ||
         'https://t4.ftcdn.net/jpg/05/69/84/67/360_F_569846700_i3o9u2fhPVVq7iJAzkqMqCwjWSyv53tT.jpg',
       country: user.profile.country || 'aq',
       experience: user.profile.experience,
-      lastActive: '8 min ago',
-      averageRating: '2212',
-      totalGames: '11230',
-      winRate: '44%',
+      lastActive: user.lastActive || Date.now(),
+      averageRating: user.elo.rating['General Knowledge'] || 1200,
+      totalGames: user.elo.gamesPlayed || 0,
+      winRate: user.elo.wins / user.elo.gamesPlayed || 0,
     };
 
     res.send(DataToSend);
