@@ -29,12 +29,20 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
       $set: {
         [setCategory]: updatedRating,
       },
-
       $inc: {
         'elo.gamesPlayed': 1,
         'elo.wins': gameResults === 'win' ? 1 : 0,
         'elo.losses': gameResults === 'lost' ? 1 : 0,
         'elo.draws': gameResults === 'draw' ? 1 : 0,
+      },
+      $push: {
+        'elo.history': {
+          category: category,
+          ratingChange: ratingChange,
+          newRating: updatedRating,
+          gameResults: gameResults,
+          createdAt: new Date(),
+        },
       },
     });
 
