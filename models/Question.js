@@ -10,6 +10,10 @@ const questionSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    parentCategory: {
+      type: String,
+      required: false,
+    },
     question: {
       type: String,
       required: true,
