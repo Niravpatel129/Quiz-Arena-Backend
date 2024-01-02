@@ -9,10 +9,6 @@ const register = async (email, password, country) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    console.log('🚀  password:', password);
-    console.log('🚀  email:', email);
-    console.log('🚀 creating account');
-
     const newUser = new User({
       email,
       password: hashedPassword,
@@ -23,7 +19,6 @@ const register = async (email, password, country) => {
 
     await newUser.save();
 
-    console.log('🚀  newUser:', newUser);
     return newUser;
   } catch (err) {
     console.error('register error: ', err.message);
@@ -42,9 +37,6 @@ const login = async (req, res) => {
   const { email, password, username, country } = req.body;
 
   if (!email || !password) {
-    console.log('🚀  password:', password);
-    console.log('🚀  email:', email);
-    console.log('Please enter all fields');
     return res.status(400).json({ msg: 'Please enter all fields' });
   }
 
@@ -62,7 +54,6 @@ const login = async (req, res) => {
     }
 
     if (username && username !== user.username) {
-      console.log('updating username');
       user.username = username;
       await user.save();
     }
