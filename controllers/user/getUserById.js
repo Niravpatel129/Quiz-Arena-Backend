@@ -11,7 +11,6 @@ const getUserById = async (req, res) => {
     }
 
     const user = await User.findById(userId);
-    console.log('🚀  user:', user);
 
     const DataToSend = {
       userId: user._id,
