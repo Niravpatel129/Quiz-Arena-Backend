@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Chat = require('../../models/Chat');
 
 const chatReturnFormat = (rawChat, myUserId) => {
-  console.log('🚀  rawChat:', rawChat);
   const otherParticipant = rawChat.participants.find(
     (participant) => participant._id.toString() !== myUserId,
   );
@@ -22,20 +21,6 @@ const chatReturnFormat = (rawChat, myUserId) => {
         sentAgo: message.timestamp,
       };
     }),
-    // chatMessages: [
-    //   {
-    //     name: 'John',
-    //     message: 'Hello, how are you?',
-    //     isSender: true,
-    //     sentAgo: '7 mins ago',
-    //   },
-    //   {
-    //     name: 'LTX Sam',
-    //     message: 'I am good, how are you?',
-    //     isSender: false,
-    //     sentAgo: '6 mins ago',
-    //   },
-    // ],
   };
 };
 
