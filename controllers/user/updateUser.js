@@ -8,7 +8,7 @@ const updateUser = async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    const allowedUpdates = ['username', 'email', 'password'];
+    const allowedUpdates = ['username', 'email', 'password', 'profile.avatar'];
     const updates = Object.keys(req.body);
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update));
 
