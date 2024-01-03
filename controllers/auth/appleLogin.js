@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 
 const appleLogin = async (req, res) => {
   try {
+    console.log('appleLogin req.body', req.body);
+
     const { appleId, email, username } = req.body;
     let databaseUser = null;
 
