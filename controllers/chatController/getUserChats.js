@@ -2,7 +2,7 @@ const Chat = require('../../models/Chat');
 
 const getUserChats = async (req, res) => {
   try {
-    const userId = req.params.userId;
+    const userId = req.userId;
     const chats = await Chat.find({ participants: userId }).populate(
       'participants messages.sender',
     );
