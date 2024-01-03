@@ -2,13 +2,15 @@ const User = require('../../models/User');
 
 const createUserNotification = async (req, res) => {
   try {
-    const { receiverId, type, options } = req.body;
+    const { receiverId, type, options, receiverName } = req.body;
 
     const userId = req.userId;
     let message = '';
 
     const senderUser = await User.findById(userId);
-    const recieverUser = await User.findById(receiverId);
+    let recieverUser = null;
+    if (receiverId) recieverUser = await User.findById(receiverId);
+    if (receiverName) recieverUser = await User.findOne({ username: receiverName });
 
     // user who is receiving the notification
 
