@@ -16,16 +16,16 @@ const createQuestion = async (req, res) => {
           typeof category !== 'string' ||
           typeof parentCategory !== 'string' ||
           !Array.isArray(answers) ||
-          typeof correctAnswer !== 'string' ||
-          typeof helperImage !== 'string'
+          typeof correctAnswer !== 'string'
         ) {
+          console.error('Invalid question data, skipping');
           return null; // Invalid data, skip this object
         }
 
         const formattedQuestionData = {
           question,
           category: category.toLowerCase(),
-          parentCategory,
+          parentCategory: parentCategory.toLowerCase(),
           answers,
           correctAnswer,
           helperImage,
