@@ -15,7 +15,7 @@ const appleLogin = async (req, res) => {
         return res.status(400).send('AppleId is required');
       }
 
-      const user = await User.find({ 'misc.appleId': appleId });
+      const user = await User.findOne({ 'misc.appleId': appleId });
 
       if (!user) {
         return res.status(400).send('User not found');
