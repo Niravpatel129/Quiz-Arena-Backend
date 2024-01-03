@@ -15,7 +15,7 @@ const appleLogin = async (req, res) => {
         return res.status(400).send('AppleId is required');
       }
 
-      User.findOne({ 'misc.appleId': appleId }, (err, user) => {
+      User.find({ 'misc.appleId': appleId }, (err, user) => {
         if (err) {
           return res.status(500).send('Server error');
         }
@@ -64,6 +64,7 @@ const appleLogin = async (req, res) => {
       });
   } catch (err) {
     console.log(err);
+    res.status(500).send('Server error with apple login');
   }
 };
 
