@@ -12,12 +12,12 @@ const getQuestionList = async (req, res) => {
           {
             name: 'flags',
             image:
-              'https://cdn.dribbble.com/userupload/9424324/file/original-6e071eda3550f1a2c8fe70792dc31d7e.png?resize=400x0',
+              'https://cdn.discordapp.com/attachments/587141454850424842/1192241998996967586/cropped_uploaded_flags_quiz_game_icon.png?ex=65a85ce3&is=6595e7e3&hm=d2106fe6f60b8ef09e35d458bf7144c98ecb6c0cd8c520033224380dbf3c8bec&',
           },
           {
             name: 'capitals',
             image:
-              'https://cdn.dribbble.com/userupload/9424324/file/original-6e071eda3550f1a2c8fe70792dc31d7e.png?resize=400x0',
+              'https://cdn.discordapp.com/attachments/587141454850424842/1192241751793090672/cropped_uploaded_capitals_quiz_game_icon.png?ex=65a85ca8&is=6595e7a8&hm=c4baa5a443ff1911cfb46e348e7b8f395a2dca079e32194bb7dd68862d396282&',
           },
           {
             name: 'general knowledge',
