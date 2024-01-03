@@ -3,25 +3,72 @@ const getQuestionList = async (req, res) => {
     const categories = [
       {
         parentCategory: 'general knowledge',
-        subCategories: ['logos', 'flags', 'capitals', 'general knowledge'],
+        subCategories: [
+          {
+            name: 'logos',
+            image: 'https://res.cloudinary.com/dh41vh9dx/image/upload/v1616909917/logos.png',
+          },
+          {
+            name: 'flags',
+            image: 'https://res.cloudinary.com/dh41vh9dx/image/upload/v1616909917/flags.png',
+          },
+          {
+            name: 'capitals',
+            image: 'https://res.cloudinary.com/dh41vh9dx/image/upload/v1616909917/capitals.png',
+          },
+          {
+            name: 'general knowledge',
+            image:
+              'https://res.cloudinary.com/dh41vh9dx/image/upload/v1616909917/general-knowledge.png',
+          },
+        ],
       },
       {
         parentCategory: 'games',
-        subCategories: ['valorant', 'league of legends', 'overwatch'],
+        subCategories: [
+          {
+            name: 'valorant',
+            image: 'https://res.cloudinary.com/dh41vh9dx/image/upload/v1616909917/valorant.png',
+          },
+          {
+            name: 'league of legends',
+            image:
+              'https://res.cloudinary.com/dh41vh9dx/image/upload/v1616909917/league-of-legends.png',
+          },
+          {
+            name: 'overwatch',
+            image: 'https://res.cloudinary.com/dh41vh9dx/image/upload/v1616909917/overwatch.png',
+          },
+        ],
       },
 
       {
         parentCategory: 'tv shows',
-        subCategories: ['friends'],
+        subCategories: [
+          {
+            name: 'friends',
+            image: 'https://res.cloudinary.com/dh41vh9dx/image/upload/v1616909917/friends.png',
+          },
+        ],
       },
 
       {
         parentCategory: 'anime',
-        subCategories: ['naruto'],
+        subCategories: [
+          {
+            name: 'naruto',
+            image: 'https://res.cloudinary.com/dh41vh9dx/image/upload/v1616909917/naruto.png',
+          },
+        ],
       },
       {
         parentCategory: 'movies',
-        subCategories: ['star wars'],
+        subCategories: [
+          {
+            name: 'star wars',
+            image: 'https://res.cloudinary.com/dh41vh9dx/image/upload/v1616909917/star-wars.png',
+          },
+        ],
       },
     ];
 
