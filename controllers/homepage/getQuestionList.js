@@ -74,7 +74,7 @@ const getQuestionList = async (req, res) => {
           {
             name: 'star wars',
             image:
-              'https://cdn.dribbble.com/userupload/9424324/file/original-6e071eda3550f1a2c8fe70792dc31d7e.png?resize=400x0',
+              'https://cdn.discordapp.com/attachments/587141454850424842/1192243863448977548/cropped_space_opera_quiz_game_icon.png?ex=65a85e9f&is=6595e99f&hm=f0d858fe32c0d35ed00bb3639a4590596fcb2dbbe8c70b706c18eb565ad2056a&',
           },
         ],
       },
