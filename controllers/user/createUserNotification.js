@@ -10,7 +10,8 @@ const createUserNotification = async (req, res) => {
     const senderUser = await User.findById(userId);
     let recieverUser = null;
     if (receiverId) recieverUser = await User.findById(receiverId);
-    if (receiverName) recieverUser = await User.findOne({ username: receiverName });
+    if (receiverName)
+      recieverUser = await User.findOne({ username: new RegExp('^' + receiverName + '$', 'i') });
 
     // user who is receiving the notification
 
