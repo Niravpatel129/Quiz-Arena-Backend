@@ -6,6 +6,7 @@ const getAverageRatingAcrossAllCategories = async (req, res) => {
       {
         $project: {
           username: 1,
+          profile: 1,
           averageRating: {
             $avg: ['$elo.rating.Logos', '$elo.rating.League of Legends', '$elo.rating.Valorant'],
           },
