@@ -2,24 +2,26 @@ const getQuestionList = async (req, res) => {
   try {
     const categories = [
       {
+        parentCategory: 'general knowledge',
+        subCategories: ['logos', 'flags', 'capitals', 'general knowledge'],
+      },
+      {
         parentCategory: 'games',
         subCategories: ['valorant', 'league of legends', 'overwatch'],
       },
+
       {
-        parentCategory: 'movies',
-        subCategories: ['star wars'],
+        parentCategory: 'tv shows',
+        subCategories: ['friends'],
       },
+
       {
         parentCategory: 'anime',
         subCategories: ['naruto'],
       },
       {
-        parentCategory: 'general knowledge',
-        subCategories: ['logos', 'flags', 'capitals', 'general knowledge'],
-      },
-      {
-        parentCategory: 'tv shows',
-        subCategories: ['friends'],
+        parentCategory: 'movies',
+        subCategories: ['star wars'],
       },
     ];
 
