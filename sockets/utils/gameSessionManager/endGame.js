@@ -46,8 +46,6 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
       },
     });
 
-    console.log('🚀  user:', user);
-
     console.log('🚀  user, results, new rating:', player.username, gameResults, updatedRating);
     return ratingChange;
   } catch (err) {
