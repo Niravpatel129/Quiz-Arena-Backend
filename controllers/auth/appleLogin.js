@@ -15,17 +15,13 @@ const appleLogin = async (req, res) => {
         return res.status(400).send('AppleId is required');
       }
 
-      User.find({ 'misc.appleId': appleId }, (err, user) => {
-        if (err) {
-          return res.status(500).send('Server error');
-        }
+      const user = await User.find({ 'misc.appleId': appleId });
 
-        if (!user) {
-          return res.status(404).send('User not found');
-        }
+      if (!user) {
+        return res.status(400).send('User not found');
+      }
 
-        databaseUser = user;
-      });
+      databaseUser = user;
     }
 
     if (username && email && appleId) {
