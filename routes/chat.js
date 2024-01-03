@@ -5,7 +5,7 @@ const chatController = require('../controllers/chatController');
 const { updateLastActive } = require('../sockets/middleware/updateLastActive');
 
 // Get chats for a user
-router.get('/user', verifyToken, chatController.getUserChats);
+router.get('/', verifyToken, chatController.getUserChats);
 
 // Get a specific chat by chatId
 router.get('/:chatId', verifyToken, chatController.getChatById);
