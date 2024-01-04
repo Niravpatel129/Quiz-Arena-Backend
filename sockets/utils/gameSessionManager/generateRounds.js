@@ -4,6 +4,7 @@ const timeLimit = 10;
 const totalNumberOfRounds = 7;
 
 async function fetchQuestionsForCategory(category, numberOfRounds) {
+  console.log('Fetching questions for category: ', category);
   if (!category) return null;
 
   const questionsModel = await Question.aggregate([
