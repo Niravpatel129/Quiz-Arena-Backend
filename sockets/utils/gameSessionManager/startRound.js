@@ -62,6 +62,7 @@ const startRound = async (sessionId, roundNumber, players, io) => {
   await gameSession.save();
 
   const currentRound = gameSession.rounds[roundNumber - 1];
+  console.log('🚀  currentRound:', currentRound);
 
   players.forEach((playerSocketId) => {
     io.to(playerSocketId.socketId).emit('new_round', {
@@ -73,6 +74,7 @@ const startRound = async (sessionId, roundNumber, players, io) => {
       },
       sessionId,
       roundNumber,
+      questionId: currentRound.questionId,
       question: currentRound.questionText,
       timeLimit: currentRound.timeLimit,
       options: currentRound.options,

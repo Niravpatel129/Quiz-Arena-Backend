@@ -27,6 +27,7 @@ async function fetchQuestionsForCategory(category, numberOfRounds) {
 
     questions.push({
       questionText: questionsModel[randomIndex].question,
+      questionId: questionsModel[randomIndex]._id,
       options: questionsModel[randomIndex].answers,
       correctAnswer: questionsModel[randomIndex].correctAnswer,
       helperImage: questionsModel[randomIndex].helperImage,
