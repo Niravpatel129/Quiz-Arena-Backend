@@ -103,7 +103,6 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
 const botAnswer = async (io, botPlayer, sessionId, correctAnswer, timeRemaining, currentRound) => {
   try {
     const playerSocketId = botPlayer.socketId;
-    console.log('🚀  currentRound:', currentRound);
 
     await handlePlayerAnswer(
       sessionId,
