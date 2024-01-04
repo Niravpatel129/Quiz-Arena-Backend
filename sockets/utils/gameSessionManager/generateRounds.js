@@ -14,10 +14,15 @@ async function fetchQuestionsForCategory(category, numberOfRounds) {
   if (questionsModel.length === 0) return null;
 
   const questions = [];
+  let usedIndexes = new Set(); // Set to track used indexes
 
   for (let i = 0; i < numberOfRounds; i++) {
-    const randomIndex = Math.floor(Math.random() * questionsModel.length);
-    if (!questionsModel[randomIndex]) return;
+    let randomIndex;
+    do {
+      randomIndex = Math.floor(Math.random() * questionsModel.length);
+    } while (usedIndexes.has(randomIndex)); // Ensure the index has not been used before
+
+    usedIndexes.add(randomIndex); // Add the index to the set of used indexes
 
     questions.push({
       questionText: questionsModel[randomIndex].question,
