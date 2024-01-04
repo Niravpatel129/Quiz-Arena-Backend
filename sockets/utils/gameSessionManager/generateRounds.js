@@ -14,9 +14,20 @@ async function fetchQuestionsForCategory(category, numberOfRounds) {
   if (questionsModel.length === 0) return null;
 
   const questions = [];
+  let usedQuestionAnswers = new Set(); // Set to track used question + correctAnswer pairs
 
   for (let i = 0; i < numberOfRounds; i++) {
-    const randomIndex = Math.floor(Math.random() * questionsModel.length);
+    let randomIndex;
+    let questionAnswerPair;
+
+    if (!questionsModel[randomIndex]) return;
+
+    do {
+      randomIndex = Math.floor(Math.random() * questionsModel.length);
+      questionAnswerPair = `${questionsModel[randomIndex].question}|${questionsModel[randomIndex].correctAnswer}`;
+    } while (usedQuestionAnswers.has(questionAnswerPair)); // Ensure the pair has not been used before
+
+    usedQuestionAnswers.add(questionAnswerPair); // Add the pair to the set
 
     questions.push({
       questionText: questionsModel[randomIndex].question,
