@@ -26,4 +26,6 @@ router.get('/validate-token', verifyToken, authController.validateToken);
 
 router.post('/apple', authController.appleLogin);
 
+router.post('/facebook', authController.facebookLogin);
+
 module.exports = router;
