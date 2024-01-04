@@ -4,7 +4,7 @@ const router = express.Router();
 // Mount the route modules
 router.use('/users', require('./users'));
 router.use('/auth', require('./auth'));
-router.use('/question', require('./questions'));
+router.use('/question', require('./question'));
 router.use('/leaderboards', require('./leaderboards'));
 router.use('/matchHistory', require('./matchHistory'));
 router.use('/chat', require('./chat'));
