@@ -12,6 +12,7 @@ const eloSchema = new Schema(
   {
     rating: {
       type: Schema.Types.Mixed,
+      default: () => ({}),
     },
     gamesPlayed: {
       type: Number,

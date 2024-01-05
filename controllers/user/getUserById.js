@@ -22,6 +22,7 @@ const getUserById = async (req, res) => {
       experience: user.profile.experience,
       lastActive: user.lastActive || Date.now(),
       averageRating: user.elo.rating['General Knowledge'] || 1200,
+      allRating: user.elo.rating,
       totalGames: user.elo.gamesPlayed || 0,
       winRate: (user.elo.wins / user.elo.gamesPlayed) * 100 || 0,
     };

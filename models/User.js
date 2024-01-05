@@ -39,6 +39,7 @@ const userSchema = new Schema(
           'League of Legends': 1200,
           Valorant: 1200,
           'General Knowledge': 1200,
+          Friends: 1200,
         },
         gamesPlayed: 0,
         wins: 0,
