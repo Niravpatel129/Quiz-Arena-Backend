@@ -22,6 +22,8 @@ router.post(
   authController.login,
 );
 
+router.get('/logout', authController.logout);
+
 router.get('/validate-token', verifyToken, authController.validateToken);
 
 router.post('/apple', authController.appleLogin);
