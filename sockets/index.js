@@ -7,6 +7,8 @@ const challengeHandlers = require('./eventHandlers/challengeHandlers');
 const { updateLastActiveSocket } = require('./middleware/updateLastActive');
 const rematchHandlers = require('./eventHandlers/rematchHandlers');
 
+let connectedUsersCount = 0;
+
 module.exports = (server, config) => {
   const io = socketIO(server, config);
 
@@ -14,6 +16,9 @@ module.exports = (server, config) => {
 
   io.on('connection', (socket) => {
     socket.emit('connection', null);
+    connectedUsersCount += 1;
+
+    console.log(`🚀  ${connectedUsersCount} users are active.`);
 
     updateLastActiveSocket(socket.user.user.id);
 
@@ -26,6 +31,9 @@ module.exports = (server, config) => {
     socket.on('disconnect', () => {
       console.log(`🚀  ${socket.id} disconnected`);
       RemoveFromQueue(socket, io);
+
+      connectedUsersCount -= 1;
+      console.log(`🚀  ${connectedUsersCount} users are active.`);
     });
   });
 };

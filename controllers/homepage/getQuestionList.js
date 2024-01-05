@@ -66,6 +66,11 @@ const getQuestionList = async (req, res) => {
             image:
               'https://cdn.discordapp.com/attachments/587141454850424842/1192236779743494236/cropped_quiz_game_icon.png?ex=65a85806&is=6595e306&hm=65622e402d1c1ea48b0f164216a8f29d010877049409a7fc9e128fb39070d043&',
           },
+          {
+            name: 'one piece',
+            image:
+              'https://cdn.discordapp.com/attachments/587141454850424842/1192857972053905478/cropped_one_piece_icon.png?ex=65aa9a8e&is=6598258e&hm=2f2b2d8ec88ffb869408ee752b88b0189d9e06ae7e6fc6fa2b5638e058116080&',
+          },
         ],
       },
       {
@@ -75,6 +80,16 @@ const getQuestionList = async (req, res) => {
             name: 'star wars',
             image:
               'https://cdn.discordapp.com/attachments/587141454850424842/1192243863448977548/cropped_space_opera_quiz_game_icon.png?ex=65a85e9f&is=6595e99f&hm=f0d858fe32c0d35ed00bb3639a4590596fcb2dbbe8c70b706c18eb565ad2056a&',
+          },
+        ],
+      },
+      {
+        parentCategory: 'indian tv shows',
+        subCategories: [
+          {
+            name: 'tarak mehta ka ooltah chashmah',
+            image:
+              'https://cdn.discordapp.com/attachments/587141454850424842/1192857971693211679/cropped_tmko_icon.png?ex=65aa9a8e&is=6598258e&hm=8f3408d5d047e6caa8168f348d7905b223c016dd03ebf0ce11e5de951542253b&',
           },
         ],
       },
