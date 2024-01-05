@@ -70,6 +70,7 @@ const userSchema = new Schema(
       appleId: String,
       facebookId: String,
       googleId: String,
+      pushToken: String,
     },
 
     lastActive: {
