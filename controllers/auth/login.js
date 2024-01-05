@@ -34,7 +34,7 @@ const login = async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
 
-  const { email, password, username, country } = req.body;
+  const { email, password, username, country, profile } = req.body;
 
   if (!email || !password) {
     return res.status(400).json({ msg: 'Please enter all fields' });
@@ -55,6 +55,11 @@ const login = async (req, res) => {
 
     if (username && username !== user.username) {
       user.username = username;
+      await user.save();
+    }
+
+    if (profile) {
+      user.profile = profile;
       await user.save();
     }
 
