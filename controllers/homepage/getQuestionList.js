@@ -87,7 +87,7 @@ const getQuestionList = async (req, res) => {
         parentCategory: 'indian tv shows',
         subCategories: [
           {
-            name: 'tarak mehta ka ooltah chashmah',
+            name: 'taarak mehta ka ooltah chashmah',
             image:
               'https://cdn.discordapp.com/attachments/587141454850424842/1192857971693211679/cropped_tmko_icon.png?ex=65aa9a8e&is=6598258e&hm=8f3408d5d047e6caa8168f348d7905b223c016dd03ebf0ce11e5de951542253b&',
           },
