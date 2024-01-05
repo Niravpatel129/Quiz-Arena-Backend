@@ -7,7 +7,7 @@ const register = async (req, res) => {
 
     if (!userId || !pushToken) return res.send('No user id or push token provided');
 
-    await User.findOneAndUpdate({ _id: userId }, { $set: { pushToken: pushToken } });
+    await User.findOneAndUpdate({ _id: userId }, { $set: { 'misc.pushToken': pushToken } });
 
     res.send('User registered for notifications');
   } catch (err) {
