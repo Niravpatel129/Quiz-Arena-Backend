@@ -9,33 +9,22 @@ async function fetchQuestionsForCategory(category, numberOfRounds) {
 
   const questionsModel = await Question.aggregate([
     { $match: { category: { $regex: new RegExp(category, 'i') } } },
-    { $sample: { size: 10 } },
+    { $sample: { size: totalNumberOfRounds } },
   ]);
 
   if (questionsModel.length === 0) return null;
 
-  const questions = [];
-  let usedIndexes = new Set(); // Set to track used indexes
-
-  for (let i = 0; i < numberOfRounds; i++) {
-    let randomIndex;
-    do {
-      randomIndex = Math.floor(Math.random() * questionsModel.length);
-    } while (usedIndexes.has(randomIndex)); // Ensure the index has not been used before
-
-    usedIndexes.add(randomIndex); // Add the index to the set of used indexes
-
-    questions.push({
-      questionText: questionsModel[randomIndex].question,
-      questionId: questionsModel[randomIndex]._id,
-      options: questionsModel[randomIndex].answers,
-      correctAnswer: questionsModel[randomIndex].correctAnswer,
-      helperImage: questionsModel[randomIndex].helperImage,
+  const questions = questionsModel.map((question) => {
+    return {
+      questionText: question.question,
+      questionId: question._id,
+      options: question.answers,
+      correctAnswer: question.correctAnswer,
+      helperImage: question.helperImage,
       timeLimit: timeLimit,
       category: category,
-      roundNumber: i + 1,
-    });
-  }
+    };
+  });
 
   return questions;
 }
