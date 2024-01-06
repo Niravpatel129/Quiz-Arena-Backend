@@ -15,9 +15,9 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
     let updatedRating;
 
     if (gameResults === 'win') {
-      ratingChange = 32;
+      ratingChange = 16;
     } else if (gameResults === 'lost') {
-      ratingChange = -32;
+      ratingChange = -16;
     } else if (gameResults === 'draw') {
       ratingChange = 10;
     }
