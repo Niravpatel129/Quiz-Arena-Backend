@@ -2,6 +2,8 @@ const User = require('../../models/User');
 
 const updateUser = async (req, res) => {
   try {
+    if (!req.userId) return res.status(401).json({ message: 'Unauthorized' });
+
     console.log('updateUser', req.body);
     const user = await User.findById(req.userId);
 
@@ -23,6 +25,8 @@ const updateUser = async (req, res) => {
     });
 
     await user.save();
+
+    console.log('🚀  user:', user);
 
     res.json(user);
   } catch (err) {
