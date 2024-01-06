@@ -35,6 +35,7 @@ const login = async (req, res) => {
   }
 
   const { email, password, username, country, profile } = req.body;
+  console.log('🚀  profile:', profile);
 
   if (!email || !password) {
     return res.status(400).json({ msg: 'Please enter all fields' });
@@ -58,8 +59,8 @@ const login = async (req, res) => {
       await user.save();
     }
 
-    if (profile) {
-      user.profile = profile;
+    if (!user?.profile?.avatar && profile?.avatar) {
+      user.profile.avatar = profile.avatar;
       await user.save();
     }
 
