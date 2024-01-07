@@ -63,7 +63,7 @@ const login = async (req, res) => {
       await user.save();
     }
 
-    if (!user?.profile?.avatar && profile?.avatar) {
+    if (profile?.avatar) {
       user.profile.avatar = profile.avatar;
       await user.save();
     }
