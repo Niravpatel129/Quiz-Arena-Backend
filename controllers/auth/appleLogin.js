@@ -5,7 +5,7 @@ const appleLogin = async (req, res) => {
   try {
     console.log('appleLogin req.body', req.body);
 
-    const { appleId, email, username } = req.body;
+    const { appleId, email, username, country } = req.body;
     let databaseUser = null;
 
     if (!username || !email) {
@@ -28,6 +28,9 @@ const appleLogin = async (req, res) => {
       const newUser = new User({
         username,
         email,
+        profile: {
+          country,
+        },
         misc: {
           appleId,
         },
