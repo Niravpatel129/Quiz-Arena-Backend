@@ -8,6 +8,34 @@ const userSchema = new Schema(
     username: {
       type: String,
       unique: true,
+      default: async () => {
+        let username;
+        let isUnique = false;
+
+        // Arrays of adjectives and nouns
+        const adjectives = ['Dancing', 'Jumping', 'Running', 'Flying', 'Swimming'];
+        const nouns = ['Bear', 'Lion', 'Eagle', 'Shark', 'Panther'];
+
+        while (!isUnique) {
+          // Randomly select an adjective and a noun
+          const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+          const noun = nouns[Math.floor(Math.random() * nouns.length)];
+
+          // Generate a random number
+          const number = Math.floor(Math.random() * 100);
+
+          // Form the username
+          username = `${adjective}${noun}${number}`;
+
+          // Check if the username is unique
+          const count = await mongoose.model('User').countDocuments({ username: username });
+          if (count === 0) {
+            isUnique = true;
+          }
+        }
+
+        return username;
+      },
     },
     password: {
       type: String,
