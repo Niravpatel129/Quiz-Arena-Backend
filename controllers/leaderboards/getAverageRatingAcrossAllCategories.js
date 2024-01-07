@@ -8,11 +8,11 @@ const getAverageRatingAcrossAllCategories = async (req, res) => {
           username: 1,
           profile: 1,
           averageRating: {
-            $avg: ['$elo.rating.Logos', '$elo.rating.League of Legends', '$elo.rating.Valorant'],
+            $avg: ['$elo.rating.logos', '$elo.rating.league of legends', '$elo.rating.valorant'],
           },
         },
       },
-    ]).limit(100);
+    ]).limit(30);
 
     res.json(averageRatings);
   } catch (error) {
