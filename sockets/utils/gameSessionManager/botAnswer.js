@@ -2,7 +2,7 @@ const GameSession = require('../../../models/GameSession');
 const endGame = require('./endGame');
 const startRound = require('./startRound');
 
-const baseTime = 10;
+const baseTime = 13;
 
 const calculateTimeBasedScore = (timeRemaining) => {
   return Math.floor(baseTime - timeRemaining);
