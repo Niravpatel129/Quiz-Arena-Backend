@@ -1,3 +1,4 @@
+const { sendPushNotifications } = require('../../helpers/sendPushNotifications');
 const User = require('../../models/User');
 
 const createUserNotification = async (req, res) => {
@@ -38,11 +39,18 @@ const createUserNotification = async (req, res) => {
 
     await recieverUser.save();
 
+    // if recieverUser has misc.pushToken send push notification
+    if (recieverUser.misc?.pushToken) {
+      sendPushNotifications([recieverUser.misc.pushToken], message);
+    }
+
     res.status(200).json({ message: 'Notification created' });
   } catch (error) {
     console.log('🚀  error:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+sendPushNotifications(['ExponentPushToken[_AnQEVD1jQsDkwQni2IFar]'], 'Hello world');
 
 module.exports = createUserNotification;
