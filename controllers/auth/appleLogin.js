@@ -42,7 +42,7 @@ const appleLogin = async (req, res) => {
     const payload = {
       user: {
         id: databaseUser._id,
-        name: databaseUser.username,
+        username: databaseUser.username,
         email: databaseUser.email,
         avatar: newUser?.profile?.avatar,
       },
