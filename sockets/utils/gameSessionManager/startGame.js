@@ -14,7 +14,6 @@ const startGame = async (category, players, io) => {
       .then((player) => {
         if (!player) throw new Error('Player not found');
 
-        console.log('🚀  player:', player);
         return {
           socketId: playerSocketId.socketId,
           id: playerSocketId.userId,
