@@ -14,7 +14,7 @@ const verifyToken = (req, res, next) => {
       }
 
       req.userId = payload.user.id;
-      req.name = payload.user.name;
+      req.name = payload.user?.name || payload.user?.username || 'anonymous';
 
       next();
     });
