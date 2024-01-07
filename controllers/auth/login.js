@@ -28,7 +28,6 @@ const register = async (email, password, country) => {
 
 // Modified login function
 const login = async (req, res) => {
-  let isNewUser = false;
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     console.log('🚀  errors:', errors);
@@ -44,6 +43,8 @@ const login = async (req, res) => {
   }
 
   try {
+    let isNewUser = false;
+
     let user = await User.findOne({ email: new RegExp('^' + email + '$', 'i') });
 
     if (!user) {
