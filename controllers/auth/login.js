@@ -2,7 +2,6 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../../models/User');
-const { generateRandomUsername } = require('../../helpers/generateRandomUsername');
 
 // Register function
 const register = async (email, password, country) => {
@@ -12,7 +11,6 @@ const register = async (email, password, country) => {
 
     const newUser = new User({
       email,
-      username: generateRandomUsername(),
       password: hashedPassword,
       profile: {
         country: country || 'aq',

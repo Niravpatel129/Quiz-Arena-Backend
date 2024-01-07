@@ -2,12 +2,14 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const eloSchema = require('./Elo');
+const generateRandomUsername = require('../helpers/generateRandomUsername');
 
 const userSchema = new Schema(
   {
     username: {
       type: String,
       unique: true,
+      default: () => generateRandomUsername(),
     },
     password: {
       type: String,
