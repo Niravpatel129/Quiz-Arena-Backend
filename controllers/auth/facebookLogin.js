@@ -5,7 +5,7 @@ const facebookLogin = async (req, res) => {
   try {
     console.log('facebookLogin req.body', req.body);
 
-    const { userID, name, email, profilePicture, accessToken } = req.body;
+    const { userID, name, email, profilePicture, accessToken, country } = req.body;
     if (!accessToken || !userID || !name || !email) {
       return res.status(400).send('Missing required fields');
     }
@@ -24,6 +24,7 @@ const facebookLogin = async (req, res) => {
         email,
         profile: {
           avatar: profilePicture,
+          country: country,
         },
         misc: {
           facebookId: userID,
