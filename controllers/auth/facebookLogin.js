@@ -17,8 +17,10 @@ const facebookLogin = async (req, res) => {
 
     // If user doesn't exist, create a new user
     if (!databaseUser) {
+      const isUsernameTaken = await User.findOne({ username: name });
+
       const newUser = new User({
-        username: name,
+        username: !isUsernameTaken ? name : `${name}${Math.floor(Math.random() * 1000)}`,
         email,
         profile: {
           avatar: profilePicture,
