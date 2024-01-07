@@ -2,11 +2,12 @@ const User = require('../../models/User');
 
 const addFriend = async (req, res) => {
   try {
-    const { friendId } = req.body;
+    const { friendId, username, email } = req.body;
     const userId = req.userId;
 
     const user = await User.findById(userId);
-    const friend = await User.findById(friendId);
+    let friend = await User.findById(friendId);
+
     if (!user || !friend) {
       return res.status(404).json({ message: 'User not found' });
     }
