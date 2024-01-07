@@ -36,6 +36,7 @@ const appleLogin = async (req, res) => {
 
       databaseUser = newUser;
     }
+    console.log('🚀  databaseUser:', databaseUser);
 
     const payload = {
       user: {
