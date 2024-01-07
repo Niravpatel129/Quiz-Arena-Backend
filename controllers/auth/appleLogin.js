@@ -44,7 +44,7 @@ const appleLogin = async (req, res) => {
         id: databaseUser._id,
         name: databaseUser.username,
         email: databaseUser.email,
-        avatar: newUser.avatar,
+        avatar: newUser?.profile?.avatar,
       },
     };
 
