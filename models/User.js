@@ -13,8 +13,28 @@ const userSchema = new Schema(
         let isUnique = false;
 
         // Arrays of adjectives and nouns
-        const adjectives = ['Dancing', 'Jumping', 'Running', 'Flying', 'Swimming'];
-        const nouns = ['Bear', 'Lion', 'Eagle', 'Shark', 'Panther'];
+        const adjectives = [
+          'Dancing',
+          'Jumping',
+          'Running',
+          'Flying',
+          'Swimming',
+          'Crawling',
+          'Walking',
+          'Singing',
+        ];
+        const nouns = [
+          'Bear',
+          'Lion',
+          'Eagle',
+          'Shark',
+          'Panther',
+          'Tiger',
+          'Wolf',
+          'Horse',
+          'Snake',
+          'Rabbit',
+        ];
 
         while (!isUnique) {
           // Randomly select an adjective and a noun
