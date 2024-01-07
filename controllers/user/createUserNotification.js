@@ -51,6 +51,4 @@ const createUserNotification = async (req, res) => {
   }
 };
 
-sendPushNotifications(['ExponentPushToken[_AnQEVD1jQsDkwQni2IFar]'], 'Hello world');
-
 module.exports = createUserNotification;
