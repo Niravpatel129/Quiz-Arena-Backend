@@ -24,10 +24,8 @@ const appleLogin = async (req, res) => {
       databaseUser = user;
     }
 
-    let newUser = null;
-
     if (username && email && appleId) {
-      newUser = new User({
+      const newUser = new User({
         username,
         email,
         misc: {
@@ -44,7 +42,7 @@ const appleLogin = async (req, res) => {
         id: databaseUser._id,
         username: databaseUser.username,
         email: databaseUser.email,
-        avatar: newUser?.profile?.avatar || null,
+        avatar: databaseUser?.profile?.avatar || null,
       },
     };
 
