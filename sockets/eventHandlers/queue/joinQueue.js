@@ -72,9 +72,9 @@ const joinQueue = (socket, io) => {
 
 const addBotToQueue = (category) => {
   queueStore[category].add({
-    socketId: 'EWw4E8ELTbxHZx7ZAAABOT',
-    userId: '6589b52604a85f1cec06f556',
-    name: 'zezima',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTBUNYY',
+    userId: '65986b8569ca51f17288d5e1',
+    name: 'bunyy',
   });
 };
 
