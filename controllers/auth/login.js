@@ -28,6 +28,7 @@ const register = async (email, password, country) => {
 
 // Modified login function
 const login = async (req, res) => {
+  let isNewUser = false;
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     console.log('🚀  errors:', errors);
@@ -48,6 +49,7 @@ const login = async (req, res) => {
     if (!user) {
       console.log('user not found');
       user = await register(email, password, country);
+      isNewUser = true;
     } else {
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
@@ -83,6 +85,7 @@ const login = async (req, res) => {
           friends: user.friends,
           notifications: user.notifications,
         },
+        isNewUser,
       });
   } catch (err) {
     console.error('login error: ', err.message);
