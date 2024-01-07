@@ -24,8 +24,10 @@ const appleLogin = async (req, res) => {
       databaseUser = user;
     }
 
+    let newUser = null;
+
     if (username && email && appleId) {
-      const newUser = new User({
+      newUser = new User({
         username,
         email,
         misc: {
@@ -38,7 +40,12 @@ const appleLogin = async (req, res) => {
     }
 
     const payload = {
-      user: { id: databaseUser._id, name: databaseUser.username, email: databaseUser.email },
+      user: {
+        id: databaseUser._id,
+        name: databaseUser.username,
+        email: databaseUser.email,
+        avatar: newUser.avatar,
+      },
     };
 
     const token = jwt.sign(payload, process.env.JWT_SECRET);
