@@ -1,7 +1,7 @@
 const getConfig = async (req, res) => {
   try {
     const config = {
-      queueTime: 1000,
+      queueTime: 101000,
     };
 
     res.status(200).json(config);
