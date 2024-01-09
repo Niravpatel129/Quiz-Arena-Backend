@@ -18,11 +18,9 @@ const appleLogin = async (req, res) => {
 
       const user = await User.findOne({ 'misc.appleId': appleId });
 
-      if (!user) {
-        return res.status(400).send('User not found');
+      if (user) {
+        databaseUser = user;
       }
-
-      databaseUser = user;
     }
 
     if (username && email && appleId) {
@@ -47,7 +45,25 @@ const appleLogin = async (req, res) => {
 
       databaseUser = newUser;
       newSignIn = true;
+    } else {
+      // create a new user with generated Email + generated Username
+      const newUser = new User({
+        username: `${Math.floor(Math.random() * 100000)}`,
+        email: `${Math.floor(Math.random() * 100000)}@apple.com`,
+        profile: {
+          country,
+        },
+        misc: {
+          appleId,
+        },
+      });
+
+      await newUser.save();
+
+      databaseUser = newUser;
+      newSignIn = true;
     }
+
     console.log('🚀  databaseUser:', databaseUser);
 
     const payload = {
