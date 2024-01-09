@@ -27,7 +27,7 @@ const appleLogin = async (req, res) => {
 
     if (username && email && appleId) {
       // find same username
-      const sameUsername = User.find({ username });
+      const sameUsername = await User.find({ username });
       let usernameToSet = username;
       if (sameUsername) {
         usernameToSet = `${username}${Math.floor(Math.random() * 1000)}`;
