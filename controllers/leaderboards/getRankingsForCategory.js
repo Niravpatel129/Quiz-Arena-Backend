@@ -6,7 +6,8 @@ const getLeaderboardByCategory = async (req, res) => {
 
     const users = await User.find({})
       .sort({ [`elo.rating.${category}`]: -1 })
-      .select(`_id username elo.rating.${category}`); // Selecting user ID, username, and specific rating
+      .select(`_id username elo.rating.${category}`)
+      .limit(10);
 
     // Transform the query result to the desired format
     const leaderboard = users.map((user) => ({
