@@ -45,7 +45,7 @@ const facebookLogin = async (req, res) => {
 
     // Send response
     res
-      .cookie('token', token, { httpOnly: true, secure: true, sameSite: 'none' })
+      .cookie('token', token, { secure: true, sameSite: 'none' })
       .status(200)
       .send({
         token,

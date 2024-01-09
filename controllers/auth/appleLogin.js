@@ -80,7 +80,7 @@ const appleLogin = async (req, res) => {
     const token = jwt.sign(payload, process.env.JWT_SECRET);
 
     res
-      .cookie('token', token, { httpOnly: true, secure: true, sameSite: 'none' })
+      .cookie('token', token, { secure: true, sameSite: 'none' })
       .status(200)
       .send({
         token,
