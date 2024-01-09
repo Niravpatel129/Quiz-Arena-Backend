@@ -7,6 +7,7 @@ const appleLogin = async (req, res) => {
 
     const { appleId, email, username, country } = req.body;
     let databaseUser = null;
+    let newSignIn = false;
 
     if (!username || !email) {
       // assume appleId is present and login the user
@@ -38,6 +39,7 @@ const appleLogin = async (req, res) => {
       await newUser.save();
 
       databaseUser = newUser;
+      newSignIn = true;
     }
     console.log('🚀  databaseUser:', databaseUser);
 
@@ -66,6 +68,7 @@ const appleLogin = async (req, res) => {
           friends: databaseUser.friends,
           notifications: databaseUser.notifications,
         },
+        newSignIn,
       });
   } catch (err) {
     console.log(err);
