@@ -48,10 +48,10 @@ const appleLogin = async (req, res) => {
     } else {
       // create a new user with generated Email + generated Username
       const newUser = new User({
-        username: `${Math.floor(Math.random() * 100000)}`,
-        email: `${Math.floor(Math.random() * 100000)}@apple.com`,
+        username: databaseUser.username || `FlyingCrow${Math.floor(Math.random() * 100000)}`,
+        email: databaseUser.email || `${Math.floor(Math.random() * 100000)}@apple.com`,
         profile: {
-          country,
+          country: databaseUser?.profile?.country || country,
         },
         misc: {
           appleId,
