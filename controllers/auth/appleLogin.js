@@ -68,10 +68,12 @@ const appleLogin = async (req, res) => {
 
     console.log('🚀  databaseUser:', databaseUser);
 
+    //     const payload = { user: { id: user._id, name: user.username, email: user.email } };
+
     const payload = {
       user: {
         id: databaseUser._id,
-        username: databaseUser.username,
+        name: databaseUser.username,
         email: databaseUser.email,
         avatar: databaseUser?.profile?.avatar || null,
       },
