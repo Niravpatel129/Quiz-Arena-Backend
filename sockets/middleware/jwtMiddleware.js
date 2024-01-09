@@ -13,9 +13,9 @@ const verifyToken = (req, res, next) => {
         return next(403, 'Token is not valid!');
       }
 
-      req.userId = payload.user.id;
+      req.userId = payload.user?.id;
       req.name = payload.user?.name || payload.user?.username || 'anonymous';
-
+      req.avatar = payload.user?.avatar || null;
       next();
     });
   } catch (err) {
