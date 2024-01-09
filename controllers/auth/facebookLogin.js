@@ -39,7 +39,12 @@ const facebookLogin = async (req, res) => {
 
     // Create JWT payload and token
     const payload = {
-      user: { id: databaseUser._id, name: databaseUser.username, email: databaseUser.email },
+      user: {
+        id: databaseUser._id,
+        name: databaseUser.username,
+        email: databaseUser.email,
+        avatar: databaseUser?.profile?.avatar,
+      },
     };
     const token = jwt.sign(payload, process.env.JWT_SECRET);
 
