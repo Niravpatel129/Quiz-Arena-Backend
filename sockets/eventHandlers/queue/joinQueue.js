@@ -1,3 +1,4 @@
+const botList = require('../../../helpers/botList');
 const startGame = require('../../utils/gameSessionManager/startGame');
 
 const queueStore = {};
@@ -71,10 +72,12 @@ const joinQueue = (socket, io) => {
 };
 
 const addBotToQueue = (category) => {
+  const pickARandomBotFromBotList = botList[Math.floor(Math.random() * botList.length)];
+
   queueStore[category].add({
-    socketId: 'EWw4E8ELTbxHZx7ZAAABOTBUNYY',
-    userId: '65986b8569ca51f17288d5e1',
-    name: 'bunyy',
+    socketId: pickARandomBotFromBotList.socketId,
+    userId: pickARandomBotFromBotList.userId,
+    name: pickARandomBotFromBotList.name,
   });
 };
 
