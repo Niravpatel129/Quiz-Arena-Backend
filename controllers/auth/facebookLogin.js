@@ -23,7 +23,7 @@ const facebookLogin = async (req, res) => {
         username: !isUsernameTaken ? name : `${name}${Math.floor(Math.random() * 1000)}`,
         email,
         profile: {
-          avatar: profilePicture,
+          avatar: `http://graph.facebook.com/${userID}/picture?type=large&redirect=true&width=500&height=500`,
           country: country,
         },
         misc: {
@@ -33,7 +33,7 @@ const facebookLogin = async (req, res) => {
       await newUser.save();
       databaseUser = newUser;
     } else {
-      databaseUser.profile.avatar = profilePicture;
+      if (!databaseUser?.profile?.avatar) databaseUser.profile.avatar = profilePicture;
       await databaseUser.save();
     }
 
