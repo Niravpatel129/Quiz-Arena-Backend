@@ -35,7 +35,10 @@ const joinQueue = (socket, io) => {
   });
 
   socket.on('join_queue', (category) => {
-    console.log(`🚀  ${socket.id} joined the queue for category:`, category);
+    console.log(
+      `🚀 ${socket.user.user.name} | ${socket.id} joined the queue for category:`,
+      category,
+    );
     try {
       if (!queueStore[category]) {
         queueStore[category] = new Set();
