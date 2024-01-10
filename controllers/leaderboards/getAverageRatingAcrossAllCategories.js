@@ -9,16 +9,19 @@ const getAverageRatingAcrossAllCategories = async (req, res) => {
       });
     });
 
+    const myAvg = allCategories.flat(1).map((category) => `$elo.rating.${category.toLowerCase()}`);
+
     const averageRatings = await User.aggregate([
       {
         $project: {
           username: 1,
           profile: 1,
           averageRating: {
-            $avg: allCategories.flat(1).map((category) => `$elo.rating.${category.toLowerCase()}`),
+            $avg: myAvg,
           },
         },
       },
+      { $sort: { averageRating: -1 } },
     ]).limit(30);
 
     res.json(averageRatings);
