@@ -4,11 +4,11 @@ const getQuestionList = async (req, res) => {
       {
         parentCategory: 'general knowledge',
         subCategories: [
-          // {
-          //   name: 'logos',
-          //   image:
-          //     'https://cdn.discordapp.com/attachments/587141454850424842/1192237145465831484/cropped_logos_quiz_game_icon.png?ex=65a8585e&is=6595e35e&hm=c91398b322488841ebf3c1a8b324cad5732bf381fefda7356d2ea5911e680fe9&',
-          // },
+          {
+            name: 'logos',
+            image:
+              'https://cdn.discordapp.com/attachments/587141454850424842/1192237145465831484/cropped_logos_quiz_game_icon.png?ex=65a8585e&is=6595e35e&hm=c91398b322488841ebf3c1a8b324cad5732bf381fefda7356d2ea5911e680fe9&',
+          },
           {
             name: 'flags',
             image:
