@@ -5,7 +5,7 @@ const upvoteQuestion = async (req, res) => {
 
   try {
     const question = await QuestionModel.findById(questionId);
-    question.upvotes = question.upvotes - 1;
+    question.downvotes = question.downvotes + 1;
     await question.save();
     res.status(200).json(question);
   } catch (err) {
