@@ -26,7 +26,7 @@ const updateUser = async (req, res) => {
 
     await user.save();
 
-    console.log('🚀  user:', user);
+    console.log('🚀  user updated profile:', user.username);
 
     res.json(user);
   } catch (err) {
