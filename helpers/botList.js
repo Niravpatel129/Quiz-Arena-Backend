@@ -49,6 +49,11 @@ const botList = [
     userId: '659e1b1fbc06fc1bfa01995a',
     name: 'Sophiaaaa',
   },
+  {
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTMonotropz',
+    userId: '659edf926ca18f87c3ce65d5',
+    name: 'Monotropz',
+  },
 ];
 
 module.exports = botList;

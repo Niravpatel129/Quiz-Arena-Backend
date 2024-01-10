@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const eloSchema = require('./Elo');
 const generateRandomUsername = require('../helpers/generateRandomUsername');
+const categories = require('../helpers/categoriesList');
 
 const userSchema = new Schema(
   {
@@ -36,20 +37,25 @@ const userSchema = new Schema(
     ],
     elo: {
       type: eloSchema,
-      default: () => ({
-        rating: {
-          Logos: 1200,
-          'League of Legends': 1200,
-          Valorant: 1200,
-          'General Knowledge': 1200,
-          Friends: 1200,
-        },
-        gamesPlayed: 0,
-        wins: 0,
-        losses: 0,
-        draws: 0,
-        history: [],
-      }),
+      default: () => {
+        const myRating = {};
+
+        categories.map((category) => {
+          return category.subCategories.map((subCategory) => {
+            myRating[subCategory.name.toLowerCase()] = 1200;
+            return subCategory.name;
+          });
+        });
+
+        return {
+          rating: myRating,
+          gamesPlayed: 0,
+          wins: 0,
+          losses: 0,
+          draws: 0,
+          history: [],
+        };
+      },
     },
     profile: {
       avatar: {
