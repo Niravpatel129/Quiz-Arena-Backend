@@ -26,6 +26,8 @@ function joinChallengeQueue(socket, io) {
           category,
         },
       ];
+
+      // send notification to
     } else {
       // add to existing queue
       console.log('🚀  adding to existing queue');

@@ -17,11 +17,13 @@ const createUserNotification = async (req, res) => {
     // user who is receiving the notification
 
     if (type === 'gameInvite') {
-      message = `${senderUser.username} has invited you to a game in ${options.category}!`;
+      message = `${senderUser.username || 'Player'} has invited you to a game in ${
+        options.category || 'General'
+      }!`;
     }
 
     if (type === 'friendRequest') {
-      message = `${senderUser.username} has sent you a friend request!`;
+      message = `${senderUser.username || 'Player'} has sent you a friend request!`;
     }
 
     const Notification = {
