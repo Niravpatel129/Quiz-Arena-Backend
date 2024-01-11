@@ -46,6 +46,14 @@ const questionSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    isPending: {
+      type: Boolean,
+      default: true,
+    },
+    addedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+    },
   },
   {
     timestamps: true,

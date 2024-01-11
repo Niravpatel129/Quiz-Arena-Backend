@@ -1,10 +1,21 @@
 const QuestionModel = require('../../models/Question');
+const jwt = require('jsonwebtoken');
 
 const createQuestion = async (req, res) => {
   try {
+    let userId;
     if (!Array.isArray(req.body)) {
       return res.status(400).json({ message: 'Invalid input format. Expected an array.' });
     }
+
+    jwt.verify(token, process.env.JWT_SECRET, async (err, payload) => {
+      if (err) {
+        console.log(err);
+        return next(403, 'Token is not valid!');
+      }
+
+      userId = payload.user?.id;
+    });
 
     const results = await Promise.all(
       req.body.map(async (questionData) => {
@@ -29,6 +40,7 @@ const createQuestion = async (req, res) => {
           answers,
           correctAnswer,
           helperImage,
+          addedBy: userId,
         };
 
         try {
