@@ -1,7 +1,14 @@
 const getConfig = async (req, res) => {
   try {
+    const version = req?.params?.version;
+    let queueTime = 15;
+
+    if (version) {
+      queueTime = version === '1' ? 99999 : 15;
+    }
+
     const config = {
-      queueTime: 15,
+      queueTime: queueTime,
     };
 
     res.status(200).json(config);
