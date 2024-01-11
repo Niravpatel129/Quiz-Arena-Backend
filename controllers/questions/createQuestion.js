@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken');
 const createQuestion = async (req, res) => {
   try {
     let userId;
+    const token = req.headers?.cookie?.split('=')[1];
+
     if (!Array.isArray(req.body)) {
       return res.status(400).json({ message: 'Invalid input format. Expected an array.' });
     }
