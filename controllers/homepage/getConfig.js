@@ -4,7 +4,7 @@ const getConfig = async (req, res) => {
     let queueTime = 15;
 
     if (version) {
-      queueTime = version === '1' ? 10 : 15;
+      queueTime = version === '1' ? 9999 : 15;
     }
 
     const config = {
