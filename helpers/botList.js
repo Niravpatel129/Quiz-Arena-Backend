@@ -54,6 +54,41 @@ const botList = [
     userId: '659edf926ca18f87c3ce65d5',
     name: 'Monotropz',
   },
+  {
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTjojax',
+    userId: '65a0e450f8bddcbb4035f23f',
+    name: 'jojax',
+  },
+  {
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTbidik',
+    userId: '65a0e4eaf8bddcbb4035f2c1',
+    name: 'bidik',
+  },
+  {
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTY4ppi',
+    userId: '65a0e577f8bddcbb4035f2e1',
+    name: 'Y4ppi',
+  },
+  {
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTSpacial',
+    userId: '65a0e58df8bddcbb4035f2e9',
+    name: 'Spacial',
+  },
+  {
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTDeadlySyco',
+    userId: '65a0e848b58205a1a6aadad9',
+    name: 'DeadlySyco',
+  },
+  {
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTKunjP',
+    userId: '65a0e491f8bddcbb4035f24f',
+    name: 'KunjP',
+  },
+  {
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTSpyte',
+    userId: '65a0e470f8bddcbb4035f247',
+    name: 'Spyte',
+  },
 ];
 
 module.exports = botList;
