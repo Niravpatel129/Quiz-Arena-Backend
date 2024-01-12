@@ -54,15 +54,6 @@ const joinQueue = (socket, io) => {
       console.log('🚀  socket.user.user.id:', socket.user.user.id);
 
       checkQueueSize(category, io);
-
-      // if (queueStore[category].size === 2) {
-      //   startGame(category, [...queueStore[category]], io);
-      //   queueStore[category].forEach((playerSocketId) => {
-      //     queueStore[category].delete(playerSocketId);
-      //   });
-      // }
-
-      // io.emit('queue_update', { category, queue: [...queueStore[category]] });
     } catch (error) {
       console.log('🚀  error:', error);
       socket.emit('error', { message: error.message });
@@ -86,6 +77,8 @@ const addBotToQueue = (category) => {
 
 const checkQueueSize = (category, io) => {
   if (queueStore[category].size === 2) {
+    console.log('🚀  queueStore[category]:', queueStore[category]);
+
     startGame(category, [...queueStore[category]], io);
     queueStore[category].forEach((playerSocketId) => {
       queueStore[category].delete(playerSocketId);

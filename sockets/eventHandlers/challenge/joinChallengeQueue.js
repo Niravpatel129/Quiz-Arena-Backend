@@ -42,7 +42,9 @@ function joinChallengeQueue(socket, io) {
     console.log('🚀  challengeQueueStore:', challengeQueueStore);
     if (challengeQueueStore[gameId].length === 2) {
       // start game with these two players and remove from queue
-      console.log('🚀  challange queue starting game');
+      console.log('🚀  challengeQueueStore:', challengeQueueStore[gameId]);
+      console.log('🚀  category:', category);
+
       startGame(category, [...challengeQueueStore[gameId]], io);
 
       delete challengeQueueStore[gameId];
