@@ -4,8 +4,7 @@ const generateRoundsForCategory = require('./generateRounds');
 const startRound = require('./startRound');
 
 const startGame = async (category, players, io) => {
-  console.log('🚀  players:', players);
-  console.log('🚀  category:', category);
+  console.log('🚀  starting category:', category);
   const rounds = await generateRoundsForCategory(category);
 
   const playerPromises = players.map((playerSocketId) =>
