@@ -82,7 +82,7 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
         }
       } catch (err) {
         if (err.name === 'VersionError') {
-          console.log('Bot VersionError encountered. Retrying...');
+          // console.log('Bot VersionError encountered. Retrying...');
         } else {
           throw err;
         }

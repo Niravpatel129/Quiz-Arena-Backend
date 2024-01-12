@@ -81,7 +81,7 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
         }
       } catch (err) {
         if (err.name === 'VersionError') {
-          console.log('VersionError encountered. Retrying...');
+          // console.log('VersionError encountered. Retrying...');
         } else {
           throw err;
         }
