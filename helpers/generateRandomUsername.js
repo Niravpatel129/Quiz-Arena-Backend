@@ -2,28 +2,9 @@ const generateRandomUsername = () => {
   let username;
 
   // Arrays of adjectives and nouns
-  const adjectives = [
-    'Dancing',
-    'Jumping',
-    'Running',
-    'Flying',
-    'Swimming',
-    'Crawling',
-    'Walking',
-    'Singing',
-  ];
-  const nouns = [
-    'Bear',
-    'Lion',
-    'Eagle',
-    'Shark',
-    'Panther',
-    'Tiger',
-    'Wolf',
-    'Horse',
-    'Snake',
-    'Rabbit',
-  ];
+  const adjectives = ['Red', 'Big', 'Fast', 'Hot', 'Cold', 'Wet', 'Dry', 'Tall'];
+
+  const nouns = ['Cat', 'Dog', 'Fox', 'Bat', 'Rat', 'Owl', 'Pig', 'Cow'];
 
   const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
   const noun = nouns[Math.floor(Math.random() * nouns.length)];
