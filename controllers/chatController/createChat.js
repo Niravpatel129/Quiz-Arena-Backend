@@ -30,6 +30,7 @@ const createChat = async (req, res) => {
     const { friendId } = req.body;
 
     if (!friendId) return res.status(400).send('friendId is required');
+    if (userId === friendId) return res.status(400).send('Cannot create chat with yourself');
 
     const existingChat = await Chat.findOne({
       participants: {
