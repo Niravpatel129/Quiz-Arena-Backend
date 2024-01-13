@@ -9,7 +9,7 @@ const getUserChats = async (req, res) => {
       'participants messages.sender',
     );
 
-    console.log('🚀  chats:', chats);
+    console.log('🚀  chats length:', chats.length);
 
     res.json(chats);
   } catch (error) {

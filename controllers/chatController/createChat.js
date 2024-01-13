@@ -40,7 +40,6 @@ const createChat = async (req, res) => {
     }).populate('participants messages.sender');
 
     if (existingChat) {
-      console.log('existingChat');
       return res.json(chatReturnFormat(existingChat, userId));
     } else {
       // Create a new chat
