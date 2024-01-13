@@ -46,7 +46,7 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
           points = 20 - calculateTimeBasedScore(timeRemaining);
           player.score += points;
         } else {
-          console.log('wrong answer');
+          console.log('bot wrong answer!');
         }
 
         player.answers.push({
