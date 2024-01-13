@@ -4,8 +4,14 @@ const User = require('../../models/User');
 const createUserNotification = async (req, res) => {
   try {
     const { receiverId, type, options, receiverName } = req.body;
-
     const userId = req.userId;
+
+    if (!receiverId && !receiverName)
+      return res.status(400).json({ message: 'Missing receiverId or receiverName' });
+
+    if (userId === receiverId)
+      return res.status(400).json({ message: 'Cannot send notification to yourself' });
+
     let message = '';
 
     const senderUser = await User.findById(userId);
