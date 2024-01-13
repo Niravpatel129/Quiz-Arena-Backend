@@ -74,6 +74,11 @@ const categories = [
         image:
           'https://cdn.discordapp.com/attachments/587141454850424842/1192857972053905478/cropped_one_piece_icon.png?ex=65aa9a8e&is=6598258e&hm=2f2b2d8ec88ffb869408ee752b88b0189d9e06ae7e6fc6fa2b5638e058116080&',
       },
+      {
+        name: 'attack on titan',
+        image:
+          'https://cdn.discordapp.com/attachments/587141454850424842/1192857972053905478/cropped_one_piece_icon.png?ex=65aa9a8e&is=6598258e&hm=2f2b2d8ec88ffb869408ee752b88b0189d9e06ae7e6fc6fa2b5638e058116080&',
+      },
     ],
   },
   {
