@@ -13,6 +13,7 @@ const register = async (req, res) => {
   try {
     let user = await User.findOne({ username });
     if (user) {
+      console.log('User already exists');
       return res.status(400).json({ msg: 'User already exists' });
     }
 

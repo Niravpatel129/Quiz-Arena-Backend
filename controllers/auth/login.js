@@ -45,7 +45,7 @@ const login = async (req, res) => {
   try {
     let isNewUser = false;
 
-    let user = await User.findOne({ email: new RegExp('^' + email + '$', 'i') });
+    let user = await User.findOne({ email: email });
 
     if (!user) {
       console.log('user not found');
