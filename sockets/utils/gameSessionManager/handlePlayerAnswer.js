@@ -32,7 +32,7 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
         );
 
         if (alreadyAnswered) {
-          console.log('🚀  skipping because alreadyAnswered:', alreadyAnswered);
+          // console.log('🚀  skipping because alreadyAnswered:', alreadyAnswered);
           return;
         } else {
           console.log('🚀  not alreadyAnswered:', alreadyAnswered);
