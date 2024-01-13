@@ -31,6 +31,13 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
           ),
         );
 
+        if (alreadyAnswered) {
+          console.log('🚀  skipping because alreadyAnswered:', alreadyAnswered);
+          return;
+        } else {
+          console.log('🚀  not alreadyAnswered:', alreadyAnswered);
+        }
+
         const player = gameSession.players.find((p) => p.socketId === playerSocketId);
 
         if (!player) {
