@@ -9,91 +9,76 @@ const calculateTimeBasedScore = (timeRemaining) => {
 };
 
 // Duplicate logic for the bot!
+// jan 13, 2023 watch this code
 const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaining, io) => {
   try {
-    let retry = true;
+    // Fetch the necessary data for the current round
+    const gameSessionData = await GameSession.findById(sessionId, 'currentRound rounds players');
+    if (!gameSessionData) {
+      console.log('Game session not found.');
+      return;
+    }
 
-    while (retry) {
-      try {
-        let gameSession = await GameSession.findById(sessionId);
+    const currentRoundData = gameSessionData.rounds[gameSessionData.currentRound - 1];
+    const isCorrect = answer === currentRoundData.correctAnswer;
+    let points = isCorrect ? 20 - calculateTimeBasedScore(timeRemaining) : 0;
 
-        if (!gameSession) {
-          console.log('Game session not found.');
-          return;
-        }
+    const updateCondition = {
+      _id: sessionId,
+      'players.socketId': playerSocketId,
+      'players.answers': { $not: { $elemMatch: { roundNumber: gameSessionData.currentRound } } },
+    };
 
-        const currentRound = gameSession.rounds[gameSession.currentRound - 1];
-
-        // dont allow answer if already answered for this round using playerSocketId
-        const alreadyAnswered = gameSession.players.some((player) =>
-          player.answers.some(
-            (ans) =>
-              ans.roundNumber === gameSession.currentRound && player.socketId === playerSocketId,
-          ),
-        );
-
-        if (alreadyAnswered) {
-          // console.log('🚀  skipping because alreadyAnswered:', alreadyAnswered);
-          return;
-        } else {
-          console.log('🚀  not alreadyAnswered:', alreadyAnswered);
-        }
-
-        const player = gameSession.players.find((p) => p.socketId === playerSocketId);
-
-        if (!player) {
-          console.log('Player not found in game session.');
-          return;
-        }
-
-        const isCorrect = answer === currentRound.correctAnswer;
-        let points = 0;
-
-        if (isCorrect) {
-          points = 20 - calculateTimeBasedScore(timeRemaining);
-          player.score += points;
-        } else {
-          console.log('bot wrong answer!');
-        }
-
-        player.answers.push({
-          roundNumber: gameSession.currentRound,
+    const updateOperations = {
+      $inc: { 'players.$.score': points },
+      $push: {
+        'players.$.answers': {
+          roundNumber: gameSessionData.currentRound,
           answer,
           isCorrect,
           points,
-        });
+        },
+      },
+      $set: { lastUpdated: new Date() },
+    };
 
-        await gameSession.save();
-        retry = false; // Save successful, no need to retry
+    let updatedGameSession = await GameSession.findOneAndUpdate(updateCondition, updateOperations, {
+      new: true,
+    });
 
-        const allPlayersAnswered = gameSession.players.every((player) =>
-          player.answers.some((ans) => ans.roundNumber === gameSession.currentRound),
+    console.log('Bot answered');
+
+    if (!updatedGameSession) {
+      console.log('Update condition not met or player already answered.');
+      return;
+    }
+
+    // Check if all players have answered for the current round
+    const allPlayersAnswered = updatedGameSession.players.every((player) =>
+      player.answers.some((ans) => ans.roundNumber === updatedGameSession.currentRound),
+    );
+
+    if (allPlayersAnswered) {
+      if (updatedGameSession.currentRound >= updatedGameSession.rounds.length) {
+        await endGame(sessionId, updatedGameSession.players, io);
+      } else {
+        await startRound(
+          sessionId,
+          updatedGameSession.currentRound + 1,
+          updatedGameSession.players,
+          io,
         );
-
-        if (allPlayersAnswered) {
-          if (gameSession.currentRound >= gameSession.rounds.length) {
-            await endGame(sessionId, gameSession.players, io);
-          } else {
-            await startRound(sessionId, gameSession.currentRound + 1, gameSession.players, io);
-          }
-        }
-
-        io.to(playerSocketId).emit('answer_result', { isCorrect, currentScore: player.score });
-
-        const opponent = gameSession.players.find((p) => p.socketId !== playerSocketId);
-        if (opponent) {
-          io.to(opponent.socketId).emit('opponent_guessed', {
-            isCorrect,
-            currentScore: opponent.score,
-          });
-        }
-      } catch (err) {
-        if (err.name === 'VersionError') {
-          // console.log('Bot VersionError encountered. Retrying...');
-        } else {
-          throw err;
-        }
       }
+    }
+
+    io.to(playerSocketId).emit('answer_result', { isCorrect, currentScore: points });
+
+    const opponent = updatedGameSession.players.find((p) => p.socketId !== playerSocketId);
+    if (opponent) {
+      io.to(opponent.socketId).emit('opponent_guessed', {
+        isCorrect,
+        currentScore: opponent.score,
+      });
     }
   } catch (error) {
     console.error('Error handling player answer:', error);
