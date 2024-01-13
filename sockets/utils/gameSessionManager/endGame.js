@@ -34,6 +34,7 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
         'elo.wins': gameResults === 'win' ? 1 : 0,
         'elo.losses': gameResults === 'lost' ? 1 : 0,
         'elo.draws': gameResults === 'draw' ? 1 : 0,
+        'profile.experience': 10,
       },
       $push: {
         'elo.history': {
