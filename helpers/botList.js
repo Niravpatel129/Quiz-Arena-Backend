@@ -89,6 +89,16 @@ const botList = [
     userId: '65a0e470f8bddcbb4035f247',
     name: 'Spyte',
   },
+  {
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTRolls',
+    userId: '65a1f9fd35573bfa94bdd416',
+    name: 'Rolls',
+  },
+  {
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOT_fiction_',
+    userId: '65a1faa2975858c85219636b',
+    name: '_fiction_',
+  },
 ];
 
 module.exports = botList;
