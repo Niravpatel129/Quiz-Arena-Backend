@@ -14,7 +14,15 @@ const createUserNotification = async (req, res) => {
     if (receiverName)
       recieverUser = await User.findOne({ username: new RegExp('^' + receiverName + '$', 'i') });
 
-    // user who is receiving the notification
+    // dont allow duplicates from the same sender to the same reciever for friend requests
+    if (type === 'friendRequest') {
+      const duplicate = recieverUser?.notifications?.find(
+        (notification) =>
+          notification.type === 'friendRequest' && notification.from.toString() === userId,
+      );
+
+      if (duplicate) return res.status(200).json({ message: 'Notification created' });
+    }
 
     if (type === 'gameInvite') {
       message = `${senderUser.username || 'Player'} has invited you to a game in ${
