@@ -49,7 +49,6 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
     console.log('Bot answered');
 
     if (!updatedGameSession) {
-      // console.log('Update condition not met or player already answered.');
       return;
     }
 
