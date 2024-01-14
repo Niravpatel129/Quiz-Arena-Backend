@@ -46,7 +46,7 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
       new: true,
     });
 
-    console.log('Bot answered');
+    // console.log('Bot answered');
 
     if (!updatedGameSession) {
       return;
