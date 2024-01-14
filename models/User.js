@@ -1,4 +1,3 @@
-// user model
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const eloSchema = require('./Elo');
