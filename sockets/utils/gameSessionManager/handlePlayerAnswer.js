@@ -11,14 +11,39 @@ const calculateTimeBasedScore = (timeRemaining) => {
 const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaining, io) => {
   try {
     let retry = true;
+    let gameSession = await GameSession.findById(sessionId, 'currentRound rounds players');
+
+    // check if opponent is bot
+    let OpponentBotData = null;
+    const isOpponentBot = gameSession.players.find((p) => {
+      if (p.socketId.toString().includes('BOT')) {
+        OpponentBotData = p;
+      }
+
+      return p.socketId.toString().includes('BOT');
+    });
+
+    if (isOpponentBot) {
+      console.log('Opponent is bot');
+
+      if (OpponentBotData.answers.length >= gameSession.currentRound) {
+        console.log('Bot has answered already');
+      } else {
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+      }
+    }
 
     while (retry) {
       try {
-        let gameSession = await GameSession.findById(sessionId, 'currentRound rounds players');
+        // let gameSession = await GameSession.findById(sessionId, 'currentRound rounds players');
+        // if (!gameSession) {
+        //   console.log('Game session not found.');
+        //   return;
+        // }
 
-        if (!gameSession) {
-          console.log('Game session not found.');
-          return;
+        if (gameSession.players[0].answers.length > gameSession.players[1].answers.length) {
+          console.log('Opponent has answered already');
+          // return;
         }
 
         const currentRound = gameSession.rounds[gameSession.currentRound - 1];
