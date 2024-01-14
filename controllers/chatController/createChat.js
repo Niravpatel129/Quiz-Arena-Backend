@@ -6,10 +6,15 @@ const chatReturnFormat = (rawChat, myUserId) => {
     (participant) => participant._id.toString() !== myUserId,
   );
 
+  if (!otherParticipant) {
+    console.log('🚀  otherParticipant:', otherParticipant);
+    return null;
+  }
+
   return {
     _id: rawChat._id,
     chatingWith: {
-      name: otherParticipant.username,
+      name: otherParticipant?.username || 'Unknown',
       avatar: otherParticipant.profile.avatar,
       lastActive: otherParticipant.lastActive,
     },
