@@ -3,15 +3,18 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const FormData = require('form-data');
+const User = require('../models/User');
 
 const convertUserAvatars = async () => {
+  let index = 0;
   try {
     const users = await User.find({});
 
     for (const user of users) {
+      if (!user.profile.avatar) continue;
+
       if (
-        !user.profile.avatar ||
-        user.profile.avatar.endsWith('.jpeg') ||
+        (user.profile.avatar.endsWith('.jpg') && user.profile.avatar.includes('cloudinary')) ||
         user.profile.avatar.endsWith('.jpg')
       ) {
         continue;
@@ -43,13 +46,19 @@ const convertUserAvatars = async () => {
         }
 
         console.log(`Converted and uploaded new avatar for user: ${user.username}`);
+
+        // delete local image file
+        index += 1;
+        fs.unlinkSync(newAvatarPath);
       } catch (error) {
         console.error(`Error processing avatar for user ${user.username}:`, error);
       }
     }
+
+    console.log(`Done converting ${index} user avatars`);
   } catch (err) {
     console.error(err.message);
   }
 };
 
-convertUserAvatars();
+module.exports = convertUserAvatars;
