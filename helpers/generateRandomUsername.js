@@ -10,7 +10,7 @@ const generateRandomUsername = () => {
   const noun = nouns[Math.floor(Math.random() * nouns.length)];
 
   // Generate a random number
-  const number = Math.floor(Math.random() * 100);
+  const number = Math.floor(Math.random() * 9000);
 
   // Form the username
   username = `${adjective}${noun}${number}`;
