@@ -14,7 +14,7 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
 
     while (retry) {
       try {
-        let gameSession = await GameSession.findById(sessionId);
+        let gameSession = await GameSession.findById(sessionId, 'currentRound rounds players');
 
         if (!gameSession) {
           console.log('Game session not found.');
