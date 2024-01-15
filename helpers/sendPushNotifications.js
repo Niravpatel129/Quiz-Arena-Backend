@@ -1,12 +1,13 @@
 const { Expo } = require('expo-server-sdk');
 let expo = new Expo();
 
-async function sendPushNotifications(tokens, messageBody) {
+async function sendPushNotifications(messageTitle, tokens, messageBody, messageData) {
   let messages = tokens.map((token) => ({
     to: token,
     sound: 'default',
+    title: messageTitle,
     body: messageBody,
-    data: { withSome: 'data' },
+    data: messageData,
   }));
 
   let chunks = expo.chunkPushNotifications(messages);
