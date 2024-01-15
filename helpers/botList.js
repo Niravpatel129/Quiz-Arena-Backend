@@ -159,6 +159,116 @@ const botList = [
     userId: '65a4dd636d54217e3682b7f2',
     socketId: 'EWw4E8ELTbxHZx7ZAAABOTPrism',
   },
+  {
+    name: 'Sawyer',
+    userId: new '65a4e9f1aaa78351b376209f'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTSawyer',
+  },
+  {
+    name: 'Fra3nk',
+    userId: new '65a4e9f1aaa78351b37620a5'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTFra3nk',
+  },
+  {
+    name: 'Effr',
+    userId: new '65a4e9f1aaa78351b37620a9'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTEffr',
+  },
+  {
+    name: 'Eiffel',
+    userId: new '65a4e9f2aaa78351b3762128'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTEiffel',
+  },
+  {
+    name: 'Ernest',
+    userId: new '65a4e9f2aaa78351b376212c'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTErnest',
+  },
+  {
+    name: 'Frank',
+    userId: new '65a4e9f2aaa78351b3762130'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTFrank',
+  },
+  {
+    name: 'Felipe',
+    userId: new '65a4e9f2aaa78351b3762134'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTFelipe',
+  },
+  {
+    name: 'Eduardo',
+    userId: new '65a4e9f2aaa78351b3762138'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTEduardo',
+  },
+  {
+    name: 'E3333',
+    userId: new '65a4e9f2aaa78351b376213c'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTE3333',
+  },
+  {
+    name: 'LEON',
+    userId: new '65a4e9f3aaa78351b3762140'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTLEON',
+  },
+  {
+    name: 'KITTY',
+    userId: new '65a4e9f3aaa78351b3762144'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTKITTY',
+  },
+  {
+    name: 'King',
+    userId: new '65a4e9f3aaa78351b3762148'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTKing',
+  },
+  {
+    name: 'King_James',
+    userId: new '65a4e9f3aaa78351b376214c'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTKing_James',
+  },
+  {
+    name: 'Azn',
+    userId: new '65a4e9f3aaa78351b3762150'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTAzn',
+  },
+  {
+    name: 'LBoy',
+    userId: new '65a4e9f3aaa78351b3762154'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTLBoy',
+  },
+  {
+    name: 'Zaary',
+    userId: new '65a4e9f3aaa78351b3762158'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTZaary',
+  },
+  {
+    name: 'Queenie',
+    userId: new '65a4e9f4aaa78351b376215c'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTQueenie',
+  },
+  {
+    name: 'ElonMusk',
+    userId: new '65a4e9f4aaa78351b3762160'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTElonMusk',
+  },
+  {
+    name: 'TjM',
+    userId: new '65a4e9f4aaa78351b3762164'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTTjM',
+  },
+  {
+    name: 'IndianLad',
+    userId: new '65a4e9f4aaa78351b3762168'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTIndianLad',
+  },
+  {
+    name: 'Laddu',
+    userId: new '65a4e9f4aaa78351b376216c'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTLaddu',
+  },
+  {
+    name: 'QueenMarry',
+    userId: new '65a4e9f4aaa78351b3762170'(),
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTQueenMarry',
+  },
 ];
 
 module.exports = botList;
