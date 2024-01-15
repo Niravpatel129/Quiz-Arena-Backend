@@ -2,6 +2,8 @@ const User = require('../../models/User');
 
 const getUserById = async (req, res) => {
   try {
+    console.log('getUserById');
+
     if (!req.params.userId && !req.userId) return res.send('No user id provided');
 
     let userId = req.params.userId || req.userId;

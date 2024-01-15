@@ -13,6 +13,7 @@ const verifyToken = (req, res, next) => {
         return next(403, 'Token is not valid!');
       }
 
+      console.log('token is valid, continue');
       req.userId = payload.user?.id;
       req.name = payload.user?.name || payload.user?.username || 'anonymous';
       req.avatar = payload.user?.avatar || null;
