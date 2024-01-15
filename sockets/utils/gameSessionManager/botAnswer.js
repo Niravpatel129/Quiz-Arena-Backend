@@ -53,22 +53,22 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
     }
 
     // Check if all players have answered for the current round
-    const allPlayersAnswered = updatedGameSession.players.every((player) =>
-      player.answers.some((ans) => ans.roundNumber === updatedGameSession.currentRound),
-    );
+    // const allPlayersAnswered = updatedGameSession.players.every((player) =>
+    //   player.answers.some((ans) => ans.roundNumber === updatedGameSession.currentRound),
+    // );
 
-    if (allPlayersAnswered) {
-      if (updatedGameSession.currentRound >= updatedGameSession.rounds.length) {
-        await endGame(sessionId, updatedGameSession.players, io);
-      } else {
-        await startRound(
-          sessionId,
-          updatedGameSession.currentRound + 1,
-          updatedGameSession.players,
-          io,
-        );
-      }
-    }
+    // if (allPlayersAnswered) {
+    //   if (updatedGameSession.currentRound >= updatedGameSession.rounds.length) {
+    //     await endGame(sessionId, updatedGameSession.players, io);
+    //   } else {
+    //     await startRound(
+    //       sessionId,
+    //       updatedGameSession.currentRound + 1,
+    //       updatedGameSession.players,
+    //       io,
+    //     );
+    //   }
+    // }
 
     io.to(playerSocketId).emit('answer_result', { isCorrect, currentScore: points });
 

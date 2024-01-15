@@ -9,13 +9,13 @@ const handleTimeUp = async (sessionId, roundNumber, players, io) => {
   }
 
   // Logic for when both players answered before time up
-  const allPlayersAnswered = gameSession.players.every((player) =>
-    player.answers.some((ans) => ans.roundNumber === gameSession.currentRound),
-  );
+  // const allPlayersAnswered = gameSession.players.every((player) =>
+  //   player.answers.some((ans) => ans.roundNumber === gameSession.currentRound),
+  // );
 
-  if (allPlayersAnswered) {
-    return;
-  }
+  // if (allPlayersAnswered) {
+  //   return;
+  // }
 
   // Logic for handling no answer from player
   gameSession.players.forEach(async (player, index) => {
@@ -85,7 +85,31 @@ const startRound = async (sessionId, roundNumber, players, io) => {
   // const bot = players.find((player) => player.socketId === 'EWw4E8ELTbxHZx7ZAAABOT');
   // if (bot) botAnswer(io, bot, gameSession);
 
-  setTimeout(() => {
+  const roundInterval = setInterval(async () => {
+    const gameSession = await GameSession.findById(sessionId).populate('players');
+
+    // check if both players have answered
+    const allPlayersAnswered = gameSession.players.every((player) =>
+      player.answers.some((ans) => ans.roundNumber === gameSession.currentRound),
+    );
+
+    console.log('🚀  allPlayersAnswered:', allPlayersAnswered);
+
+    if (allPlayersAnswered) {
+      clearInterval(roundInterval);
+      clearTimeout(timeOut);
+
+      // Increment the round number
+      handleTimeUp(sessionId, roundNumber, players, io);
+
+      return;
+    }
+  }, 1000);
+
+  const timeOut = setTimeout(async () => {
+    // find session
+
+    clearInterval(roundInterval);
     handleTimeUp(sessionId, roundNumber, players, io);
   }, currentRound.timeLimit * 1000);
 };
