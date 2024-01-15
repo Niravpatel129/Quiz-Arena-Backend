@@ -13,12 +13,12 @@ const convertUserAvatars = async () => {
     for (const user of users) {
       if (!user.profile.avatar) continue;
 
-      // if (
-      //   (user.profile.avatar.endsWith('.jpg') && user.profile.avatar.includes('cloudinary')) ||
-      //   user.profile.avatar.endsWith('.jpg')
-      // ) {
-      //   continue;
-      // }
+      if (
+        (user.profile.avatar.endsWith('.jpg') && user.profile.avatar.includes('cloudinary')) ||
+        user.profile.avatar.endsWith('.jpg')
+      ) {
+        continue;
+      }
 
       try {
         // if the username is not GoraPakora skip

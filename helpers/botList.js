@@ -99,6 +99,66 @@ const botList = [
     userId: '65a1faa2975858c85219636b',
     name: '_fiction_',
   },
+  {
+    name: 'Griffin',
+    userId: '65a4dd636d54217e3682b7dc',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTGriffin',
+  },
+  {
+    name: 'Cernuie3',
+    userId: '65a4dd636d54217e3682b7de',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTCernuie3',
+  },
+  {
+    name: 'Keval',
+    userId: '65a4dd636d54217e3682b7e0',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTKeval',
+  },
+  {
+    name: 'LegendFork',
+    userId: '65a4dd636d54217e3682b7e2',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTLegendFork',
+  },
+  {
+    name: 'Fortriss',
+    userId: '65a4dd636d54217e3682b7e4',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTFortriss',
+  },
+  {
+    name: 'WaveBeam',
+    userId: '65a4dd636d54217e3682b7e6',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTWaveBeam',
+  },
+  {
+    name: 'NickJ',
+    userId: '65a4dd636d54217e3682b7e8',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTNickJ',
+  },
+  {
+    name: 'Preston',
+    userId: '65a4dd636d54217e3682b7ea',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTPreston',
+  },
+  {
+    name: 'Evul',
+    userId: '65a4dd636d54217e3682b7ec',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTEvul',
+  },
+  {
+    name: 'ZyzzBrah',
+    userId: '65a4dd636d54217e3682b7ee',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTZyzzBrah',
+  },
+  {
+    name: 'SingedMain',
+    userId: '65a4dd636d54217e3682b7f0',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTSingedMain',
+  },
+  {
+    name: 'Prism',
+    userId: '65a4dd636d54217e3682b7f2',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTPrism',
+  },
 ];
 
 module.exports = botList;
