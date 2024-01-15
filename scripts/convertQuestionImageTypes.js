@@ -33,7 +33,7 @@ const convertQuestionImageTypes = async () => {
 
           const newHelperImage = path.join(__dirname, 'questionsImage', `question-${index}.jpeg`);
 
-          await sharp(response.data).toFormat('jpeg').toFile(newHelperImage);
+          await sharp(response.data).resize({ width: 200 }).toFormat('jpeg').toFile(newHelperImage);
           const formData = new FormData();
 
           formData.append('file', fs.createReadStream(newHelperImage));

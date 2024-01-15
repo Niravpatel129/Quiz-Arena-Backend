@@ -13,14 +13,16 @@ const convertUserAvatars = async () => {
     for (const user of users) {
       if (!user.profile.avatar) continue;
 
-      if (
-        (user.profile.avatar.endsWith('.jpg') && user.profile.avatar.includes('cloudinary')) ||
-        user.profile.avatar.endsWith('.jpg')
-      ) {
-        continue;
-      }
+      // if (
+      //   (user.profile.avatar.endsWith('.jpg') && user.profile.avatar.includes('cloudinary')) ||
+      //   user.profile.avatar.endsWith('.jpg')
+      // ) {
+      //   continue;
+      // }
 
       try {
+        // if the username is not GoraPakora skip
+
         const response = await axios({
           method: 'get',
           url: user.profile.avatar,
@@ -29,7 +31,7 @@ const convertUserAvatars = async () => {
 
         const newAvatarPath = path.join(__dirname, 'avatars', `${user.username}.jpeg`);
 
-        await sharp(response.data).toFormat('jpeg').toFile(newAvatarPath);
+        await sharp(response.data).resize({ width: 200 }).toFormat('jpeg').toFile(newAvatarPath);
 
         const formData = new FormData();
         formData.append('file', fs.createReadStream(newAvatarPath));
@@ -39,12 +41,14 @@ const convertUserAvatars = async () => {
           `https://api.cloudinary.com/v1_1/gamercoach/image/upload?api_key=997981818793491`,
           formData,
         );
+        console.log('🚀  uploadResponse:', uploadResponse.data.secure_url);
 
         if (uploadResponse.data.secure_url) {
           user.profile.avatar = uploadResponse.data.secure_url;
           await user.save();
         }
 
+        console.log('🚀  uploadResponse.data.secure_url:', uploadResponse.data.secure_url);
         console.log(`Converted and uploaded new avatar for user: ${user.username}`);
 
         // delete local image file
@@ -57,7 +61,7 @@ const convertUserAvatars = async () => {
 
     console.log(`Done converting ${index} user avatars`);
   } catch (err) {
-    console.error(err.message);
+    console.log('🚀  err.message:', err.message);
   }
 };
 
