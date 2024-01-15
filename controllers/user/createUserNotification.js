@@ -57,7 +57,7 @@ const createUserNotification = async (req, res) => {
 
     // if recieverUser has misc.pushToken send push notification
     if (recieverUser.misc?.pushToken) {
-      sendPushNotifications([recieverUser.misc.pushToken], message);
+      sendPushNotifications(null, [recieverUser.misc.pushToken], message);
     }
 
     res.status(200).json({ message: 'Notification created' });

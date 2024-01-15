@@ -5,7 +5,7 @@ async function sendPushNotifications(messageTitle, tokens, messageBody, messageD
   let messages = tokens.map((token) => ({
     to: token,
     sound: 'default',
-    title: messageTitle,
+    title: messageTitle || 'New notification',
     body: messageBody,
     data: messageData,
   }));
