@@ -13,5 +13,6 @@ router.post('/notifications', verifyToken, userController.createUserNotification
 router.delete('/notifications/:notificationId', verifyToken, userController.deleteUserNotification);
 router.put('/', verifyToken, userController.updateUser);
 router.get('/:userId', verifyToken, userController.getUserById);
+router.post('/syncContacts', verifyToken, userController.syncContacts);
 
 module.exports = router;
