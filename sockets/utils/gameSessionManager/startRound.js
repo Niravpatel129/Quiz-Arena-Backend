@@ -93,8 +93,6 @@ const startRound = async (sessionId, roundNumber, players, io) => {
       player.answers.some((ans) => ans.roundNumber === gameSession.currentRound),
     );
 
-    console.log('🚀  allPlayersAnswered:', allPlayersAnswered);
-
     if (allPlayersAnswered) {
       clearInterval(roundInterval);
       clearTimeout(timeOut);
@@ -104,7 +102,7 @@ const startRound = async (sessionId, roundNumber, players, io) => {
 
       return;
     }
-  }, 1000);
+  }, 500);
 
   const timeOut = setTimeout(async () => {
     // find session
