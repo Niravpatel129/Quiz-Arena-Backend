@@ -3,6 +3,8 @@ const User = require('../../../models/User');
 
 const updatePlayerRating = async ({ playerId, category, gameResults }) => {
   try {
+    const randomNumberBetween = Math.floor(Math.random() * (12 - 5 + 1) + 5);
+
     console.log('🚀  category:', category);
     const player = await User.findById(playerId);
 
@@ -15,11 +17,11 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
     let updatedRating;
 
     if (gameResults === 'win') {
-      ratingChange = 16;
+      ratingChange = randomNumberBetween;
     } else if (gameResults === 'lost') {
-      ratingChange = -16;
+      ratingChange = -randomNumberBetween;
     } else if (gameResults === 'draw') {
-      ratingChange = 10;
+      ratingChange = 0;
     }
 
     updatedRating = (player.elo.rating[category.toLowerCase()] || 1200) + ratingChange;
