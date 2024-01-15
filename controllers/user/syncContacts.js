@@ -1,3 +1,4 @@
+const { sendPushNotifications } = require('../../helpers/sendPushNotifications');
 const User = require('../../models/User');
 
 const syncContacts = async (req, res) => {
@@ -8,7 +9,7 @@ const syncContacts = async (req, res) => {
     // Find the user and populate friends
     const user = await User.findById(userId).populate({
       path: 'friends',
-      select: '_id username email profile.avatar',
+      select: '_id username email profile.avatar misc.pushToken',
     });
 
     if (!user) {
@@ -23,17 +24,23 @@ const syncContacts = async (req, res) => {
     // Find users that are not already friends
     const newFriends = await User.find({
       email: { $in: nonFriendEmails },
-    }).select('_id');
+    }).select('_id username email profile.avatar misc.pushToken');
 
     if (newFriends.length > 0) {
       user.friends = [...user.friends, ...newFriends.map((friend) => friend._id)];
       await user.save();
     }
 
-    // Return friends that were in the requested emails
-    const returnedFriends = user.friends.filter((friend) => emails.includes(friend.email));
+    // send notification to new friends
+    const newFriendIds = newFriends.map((friend) =>
+      friend?.misc?.pushToken ? friend?.misc?.pushToken : null,
+    );
 
-    res.status(200).json(returnedFriends);
+    sendPushNotifications(null, newFriendIds, 'New friend', `${user.username} is on Quiz Arena!`);
+
+    res.status(200).json({
+      friends: user.friends,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
