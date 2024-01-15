@@ -130,7 +130,7 @@ const generateAccounts = async () => {
         password: player.username,
         profile: {
           avatar: player.avatar,
-          coutry: countries[Math.floor(Math.random() * countries.length)],
+          country: countries[Math.floor(Math.random() * countries.length)],
         },
       });
 
