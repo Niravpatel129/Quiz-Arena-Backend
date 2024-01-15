@@ -8,7 +8,7 @@ const validateToken = async (req, res) => {
 
     const payload = { user: { id: user._id, name: user.username, email: user.email } };
     const token = jwt.sign(payload, process.env.JWT_SECRET);
-    res.cookie('token', token, { httpOnly: true });
+    res.cookie('token', token, { httpOnly: true }).status(200).send({ token, user });
 
     // res.json({ userId: req.userId, name: req.name });
   } catch (err) {
