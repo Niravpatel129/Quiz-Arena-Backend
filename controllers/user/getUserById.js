@@ -14,6 +14,16 @@ const getUserById = async (req, res) => {
 
     const user = await User.findById(userId);
 
+    // calculate average rating from all categories
+    let totalRating = 0;
+    let totalGames = 0;
+    for (let category in user.elo.rating) {
+      totalRating += user.elo.rating[category];
+      totalGames += user.elo.gamesPlayed;
+    }
+
+    const averageRating = totalRating / Object.keys(user.elo.rating).length;
+
     const DataToSend = {
       userId: user._id,
       username: user.username,
@@ -23,7 +33,7 @@ const getUserById = async (req, res) => {
       country: user.profile.country || 'aq',
       experience: user.profile.experience,
       lastActive: user.lastActive || Date.now(),
-      averageRating: user.elo.rating['General Knowledge'] || 1200,
+      averageRating: Math.floor(averageRating) || 1200,
       allRating: user.elo.rating,
       totalGames: user.elo.gamesPlayed || 0,
       winRate: (user.elo.wins / user.elo.gamesPlayed) * 100 || 0,
