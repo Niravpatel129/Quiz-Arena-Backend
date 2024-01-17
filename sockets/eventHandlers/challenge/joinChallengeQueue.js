@@ -32,6 +32,13 @@ function joinChallengeQueue(socket, io) {
       );
     });
 
+    // delete all empty queues
+    Object.keys(challengeQueueStore).forEach((key) => {
+      if (challengeQueueStore[key].length === 0) {
+        delete challengeQueueStore[key];
+      }
+    });
+
     let setCategory = category;
 
     if (!gameId) {
