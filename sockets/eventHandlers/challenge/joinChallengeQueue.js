@@ -3,26 +3,6 @@ const startGame = require('../../utils/gameSessionManager/startGame');
 const challengeQueueStore = {};
 
 function joinChallengeQueue(socket, io) {
-  socket.on('confirmGameInvite', (data) => {
-    // check if game exists
-    const gameId = data.gameId;
-    if (!gameId) return;
-
-    // check if game id exists in challengeQueueStore
-    if (!challengeQueueStore[gameId] || !challengeQueueStore[gameId].length === 0) {
-      console.log('🚀  gameId not found');
-      socket.emit('game_invite_declined');
-
-      return;
-    }
-
-    if (challengeQueueStore[gameId]?.length === 1) {
-      socket.emit('game_invite_confirmed');
-
-      return;
-    }
-  });
-
   socket.on('joinChallengeQueue', (data) => {
     const { gameId, category } = data;
 
@@ -35,7 +15,7 @@ function joinChallengeQueue(socket, io) {
 
     // delete all empty queues
     Object.keys(challengeQueueStore).forEach((key) => {
-      if (challengeQueueStore[key].length === 0) {
+      if (challengeQueueStore[key]?.length === 0) {
         delete challengeQueueStore[key];
       }
     });
@@ -52,6 +32,7 @@ function joinChallengeQueue(socket, io) {
     if (!setCategory) {
       if (!challengeQueueStore[gameId]) {
         socket.emit('challengeExpired');
+        return;
       } else {
         setCategory = challengeQueueStore[gameId][0].category;
       }
