@@ -28,7 +28,7 @@ function joinChallengeQueue(socket, io) {
     // remove from any other queue
     Object.keys(challengeQueueStore).forEach((key) => {
       challengeQueueStore[key] = challengeQueueStore[key].filter(
-        (item) => item.socketId !== socket.id,
+        (item) => item.socketId !== socket.id || item.userId !== socket.user?.user?.id,
       );
     });
 
