@@ -15,7 +15,7 @@ function joinChallengeQueue(socket, io) {
       return;
     }
 
-    if (challengeQueueStore[gameId].length === 1) {
+    if (challengeQueueStore[gameId]?.length === 1) {
       socket.emit('game_invite_confirmed');
 
       return;
