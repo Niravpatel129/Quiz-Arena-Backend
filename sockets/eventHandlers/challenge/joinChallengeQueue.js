@@ -105,6 +105,7 @@ function joinChallengeQueue(socket, io) {
 
     if (challengeQueueStore[gameId]?.length === 0) {
       delete challengeQueueStore[gameId];
+      console.log('🚀  queue cleared');
     }
   });
 }
