@@ -5,9 +5,27 @@ const challengeQueueStore = {};
 function joinChallengeQueue(socket, io) {
   socket.on('joinChallengeQueue', (data) => {
     const { gameId, category } = data;
+
+    let setCategory = category;
+
+    if (!gameId) {
+      console.log('🚀  gameId not found');
+      socket.emit('challengeExpired');
+
+      return;
+    }
+
+    if (!setCategory) {
+      if (!challengeQueueStore[gameId]) {
+        socket.emit('challengeExpired');
+      } else {
+        setCategory = challengeQueueStore[gameId][0].category;
+      }
+    }
+
     console.log(
       `🚀  ${socket.id} joined the challenge queue for category ${gameId} gameId:`,
-      data.category,
+      setCategory,
     );
 
     if (!gameId) {
@@ -23,7 +41,7 @@ function joinChallengeQueue(socket, io) {
           socketId: socket.id,
           userId: socket.user?.user?.id,
           name: socket.user?.user?.name || 'Anonymous',
-          category,
+          category: setCategory,
         },
       ];
 
@@ -35,7 +53,7 @@ function joinChallengeQueue(socket, io) {
         socketId: socket.id,
         userId: socket.user?.user?.id,
         name: socket.user?.user?.name,
-        category,
+        category: setCategory,
       });
     }
 
@@ -43,9 +61,9 @@ function joinChallengeQueue(socket, io) {
     if (challengeQueueStore[gameId].length === 2) {
       // start game with these two players and remove from queue
       console.log('🚀  challengeQueueStore:', challengeQueueStore[gameId]);
-      console.log('🚀  category:', category);
+      console.log('🚀  category:', setCategory);
 
-      startGame(category, [...challengeQueueStore[gameId]], io);
+      startGame(setCategory, [...challengeQueueStore[gameId]], io);
 
       delete challengeQueueStore[gameId];
     }
