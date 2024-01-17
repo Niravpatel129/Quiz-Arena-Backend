@@ -21,7 +21,11 @@ const updateUser = async (req, res) => {
     }
 
     updates.forEach((update) => {
-      user[update] = req.body[update];
+      if (update === 'profile' && req?.body?.profile?.avatar) {
+        user.profile.avatar = req.body.profile.avatar ?? user.profile.avatar;
+      } else {
+        user[update] = req.body[update];
+      }
     });
 
     await user.save();
