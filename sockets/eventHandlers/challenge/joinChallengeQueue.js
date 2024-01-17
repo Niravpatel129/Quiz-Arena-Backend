@@ -25,6 +25,13 @@ function joinChallengeQueue(socket, io) {
   socket.on('joinChallengeQueue', (data) => {
     const { gameId, category } = data;
 
+    // remove from any other queue
+    Object.keys(challengeQueueStore).forEach((key) => {
+      challengeQueueStore[key] = challengeQueueStore[key].filter(
+        (item) => item.socketId !== socket.id,
+      );
+    });
+
     let setCategory = category;
 
     if (!gameId) {
@@ -77,7 +84,7 @@ function joinChallengeQueue(socket, io) {
     }
 
     console.log('🚀  challengeQueueStore:', challengeQueueStore);
-    if (challengeQueueStore[gameId].length === 2) {
+    if (challengeQueueStore[gameId]?.length === 2) {
       // start game with these two players and remove from queue
       console.log('🚀  challengeQueueStore:', challengeQueueStore[gameId]);
       console.log('🚀  category:', setCategory);
