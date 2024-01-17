@@ -6,9 +6,10 @@ function joinChallengeQueue(socket, io) {
   socket.on('confirmGameInvite', (data) => {
     // check if game exists
     const gameId = data.gameId;
+    if (!gameId) return;
 
     // check if game id exists in challengeQueueStore
-    if (!challengeQueueStore[gameId]) {
+    if (!challengeQueueStore[gameId] || !challengeQueueStore[gameId].length === 0) {
       console.log('🚀  gameId not found');
       socket.emit('game_invite_declined');
 
