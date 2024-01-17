@@ -34,6 +34,8 @@ function joinChallengeQueue(socket, io) {
         socket.emit('challengeExpired');
         return;
       } else {
+        console.log('🚀  setting category to', challengeQueueStore[gameId][0].category, gameId);
+
         setCategory = challengeQueueStore[gameId][0].category;
       }
     }
@@ -80,6 +82,28 @@ function joinChallengeQueue(socket, io) {
 
       startGame(setCategory, [...challengeQueueStore[gameId]], io);
 
+      delete challengeQueueStore[gameId];
+    }
+  });
+
+  socket.on('leaveChallengeQueue', (data) => {
+    const { gameId } = data;
+
+    if (!gameId) {
+      console.log('🚀  gameId not found');
+      return;
+    }
+
+    if (!challengeQueueStore[gameId]) {
+      console.log('🚀  queue not found');
+      return;
+    }
+
+    challengeQueueStore[gameId] = challengeQueueStore[gameId].filter(
+      (item) => item.socketId !== socket.id || item.userId !== socket.user?.user?.id,
+    );
+
+    if (challengeQueueStore[gameId]?.length === 0) {
       delete challengeQueueStore[gameId];
     }
   });
