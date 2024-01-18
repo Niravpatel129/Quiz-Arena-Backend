@@ -1,28 +1,21 @@
 const QuestionModel = require('../../models/Question');
-const jwt = require('jsonwebtoken');
+
+const convertImageToCloudinaryURL = require('../../helpers/convertImageToCloudinaryURL');
 
 const createQuestion = async (req, res) => {
   try {
     let userId;
-    const token = req.headers?.cookie?.split('=')[1];
 
     if (!Array.isArray(req.body)) {
       return res.status(400).json({ message: 'Invalid input format. Expected an array.' });
     }
 
-    jwt.verify(token, process.env.JWT_SECRET, async (err, payload) => {
-      if (err) {
-        console.log(err);
-        return next(403, 'Token is not valid!');
-      }
-
-      userId = payload.user?.id;
-    });
-
     const results = await Promise.all(
       req.body.map(async (questionData) => {
         const { question, category, parentCategory, answers, correctAnswer, helperImage } =
           questionData;
+
+        let parsedHelperImage = helperImage;
 
         if (
           typeof question !== 'string' ||
@@ -35,14 +28,24 @@ const createQuestion = async (req, res) => {
           return null; // Invalid data, skip this object
         }
 
+        if (helperImage) {
+          try {
+            const response = await convertImageToCloudinaryURL(helperImage);
+            console.log('🚀  response:', response);
+          } catch (err) {
+            console.log('🚀  err:', err);
+          }
+        }
+
         const formattedQuestionData = {
           question,
           category: category.toLowerCase(),
           parentCategory: parentCategory.toLowerCase(),
           answers,
           correctAnswer,
-          helperImage,
+          helperImage: parsedHelperImage,
           addedBy: userId,
+          isPending: userId ? true : false,
         };
 
         try {
