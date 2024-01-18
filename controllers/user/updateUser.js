@@ -30,16 +30,6 @@ const updateUser = async (req, res) => {
         const response = await convertImageToCloudinaryURL(req?.body?.profile?.avatar);
 
         user.profile.avatar = response;
-
-        setTimeout(() => {
-          fs.unlink(newAvatarPath, (err) => {
-            if (err) console.error('Error deleting temporary avatar file:', err);
-          });
-
-          console.log('🚀  deleted temporary avatar file:', newAvatarPath);
-        }, 5000);
-
-        user.profile.avatar = req.body.profile.avatar ?? user.profile.avatar;
       } else {
         user[update] = req.body[update];
       }
