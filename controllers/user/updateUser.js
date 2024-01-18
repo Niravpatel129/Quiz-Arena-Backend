@@ -1,4 +1,8 @@
 const User = require('../../models/User');
+const axios = require('axios');
+const sharp = require('sharp');
+const fs = require('fs');
+const path = require('path');
 
 const updateUser = async (req, res) => {
   try {
@@ -20,8 +24,25 @@ const updateUser = async (req, res) => {
       return res.status(400).json({ message: 'Invalid updates' });
     }
 
-    updates.forEach((update) => {
+    updates.forEach(async (update) => {
       if (update === 'profile' && req?.body?.profile?.avatar) {
+        const avatarUrl = req.body.profile.avatar;
+        const response = await axios({ url: avatarUrl, responseType: 'arraybuffer' });
+        const avatarBuffer = Buffer.from(response.data, 'binary');
+        const newAvatarPath = path.join(__dirname, '../../uploads', `avatar-${req.userId}.jpeg`);
+
+        await sharp(avatarBuffer).resize({ width: 200 }).toFormat('jpeg').toFile(newAvatarPath);
+
+        user.profile.avatar = newAvatarPath;
+
+        setTimeout(() => {
+          fs.unlink(newAvatarPath, (err) => {
+            if (err) console.error('Error deleting temporary avatar file:', err);
+          });
+
+          console.log('🚀  deleted temporary avatar file:', newAvatarPath);
+        }, 5000);
+
         user.profile.avatar = req.body.profile.avatar ?? user.profile.avatar;
       } else {
         user[update] = req.body[update];
