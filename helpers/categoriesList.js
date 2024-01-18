@@ -45,7 +45,7 @@ const categories = [
       {
         name: 'pokemon gen 1',
         image:
-          'https://cdn.discordapp.com/attachments/587141454850424842/1192237997270249634/cropped_moba_game_quiz_game_icon.png?ex=65a85929&is=6595e429&hm=ea642370f3af75cb92c48a81c6cffd0ec0cb2e2661022441c4d3c1810284e97d&',
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197539162140721272/image.png?ex=65bba241&is=65a92d41&hm=78d464317f41b0e80ead5b7b4137f0d333c222f11ca06995666fc9b30e942b3d&',
       },
     ],
   },
@@ -61,12 +61,12 @@ const categories = [
       {
         name: 'the office',
         image:
-          'https://cdn.discordapp.com/attachments/587141454850424842/1192237717585678519/cropped_tv_show_quiz_game_icon.png?ex=65a858e6&is=6595e3e6&hm=cedd0a196de5088b855872ccb1cb00897038068b702caa861bc4bbc9fec7cbe4&',
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197541908747124826/image.png?ex=65bba4d0&is=65a92fd0&hm=8f64291e599853f92947564571133a4c4d6a11fd7e72377cc5de5bd6d89d060a&',
       },
       {
         name: 'game of thrones',
         image:
-          'https://cdn.discordapp.com/attachments/587141454850424842/1192237717585678519/cropped_tv_show_quiz_game_icon.png?ex=65a858e6&is=6595e3e6&hm=cedd0a196de5088b855872ccb1cb00897038068b702caa861bc4bbc9fec7cbe4&',
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197540183860584478/image.png?ex=65bba335&is=65a92e35&hm=b111d88515cfebb001d6031f8fa42853deb30eab007bdc248c4ef69d4734315f&',
       },
     ],
   },
@@ -81,12 +81,12 @@ const categories = [
       {
         name: 'one piece',
         image:
-          'https://cdn.discordapp.com/attachments/587141454850424842/1192857972053905478/cropped_one_piece_icon.png?ex=65aa9a8e&is=6598258e&hm=2f2b2d8ec88ffb869408ee752b88b0189d9e06ae7e6fc6fa2b5638e058116080&',
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197541648188584017/image.png?ex=65bba492&is=65a92f92&hm=703a024ea075c2ce3e640352dbf1f86e33c3775708ddde2e9c95620ceb53ed61&',
       },
       {
         name: 'attack on titan',
         image:
-          'https://cdn.discordapp.com/attachments/587141454850424842/1192857972053905478/cropped_one_piece_icon.png?ex=65aa9a8e&is=6598258e&hm=2f2b2d8ec88ffb869408ee752b88b0189d9e06ae7e6fc6fa2b5638e058116080&',
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197540466804146186/image.png?ex=65bba378&is=65a92e78&hm=2b10385f4d45807b9bfd42964a0a11b2a158bda0ecbd0d80016ff3af9c11c620&',
       },
     ],
   },
@@ -96,7 +96,7 @@ const categories = [
       {
         name: 'Soccer',
         image:
-          'https://cdn.discordapp.com/attachments/587141454850424842/1193790325177729055/cropped_chemistry_icon.png?ex=65adfee1&is=659b89e1&hm=cee70804da547d0a26e1e9f305e3e94df01cdc6f8d4ff6c3915c590e0150b887&',
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197541291500773376/image.png?ex=65bba43d&is=65a92f3d&hm=b2b75cc6dd304393d9ffc156bb011601b00cfbc701a976f044190e4d51a136e4&',
       },
     ],
   },
@@ -116,7 +116,7 @@ const categories = [
       {
         name: 'taarak mehta ka ooltah chashmah',
         image:
-          'https://cdn.discordapp.com/attachments/587141454850424842/1192857971693211679/cropped_tmko_icon.png?ex=65aa9a8e&is=6598258e&hm=8f3408d5d047e6caa8168f348d7905b223c016dd03ebf0ce11e5de951542253b&',
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197541428100861972/image.png?ex=65bba45d&is=65a92f5d&hm=6e709d0e51688bacd4a60854b706453f03e4877d3b5155ba2038174271edbd03&',
       },
     ],
   },
