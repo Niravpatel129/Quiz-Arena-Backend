@@ -29,6 +29,11 @@ const updateUser = async (req, res) => {
         const avatarUrl = req.body.profile.avatar;
         const response = await axios({ url: avatarUrl, responseType: 'arraybuffer' });
         const avatarBuffer = Buffer.from(response.data, 'binary');
+        // create uploads folder if it doesn't exist
+        if (!fs.existsSync(path.join(__dirname, '../../uploads'))) {
+          fs.mkdirSync(path.join(__dirname, '../../uploads'));
+        }
+
         const newAvatarPath = path.join(__dirname, '../../uploads', `avatar-${req.userId}.jpeg`);
 
         await sharp(avatarBuffer).resize({ width: 200 }).toFormat('jpeg').toFile(newAvatarPath);
