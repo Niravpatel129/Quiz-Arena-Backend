@@ -14,9 +14,17 @@ const convertImageToCloudinaryURL = async (imageUrl) => {
       responseType: 'arraybuffer',
     });
 
-    // Save the image locally after resizing, using a UUID for the filename
+    // Define the folder and file paths
+    const folderPath = path.join(__dirname, 'image_folder'); // Local folder
     const tempFilename = `${uuidv4()}.jpeg`;
-    const newAvatarPath = path.join(__dirname, 'avatars', tempFilename);
+    const newAvatarPath = path.join(folderPath, tempFilename);
+
+    // Check if the folder exists, if not, create it
+    if (!fs.existsSync(folderPath)) {
+      fs.mkdirSync(folderPath, { recursive: true });
+    }
+
+    // Save the image locally after resizing, using a UUID for the filename
     await sharp(response.data).resize({ width: 200 }).toFormat('jpeg').toFile(newAvatarPath);
 
     // Prepare form data for upload
