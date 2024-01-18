@@ -1,68 +1,83 @@
 const sharp = require('sharp');
 const fs = require('fs');
+require('dotenv').config();
 const path = require('path');
 const axios = require('axios');
 const FormData = require('form-data');
 const Question = require('../models/Question');
+const { default: mongoose } = require('mongoose');
+mongoose.connect(process.env.MONGO_CONNECTION_STRING, {});
 
 const convertQuestionImageTypes = async () => {
   try {
-    const questions = await Question.find({});
+    console.log('Converting question images');
+
+    const questions = await Question.find({
+      helperImage: { $exists: true },
+    });
 
     let index = 0;
 
     for (const question of questions) {
-      if (
-        !question.helperImage ||
-        question.helperImage.endsWith('.jpeg') ||
-        (question.helperImage.endsWith('.jpg') && question.helperImage.includes('cloudinary')) ||
-        question.helperImage.includes('cloudinary')
-      ) {
-        continue;
-      } else {
-        try {
-          const response = await axios({
-            method: 'get',
-            url: question.helperImage,
-            responseType: 'arraybuffer',
-          });
+      try {
+        // Check if the image is already in the desired format or hosted on Cloudinary
+        if (
+          !question.helperImage ||
+          question.helperImage.endsWith('.jpeg') ||
+          (question.helperImage.endsWith('.jpg') && question.helperImage.includes('cloudinary')) ||
+          question.helperImage.includes('cloudinary')
+        ) {
+          continue;
+        }
 
-          if (!response.data) {
-            continue;
-          }
+        const response = await axios({
+          method: 'get',
+          url: question.helperImage,
+          responseType: 'arraybuffer',
+          timeout: 5000,
+        });
 
-          const newHelperImage = path.join(__dirname, 'questionsImage', `question-${index}.jpeg`);
+        if (!response.data) {
+          continue;
+        }
 
-          await sharp(response.data).resize({ width: 200 }).toFormat('jpeg').toFile(newHelperImage);
-          const formData = new FormData();
+        const newHelperImage = path.join(__dirname, 'questionsImage', `question-${index}.jpeg`);
+        await sharp(response.data).resize({ width: 200 }).toFormat('jpeg').toFile(newHelperImage);
+        const formData = new FormData();
 
-          formData.append('file', fs.createReadStream(newHelperImage));
-          formData.append('upload_preset', 'gamercoach');
+        formData.append('file', fs.createReadStream(newHelperImage));
+        formData.append('upload_preset', 'gamercoach');
 
-          const uploadResponse = await axios.post(
-            `https://api.cloudinary.com/v1_1/gamercoach/image/upload?api_key=997981818793491`,
-            formData,
-          );
+        const uploadResponse = await axios.post(
+          `https://api.cloudinary.com/v1_1/gamercoach/image/upload?api_key=997981818793491`,
+          formData,
+          {
+            timeout: 5000,
+          },
+        );
 
-          if (uploadResponse.data.secure_url) {
-            question.helperImage = uploadResponse.data.secure_url;
-            await question.save();
-          }
+        if (uploadResponse.data.secure_url) {
+          question.helperImage = uploadResponse.data.secure_url;
+          await question.save();
+        }
 
-          console.log('Converting helperImage', question.helperImage);
+        console.log('Converted helperImage', question.helperImage);
+        index++;
 
-          index++;
-
-          // delete local image file
-          fs.unlinkSync(newHelperImage);
-        } catch (error) {}
+        // delete local image file
+        fs.unlinkSync(newHelperImage);
+      } catch (error) {
+        console.log(`Error with image: ${question.helperImage}. Error: ${error.message}`);
+        // Continue to the next image despite the error
       }
     }
 
-    console.log('Done' + ' ' + index + ' ' + 'questions');
+    console.log('Done converting ' + index + ' questions');
   } catch (err) {
-    console.error(err.message);
+    console.error('Error in main process:', err.message);
   }
 };
+
+convertQuestionImageTypes();
 
 module.exports = convertQuestionImageTypes;

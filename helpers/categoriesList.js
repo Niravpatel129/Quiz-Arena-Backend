@@ -42,6 +42,11 @@ const categories = [
         image:
           'https://cdn.discordapp.com/attachments/587141454850424842/1192237997270249634/cropped_moba_game_quiz_game_icon.png?ex=65a85929&is=6595e429&hm=ea642370f3af75cb92c48a81c6cffd0ec0cb2e2661022441c4d3c1810284e97d&',
       },
+      {
+        name: 'pokemon gen 1',
+        image:
+          'https://cdn.discordapp.com/attachments/587141454850424842/1192237997270249634/cropped_moba_game_quiz_game_icon.png?ex=65a85929&is=6595e429&hm=ea642370f3af75cb92c48a81c6cffd0ec0cb2e2661022441c4d3c1810284e97d&',
+      },
     ],
   },
 
@@ -58,9 +63,13 @@ const categories = [
         image:
           'https://cdn.discordapp.com/attachments/587141454850424842/1192237717585678519/cropped_tv_show_quiz_game_icon.png?ex=65a858e6&is=6595e3e6&hm=cedd0a196de5088b855872ccb1cb00897038068b702caa861bc4bbc9fec7cbe4&',
       },
+      {
+        name: 'game of thrones',
+        image:
+          'https://cdn.discordapp.com/attachments/587141454850424842/1192237717585678519/cropped_tv_show_quiz_game_icon.png?ex=65a858e6&is=6595e3e6&hm=cedd0a196de5088b855872ccb1cb00897038068b702caa861bc4bbc9fec7cbe4&',
+      },
     ],
   },
-
   {
     parentCategory: 'anime',
     subCategories: [
@@ -82,6 +91,16 @@ const categories = [
     ],
   },
   {
+    parentCategory: 'Sports',
+    subCategories: [
+      {
+        name: 'Soccer',
+        image:
+          'https://cdn.discordapp.com/attachments/587141454850424842/1193790325177729055/cropped_chemistry_icon.png?ex=65adfee1&is=659b89e1&hm=cee70804da547d0a26e1e9f305e3e94df01cdc6f8d4ff6c3915c590e0150b887&',
+      },
+    ],
+  },
+  {
     parentCategory: 'science',
     subCategories: [
       {
@@ -91,16 +110,6 @@ const categories = [
       },
     ],
   },
-  // {
-  //   parentCategory: 'movies',
-  //   subCategories: [
-  //     {
-  //       name: 'star wars',
-  //       image:
-  //         'https://cdn.discordapp.com/attachments/587141454850424842/1192243863448977548/cropped_space_opera_quiz_game_icon.png?ex=65a85e9f&is=6595e99f&hm=f0d858fe32c0d35ed00bb3639a4590596fcb2dbbe8c70b706c18eb565ad2056a&',
-  //     },
-  //   ],
-  // },
   {
     parentCategory: 'indian tv shows',
     subCategories: [
