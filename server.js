@@ -41,6 +41,7 @@ app.use(
       'https://quiz-arena1.netlify.app',
       'http://localhost:3000',
       'https://lucky-taiyaki-f522c5.netlify.app',
+      'https://quiz-arena-admin.netlify.app/',
       '*',
     ],
     credentials: true,
