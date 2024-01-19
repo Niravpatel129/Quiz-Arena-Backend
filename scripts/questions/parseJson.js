@@ -20,7 +20,7 @@ function processJsonFile(filePath) {
 
     try {
       const array = JSON.parse(data);
-      const chunks = splitArrayIntoChunks(array, 50);
+      const chunks = splitArrayIntoChunks(array, 100);
 
       chunks.forEach((chunk, index) => {
         const newFilePath = `output_${index + 1}.json`;

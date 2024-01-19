@@ -94,7 +94,17 @@ const categories = [
     parentCategory: 'Sports',
     subCategories: [
       {
-        name: 'Soccer',
+        name: 'soccer',
+        image:
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197541291500773376/image.png?ex=65bba43d&is=65a92f3d&hm=b2b75cc6dd304393d9ffc156bb011601b00cfbc701a976f044190e4d51a136e4&',
+      },
+      {
+        name: 'cricket',
+        image:
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197541291500773376/image.png?ex=65bba43d&is=65a92f3d&hm=b2b75cc6dd304393d9ffc156bb011601b00cfbc701a976f044190e4d51a136e4&',
+      },
+      {
+        name: 'basketball',
         image:
           'https://cdn.discordapp.com/attachments/1085326974353952898/1197541291500773376/image.png?ex=65bba43d&is=65a92f3d&hm=b2b75cc6dd304393d9ffc156bb011601b00cfbc701a976f044190e4d51a136e4&',
       },
