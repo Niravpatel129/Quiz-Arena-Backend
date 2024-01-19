@@ -1,4 +1,5 @@
 const { Expo } = require('expo-server-sdk');
+const User = require('../models/User');
 let expo = new Expo();
 
 async function sendPushNotifications(messageTitle, tokens, messageBody, messageData) {
@@ -22,6 +23,28 @@ async function sendPushNotifications(messageTitle, tokens, messageBody, messageD
     }
   }
 }
+
+// const allMyUsersWithToken = async () => {
+//   const users = await User.find({
+//     'misc.pushToken': { $exists: true },
+//   });
+
+//   const arrayOfTokens = users.map((user) => user.misc.pushToken);
+//   // console.log('🚀  arrayOfTokens:', arrayOfTokens);
+
+//   // test only on my token ExponentPushToken[_AnQEVD1jQsDkwQni2IFar]
+
+//   // const arrayOfTokensTest = ['ExponentPushToken[_AnQEVD1jQsDkwQni2IFar]'];
+
+//   sendPushNotifications(
+//     'Quiz Arena',
+//     arrayOfTokens,
+//     'Just dropped! Dive into the new Game of Thrones Topic and more!',
+//     { debugMode: 'active' },
+//   );
+// };
+
+// allMyUsersWithToken();
 
 module.exports = {
   sendPushNotifications,
