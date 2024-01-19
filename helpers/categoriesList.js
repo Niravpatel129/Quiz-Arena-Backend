@@ -66,7 +66,7 @@ const categories = [
       {
         name: 'game of thrones',
         image:
-          'https://cdn.discordapp.com/attachments/1085326974353952898/1197540183860584478/image.png?ex=65bba335&is=65a92e35&hm=b111d88515cfebb001d6031f8fa42853deb30eab007bdc248c4ef69d4734315f&',
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197954614742487040/image.png?ex=65bd252d&is=65aab02d&hm=45b18afacdf91bb5d9a5b16e8fb77c0c252dffce5ca7c6c0642b78c6f4996d61&',
       },
     ],
   },
