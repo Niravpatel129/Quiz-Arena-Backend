@@ -116,7 +116,7 @@ const categories = [
       {
         name: 'chemistry',
         image:
-          'https://cdn.discordapp.com/attachments/587141454850424842/1193790325177729055/cropped_chemistry_icon.png?ex=65adfee1&is=659b89e1&hm=cee70804da547d0a26e1e9f305e3e94df01cdc6f8d4ff6c3915c590e0150b887&',
+          'https://cdn.discordapp.com/attachments/587141454850424842/1197959703129497711/image.png?ex=65bd29ea&is=65aab4ea&hm=02a0fe0bb739ce8aa51213b3f63d103ab16e0da2c5dd83d63923d295347c17c2&',
       },
       {
         name: 'biology',
