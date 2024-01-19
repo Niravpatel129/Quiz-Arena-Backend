@@ -2,13 +2,19 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
+require('dotenv').config();
 const FormData = require('form-data');
 const User = require('../models/User');
+const { default: mongoose } = require('mongoose');
+
+mongoose.connect(process.env.MONGO_CONNECTION_STRING, {});
 
 const convertUserAvatars = async () => {
   let index = 0;
   try {
-    const users = await User.find({});
+    const users = await User.find({
+      'profile.avatar': { $exists: true },
+    });
 
     for (const user of users) {
       if (!user.profile.avatar) continue;
@@ -21,8 +27,6 @@ const convertUserAvatars = async () => {
       }
 
       try {
-        // if the username is not GoraPakora skip
-
         const response = await axios({
           method: 'get',
           url: user.profile.avatar,
@@ -64,5 +68,7 @@ const convertUserAvatars = async () => {
     console.log('🚀  err.message:', err.message);
   }
 };
+
+convertUserAvatars();
 
 module.exports = convertUserAvatars;

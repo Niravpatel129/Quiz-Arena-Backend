@@ -59,7 +59,8 @@ const userSchema = new Schema(
     profile: {
       avatar: {
         type: String,
-        default: 'https://storage.googleapis.com/pai-images/04a4d16220a645408362ae47deb07737.jpeg',
+        default:
+          'https://res.cloudinary.com/dwu4qop1o/image/upload/v1705695251/gamercoach/k3ty0buuliiib0aogtgc.jpg',
       },
       country: {
         type: String,
