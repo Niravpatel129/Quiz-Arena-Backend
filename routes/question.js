@@ -8,5 +8,6 @@ router.get('/', questionsController.getAllQuestions);
 router.post('/', questionsController.createQuestion);
 router.delete('/:id', questionsController.deleteQuestion);
 router.put('/:id', questionsController.updateQuestion);
+router.get('/category/:category', questionsController.getQuestionsByCategory);
 
 module.exports = router;

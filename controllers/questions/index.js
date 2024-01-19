@@ -4,6 +4,7 @@ const deleteQuestion = require('./deleteQuestion');
 const updateQuestion = require('./updateQuestion');
 const downvoteQuestion = require('./downvoteQuestion');
 const upvoteQuestion = require('./upvoteQuestion');
+const getQuestionsByCategory = require('./getQuestionsByCategory.js');
 
 module.exports = {
   getAllQuestions,
@@ -12,4 +13,5 @@ module.exports = {
   updateQuestion,
   downvoteQuestion,
   upvoteQuestion,
+  getQuestionsByCategory,
 };
