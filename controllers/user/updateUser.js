@@ -32,14 +32,13 @@ const updateUser = async (req, res) => {
 
         console.log('🚀  response:', response);
         user.profile.avatar = response;
-        const newUser = await user.save();
-        console.log('🚀  newUser:', newUser);
+        await user.save();
       } else {
-        // user[update] = req.body[update];
+        user[update] = req.body[update];
       }
     });
 
-    // await user.save();
+    await user.save();
 
     console.log('🚀  user updated profile:', user.username);
 
