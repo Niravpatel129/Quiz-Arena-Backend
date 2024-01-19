@@ -121,17 +121,17 @@ const categories = [
       {
         name: 'biology',
         image:
-          'https://cdn.discordapp.com/attachments/587141454850424842/1193790325177729055/cropped_chemistry_icon.png?ex=65adfee1&is=659b89e1&hm=cee70804da547d0a26e1e9f305e3e94df01cdc6f8d4ff6c3915c590e0150b887&',
+          'https://cdn.discordapp.com/attachments/587141454850424842/1197959091730002021/image.png?ex=65bd2958&is=65aab458&hm=54ce6c59c97696afe7bdc006d0a9e7d6b7baf80fb36a4bcb98030dd5c6beb3de&',
       },
       {
         name: 'mathematics',
         image:
-          'https://cdn.discordapp.com/attachments/587141454850424842/1193790325177729055/cropped_chemistry_icon.png?ex=65adfee1&is=659b89e1&hm=cee70804da547d0a26e1e9f305e3e94df01cdc6f8d4ff6c3915c590e0150b887&',
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197958234439426058/image.png?ex=65bd288c&is=65aab38c&hm=70ae9c82653d19dc93ca8252aa0b505b94e4761599a59003d9ee29dd6ca56688&',
       },
       {
         name: 'physics',
         image:
-          'https://cdn.discordapp.com/attachments/587141454850424842/1193790325177729055/cropped_chemistry_icon.png?ex=65adfee1&is=659b89e1&hm=cee70804da547d0a26e1e9f305e3e94df01cdc6f8d4ff6c3915c590e0150b887&',
+          'https://cdn.discordapp.com/attachments/587141454850424842/1197958809684037792/image.png?ex=65bd2915&is=65aab415&hm=dc999991b542a16d4a2f0b3cb4b704b27e8ef02070bf3b301789dca2cf4997cd&',
       },
     ],
   },
