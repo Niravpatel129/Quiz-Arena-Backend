@@ -101,12 +101,12 @@ const categories = [
       {
         name: 'cricket',
         image:
-          'https://cdn.discordapp.com/attachments/1085326974353952898/1197541291500773376/image.png?ex=65bba43d&is=65a92f3d&hm=b2b75cc6dd304393d9ffc156bb011601b00cfbc701a976f044190e4d51a136e4&',
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197952764291063909/image.png?ex=65bd2373&is=65aaae73&hm=e6a5152ea2de9d35d8434ffa410afdfb671a8a9ca27a8eff1809a1c88799d1c0&',
       },
       {
         name: 'basketball',
         image:
-          'https://cdn.discordapp.com/attachments/1085326974353952898/1197541291500773376/image.png?ex=65bba43d&is=65a92f3d&hm=b2b75cc6dd304393d9ffc156bb011601b00cfbc701a976f044190e4d51a136e4&',
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197953275840958544/image.png?ex=65bd23ed&is=65aaaeed&hm=74c33a13bc9ad2fb6acc121d682f28e7e765bb21c7f3b843a666d1e9c32bfbe1&',
       },
     ],
   },
