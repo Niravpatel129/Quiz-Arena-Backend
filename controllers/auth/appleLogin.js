@@ -66,8 +66,6 @@ const appleLogin = async (req, res) => {
       newSignIn = true;
     }
 
-    console.log('🚀  databaseUser:', databaseUser);
-
     //     const payload = { user: { id: user._id, name: user.username, email: user.email } };
 
     const payload = {
@@ -75,7 +73,9 @@ const appleLogin = async (req, res) => {
         id: databaseUser._id,
         name: databaseUser.username,
         email: databaseUser.email,
-        avatar: databaseUser?.profile?.avatar || null,
+        avatar:
+          databaseUser?.profile?.avatar ||
+          'https://res.cloudinary.com/dwu4qop1o/image/upload/v1705695251/gamercoach/k3ty0buuliiib0aogtgc.jpg',
       },
     };
 
