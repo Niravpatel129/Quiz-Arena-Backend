@@ -1,9 +1,6 @@
 const User = require('../../models/User');
-const axios = require('axios');
-const sharp = require('sharp');
-const fs = require('fs');
-const path = require('path');
 const convertImageToCloudinaryURL = require('../../helpers/convertImageToCloudinaryURL');
+const jwt = require('jsonwebtoken');
 
 const updateUser = async (req, res) => {
   try {
@@ -41,8 +38,11 @@ const updateUser = async (req, res) => {
     await user.save();
 
     console.log('🚀  user updated profile:', user.username);
+    const payload = { user: { id: user._id, name: user.username, email: user.email } };
 
-    res.json(user);
+    const token = jwt.sign(payload, process.env.JWT_SECRET);
+
+    res.cookie('token', token, { secure: true, sameSite: 'none' }).send(user);
   } catch (err) {
     console.error('updateUser', err);
     res.status(500).json({ message: 'Something went wrong' });
