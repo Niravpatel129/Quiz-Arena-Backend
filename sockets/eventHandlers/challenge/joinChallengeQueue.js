@@ -6,18 +6,18 @@ function joinChallengeQueue(socket, io) {
   socket.on('joinChallengeQueue', (data) => {
     const { gameId, category } = data;
 
-    // remove from any other queue
-    Object.keys(challengeQueueStore).forEach((key) => {
-      challengeQueueStore[key] = challengeQueueStore[key].filter(
-        (item) => item.socketId !== socket.id || item.userId !== socket.user?.user?.id,
-      );
-    });
-
     // delete all empty queues
     Object.keys(challengeQueueStore).forEach((key) => {
       if (challengeQueueStore[key]?.length === 0) {
         delete challengeQueueStore[key];
       }
+    });
+
+    // remove user from any other queue they might be in
+    Object.keys(challengeQueueStore).forEach((key) => {
+      challengeQueueStore[key] = challengeQueueStore[key].filter(
+        (item) => item.socketId !== socket.id && item.userId !== socket.user?.user?.id,
+      );
     });
 
     let setCategory = category;
