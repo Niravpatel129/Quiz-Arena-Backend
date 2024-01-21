@@ -1,3 +1,5 @@
+// const User = require('../models/User');
+
 const botList = [
   {
     socketId: 'EWw4E8ELTbxHZx7ZAAABOTBUNYY',
@@ -270,5 +272,26 @@ const botList = [
     socketId: 'EWw4E8ELTbxHZx7ZAAABOTQueenMarry',
   },
 ];
+
+// const UpdateAllBotUsersLastActive = async () => {
+
+//   for (const bot of botList) {
+//     try {
+//       const threeDaysAgo = new Date();
+//       threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
+//       const randomTimestamp = new Date(
+//         threeDaysAgo.getTime() + Math.random() * (Date.now() - threeDaysAgo.getTime()),
+//       );
+
+//       // Update the user's lastActive field
+//       await User.findByIdAndUpdate(bot.userId, { lastActive: randomTimestamp });
+//       console.log(`Updated lastActive for user ${bot.userId}`);
+//     } catch (error) {
+//       console.error(`Error updating user ${bot.userId}:`, error);
+//     }
+//   }
+// };
+
+// UpdateAllBotUsersLastActive();
 
 module.exports = botList;
