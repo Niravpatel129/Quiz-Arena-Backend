@@ -1,6 +1,28 @@
 const gameSessionManager = require('../../utils/gameSessionManager');
+const startRound = require('../../utils/gameSessionManager/startRound');
+
+const readyPlayersInSession = {};
 
 const startGame = (socket, io) => {
+  socket.on('ready', (data) => {
+    const { players, gameSessionId } = data;
+
+    readyPlayersInSession[gameSessionId] = {
+      ...readyPlayersInSession[gameSessionId],
+      [socket.id]: true,
+    };
+
+    startRound(gameSessionId, 1, players, io);
+
+    if (players.some((player) => player.socketId.includes('BOT'))) {
+      startRound(gameSessionId, 1, players, io);
+    }
+
+    if (Object.keys(readyPlayersInSession[gameSessionId]).length === 2) {
+      startRound(gameSessionId, 1, players, io);
+    }
+  });
+
   socket.on('start_game', (gameId) => {
     try {
       let session = gameSessionManager.getSession(gameId);

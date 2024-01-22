@@ -1,15 +1,21 @@
 const getConfig = async (req, res) => {
   try {
+    let updatedRequired = false;
     const version = req?.params?.version;
     let queueTime = Math.floor(Math.random() * 10) + 10;
     console.log('🚀  queueTime:', queueTime);
 
-    // if (version) {
-    //   queueTime = version === '22' ? 9999 : Math.floor(Math.random() * 10) + 10;
-    // }
+    if (version) {
+      queueTime = version === '24' ? 9999 : Math.floor(Math.random() * 10) + 10;
+    }
+
+    if (parseInt(version) < 24) {
+      updatedRequired = true;
+    }
 
     const config = {
       queueTime: queueTime,
+      updatedRequired: updatedRequired,
     };
 
     res.status(200).json(config);

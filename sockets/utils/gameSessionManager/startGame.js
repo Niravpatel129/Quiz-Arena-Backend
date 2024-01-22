@@ -44,12 +44,14 @@ const startGame = async (category, players, io) => {
 
   await gameSession.save();
 
-  // wait for io.to to finish before emitting startRound
   players.forEach((playerSocketId) => {
-    io.to(playerSocketId.socketId).emit('game_start', { category });
+    io.to(playerSocketId.socketId).emit('game_start', {
+      category,
+      gameSessionId: gameSession._id,
+      players,
+    });
   });
 
-  // wait 100ms
   startRound(gameSession._id, 1, players, io);
 };
 
