@@ -3,7 +3,6 @@ const getConfig = async (req, res) => {
     let updatedRequired = false;
     const version = req?.params?.version;
     let queueTime = Math.floor(Math.random() * 10) + 10;
-    console.log('🚀  queueTime:', queueTime);
 
     if (version) {
       queueTime = version === '24' ? 9999 : Math.floor(Math.random() * 10) + 10;
@@ -13,6 +12,7 @@ const getConfig = async (req, res) => {
       updatedRequired = true;
     }
 
+    console.log('🚀  queueTime:', queueTime);
     const config = {
       queueTime: queueTime,
       updatedRequired: updatedRequired,
