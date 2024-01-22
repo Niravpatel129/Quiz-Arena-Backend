@@ -50,10 +50,7 @@ const startGame = async (category, players, io) => {
   });
 
   // wait 100ms
-  setTimeout(() => {
-    startRound(gameSession._id, 1, players, io);
-  }, 100);
-  // startRound(gameSession._id, 1, players, io);
+  startRound(gameSession._id, 1, players, io);
 };
 
 module.exports = startGame;
