@@ -44,11 +44,16 @@ const startGame = async (category, players, io) => {
 
   await gameSession.save();
 
+  // wait for io.to to finish before emitting startRound
   players.forEach((playerSocketId) => {
     io.to(playerSocketId.socketId).emit('game_start', { category });
   });
 
-  startRound(gameSession._id, 1, players, io);
+  // wait 100ms
+  setTimeout(() => {
+    startRound(gameSession._id, 1, players, io);
+  }, 100);
+  // startRound(gameSession._id, 1, players, io);
 };
 
 module.exports = startGame;
