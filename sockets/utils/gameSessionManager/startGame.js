@@ -51,8 +51,6 @@ const startGame = async (category, players, io) => {
       players,
     });
   });
-
-  startRound(gameSession._id, 1, players, io);
 };
 
 module.exports = startGame;
