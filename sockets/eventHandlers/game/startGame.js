@@ -5,9 +5,10 @@ const readyPlayersInSession = {};
 
 const startGame = (socket, io) => {
   socket.on('ready', (data) => {
-    return;
-
     const { players, gameSessionId } = data;
+
+    if (!gameSessionId) return null;
+    if (!players) return null;
 
     readyPlayersInSession[gameSessionId] = {
       ...readyPlayersInSession[gameSessionId],
@@ -16,7 +17,7 @@ const startGame = (socket, io) => {
 
     startRound(gameSessionId, 1, players, io);
 
-    if (players.some((player) => player.socketId.includes('BOT'))) {
+    if (players?.some((player) => player?.socketId?.includes('BOT'))) {
       startRound(gameSessionId, 1, players, io);
     }
 

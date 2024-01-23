@@ -51,6 +51,11 @@ const handleTimeUp = async (sessionId, roundNumber, players, io) => {
 const startRound = async (sessionId, roundNumber, players, io) => {
   const gameSession = await GameSession.findById(sessionId);
 
+  // dont start the same round twice
+  if (gameSession.currentRound === roundNumber) {
+    return;
+  }
+
   if (gameSession.currentRound >= gameSession.rounds.length) {
     // Game over, handle end of game
     endGame(sessionId, players, io); // Implement this function
