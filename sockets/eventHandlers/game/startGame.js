@@ -5,6 +5,7 @@ const readyPlayersInSession = {};
 
 const startGame = (socket, io) => {
   socket.on('ready', (data) => {
+    console.log('🚀  ready:', data);
     const { players, gameSessionId } = data;
 
     if (!gameSessionId) return null;
