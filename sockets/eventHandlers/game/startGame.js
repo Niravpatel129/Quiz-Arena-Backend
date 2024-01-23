@@ -16,7 +16,7 @@ const startGame = (socket, io) => {
       [socket.id]: true,
     };
 
-    startRound(gameSessionId, 1, players, io);
+    // startRound(gameSessionId, 1, players, io);
 
     if (players?.some((player) => player?.socketId?.includes('BOT'))) {
       startRound(gameSessionId, 1, players, io);

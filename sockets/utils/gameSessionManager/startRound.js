@@ -49,6 +49,8 @@ const handleTimeUp = async (sessionId, roundNumber, players, io) => {
 };
 
 const startRound = async (sessionId, roundNumber, players, io) => {
+  if (!sessionId) return;
+
   const gameSession = await GameSession.findById(sessionId);
 
   // dont start the same round twice
