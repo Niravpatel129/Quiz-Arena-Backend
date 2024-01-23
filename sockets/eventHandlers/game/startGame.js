@@ -5,6 +5,8 @@ const readyPlayersInSession = {};
 
 const startGame = (socket, io) => {
   socket.on('ready', (data) => {
+    return;
+
     const { players, gameSessionId } = data;
 
     readyPlayersInSession[gameSessionId] = {
