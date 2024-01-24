@@ -39,7 +39,7 @@ function joinChallengeQueue(socket, io) {
           return;
         }
 
-        setCategory = challengeQueueStore[gameId][0].category;
+        setCategory = challengeQueueStore[gameId][0]?.category || 'logos';
       }
     }
 
