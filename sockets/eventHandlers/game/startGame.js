@@ -20,10 +20,12 @@ const startGame = (socket, io) => {
 
     if (players?.some((player) => player?.socketId?.includes('BOT'))) {
       startRound(gameSessionId, 1, players, io);
+      return;
     }
 
     if (Object.keys(readyPlayersInSession[gameSessionId]).length === 2) {
       startRound(gameSessionId, 1, players, io);
+      return;
     }
   });
 
