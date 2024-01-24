@@ -34,7 +34,10 @@ function joinChallengeQueue(socket, io) {
         socket.emit('challengeExpired');
         return;
       } else {
-        console.log('🚀  setting category to', challengeQueueStore[gameId][0].category, gameId);
+        if (!challengeQueueStore[gameId][0]) {
+          socket.emit('challengeExpired');
+          return;
+        }
 
         setCategory = challengeQueueStore[gameId][0].category;
       }
