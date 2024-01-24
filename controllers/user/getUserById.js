@@ -37,6 +37,7 @@ const getUserById = async (req, res) => {
       allRating: user.elo.rating,
       totalGames: user.elo.gamesPlayed || 0,
       winRate: (user.elo.wins / user.elo.gamesPlayed) * 100 || 0,
+      awards: user.profileMisc?.awards,
     };
 
     res.send(DataToSend);

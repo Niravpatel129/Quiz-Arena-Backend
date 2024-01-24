@@ -75,6 +75,32 @@ const userSchema = new Schema(
         default: 'Explorer',
       },
     },
+    profileMisc: {
+      awards: {
+        type: Array,
+        default: [
+          {
+            name: 'First Game',
+            description: 'You played your first game!',
+            image:
+              'https://cdn.discordapp.com/attachments/1110409819808079982/1199519044018114760/image__9_-removebg-preview.png?ex=65c2d62a&is=65b0612a&hm=118f84d71691ba493e41d37e99b1edc5beceeeadc90185f93a012dcb510d492a&',
+            date: Date.now(),
+          },
+          {
+            name: 'Beta Tester',
+            description: 'You were one of the first to play!',
+            image:
+              'https://cdn.discordapp.com/attachments/1110409819808079982/1199519044018114760/image__9_-removebg-preview.png?ex=65c2d62a&is=65b0612a&hm=118f84d71691ba493e41d37e99b1edc5beceeeadc90185f93a012dcb510d492a&',
+          },
+          {
+            name: 'Login Streak 1',
+            description: 'You logged in for 1 day in a row!',
+            image:
+              'https://cdn.discordapp.com/attachments/1110409819808079982/1199519044018114760/image__9_-removebg-preview.png?ex=65c2d62a&is=65b0612a&hm=118f84d71691ba493e41d37e99b1edc5beceeeadc90185f93a012dcb510d492a&',
+          },
+        ],
+      },
+    },
     misc: {
       appleId: String,
       facebookId: String,
