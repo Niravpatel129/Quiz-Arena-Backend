@@ -4,9 +4,9 @@ const getConfig = async (req, res) => {
     const version = req?.params?.version;
     let queueTime = Math.floor(Math.random() * 10) + 10;
 
-    if (version) {
-      queueTime = version === '31' ? 9999 : Math.floor(Math.random() * 10) + 10;
-    }
+    // if (version) {
+    //   queueTime = version === '31' ? 9999 : Math.floor(Math.random() * 10) + 10;
+    // }
 
     if (parseInt(version) < 24) {
       updatedRequired = true;
