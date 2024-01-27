@@ -19,8 +19,6 @@ const getHomepage = async (req, res) => {
 
     const averageRating = totalRating / Object.keys(userData.elo.rating).length;
 
-    console.log('🚀  userData:', userData);
-
     res.status(200).json({
       user: { ...userData._doc, averageRating: Math.floor(averageRating) },
       categories,
