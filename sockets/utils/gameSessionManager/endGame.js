@@ -1,5 +1,6 @@
 const GameSession = require('../../../models/GameSession');
 const User = require('../../../models/User');
+const sentGameOver = {};
 
 const updatePlayerRating = async ({ playerId, category, gameResults }) => {
   try {
@@ -58,6 +59,16 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
 };
 
 async function endGame(sessionId, players, io) {
+  if (!sessionId) {
+    console.log('No session id provided.');
+    return;
+  }
+
+  if (sentGameOver[sessionId]) {
+    console.log(`Game over already sent for session ${sessionId}.`);
+    return;
+  }
+
   const gameSession = await GameSession.findById(sessionId);
 
   if (!gameSession) {
@@ -121,6 +132,8 @@ async function endGame(sessionId, players, io) {
       gameSession: gameSession,
     });
   });
+
+  sentGameOver[sessionId] = true;
 }
 
 module.exports = endGame;
