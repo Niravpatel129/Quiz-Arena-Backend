@@ -6,6 +6,7 @@ const categories = [
         name: 'logos',
         image:
           'https://cdn.discordapp.com/attachments/587141454850424842/1192237145465831484/cropped_logos_quiz_game_icon.png?ex=65a8585e&is=6595e35e&hm=c91398b322488841ebf3c1a8b324cad5732bf381fefda7356d2ea5911e680fe9&',
+        logo: 'https://cdn.discordapp.com/attachments/1085326974353952898/1200912391286816868/icons8-question-96-xxhdpi.png?ex=65c7e7d1&is=65b572d1&hm=b81485b4db028cb375ec5d58106a70df2cea21b75c0feab07e63136b7267c95b&',
       },
       {
         name: 'flags',
