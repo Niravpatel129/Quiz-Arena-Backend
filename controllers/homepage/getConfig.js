@@ -2,11 +2,11 @@ const getConfig = async (req, res) => {
   try {
     let updatedRequired = false;
     const version = req?.params?.version;
-    let queueTime = Math.floor(Math.random() * 10) + 10;
+    let queueTime = Math.floor(Math.random() * 7) + 7;
 
-    // if (version) {
-    //   queueTime = version === '31' ? 9999 : Math.floor(Math.random() * 10) + 10;
-    // }
+    if (version) {
+      queueTime = version === '32' ? 9999 : Math.floor(Math.random() * 10) + 10;
+    }
 
     if (parseInt(version) < 24) {
       updatedRequired = true;
