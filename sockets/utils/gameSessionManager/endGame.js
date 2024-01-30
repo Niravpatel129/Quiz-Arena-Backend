@@ -112,6 +112,8 @@ async function endGame(sessionId, players, io) {
     return;
   }
 
+  sentGameOver[sessionId] = true;
+
   const gameSession = await GameSession.findById(sessionId);
 
   if (!gameSession) {
@@ -176,8 +178,6 @@ async function endGame(sessionId, players, io) {
       gameSession: gameSession,
     });
   });
-
-  sentGameOver[sessionId] = true;
 }
 
 module.exports = endGame;
