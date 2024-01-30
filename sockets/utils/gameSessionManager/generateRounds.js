@@ -16,6 +16,7 @@ async function fetchQuestionsForCategory(category, numberOfRounds) {
 
   const questions = questionsModel.map((question) => {
     return {
+      questionId: question._id,
       questionText: question.question,
       questionId: question._id,
       options: question.answers,

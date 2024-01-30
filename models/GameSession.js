@@ -6,8 +6,8 @@ const optionSchema = new mongoose.Schema({
 });
 
 const roundSchema = new mongoose.Schema({
-  questionText: String,
   questionId: { type: mongoose.Schema.Types.ObjectId, ref: 'Question' },
+  questionText: String,
   options: [optionSchema],
   correctAnswer: String,
   helperImage: String,

@@ -54,6 +54,14 @@ const questionSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
     },
+    stats: {
+      type: mongoose.Schema.Types.Mixed,
+      default: {
+        totalAnswers: 0,
+        correctAnswers: 0,
+        incorrectAnswers: 0,
+      },
+    },
   },
   {
     timestamps: true,

@@ -1,5 +1,6 @@
 const GameSession = require('../../../models/GameSession');
 const User = require('../../../models/User');
+const questionModel = require('../../../models/Question');
 const sentGameOver = {};
 
 const updatePlayerRating = async ({ playerId, category, gameResults }) => {
@@ -58,6 +59,48 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
   }
 };
 
+const updateQuestionsStats = async ({ questions, players }) => {
+  try {
+    const filteredPlayers = players.filter((player) => !player.socketId.includes('BOT'));
+    const rawAnswers = filteredPlayers.map((player) => player.answers);
+
+    const updatePromises = questions.map((question, index) => {
+      let totalAnswers = 0;
+      let correctAnswers = 0;
+      let incorrectAnswers = 0;
+
+      rawAnswers.forEach((playerAnswers) => {
+        const answer = playerAnswers.find((ans) => ans.roundNumber === index + 1);
+        if (answer) {
+          totalAnswers++;
+          if (answer.answer === question.correctAnswer) {
+            correctAnswers++;
+          } else {
+            incorrectAnswers++;
+          }
+        }
+      });
+
+      const questionId = question.questionId;
+      return questionModel
+        .findByIdAndUpdate(questionId, {
+          $inc: {
+            'stats.totalAnswers': totalAnswers,
+            'stats.correctAnswers': correctAnswers,
+            'stats.incorrectAnswers': incorrectAnswers,
+          },
+        })
+        .catch((err) => {
+          console.error(`Error updating question ${questionId}:`, err);
+        });
+    });
+
+    await Promise.all(updatePromises);
+  } catch (err) {
+    console.log('Error in updateQuestionsStats:', err);
+  }
+};
+
 async function endGame(sessionId, players, io) {
   if (!sessionId) {
     console.log('No session id provided.');
@@ -80,6 +123,7 @@ async function endGame(sessionId, players, io) {
   const player2 = gameSession.players[1];
   const player1Score = player1.score;
   const player2Score = player2.score;
+  updateQuestionsStats({ questions: gameSession.rounds, players: gameSession.players });
 
   let player1RatingChange, player2RatingChange;
 
