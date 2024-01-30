@@ -42,7 +42,17 @@ const convertQuestionImageTypes = async () => {
         }
 
         const newHelperImage = path.join(__dirname, 'questionsImage', `question-${index}.jpeg`);
-        await sharp(response.data).resize({ width: 200 }).toFormat('jpeg').toFile(newHelperImage);
+        await sharp(response.data)
+          .resize({ width: 200 })
+          .toFormat('jpeg')
+          .toBuffer()
+          .then((data) => {
+            return sharp(data)
+              .flatten({ background: { r: 255, g: 255, b: 255 } }) // This changes black to white
+              .jpeg()
+              .toFile(newHelperImage);
+          });
+
         const formData = new FormData();
 
         formData.append('file', fs.createReadStream(newHelperImage));
