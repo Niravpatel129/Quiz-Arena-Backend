@@ -15,6 +15,8 @@ const createUserNotification = async (req, res) => {
     let message = '';
 
     const senderUser = await User.findById(userId);
+    if (!senderUser) return res.status(404).json({ message: 'User not found' });
+
     let recieverUser = null;
     if (receiverId) recieverUser = await User.findById(receiverId);
     if (receiverName)
