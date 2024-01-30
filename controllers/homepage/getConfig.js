@@ -1,11 +1,13 @@
 const getConfig = async (req, res) => {
   try {
+    let defaultQueueTime = Math.floor(Math.random() * 4) + 3;
+
     let updatedRequired = false;
     const version = req?.params?.version;
-    let queueTime = Math.floor(Math.random() * 4) + 3;
+    let queueTime = defaultQueueTime;
 
     if (version) {
-      queueTime = version === '34' ? 9999 : Math.floor(Math.random() * 10) + 10;
+      queueTime = version === '34' ? 9999 : defaultQueueTime;
     }
 
     if (parseInt(version) < 24) {

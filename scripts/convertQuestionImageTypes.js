@@ -13,7 +13,8 @@ const convertQuestionImageTypes = async () => {
     console.log('Converting question images');
 
     const questions = await Question.find({
-      helperImage: { $exists: true },
+      helperImage: { $nin: [null, /cloudinary/], $exists: true, $ne: '' },
+      // category: 'logos',
     });
 
     let index = 0;
