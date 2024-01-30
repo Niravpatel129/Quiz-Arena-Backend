@@ -19,6 +19,11 @@ const categories = [
           'https://cdn.discordapp.com/attachments/587141454850424842/1192241751793090672/cropped_uploaded_capitals_quiz_game_icon.png?ex=65a85ca8&is=6595e7a8&hm=c4baa5a443ff1911cfb46e348e7b8f395a2dca079e32194bb7dd68862d396282&',
       },
       {
+        name: 'landmarks',
+        image:
+          'https://cdn.discordapp.com/attachments/587141454850424842/1192241751793090672/cropped_uploaded_capitals_quiz_game_icon.png?ex=65a85ca8&is=6595e7a8&hm=c4baa5a443ff1911cfb46e348e7b8f395a2dca079e32194bb7dd68862d396282&',
+      },
+      {
         name: 'general knowledge',
         image:
           'https://cdn.discordapp.com/attachments/587141454850424842/1192241394820075550/cropped_general_knowledge_quiz_game_icon.png?ex=65a85c53&is=6595e753&hm=ca891e595bf7e50066fd4ec43e501048fbc10be15ffe61439200541e52c49561&',
@@ -133,6 +138,21 @@ const categories = [
         name: 'physics',
         image:
           'https://cdn.discordapp.com/attachments/587141454850424842/1197958809684037792/image.png?ex=65bd2915&is=65aab415&hm=dc999991b542a16d4a2f0b3cb4b704b27e8ef02070bf3b301789dca2cf4997cd&',
+      },
+      {
+        name: 'scientists',
+        image:
+          'https://cdn.discordapp.com/attachments/587141454850424842/1197958809684037792/image.png?ex=65bd2915&is=65aab415&hm=dc999991b542a16d4a2f0b3cb4b704b27e8ef02070bf3b301789dca2cf4997cd&',
+      },
+    ],
+  },
+  {
+    parentCategory: 'movies',
+    subCategories: [
+      {
+        name: 'harry potter',
+        image:
+          'https://cdn.discordapp.com/attachments/1085326974353952898/1197541428100861972/image.png?ex=65bba45d&is=65a92f5d&hm=6e709d0e51688bacd4a60854b706453f03e4877d3b5155ba2038174271edbd03&',
       },
     ],
   },
