@@ -1,7 +1,5 @@
 const QuestionModel = require('../../models/Question');
 
-const convertImageToCloudinaryURL = require('../../helpers/convertImageToCloudinaryURL');
-
 const createQuestion = async (req, res) => {
   try {
     // let userId;
@@ -9,6 +7,9 @@ const createQuestion = async (req, res) => {
     if (!Array.isArray(req.body)) {
       return res.status(400).json({ message: 'Invalid input format. Expected an array.' });
     }
+
+    const maxOrderQuestion = await QuestionModel.findOne().sort({ order: -1 }).exec();
+    let currentMaxOrder = maxOrderQuestion ? maxOrderQuestion.order : 0;
 
     const results = await Promise.all(
       req.body.map(async (questionData) => {
@@ -37,21 +38,15 @@ const createQuestion = async (req, res) => {
           typeof correctAnswer !== 'string'
         ) {
           console.error('Invalid question data, skipping');
-          return null; // Invalid data, skip this object
+          return null;
         }
 
-        // if (helperImage) {
-        //   console.log('🚀  helperImage:', helperImage);
-
-        //   try {
-        //     const response = await convertImageToCloudinaryURL(helperImage);
-        //     console.log('🚀  response:', response);
-        //     parsedHelperImage = response;
-        //   } catch (err) {
-        //     console.log('🚀  err:', err);
-        //     // throw err;
-        //   }
-        // }
+        // make sure only one correct answer
+        const correctAnswers = answers.filter((answer) => answer.isCorrect);
+        if (correctAnswers.length !== 1) {
+          console.error('Invalid question data, skipping');
+          return null;
+        }
 
         const formattedQuestionData = {
           question,
@@ -60,6 +55,7 @@ const createQuestion = async (req, res) => {
           answers,
           correctAnswer,
           helperImage: helperImage || null,
+          order: ++currentMaxOrder,
         };
 
         try {
