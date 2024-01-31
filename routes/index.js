@@ -10,6 +10,7 @@ router.use('/matchHistory', require('./matchHistory'));
 router.use('/chat', require('./chat'));
 router.use('/homepage', require('./homepage'));
 router.use('/notifications', require('./notifications'));
+router.use('/feeder', require('./feeder'));
 
 // Exporting the base router
 module.exports = router;
