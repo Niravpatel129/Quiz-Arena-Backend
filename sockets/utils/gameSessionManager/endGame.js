@@ -125,7 +125,6 @@ async function endGame(sessionId, players, io) {
   const player2 = gameSession.players[1];
   const player1Score = player1.score;
   const player2Score = player2.score;
-  updateQuestionsStats({ questions: gameSession.rounds, players: gameSession.players });
 
   let player1RatingChange, player2RatingChange;
 
@@ -170,14 +169,16 @@ async function endGame(sessionId, players, io) {
   gameSession.loserId = player1Score > player2Score ? player2.id : player1.id;
 
   await gameSession.save();
-  player1.playerInformation.elo.ratingChange = player1RatingChange;
-  player2.playerInformation.elo.ratingChange = player2RatingChange;
+  // player1.playerInformation.elo.ratingChange = player1RatingChange;
+  // player2.playerInformation.elo.ratingChange = player2RatingChange;
 
   players.forEach((playerSocketId) => {
     io.to(playerSocketId.socketId).emit('game_over', {
       gameSession: gameSession,
     });
   });
+
+  updateQuestionsStats({ questions: gameSession.rounds, players: gameSession.players });
 }
 
 module.exports = endGame;
