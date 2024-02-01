@@ -1,6 +1,7 @@
 const GameSession = require('../../../models/GameSession');
 const User = require('../../../models/User');
 const questionModel = require('../../../models/Question');
+const UserAnswer = require('../../../models/UserAnswer');
 const sentGameOver = {};
 
 const updatePlayerRating = async ({ playerId, category, gameResults }) => {
@@ -59,7 +60,37 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
   }
 };
 
+const updateUserAnswer = async ({ questionId, answer, user, isCorrect }) => {
+  try {
+    const userAnswer = new UserAnswer({
+      question: questionId,
+      answer: answer,
+      user: user,
+      isCorrect: isCorrect,
+    });
+
+    await userAnswer.save();
+  } catch (err) {
+    console.log('Error in updateUserAnswer:', err);
+  }
+};
+
 const updateQuestionsStats = async ({ questions, players }) => {
+  players.forEach((player) => {
+    if (player.socketId.includes('BOT')) {
+      return;
+    }
+
+    player.answers.forEach((answer) => {
+      updateUserAnswer({
+        questionId: answer.questionId,
+        answer: answer.answer,
+        user: player.id,
+        isCorrect: answer.isCorrect,
+      });
+    });
+  });
+
   try {
     const filteredPlayers = players.filter((player) => !player.socketId.includes('BOT'));
     const rawAnswers = filteredPlayers.map((player) => player.answers);

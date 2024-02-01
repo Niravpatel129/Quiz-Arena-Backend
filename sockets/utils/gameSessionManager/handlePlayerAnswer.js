@@ -81,6 +81,7 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
         }
 
         player.answers.push({
+          questionId: currentRound.questionId,
           roundNumber: gameSession.currentRound,
           answer,
           isCorrect,
@@ -89,30 +90,6 @@ const handlePlayerAnswer = async (sessionId, playerSocketId, answer, timeRemaini
 
         const updatedGameSession = await gameSession.save();
         retry = false; // Save successful, no need to retry
-
-        // const allPlayersAnswered = updatedGameSession.players.every((player) =>
-        //   player.answers.some((ans) => {
-        //     console.log(
-        //       '🚀  ans.roundNumber, updatedGameSession.currentRound:',
-        //       ans.roundNumber,
-        //       updatedGameSession.currentRound,
-        //     );
-        //     return ans.roundNumber === updatedGameSession.currentRound;
-        //   }),
-        // );
-
-        // if (allPlayersAnswered) {
-        //   if (updatedGameSession.currentRound >= updatedGameSession.rounds.length) {
-        //     await endGame(sessionId, updatedGameSession.players, io);
-        //   } else {
-        //     await startRound(
-        //       sessionId,
-        //       updatedGameSession.currentRound + 1,
-        //       updatedGameSession.players,
-        //       io,
-        //     );
-        //   }
-        // }
 
         io.to(playerSocketId).emit('answer_result', { isCorrect, currentScore: player.score });
 

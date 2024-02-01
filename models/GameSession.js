@@ -26,6 +26,7 @@ const gameSessionSchema = new mongoose.Schema({
       playerInformation: { type: mongoose.Schema.Types.Mixed },
       answers: [
         {
+          questionId: { type: mongoose.Schema.Types.ObjectId, ref: 'Question' },
           roundNumber: Number,
           answer: String,
           isCorrect: Boolean,
