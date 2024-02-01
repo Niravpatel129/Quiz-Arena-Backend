@@ -283,42 +283,32 @@ const botList = [
 //     .flat();
 
 //   for (const bot of botList) {
-//     // Randomize elo.rating.gamesPlayed, elo.rating.wins, elo.rating.losses, elo.rating.draws
-
 //     try {
+//       const newElo = {};
 //       const randomGamesPlayed = Math.floor(Math.random() * 1000);
 //       const randomWins = Math.floor(Math.random() * randomGamesPlayed);
 //       const randomLosses = Math.floor(Math.random() * randomGamesPlayed - randomWins);
 //       const randomDraws = randomGamesPlayed - randomWins - randomLosses;
 
+//       categories.forEach((category) => {
+//         newElo[category.toLowerCase()] = Math.floor(Math.random() * 1000 + 1000);
+//       });
+
 //       // Update the user's elo field
+//       // await User.findByIdAndUpdate(bot.userId, { elo: { rating: newElo } });
 //       await User.findByIdAndUpdate(bot.userId, {
 //         elo: {
+//           rating: newElo,
 //           gamesPlayed: randomGamesPlayed,
 //           wins: randomWins,
 //           losses: randomLosses,
 //           draws: randomDraws,
 //         },
 //       });
-//       console.log(`Updated gamesPlayed, wins, losses, draws for user ${bot.userId}`);
+//       console.log(`Updated elo for user ${bot.userId}`);
 //     } catch (error) {
 //       console.error(`Error updating user ${bot.userId}:`, error);
 //     }
-
-//     // Update the user's elo field
-//     //   try {
-//     //     const newElo = {};
-
-//     //     categories.forEach((category) => {
-//     //       newElo[category.toLowerCase()] = Math.floor(Math.random() * 1000 + 1000);
-//     //     });
-
-//     //     // Update the user's elo field
-//     //     await User.findByIdAndUpdate(bot.userId, { elo: { rating: newElo } });
-//     //     console.log(`Updated elo for user ${bot.userId}`);
-//     //   } catch (error) {
-//     //     console.error(`Error updating user ${bot.userId}:`, error);
-//     //   }
 
 //     //   // Update the user's lastActive field
 //     //   try {
