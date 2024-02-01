@@ -273,25 +273,70 @@ const botList = [
   },
 ];
 
-// const UpdateAllBotUsersLastActive = async () => {
+// const UpdateBotInformation = async () => {
+//   const categories = require('./categoriesList')
+//     .map((category) => {
+//       return category.subCategories.map((subCategory) => {
+//         return subCategory.name;
+//       });
+//     })
+//     .flat();
 
 //   for (const bot of botList) {
-//     try {
-//       const threeDaysAgo = new Date();
-//       threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
-//       const randomTimestamp = new Date(
-//         threeDaysAgo.getTime() + Math.random() * (Date.now() - threeDaysAgo.getTime()),
-//       );
+//     // Randomize elo.rating.gamesPlayed, elo.rating.wins, elo.rating.losses, elo.rating.draws
 
-//       // Update the user's lastActive field
-//       await User.findByIdAndUpdate(bot.userId, { lastActive: randomTimestamp });
-//       console.log(`Updated lastActive for user ${bot.userId}`);
+//     try {
+//       const randomGamesPlayed = Math.floor(Math.random() * 1000);
+//       const randomWins = Math.floor(Math.random() * randomGamesPlayed);
+//       const randomLosses = Math.floor(Math.random() * randomGamesPlayed - randomWins);
+//       const randomDraws = randomGamesPlayed - randomWins - randomLosses;
+
+//       // Update the user's elo field
+//       await User.findByIdAndUpdate(bot.userId, {
+//         elo: {
+//           gamesPlayed: randomGamesPlayed,
+//           wins: randomWins,
+//           losses: randomLosses,
+//           draws: randomDraws,
+//         },
+//       });
+//       console.log(`Updated gamesPlayed, wins, losses, draws for user ${bot.userId}`);
 //     } catch (error) {
 //       console.error(`Error updating user ${bot.userId}:`, error);
 //     }
+
+//     // Update the user's elo field
+//     //   try {
+//     //     const newElo = {};
+
+//     //     categories.forEach((category) => {
+//     //       newElo[category.toLowerCase()] = Math.floor(Math.random() * 1000 + 1000);
+//     //     });
+
+//     //     // Update the user's elo field
+//     //     await User.findByIdAndUpdate(bot.userId, { elo: { rating: newElo } });
+//     //     console.log(`Updated elo for user ${bot.userId}`);
+//     //   } catch (error) {
+//     //     console.error(`Error updating user ${bot.userId}:`, error);
+//     //   }
+
+//     //   // Update the user's lastActive field
+//     //   try {
+//     //     const threeDaysAgo = new Date();
+//     //     threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
+//     //     const randomTimestamp = new Date(
+//     //       threeDaysAgo.getTime() + Math.random() * (Date.now() - threeDaysAgo.getTime()),
+//     //     );
+
+//     //     // Update the user's lastActive field
+//     //     await User.findByIdAndUpdate(bot.userId, { lastActive: randomTimestamp });
+//     //     console.log(`Updated lastActive for user ${bot.userId}`);
+//     //   } catch (error) {
+//     //     console.error(`Error updating user ${bot.userId}:`, error);
+//     //   }
 //   }
 // };
 
-// UpdateAllBotUsersLastActive();
+// UpdateBotInformation();
 
 module.exports = botList;
