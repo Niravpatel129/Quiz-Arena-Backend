@@ -62,6 +62,8 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
 
 const updateUserAnswer = async ({ questionId, answer, user, isCorrect }) => {
   try {
+    if (!questionId) return null;
+
     const userAnswer = new UserAnswer({
       question: questionId,
       answer: answer,
