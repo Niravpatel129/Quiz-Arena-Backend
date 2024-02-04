@@ -1,6 +1,6 @@
 const Feeder = require('../../models/feeder');
 
-const createFeeder = async (req, res) => {
+const createFeederResults = async (req, res) => {
   try {
     const {
       userId,
@@ -58,4 +58,4 @@ const createFeeder = async (req, res) => {
   }
 };
 
-module.exports = createFeeder;
+module.exports = createFeederResults;
