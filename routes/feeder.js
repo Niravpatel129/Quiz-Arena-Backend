@@ -5,5 +5,6 @@ const { verifyToken } = require('../sockets/middleware/jwtMiddleware');
 
 router.get('/questions', feederController.getQuestions);
 router.post('/user-answers', verifyToken, feederController.addUserAnswersBatch);
+router.post('/results', verifyToken, feederController.createFeeder);
 
 module.exports = router;
