@@ -8,7 +8,7 @@ const getKing = async (req, res) => {
       .sort({ scoreAchieved: -1 }) // Sort them by scoreAchieved in descending order
       .populate({
         path: 'user',
-        select: 'username profile',
+        select: 'username profile createdAt',
       })
       .exec(); // Execute the query
 
