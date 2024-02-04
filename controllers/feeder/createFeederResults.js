@@ -1,4 +1,4 @@
-const Feeder = require('../../models/feeder');
+const Feeder = require('../../models/Feeder');
 
 const createFeederResults = async (req, res) => {
   try {
