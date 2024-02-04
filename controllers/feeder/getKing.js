@@ -2,23 +2,40 @@ const Feeder = require('../../models/Feeder');
 
 const getKing = async (req, res) => {
   try {
-    const category = req.params.category || 'general knowledge';
+    const category = req.params.category.replace('-', ' ') || 'general knowledge';
     console.log('🚀  category:', category);
-    const highestScorer = await Feeder.findOne({ category: category }) // Find documents matching the category
-      .sort({ scoreAchieved: -1 }) // Sort them by scoreAchieved in descending order
-      .populate({
-        path: 'user',
-        select: 'username profile createdAt',
-      })
-      .exec(); // Execute the query
 
-    if (!highestScorer) {
+    const topScorers = await Feeder.aggregate([
+      { $match: { category: category } },
+      { $sort: { scoreAchieved: -1 } },
+      { $limit: 2 },
+      {
+        $lookup: {
+          from: 'users',
+          localField: 'user',
+          foreignField: '_id',
+          as: 'userDetails',
+        },
+      },
+      { $unwind: '$userDetails' },
+      {
+        $project: {
+          'userDetails.username': 1,
+          'userDetails.profile': 1,
+          scoreAchieved: 1,
+          category: 1,
+          updatedAt: 1, // Include the updatedAt field from the Feeder document
+        },
+      },
+    ]);
+
+    if (!topScorers.length) {
       return res.status(404).send({ message: 'No players found in this category.' });
     }
 
-    res.status(200).send(highestScorer);
+    res.status(200).send(topScorers);
   } catch (err) {
-    console.error('Error finding highest scorer:', err);
+    console.error('Error finding highest scorers:', err);
     res.status(500).send({ message: err.message });
   }
 };
