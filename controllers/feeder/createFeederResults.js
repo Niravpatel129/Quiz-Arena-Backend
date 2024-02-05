@@ -41,6 +41,8 @@ const createFeederResults = async (req, res) => {
       personalBestPercentileRank = (scoresLessThanPersonalBest / totalScores) * 100;
     }
 
+    console.log('🚀 Feeder Ended', userId, category, scoreAchieved);
+
     res.status(201).send({
       feeder: {
         id: feeder._id,

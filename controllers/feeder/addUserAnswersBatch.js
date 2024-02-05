@@ -28,7 +28,6 @@ const addUserAnswersBatch = async (req, res) => {
         user: req.userId,
       };
     });
-    console.log('🚀  userAnswers:', userAnswers);
 
     // userAnswers.User = req.userId;
 
