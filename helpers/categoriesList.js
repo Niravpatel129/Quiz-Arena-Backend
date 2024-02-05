@@ -144,6 +144,11 @@ const categories = [
         image:
           'https://cdn.discordapp.com/attachments/587141454850424842/1197958809684037792/image.png?ex=65bd2915&is=65aab415&hm=dc999991b542a16d4a2f0b3cb4b704b27e8ef02070bf3b301789dca2cf4997cd&',
       },
+      {
+        name: 'psychology',
+        image:
+          'https://cdn.discordapp.com/attachments/587141454850424842/1197958809684037792/image.png?ex=65bd2915&is=65aab415&hm=dc999991b542a16d4a2f0b3cb4b704b27e8ef02070bf3b301789dca2cf4997cd&',
+      },
     ],
   },
   {
