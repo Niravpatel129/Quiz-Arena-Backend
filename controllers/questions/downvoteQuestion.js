@@ -19,7 +19,9 @@ const downvoteQuestion = async (req, res) => {
 **Answer:** ${question.correctAnswer}
 **Helper Image:** ${question.helperImage ? question.helperImage : 'No Image'}   
 
-**Down Voted By:** ${req.userId}`,
+**Down Voted By:** ${req.userId}
+**cc:** <@277257156632510466>
+`,
     );
 
     await question.save();
