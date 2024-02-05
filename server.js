@@ -10,6 +10,7 @@ const Sentry = require('@sentry/node');
 const { ProfilingIntegration } = require('@sentry/profiling-node');
 const app = express();
 const server = http.createServer(app);
+const { initializeDiscord } = require('./services/discord_initalize');
 
 mongoose.connect(process.env.MONGO_CONNECTION_STRING, {});
 
@@ -54,10 +55,14 @@ app.use(routes);
 
 app.use(Sentry.Handlers.errorHandler());
 
+// initalize discord
+
 const PORT = process.env.PORT || 8001;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+initializeDiscord();
 
 initializeSockets(server, {
   cors: {
