@@ -1,14 +1,14 @@
 const QuestionModel = require('../../models/Question');
 const { sendMessageToChannel } = require('../../services/discord_bot');
+const UserModel = require('../../models/User');
 
 const downvoteQuestion = async (req, res) => {
   const questionId = req.params.id;
 
   try {
     const question = await QuestionModel.findById(questionId);
+    const user = await UserModel.findById(req.userId);
     question.downvotes = question.downvotes + 1;
-
-    // send message to discord channel 1201973878121824326, in a nice format that this question was downvoted embded
 
     sendMessageToChannel(
       process.env.DISCORD_QUESTION_CHANNEL_ID,
@@ -16,10 +16,11 @@ const downvoteQuestion = async (req, res) => {
 **[Question ${questionId} Quallity Alert]**
 
 **Question:** ${question.question}  
+**Category:** ${question.category}  
 **Answer:** ${question.correctAnswer}
 **Helper Image:** ${question.helperImage ? question.helperImage : 'No Image'}   
 
-**Down Voted By:** ${req.userId}
+**Down Voted By:** ${user.username} | ${req.userId}
 **cc:** <@277257156632510466>
 `,
     );
