@@ -14,15 +14,17 @@ const getUserById = async (req, res) => {
 
     const user = await User.findById(userId);
 
+    if (!user) return res.send('User not found');
+
     // calculate average rating from all categories
     let totalRating = 0;
     let totalGames = 0;
-    for (let category in user.elo.rating) {
-      totalRating += user.elo.rating[category];
-      totalGames += user.elo.gamesPlayed;
+    for (let category in user.elo?.rating) {
+      totalRating += user?.elo?.rating[category];
+      totalGames += user?.elo?.gamesPlayed;
     }
 
-    const averageRating = totalRating / Object.keys(user.elo.rating).length;
+    const averageRating = totalRating / Object.keys(user?.elo?.rating).length;
 
     const DataToSend = {
       userId: user._id,
