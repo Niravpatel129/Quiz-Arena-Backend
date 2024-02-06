@@ -77,10 +77,13 @@ const addBotToQueue = (category) => {
 
 const checkQueueSize = (category, io) => {
   if (queueStore[category].size === 2) {
-    startGame(category, [...queueStore[category]], io);
+    let players = [...queueStore[category]];
+
     queueStore[category].forEach((playerSocketId) => {
       queueStore[category].delete(playerSocketId);
     });
+
+    startGame(category, players, io);
   }
 
   io.emit('queue_update', { category, queue: [...queueStore[category]] });
