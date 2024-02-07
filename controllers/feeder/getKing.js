@@ -2,7 +2,7 @@ const Feeder = require('../../models/Feeder');
 
 const getKing = async (req, res) => {
   try {
-    const category = req.params.category.replace('-', ' ') || 'general knowledge';
+    const category = req.params.category.replaceAll('-', ' ') || 'general knowledge';
     console.log('🚀  category:', category);
 
     const topScorers = await Feeder.aggregate([
