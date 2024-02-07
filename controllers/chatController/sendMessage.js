@@ -35,8 +35,9 @@ const sendMessage = async (req, res) => {
       console.log('opponent is a bot, sending message to discord channel');
       sendMessageToChannel(
         '1204714714580652092',
-        `**${userInChat.username}** send a message to **${otherUserId.username}(BOT)**: 
-${messageContent}`,
+        `**Chat Alert:** **${userInChat.username}** send a message to **${otherUserId.username}(BOT)**: 
+**Message:** ${messageContent}
+**Chat Id:** ${chatId}`,
       );
     }
 
