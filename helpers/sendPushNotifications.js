@@ -39,8 +39,7 @@ async function sendPushNotifications(messageTitle, tokens, messageBody, messageD
 //   sendPushNotifications(
 //     'Quiz Arena',
 //     arrayOfTokens,
-//     'Just dropped! Dive into the new Game of Thrones Topic and more!',
-//     { debugMode: 'active' },
+//     'Daily trivia buffs grow their hair 1 inch monthly, Quiz on, grow strong!',
 //   );
 // };
 

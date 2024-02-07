@@ -83,20 +83,20 @@ const userSchema = new Schema(
             name: 'First Game',
             description: 'You played your first game!',
             image:
-              'https://s3-alpha-sig.figma.com/img/856a/6bb9/3289983fc59a561561abacfa9957a49b?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BcMuKB4UXFXaBG4IZWJQrVmh~obF9hsf~BYBikLrJSgbILYjwJFMhLZMRKbwkoIwl2c1~5LXcdGh~jWnDAEuS9hlwAnWKSt0zH3VUqU6M68Ehrk2dVR215cd8sa5kZbKSTz3w6Wb4IijPAujjM6w2y7ydzH~eXj9o3sQVXeY-HEyr28APihWzNVZBs9nNKQMv-WrvmqgHjmIdB3vhjp9dUuRJbuYKq-R6G~2wkTcS97H4rbN3r3r0pT5OoWFbjhXvtfefZyib3LDTZxWU5XMLJ4BpZbBmuI0VGG8Z9m2YKUSd1MaZfjDDmGGZNkCbgq5WzHMMOJrYhzzdqPr3l6Rlg__',
+              'https://cdn.discordapp.com/attachments/1085326974353952898/1204824254219288636/Style2_1_1.png?ex=65d62306&is=65c3ae06&hm=6718957fc2ffca4a9e269357cbefa9c1e48f68629acb44e7603901be65b8ad73&',
             date: Date.now(),
           },
           {
             name: 'Beta Tester',
             description: 'You were one of the first to play!',
             image:
-              'https://s3-alpha-sig.figma.com/img/4d7c/4a09/8d8ea911a0bb4770f0dab5f9e4519621?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aFg4jRe2DOqGmJZtZIfIwaW1T3CdeVrjDiTWatsQAkvKB7nDaqSzwPfJcjTQReL7-CXfmu6HRoi3oMkLHB66lbZBsMxrv~mxzTDyiYGcekubVimHRDXqWJsHITigbD7l8OmoCofYQ8bP5w2a6Iblioyn27vpk-vvH80jTmvgExy3ovpTdMdkdO~U5AidjNJ2esZ9yLgPVt9pTfM4sFjFbqI0bkAWANT3TjBDPNgWnfWch8Glz4FYOGpkt1ZBSpxGBKnVabFA2ie2vahYMVz5XqLfMJwbrtRmRkRzPCTDfrj8QqatjulYF86usUTaXfZPyd2mAoCBvw1zNCBEGO~xKQ__',
+              'https://cdn.discordapp.com/attachments/1085326974353952898/1204824178893656155/Style6_1_1.png?ex=65d622f4&is=65c3adf4&hm=106d245adb25d89140163a658c05fa6c09ef635434f81ef495253b64a579723b&',
           },
           {
             name: 'Login Streak 1',
             description: 'You logged in for 1 day in a row!',
             image:
-              'https://s3-alpha-sig.figma.com/img/d894/4707/346ce8284bd1434fb54a526f1faa0e7e?Expires=1707091200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=W62TGg6xn9ZC0fV0OwhFY5C-5v09cNsepUG7utNq5KXRU7zCAfX09aeS6lrpyBeJfDj47-zPUq4v0XeGnzC5OLgFqUnYT~4pSmbv5iF9JHAqYoThzpVJyADIAqwda~ESrfchnPfybnhZJgvLAcRdb0FbQufwDMSl7jOVLmn6AMIqZU6oiHWxiK6Mk-rPeIX6CHj~s~XT6zlkgLFxY2cBtNeC3XBcbrrdZA8LgKCwSymduzqzPkPtupj0wFigC-ymNEt9HydQvFlEog4f1jMuymlZ0iKuyhH4f~fPXQrjZntpSbCNIia2GHjO3WoXZPvcKM6FfqjVp-1gIfsdaj1WZg__',
+              'https://cdn.discordapp.com/attachments/1085326974353952898/1204824178407251968/Style4_1_1.png?ex=65d622f4&is=65c3adf4&hm=3d78d0165ef8eee0f6fa07603e044a2548a59768ecc1d3a539749679a247296a&',
           },
         ],
       },
