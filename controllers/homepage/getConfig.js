@@ -1,6 +1,6 @@
 const getConfig = async (req, res) => {
   try {
-    let defaultQueueTime = Math.floor(Math.random() * 4) + 3;
+    let defaultQueueTime = Math.floor(Math.random() * 3) + 3;
 
     let updatedRequired = false;
     const version = req?.params?.version;

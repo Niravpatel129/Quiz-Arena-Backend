@@ -13,6 +13,8 @@ const downvoteQuestion = async (req, res) => {
     sendMessageToChannel(
       process.env.DISCORD_QUESTION_CHANNEL_ID,
       `
+**====================================================================================**
+
 **[Question ${questionId} Quallity Alert]**
 
 **Question:** ${question.question}  
@@ -22,6 +24,8 @@ const downvoteQuestion = async (req, res) => {
 
 **Down Voted By:** ${user.username} | ${req.userId}
 **cc:** <@277257156632510466>
+
+**====================================================================================**
 `,
     );
 
