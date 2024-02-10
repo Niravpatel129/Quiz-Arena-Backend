@@ -46,8 +46,7 @@ const acceptRematch = (socket, io) => {
     }
 
     if (rematchQueueStore[gameId].size === 2) {
-      // Start a game
-      startGame(category, [...rematchQueueStore[gameId]], io);
+      startGame(category, [...rematchQueueStore[gameId]], io, true);
 
       return;
     }

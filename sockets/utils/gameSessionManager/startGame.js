@@ -2,7 +2,7 @@ const GameSession = require('../../../models/GameSession');
 const User = require('../../../models/User');
 const generateRoundsForCategory = require('./generateRounds');
 
-const startGame = async (category, players, io) => {
+const startGame = async (category, players, io, isRematch) => {
   console.log('🚀  starting category:', category);
 
   const rounds = await generateRoundsForCategory(category);
@@ -51,6 +51,15 @@ const startGame = async (category, players, io) => {
       players,
     });
   });
+
+  if (isRematch) {
+    players.forEach((player) => {
+      io.to(player.socketId).emit('rematchAccepted', {
+        gameSessionId: gameSession._id,
+        players: players,
+      });
+    });
+  }
 
   // old logic
   // startRound(gameSession._id, 1, players, io);
