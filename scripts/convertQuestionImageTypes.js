@@ -22,12 +22,11 @@ const convertQuestionImageTypes = async () => {
     for (const question of questions) {
       try {
         // Check if the image is already in the desired format or hosted on Cloudinary
-        if (
-          !question.helperImage ||
-          question.helperImage.endsWith('.jpeg') ||
-          (question.helperImage.endsWith('.jpg') && question.helperImage.includes('cloudinary')) ||
-          question.helperImage.includes('cloudinary')
-        ) {
+        if (!question.helperImage) {
+          continue;
+        }
+
+        if (question.helperImage.includes('cloudinary')) {
           continue;
         }
 
