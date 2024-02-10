@@ -20,8 +20,8 @@ const convertUserAvatars = async () => {
       if (!user.profile.avatar) continue;
 
       if (
-        (user.profile.avatar.endsWith('.jpg') && user.profile.avatar.includes('cloudinary')) ||
-        user.profile.avatar.endsWith('.jpg')
+        user.profile.avatar.includes('cloudinary') ||
+        (user.profile.avatar.includes('cloudinary') && user.profile.avatar.endsWith('.jpg'))
       ) {
         continue;
       }

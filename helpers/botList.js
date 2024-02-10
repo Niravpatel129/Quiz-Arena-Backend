@@ -271,6 +271,191 @@ const botList = [
     userId: '65a4e9f4aaa78351b3762170',
     socketId: 'EWw4E8ELTbxHZx7ZAAABOTQueenMarry',
   },
+  {
+    name: 'Roshni',
+    userId: '65c7d4a1f3e7dbb91197a7d2',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTRoshni',
+  },
+  {
+    name: 'Rohitt3',
+    userId: '65c7d8b504088479797ca9ad',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTRohitt3',
+  },
+  {
+    name: 'LeoDash',
+    userId: '65c7d8b504088479797ca9b1',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTLeoDash',
+  },
+  {
+    name: 'QuizBee',
+    userId: '65c7d8b504088479797ca9b5',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTQuizBee',
+  },
+  {
+    name: 'Xylo4',
+    userId: '65c7d8b504088479797ca9b9',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTXylo4',
+  },
+  {
+    name: 'JadeStar',
+    userId: '65c7d8b504088479797ca9bd',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTJadeStar',
+  },
+  {
+    name: 'TrekFan9',
+    userId: '65c7d8b604088479797ca9c1',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTTrekFan9',
+  },
+  {
+    name: 'SkyGaze',
+    userId: '65c7d8b604088479797ca9c5',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTSkyGaze',
+  },
+  {
+    name: 'Nimble4',
+    userId: '65c7d8b604088479797ca9c9',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTNimble4',
+  },
+  {
+    name: 'Zephyr',
+    userId: '65c7d8b604088479797ca9cd',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTZephyr',
+  },
+  {
+    name: 'MazeRunr',
+    userId: '65c7d8b604088479797ca9d1',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTMazeRunr',
+  },
+  {
+    name: 'Pixel8',
+    userId: '65c7d8b604088479797ca9d5',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTPixel8',
+  },
+  {
+    name: 'Cirrus',
+    userId: '65c7d8b604088479797ca9d9',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTCirrus',
+  },
+  {
+    name: 'BoltSpeed',
+    userId: '65c7d8b704088479797ca9dd',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTBoltSpeed',
+  },
+  {
+    name: 'EchoSonic',
+    userId: '65c7d8b704088479797ca9e1',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTEchoSonic',
+  },
+  {
+    name: 'NovaLight',
+    userId: '65c7d8b704088479797ca9e5',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTNovaLight',
+  },
+  {
+    name: 'Qu2artz',
+    userId: '65c7d8b704088479797ca9e9',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTQu2artz',
+  },
+  {
+    name: 'RiftWaer',
+    userId: '65c7d8b704088479797ca9ed',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTRiftWaer',
+  },
+  {
+    name: 'Glyph',
+    userId: '65c7d8b704088479797ca9f1',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTGlyph',
+  },
+  {
+    name: 'FrostByte',
+    userId: '65c7d8b704088479797ca9f5',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTFrostByte',
+  },
+  {
+    name: 'LunarTide',
+    userId: '65c7d8b804088479797ca9f9',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTLunarTide',
+  },
+  {
+    name: 'StarBeam',
+    userId: '65c7d8b804088479797ca9fd',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTStarBeam',
+  },
+  {
+    name: 'Chrisin',
+    userId: '65c7d8b804088479797caa01',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTChrisin',
+  },
+  {
+    name: 'Ariel3',
+    userId: '65c7d8b804088479797caa05',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTAriel3',
+  },
+  {
+    name: 'Chrisinn',
+    userId: '65c7d8b804088479797caa09',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTChrisinn',
+  },
+  {
+    name: 'Aryy',
+    userId: '65c7d8b804088479797caa0d',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTAryy',
+  },
+  {
+    name: 'DuneRaider',
+    userId: '65c7d8b904088479797caa11',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTDuneRaider',
+  },
+  {
+    name: 'EchoPulse',
+    userId: '65c7d8b904088479797caa15',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTEchoPulse',
+  },
+  {
+    name: 'FlareHeart',
+    userId: '65c7d8b904088479797caa19',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTFlareHeart',
+  },
+  {
+    name: 'GaleForce',
+    userId: '65c7d8b904088479797caa1d',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTGaleForce',
+  },
+  {
+    name: 'HaloSpark',
+    userId: '65c7d8b904088479797caa21',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTHaloSpark',
+  },
+  {
+    name: 'Heart1',
+    userId: '65c7d8b904088479797caa25',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTHeart1',
+  },
+  {
+    name: 'Juliet_E',
+    userId: '65c7d8ba04088479797caa29',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTJuliet_E',
+  },
+  {
+    name: 'Ericaa',
+    userId: '65c7d8ba04088479797caa2d',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTEricaa',
+  },
+  {
+    name: 'LumenRe',
+    userId: '65c7d8ba04088479797caa31',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTLumenRe',
+  },
+  {
+    name: 'S4r4h',
+    userId: '65c7d8ba04088479797caa35',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTS4r4h',
+  },
+  {
+    name: 'MakGirl',
+    userId: '65c7d8ba04088479797caa39',
+    socketId: 'EWw4E8ELTbxHZx7ZAAABOTMakGirl',
+  },
 ];
 
 // const UpdateBotInformation = async () => {
