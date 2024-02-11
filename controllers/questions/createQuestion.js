@@ -1,7 +1,9 @@
 const QuestionModel = require('../../models/Question');
+const { sendMessageToChannel } = require('../../services/discord_bot');
 
 const createQuestion = async (req, res) => {
   try {
+    console.log('🚀 ~ file: createQuestion.js ~ line 5 ~ createQuestion ~ req.body', req.body);
     // let userId;
 
     if (!Array.isArray(req.body)) {
@@ -18,6 +20,13 @@ const createQuestion = async (req, res) => {
 
         if (!question || !category || !parentCategory || !answers || !correctAnswer) {
           console.error('Invalid question data, skipping');
+          // log why its invalid
+          if (!question) console.error('question is missing');
+          if (!category) console.error('category is missing');
+          if (!parentCategory) console.error('parentCategory is missing');
+          if (!answers) console.error('answers is missing');
+          if (!correctAnswer) console.error('correctAnswer is missing');
+
           return null; // Invalid data, skip this object
         }
 
@@ -37,14 +46,14 @@ const createQuestion = async (req, res) => {
           !Array.isArray(answers) ||
           typeof correctAnswer !== 'string'
         ) {
-          console.error('Invalid question data, skipping');
+          console.error('Invalid question type data, skipping');
           return null;
         }
 
         // make sure only one correct answer
         const correctAnswers = answers.filter((answer) => answer.isCorrect);
-        if (correctAnswers.length !== 1) {
-          console.error('Invalid question data, skipping');
+        if (correctAnswers.length === 0) {
+          console.error('Invalid question length data, skipping');
           return null;
         }
 
@@ -79,6 +88,38 @@ const createQuestion = async (req, res) => {
     const filteredResults = results.filter((result) => result !== null);
 
     console.log('🚀  done');
+
+    // send a message to the discord channel that this question was created
+    sendMessageToChannel(
+      '1206213469146193970',
+      `
+  **📌 New Questions Added 📌**
+  ${filteredResults
+    .map(
+      (question, index) => `
+    **Q${index + 1}:** ${question.question}
+    *Category:* ${question.category.charAt(0).toUpperCase() + question.category.slice(1)}
+    *Parent:* ${question.parentCategory.charAt(0).toUpperCase() + question.parentCategory.slice(1)}
+    *Options:*
+    ${question.answers
+      .map(
+        (answer, answerIndex) =>
+          `${String.fromCharCode(97 + answerIndex)}) ${answer.optionText}${
+            answer.isCorrect ? ' ✅' : ''
+          }`,
+      )
+      .join('\n    ')}
+    *Correct Answer:* ${question.correctAnswer}
+
+  `,
+    )
+    .join('\n\n')}
+`,
+      {
+        split: true,
+      },
+    );
+
     res.status(201).json(filteredResults);
   } catch (err) {
     console.log('🚀  err:', err);
