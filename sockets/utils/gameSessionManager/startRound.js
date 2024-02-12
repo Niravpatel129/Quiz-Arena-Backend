@@ -127,8 +127,9 @@ const startRound = async (sessionId, roundNumber, players, io) => {
       clearInterval(roundInterval);
       clearTimeout(timeOut);
 
-      // Increment the round number
-      handleTimeUp(sessionId, roundNumber, players, io);
+      setTimeout(() => {
+        handleTimeUp(sessionId, roundNumber, players, io);
+      }, 500);
 
       return;
     }
