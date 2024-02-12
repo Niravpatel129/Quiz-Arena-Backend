@@ -89,18 +89,41 @@ const startRound = async (sessionId, roundNumber, players, io) => {
     });
   });
 
-  // const bot = players.find((player) => player.socketId === 'EWw4E8ELTbxHZx7ZAAABOT');
-  // if (bot) botAnswer(io, bot, gameSession);
-
   const roundInterval = setInterval(async () => {
-    const gameSession = await GameSession.findById(sessionId).populate('players');
+    const gameSession = await GameSession.findById(sessionId).populate({
+      path: 'players',
+      select: '-playerInformation.history',
+    });
 
-    // check if both players have answered
     const allPlayersAnswered = gameSession.players.every((player) =>
       player.answers.some((ans) => ans.roundNumber === gameSession.currentRound),
     );
 
     if (allPlayersAnswered) {
+      // emit 'round_over' with data from what both players answerd
+      players.forEach((playerSocketId) => {
+        //
+        const player = gameSession.players.find(
+          (player) => player.socketId === playerSocketId.socketId,
+        );
+
+        const opponent = gameSession.players.find(
+          (player) => player.socketId !== playerSocketId.socketId,
+        );
+
+        io.to(playerSocketId.socketId).emit('round_over', {
+          roundNumber: gameSession.currentRound,
+          playerAnswer: gameSession.players.find(
+            (player) => player.socketId === playerSocketId.socketId,
+          ).answers[gameSession.currentRound - 1],
+          playerDetails: { playerInformation: { avatar: player.playerInformation.avatar } },
+          opponentAnswer: gameSession.players.find(
+            (player) => player.socketId !== playerSocketId.socketId,
+          ).answers[gameSession.currentRound - 1],
+          opponentDetails: { playerInformation: { avatar: opponent.playerInformation.avatar } },
+        });
+      });
+
       clearInterval(roundInterval);
       clearTimeout(timeOut);
 
