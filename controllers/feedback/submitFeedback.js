@@ -1,4 +1,5 @@
 const Feedback = require('../../models/Feedback');
+const { sendMessageToChannel } = require('../../services/discord_bot');
 
 // Submit feedback
 const submitFeedback = async (req, res) => {
@@ -13,6 +14,17 @@ const submitFeedback = async (req, res) => {
     });
 
     await newFeedback.save();
+
+    sendMessageToChannel(
+      '1206213469146193970',
+      `
+🚨 Feedback Alert 🚨
+New feedback received for question: ${question}
+from user: ${userId}
+feedback: ${feedback}
+`,
+    );
+
     res.json(newFeedback);
   } catch (err) {
     console.error(err);
