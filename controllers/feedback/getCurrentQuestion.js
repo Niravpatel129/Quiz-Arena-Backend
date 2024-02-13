@@ -1,6 +1,6 @@
 const getCurrentQuestion = async (req, res) => {
   try {
-    const question = 'How interested would you be in daily trivia tournaments?';
+    const question = `We're thinking of introducing daily trivia tournaments!`;
     res.json({ question });
   } catch (err) {
     console.error(err);
