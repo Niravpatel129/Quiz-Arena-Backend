@@ -18,12 +18,11 @@ const createQuestion = async (req, res) => {
         const { question, category, parentCategory, answers, correctAnswer, helperImage } =
           questionData;
 
-        if (!question || !category || !parentCategory || !answers || !correctAnswer) {
+        if (!question || !category || !answers || !correctAnswer) {
           console.error('Invalid question data, skipping');
           // log why its invalid
           if (!question) console.error('question is missing');
           if (!category) console.error('category is missing');
-          if (!parentCategory) console.error('parentCategory is missing');
           if (!answers) console.error('answers is missing');
           if (!correctAnswer) console.error('correctAnswer is missing');
 
