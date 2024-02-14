@@ -23,7 +23,7 @@ const validateQuestion = (question) => {
 };
 
 const checkQuestionQuality = async () => {
-  const categories = ['chemistry']; // Extend this array with other categories as needed
+  const categories = ['league of legends']; // Extend this array with other categories as needed
   const validationResults = [];
 
   for (const category of categories) {
@@ -52,7 +52,7 @@ const checkQuestionQuality = async () => {
     }
   }
 
-  // Write the accumulated results to a text file
+  // Write the accumulated results to a text file, now including AI feedback
   const filePath = path.join(__dirname, 'detailedValidationResults.txt');
   fs.writeFileSync(filePath, validationResults.join('\n\n'));
   console.log(`All questions checked. Detailed results written to ${filePath}`);
