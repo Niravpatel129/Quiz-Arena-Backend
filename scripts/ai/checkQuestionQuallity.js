@@ -2,6 +2,8 @@ require('dotenv').config();
 const { default: mongoose } = require('mongoose');
 const QuestionModel = require('../../models/Question');
 const validateQuestionsUsingAPI = require('./validateQuestionsUsingAPI');
+const fs = require('fs');
+const path = require('path');
 
 // MongoDB connection
 mongoose
@@ -10,38 +12,50 @@ mongoose
   .catch((err) => console.error('MongoDB connection error:', err));
 
 const validateQuestion = (question) => {
-  // Check if only one answer is marked as correct
   const correctAnswers = question.answers.filter((answer) => answer.isCorrect);
   if (correctAnswers.length !== 1) {
-    return false;
+    return false; // Provide a reason for the failure
   }
-
-  // Check if correctAnswer matches the text of the marked correct answer
   if (question.correctAnswer !== correctAnswers[0].optionText) {
-    return false;
+    return false; // Provide a reason for the failure
   }
-
-  // Additional formatting checks can be added here
-
   return true;
 };
 
 const checkQuestionQuality = async () => {
-  const questions = await QuestionModel.find({ category: 'biology' });
+  const categories = ['chemistry']; // Extend this array with other categories as needed
+  const validationResults = [];
 
-  for (const question of questions) {
-    if (validateQuestion(question)) {
-      const isValid = await validateQuestionsUsingAPI(question);
-      if (isValid) {
-        // console.log(`Question ID: ${question._id} is valid.`);
-      } else {
-        console.log(`Question ID: ${question._id} failed.`);
+  for (const category of categories) {
+    const questions = await QuestionModel.find({ category });
+
+    for (const question of questions) {
+      let questionValidationResult = `Question ID: ${question._id} in category ${category}:`;
+
+      if (!validateQuestion(question)) {
+        questionValidationResult += `\n- Failed initial validation: Check correct answer configuration.`;
+        validationResults.push(questionValidationResult);
+        continue; // Skip further checks if initial validation fails
       }
-    } else {
-      console.log(`Question ID: ${question._id} failed initial validation.`);
+
+      const isValidAndFeedback = await validateQuestionsUsingAPI(question);
+      if (!isValidAndFeedback.isValid) {
+        questionValidationResult += `\n- Failed validation checks:\n${isValidAndFeedback.feedback.join(
+          '\n',
+        )}`;
+      } else {
+        questionValidationResult += `\n- Passed all validation checks.`;
+      }
+
+      console.log(questionValidationResult);
+      validationResults.push(questionValidationResult);
     }
   }
-  console.log('All questions checked.');
+
+  // Write the accumulated results to a text file
+  const filePath = path.join(__dirname, 'detailedValidationResults.txt');
+  fs.writeFileSync(filePath, validationResults.join('\n\n'));
+  console.log(`All questions checked. Detailed results written to ${filePath}`);
 };
 
 checkQuestionQuality();

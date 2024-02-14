@@ -19,64 +19,72 @@ const getAIResponse = async (prompt) => {
 };
 
 const validateQuestionsUsingAPI = async (question) => {
-  try {
-    const validationChecks = [
-      {
-        type: 'Logical Consistency',
-        prompt: {
-          role: 'user',
-          content: `True or false: The question "${question.question}" is logically consistent and correctly formed.`,
-        },
-      },
-      {
-        type: 'Fact-Checking',
-        prompt: {
-          role: 'user',
-          content: `True or false: The statement "${question.question}" is factually accurate.`,
-        },
-      },
-      {
-        type: 'Relevance Check',
-        prompt: {
-          role: 'user',
-          content: `True or false: The question "${question.question}" is relevant to the topic "${question.category}" in the current year.`,
-        },
-      },
-      {
-        type: 'Correct Answer Validation',
-        prompt: {
-          role: 'user',
-          content: `True or false: The correct answer "${
-            question.correctAnswer
-          }" accurately matches one of the provided options for the question "${
-            question.question
-          }". Options: ${question.answers.map((a) => a.optionText).join(', ')}.`,
-        },
-      },
-    ];
+  let feedback = []; // Initialize an array to hold detailed feedback
+  let isValid = true; // Assume the question is valid until proven otherwise
 
-    for (const check of validationChecks) {
-      const response = await getAIResponse(check.prompt);
-      // Check if the response starts with "True" considering additional explanation
-      if (!response.trim().toLowerCase().startsWith('true')) {
-        console.log(
-          `Question ID: ${question._id} failed the ${check.type} check with response: ${response}`,
+  const validationChecks = [
+    {
+      type: 'Logical Consistency',
+      prompt: {
+        role: 'user',
+        content: `True or false: The question "${question.question}" is logically consistent and correctly formed.`,
+      },
+    },
+    {
+      type: 'Fact-Checking',
+      prompt: {
+        role: 'user',
+        content: `True or false: The statement "${question.question}" is factually accurate.`,
+      },
+    },
+    {
+      type: 'Relevance Check',
+      prompt: {
+        role: 'user',
+        content: `True or false: The question "${question.question}" is relevant to the topic "${question.category}" in the current year.`,
+      },
+    },
+    {
+      type: 'Correct Answer Validation',
+      prompt: {
+        role: 'user',
+        content: `True or false: The correct answer "${
+          question.correctAnswer
+        }" accurately matches one of the provided options for the question "${
+          question.question
+        }". Options: ${question.answers.map((a) => a.optionText).join(', ')}.`,
+      },
+    },
+    {
+      type: 'Engagement Check',
+      prompt: {
+        role: 'user',
+        content: `Rate the engagement level of the question "${question.question}" with the correct answer being: ${question.correctAnswer}, on a scale from 1 to 10, where 10 is highly engaging. (number only)`,
+      },
+    },
+  ];
+
+  for (const check of validationChecks) {
+    const response = await getAIResponse(check.prompt);
+    if (check.type === 'Engagement Check') {
+      const engagementScore = parseInt(response.trim(), 10);
+      if (isNaN(engagementScore) || engagementScore < 7) {
+        feedback.push(
+          `Failed Engagement Check: Score ${engagementScore}. Needs to be more engaging.`,
         );
-        return false; // Stop validation if the response does not start with "true"
+        isValid = false;
       } else {
-        // Log or handle the successful validation
-        console.log(
-          `Question ID: ${question._id} passed the ${check.type} check with response: ${response}`,
-        );
+        feedback.push(`Passed Engagement Check: Score ${engagementScore}.`);
       }
+    } else if (!response.trim().toLowerCase().startsWith('true')) {
+      feedback.push(`Failed ${check.type}: ${response}`);
+      isValid = false;
+    } else {
+      feedback.push(`Passed ${check.type}.`);
     }
-
-    // console.log(`Question ID: ${question._id} has passed all validation checks.`);
-    return true;
-  } catch (error) {
-    console.error(`Error validating question ID: ${question._id}:`, error);
-    return false; // Consider the question invalid if any API call fails
   }
+
+  return { isValid, feedback }; // Return both the validity flag and the feedback array
 };
 
 module.exports = validateQuestionsUsingAPI;
