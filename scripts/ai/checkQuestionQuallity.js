@@ -35,7 +35,7 @@ const checkQuestionQuality = async () => {
       if (isValid) {
         // console.log(`Question ID: ${question._id} is valid.`);
       } else {
-        // console.log(`Question ID: ${question._id} failed API validation.`);
+        console.log(`Question ID: ${question._id} failed.`);
       }
     } else {
       console.log(`Question ID: ${question._id} failed initial validation.`);
