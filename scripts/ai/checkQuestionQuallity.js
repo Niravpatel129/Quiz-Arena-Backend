@@ -23,7 +23,7 @@ const validateQuestion = (question) => {
 };
 
 const checkQuestionQuality = async () => {
-  const categories = ['league of legends']; // Extend this array with other categories as needed
+  const categories = ['one piece']; // Extend this array with other categories as needed
   const validationResults = [];
 
   for (const category of categories) {

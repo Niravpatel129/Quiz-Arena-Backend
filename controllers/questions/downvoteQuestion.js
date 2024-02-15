@@ -19,6 +19,7 @@ const downvoteQuestion = async (req, res) => {
 
 **Question:** ${question.question}  
 **Category:** ${question.category}  
+**Options:** ${question.answers.map((a) => `${a.optionText} ${a.isCorrect}`).join(', ')}
 **Answer:** ${question.correctAnswer}
 **Helper Image:** ${question.helperImage ? question.helperImage : 'No Image'}   
 
