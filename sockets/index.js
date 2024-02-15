@@ -6,6 +6,7 @@ const { RemoveFromQueue } = require('./eventHandlers/queue/joinQueue');
 const challengeHandlers = require('./eventHandlers/challengeHandlers');
 const { updateLastActiveSocket } = require('./middleware/updateLastActive');
 const rematchHandlers = require('./eventHandlers/rematchHandlers');
+const royalHandlers = require('./eventHandlers/royaleHandlers');
 
 let connectedUsersCount = 0;
 
@@ -25,8 +26,8 @@ module.exports = (server, config) => {
     gameHandlers(socket, io);
     queueHandlers(socket, io);
     challengeHandlers(socket, io);
-
     rematchHandlers(socket, io);
+    royalHandlers(socket, io);
 
     socket.on('disconnect', () => {
       console.log(`🚀  ${socket.id} disconnected`);

@@ -17,6 +17,10 @@ const roundSchema = new mongoose.Schema({
 
 const gameSessionSchema = new mongoose.Schema({
   category: String,
+  mode: {
+    type: String,
+    default: 'default',
+  },
   players: [
     {
       id: String,

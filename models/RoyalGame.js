@@ -14,7 +14,6 @@ const royalGameSchema = new mongoose.Schema({
       socketId: String,
       status: {
         type: String,
-        enum: ['queued', 'in-game', 'eliminated', 'winner'],
         default: 'queued',
       },
       score: { type: Number, default: 0 },

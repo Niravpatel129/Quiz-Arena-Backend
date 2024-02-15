@@ -37,6 +37,7 @@ const startGame = async (category, players, io, isRematch) => {
 
   let gameSession = new GameSession({
     category: category,
+    mode: players[0].mode ? players[0].mode : 'default',
     players: mappedPlayers,
     rounds: rounds,
     startTime: new Date(),
