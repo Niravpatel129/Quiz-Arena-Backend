@@ -9,6 +9,8 @@ const joinRoyalQueue = (socket, io) => {
       select: 'username',
     });
 
+    if (!game) return console.log('No game found');
+
     socket.emit('roomStatus', {
       players: game.participants.map((player) => {
         return {
@@ -25,7 +27,7 @@ const joinRoyalQueue = (socket, io) => {
       const userId = socket.user.user.id;
       if (!userId) return console.log('No user id found');
 
-      const room = getWeeklyRoomName(); // Get the weekly room name
+      const room = royalGameData.roomId;
 
       // Find or create a RoyalGame document for the room with status 'waiting'
       let game = await RoyalGame.findOne({ title: room, status: 'waiting' });
@@ -45,7 +47,7 @@ const joinRoyalQueue = (socket, io) => {
 
         io.to(room).emit('updateRoyaleQueue', { queue: game.participants });
 
-        if (game.participants.length === 2) {
+        if (game.participants.length === 4) {
           await startRoyalGame(game, room, io);
 
           game.status = 'in-progress';

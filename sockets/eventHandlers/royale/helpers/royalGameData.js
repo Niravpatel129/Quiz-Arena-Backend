@@ -1,5 +1,5 @@
 const royalGameData = {
-  roomId: 'royale-15',
+  roomId: 'royale-30',
 };
 
 module.exports = royalGameData;
