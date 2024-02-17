@@ -3,6 +3,7 @@ const QuestionModel = require('../../models/Question');
 const deleteQuestion = async (req, res) => {
   try {
     const userId = req.userId; // Assuming this is correctly populated from authentication middleware
+    console.log('🚀  userId:', userId);
     const { id } = req.params; // ID of the question to delete
 
     const adminIds = [
@@ -10,18 +11,18 @@ const deleteQuestion = async (req, res) => {
       '65977a0767ddfcc07f94fae4',
       '65d02a512cb0706eede1658d',
     ];
+    const isAdmin = adminIds.includes(userId);
 
     const question = await QuestionModel.findById(id);
     if (!question) {
       return res.status(404).json({ message: 'Question not found' });
     }
 
-    if (!question.addedBy) {
+    if (!isAdmin && !question.addedBy) {
       return res.status(403).json({ message: 'Unauthorized to delete this question' });
     }
 
-    const isAdmin = adminIds.includes(userId.toString());
-    if (question.addedBy.toString() !== userId.toString() && !isAdmin) {
+    if (question.addedBy.toString() !== userId && !isAdmin) {
       return res.status(403).json({ message: 'Unauthorized to delete this question' });
     }
 
