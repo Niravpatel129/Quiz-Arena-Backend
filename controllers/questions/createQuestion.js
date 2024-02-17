@@ -3,6 +3,8 @@ const { sendMessageToChannel } = require('../../services/discord_bot');
 
 const createQuestion = async (req, res) => {
   try {
+    const userId = req.userId;
+
     console.log('🚀 ~ file: createQuestion.js ~ line 5 ~ createQuestion ~ req.body', req.body);
     // let userId;
 
@@ -64,6 +66,7 @@ const createQuestion = async (req, res) => {
           correctAnswer,
           helperImage: helperImage || null,
           order: ++currentMaxOrder,
+          addedBy: userId,
         };
 
         try {
