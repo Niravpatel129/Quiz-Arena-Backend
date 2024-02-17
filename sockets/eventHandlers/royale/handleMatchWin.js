@@ -23,6 +23,7 @@ const handleMatchWin = async (socket, io) => {
       game.participants.forEach((participant, index) => {
         const participantId = participant.id.toString();
         if (participantId === winnerUserId) {
+          game.participants[index].wins += 1; // Update wins for winner
           game.participants[index].status = 'waiting-next-round'; // Update status for winner
         }
 

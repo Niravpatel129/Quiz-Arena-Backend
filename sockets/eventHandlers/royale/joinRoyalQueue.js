@@ -4,19 +4,30 @@ const royalGameData = require('./helpers/royalGameData');
 
 const joinRoyalQueue = (socket, io) => {
   socket.on('joinRoyalRoom', async () => {
+    // connect this socket to the room by the room id
+
     const game = await RoyalGame.findOne({ title: royalGameData.roomId }).populate({
       path: 'participants.id',
-      select: 'username',
+      select: 'username profile.avatar',
     });
 
     if (!game) return console.log('No game found');
 
-    socket.emit('roomStatus', {
+    socket.join(royalGameData.roomId);
+
+    // emit the roomStatus to room
+
+    io.to(royalGameData.roomId).emit('roomStatus', {
+      room: royalGameData.roomId,
+      roomStatus: game.status,
       players: game.participants.map((player) => {
         return {
+          roomMessage: 'Welcome to the game!',
           socketId: player.socketId,
           username: player.id.username,
+          userAvatar: player.id.profile.avatar,
           status: player.status,
+          wins: player.wins,
         };
       }),
     });
@@ -29,10 +40,27 @@ const joinRoyalQueue = (socket, io) => {
 
       const room = royalGameData.roomId;
 
-      // Find or create a RoyalGame document for the room with status 'waiting'
-      let game = await RoyalGame.findOne({ title: room, status: 'waiting' });
+      let game = await RoyalGame.findOne({ title: room }).populate({
+        path: 'participants.id',
+        select: 'username',
+      });
+      console.log('🚀  game:', game);
+
+      // if the game is already in progress, then don't allow the user to join
+      if (game && (game.status === 'in-progress' || game.status === 'completed')) {
+        console.log('Game is already in progress');
+        socket.emit('royaleMessage', { message: 'Game is already in progress' });
+        return;
+      }
+
       if (!game) {
-        game = new RoyalGame({ title: room, participants: [] });
+        game = new RoyalGame({
+          title: room,
+          status: 'waiting',
+          participants: [{ id: userId, socketId: socket.id }],
+        });
+        socket.emit('royaleMessage', { message: 'Royale Queue joined!' });
+
         await game.save();
       }
 
@@ -43,20 +71,20 @@ const joinRoyalQueue = (socket, io) => {
 
         game.participants.push({ id: userId, socketId: socket.id });
 
-        await game.save();
-
         io.to(room).emit('updateRoyaleQueue', { queue: game.participants });
 
         if (game.participants.length === 4) {
-          await startRoyalGame(game, room, io);
-
           game.status = 'in-progress';
-          await game.save();
+
+          await startRoyalGame(game, room, io);
         }
       } else {
         console.log("You're already in the queue.");
+        socket.emit('royaleMessage', { message: "You're already in the queue." });
         socket.emit('alreadyInQueue', { message: "You're already in the queue." });
       }
+
+      await game.save();
 
       socket.emit('joinedRoyalQueue', { room });
     } catch (error) {

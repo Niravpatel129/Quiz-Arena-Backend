@@ -12,6 +12,7 @@ const royalGameSchema = new mongoose.Schema({
     {
       id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
       socketId: String,
+      wins: { type: Number, default: 0 },
       status: {
         type: String,
         default: 'queued',

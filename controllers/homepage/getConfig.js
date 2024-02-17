@@ -18,6 +18,7 @@ const getConfig = async (req, res) => {
     const config = {
       queueTime: queueTime,
       updatedRequired: updatedRequired,
+      triviaTuesdayEnabled: true,
     };
 
     res.status(200).json(config);
