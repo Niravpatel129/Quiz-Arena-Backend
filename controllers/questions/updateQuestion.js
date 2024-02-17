@@ -19,12 +19,19 @@ const updateQuestion = async (req, res) => {
       return res.status(404).json({ message: 'Question not found' });
     }
 
-    if (!isAdmin && !questionToUpdate.addedBy) {
-      return res.status(400).json({ message: 'Question does not have an owner specified' });
+    if (!isAdmin && !questionToUpdate.addedBy && questionToUpdate.category !== 'space') {
+      // If the question does not have an owner and the category is not 'space', reject the update
+      return res.status(400).json({
+        message: "Question does not have an owner specified and is not in the 'space' category",
+      });
     }
 
-    // Check if the current user is the owner of the question or an admin
-    if (questionToUpdate?.addedBy?.toString() !== userId && !isAdmin) {
+    // Check if the current user is the owner of the question, an admin, or if the category is 'space'
+    if (
+      questionToUpdate?.addedBy?.toString() !== userId &&
+      !isAdmin &&
+      questionToUpdate.category !== 'space'
+    ) {
       return res.status(403).json({ message: 'Unauthorized to update this question' });
     }
 
