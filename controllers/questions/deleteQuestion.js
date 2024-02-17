@@ -5,7 +5,11 @@ const deleteQuestion = async (req, res) => {
     const userId = req.userId; // Assuming this is correctly populated from authentication middleware
     const { id } = req.params; // ID of the question to delete
 
-    const adminIds = ['65a281db0a28fced58f6e06d', '65977a0767ddfcc07f94fae4', 'yetAnotherAdminId'];
+    const adminIds = [
+      '65a281db0a28fced58f6e06d',
+      '65977a0767ddfcc07f94fae4',
+      '65d02a512cb0706eede1658d',
+    ];
 
     const question = await QuestionModel.findById(id);
     if (!question) {
