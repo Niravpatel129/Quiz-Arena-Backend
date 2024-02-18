@@ -93,7 +93,7 @@ const createQuestion = async (req, res) => {
 
     // send a message to the discord channel that this question was created
     sendMessageToChannel(
-      '1206213469146193970',
+      '1208878996406669402',
       `
   **📌 New Questions Added 📌**
   ${filteredResults
