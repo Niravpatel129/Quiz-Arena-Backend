@@ -1,15 +1,17 @@
 const RoyalGame = require('../../../models/RoyalGame');
-const royalGameData = require('./helpers/royalGameData');
+const getRoomId = require('./helpers/getRoomId');
+const updateRoomStatus = require('./helpers/updateRoomStatus');
 
 const handleMatchWin = async (socket, io) => {
   socket.on('matchWin', async (data) => {
     try {
+      const roomId = await getRoomId();
+      console.log('🚀  roomId:', roomId);
+
       console.log('matchWin', data);
 
       const winnerUserId = data.winnerUserId;
       const loserUserId = data.loserUserId;
-
-      const roomId = royalGameData.roomId;
 
       const game = await RoyalGame.findOne({
         title: roomId,
@@ -45,6 +47,8 @@ const handleMatchWin = async (socket, io) => {
         game.status = 'completed';
         game.endTime = new Date();
         await game.save();
+
+        updateRoomStatus(roomId, io);
 
         // Notify the final winner and all participants about the game completion
         io.to(activeParticipants[0].socketId).emit('tournamentWon', {

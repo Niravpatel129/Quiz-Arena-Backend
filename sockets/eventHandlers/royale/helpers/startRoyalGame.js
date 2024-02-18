@@ -1,10 +1,11 @@
 const RoyalGame = require('../../../../models/RoyalGame');
 const { v4: uuidv4 } = require('uuid'); // For generating unique IDs
+const updateRoomStatus = require('./updateRoomStatus');
 
 const checkAllMatchesCompleted = async ({ prevGame, room, io }) => {
   const game = await RoyalGame.findOne({ title: room }).populate({
     path: 'participants.id',
-    select: 'username',
+    select: 'username profile.avatar',
   });
 
   game.participants.forEach((participant) => {
@@ -40,7 +41,10 @@ const checkAllMatchesCompleted = async ({ prevGame, room, io }) => {
     game.participants = game.participants.map((participant) => {
       if (participant.id.toString() === activeParticipants[0].id.toString()) {
         participant.status = 'winner';
+
+        socket.emit('royaleMessage', { message: `Winner is ${participant.id.username}` });
       }
+
       return participant;
     });
 
@@ -79,8 +83,10 @@ const startRoyalGame = async (game, room, io) => {
 
   setTimeout(() => {
     console.log('Checking for all matches completed');
+
     checkAllMatchesCompleted({ prevGame: game, room, io });
-  }, 120000);
+    updateRoomStatus(room, io);
+  }, 100000);
 };
 
 // Function to pair participants

@@ -1,50 +1,34 @@
 const RoyalGame = require('../../../models/RoyalGame');
 const startRoyalGame = require('./helpers/startRoyalGame');
-const royalGameData = require('./helpers/royalGameData');
+const updateRoomStatus = require('./helpers/updateRoomStatus');
+const getRoomId = require('./helpers/getRoomId');
 
 const joinRoyalQueue = (socket, io) => {
   socket.on('joinRoyalRoom', async () => {
-    // connect this socket to the room by the room id
+    const roomId = await getRoomId();
 
-    const game = await RoyalGame.findOne({ title: royalGameData.roomId }).populate({
-      path: 'participants.id',
-      select: 'username profile.avatar',
-    });
+    // wait for the room to be created
+    socket.join(roomId);
 
-    if (!game) return console.log('No game found');
-
-    socket.join(royalGameData.roomId);
-
-    // emit the roomStatus to room
-
-    io.to(royalGameData.roomId).emit('roomStatus', {
-      room: royalGameData.roomId,
-      roomStatus: game.status,
-      players: game.participants.map((player) => {
-        return {
-          roomMessage: 'Welcome to the game!',
-          socketId: player.socketId,
-          username: player.id.username,
-          userAvatar: player.id.profile.avatar,
-          status: player.status,
-          wins: player.wins,
-        };
-      }),
-    });
+    updateRoomStatus(roomId, io);
+    return;
   });
 
   socket.on('joinRoyalQueue', async () => {
     try {
+      socket.emit('updateQueueStatus', { isInQueue: true });
+
+      const roomId = await getRoomId();
+
       const userId = socket.user.user.id;
       if (!userId) return console.log('No user id found');
 
-      const room = royalGameData.roomId;
+      const room = roomId;
 
       let game = await RoyalGame.findOne({ title: room }).populate({
         path: 'participants.id',
-        select: 'username',
+        select: 'username profile.avatar',
       });
-      console.log('🚀  game:', game);
 
       // if the game is already in progress, then don't allow the user to join
       if (game && (game.status === 'in-progress' || game.status === 'completed')) {
@@ -52,26 +36,33 @@ const joinRoyalQueue = (socket, io) => {
         socket.emit('royaleMessage', { message: 'Game is already in progress' });
         return;
       }
-
       if (!game) {
+        // Create and save the new game
         game = new RoyalGame({
           title: room,
           status: 'waiting',
           participants: [{ id: userId, socketId: socket.id }],
         });
-        socket.emit('royaleMessage', { message: 'Royale Queue joined!' });
 
         await game.save();
+
+        // Emit message to the socket
+        socket.emit('royaleMessage', { message: 'Royale Queue joined!' });
+
+        // Fetch the saved game with the necessary population
+        game = await RoyalGame.findById(game._id).populate({
+          path: 'participants.id',
+          select: 'username profile.avatar',
+        });
       }
 
-      // Check if user is already in the queue
-      const isUserInQueue = game.participants.find((participant) => participant.id.equals(userId));
+      const isUserInQueue = game.participants.find((participant) =>
+        participant.id._id.equals(userId),
+      );
       if (!isUserInQueue) {
         console.log('Adding user to the queue:', userId);
 
         game.participants.push({ id: userId, socketId: socket.id });
-
-        io.to(room).emit('updateRoyaleQueue', { queue: game.participants });
 
         if (game.participants.length === 4) {
           game.status = 'in-progress';
@@ -80,15 +71,34 @@ const joinRoyalQueue = (socket, io) => {
         }
       } else {
         console.log("You're already in the queue.");
-        socket.emit('royaleMessage', { message: "You're already in the queue." });
-        socket.emit('alreadyInQueue', { message: "You're already in the queue." });
+        socket.emit('royaleMessage', { message: 'You are already in queue' });
       }
 
       await game.save();
 
       socket.emit('joinedRoyalQueue', { room });
+      updateRoomStatus(roomId, io);
     } catch (error) {
       console.error('Error joining royal queue:', error);
+    }
+  });
+
+  socket.on('leaveRoyalQueue', async () => {
+    try {
+      const userId = socket.user.user.id;
+
+      const game = await RoyalGame.findOne({ 'participants.id': userId, status: 'waiting' });
+      if (game) {
+        game.participants = game.participants.filter(
+          (participant) => !participant.id.equals(userId),
+        );
+        await game.save();
+        socket.emit('updateQueueStatus', { isInQueue: false });
+
+        updateRoomStatus(game.title, io);
+      }
+    } catch (error) {
+      console.error('Error leaving royal queue:', error);
     }
   });
 };
