@@ -27,8 +27,8 @@ const sendMessage = async (req, res) => {
 
     if (
       botList.some((bot) => {
-        console.log('🚀  bot:', bot);
-        console.log('🚀  otherUserId.username:', otherUserId.username);
+        // console.log('🚀  bot:', bot);
+        // console.log('🚀  otherUserId.username:', otherUserId.username);
         if (bot.name === otherUserId.username) return true;
       })
     ) {
