@@ -22,7 +22,7 @@ const deleteQuestion = async (req, res) => {
       return res.status(403).json({ message: 'Unauthorized to delete this question' });
     }
 
-    if (question.addedBy.toString() !== userId && !isAdmin) {
+    if (question.addedBy && question.addedBy.toString() !== userId && !isAdmin) {
       return res.status(403).json({ message: 'Unauthorized to delete this question' });
     }
 
