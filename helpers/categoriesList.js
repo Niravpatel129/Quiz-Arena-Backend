@@ -152,6 +152,15 @@ const categories = [
     ],
   },
   {
+    parentCategory: 'nature & universe',
+    subCategories: [
+      {
+        name: 'space',
+        logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1208981183799496744/space_1.jpg?ex=65e54278&is=65d2cd78&hm=467a08430d2a43296f0a43911c198156f1e2b7f07c3fc13b2d89267f4126c31d&',
+      },
+    ],
+  },
+  {
     parentCategory: 'movies',
     subCategories: [
       {
