@@ -60,6 +60,24 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
   }
 };
 
+const updatePlayerLastActive = async (playerOneId, playerTwoId) => {
+  try {
+    await User.findByIdAndUpdate(playerOneId, {
+      $set: {
+        lastActive: new Date(),
+      },
+    });
+
+    await User.findByIdAndUpdate(playerTwoId, {
+      $set: {
+        lastActive: new Date(),
+      },
+    });
+  } catch (err) {
+    console.log('Error in updatePlayerLastActive:', err);
+  }
+};
+
 const updateUserAnswer = async ({ questionId, answer, user, isCorrect }) => {
   try {
     if (!questionId) return null;
@@ -160,6 +178,7 @@ async function endGame(sessionId, players, io) {
   const player2Score = player2.score;
 
   let player1RatingChange, player2RatingChange;
+  updatePlayerLastActive(player1.id, player2.id);
 
   if (player1Score > player2Score) {
     player1RatingChange = await updatePlayerRating({
