@@ -78,10 +78,10 @@ const categories = [
         name: 'Soap Opera',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819014352609300/soap_opera.jpg?ex=65e84ec2&is=65d5d9c2&hm=7fe9b4542fce241e01e006e7243fd002fd91abb6c28b0fe235cf0da9b874b848&',
       },
-      {
-        name: 'The Simpsons',
-        logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819065280106577/the_simpsons.jpg?ex=65e84ece&is=65d5d9ce&hm=4d69535d8c6f87b4b057a2036cc0d5850b8be947926f1dbb5b65053809729138&',
-      },
+      // {
+      //   name: 'The Simpsons',
+      //   logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819065280106577/the_simpsons.jpg?ex=65e84ece&is=65d5d9ce&hm=4d69535d8c6f87b4b057a2036cc0d5850b8be947926f1dbb5b65053809729138&',
+      // },
     ],
   },
   {
@@ -191,10 +191,10 @@ const categories = [
         name: 'science general',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819018261831690/science_general.jpg?ex=65e84ec3&is=65d5d9c3&hm=f415b4c62b5b394c1a57d3c3294f31e707e82a2cc9ec66eb591ad8143eac075f&',
       },
-      {
-        name: 'mental math',
-        logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209818995444813924/mental_math.jpg?ex=65e84ebd&is=65d5d9bd&hm=141caf86069ad68b1a6ca1649e9fb9c253d54096cda9477d5be9474992d1b31d&',
-      },
+      // {
+      //   name: 'mental math',
+      //   logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209818995444813924/mental_math.jpg?ex=65e84ebd&is=65d5d9bd&hm=141caf86069ad68b1a6ca1649e9fb9c253d54096cda9477d5be9474992d1b31d&',
+      // },
     ],
   },
   {
