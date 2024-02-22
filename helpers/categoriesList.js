@@ -24,11 +24,11 @@ const categories = [
       },
       // Added from the original list
       {
-        name: 'US geography',
+        name: 'us geography',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819012595458098/us_geography.jpg?ex=65e84ec1&is=65d5d9c1&hm=6ae540f9649c2ec23f1890e64148e625b981fe9eaa52c1b0d829fac5f7926ca2&',
       },
       {
-        name: 'World War 1',
+        name: 'world war 1',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819019977424916/world_war_1.jpg?ex=65e84ec3&is=65d5d9c3&hm=7eedb1a74c4c066d2dd2a807ba4ff39e55a33dc1d8e0a278e1a0284f8c4f18f9&',
       },
     ],
@@ -71,11 +71,11 @@ const categories = [
       },
       // Added from the original list
       {
-        name: 'British sitcoms',
+        name: 'british sitcoms',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209818989216407582/british_sitcoms.jpg?ex=65e84ebc&is=65d5d9bc&hm=28389a0f1e5fc1caf198aaf40e8cd61cdf389213e2e21f76484d303641adc514&',
       },
       {
-        name: 'Soap Opera',
+        name: 'soap opera',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819014352609300/soap_opera.jpg?ex=65e84ec2&is=65d5d9c2&hm=7fe9b4542fce241e01e006e7243fd002fd91abb6c28b0fe235cf0da9b874b848&',
       },
       // {
@@ -118,31 +118,31 @@ const categories = [
       },
       // Added from the original list
       {
-        name: 'Formula 1',
+        name: 'formula 1',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209818992890613790/nascar.jpg?ex=65e84ebd&is=65d5d9bd&hm=8aa600661b9c2a418e8a52eb588c2820b72360d802b6b85ed7b1c8cc52aa791d&',
       },
       {
-        name: 'Golf',
+        name: 'golf',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209818998359720017/golf.jpg?ex=65e84ebe&is=65d5d9be&hm=0733ec2e077ae401e2ea33e685f90d2073505de346c51727b38ec6ffe029e316&',
       },
       {
-        name: 'Horse racing',
+        name: 'horse racing',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209818991363883098/horse_racing.jpg?ex=65e84ebc&is=65d5d9bc&hm=d52401b78a6ed9434693c7ebddea5fa82a23779b60025081aaf3113b26108c7f&',
       },
       {
-        name: 'Nascar',
+        name: 'nascar',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209818985965682729/formula_1.png?ex=65e84ebb&is=65d5d9bb&hm=4c104c0d9a91f674d86add49c2e069ff017fdaf745bb97cd710b50b5b105b9dd&',
       },
       {
-        name: 'Rugby league',
+        name: 'rugby league',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819147614289940/rugby_league.jpg?ex=65e84ee2&is=65d5d9e2&hm=b6aa1113f48707314f5b83065324fc6d57642fedcff4ecf2d99bb541c444fdc5&',
       },
       {
-        name: 'Winter Sports',
+        name: 'winter sports',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209818999962214400/winter_sports.jpg?ex=65e84ebe&is=65d5d9be&hm=ce3597276ce9e205196818939b9ee576d56ad0730ce28770e1783343388d2b17&',
       },
       {
-        name: 'World Cup',
+        name: 'world cup',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819035034980432/world_cup.jpg?ex=65e84ec7&is=65d5d9c7&hm=1e9aeb12a2ddeb0c11fe5d9acbede53bd3e552ae075cb2d341667a5b2569b840&',
       },
       {
@@ -150,11 +150,11 @@ const categories = [
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819017913835640/liverpool_football_club.jpg?ex=65e84ec3&is=65d5d9c3&hm=e2983e3afec943981d4a3648ea97cd42639cdabd4d0b1db944c97d1dea658c99&',
       },
       {
-        name: 'Golden State Warriors',
+        name: 'golden state warriors',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819018609950751/golden_state_warriors.png?ex=65e84ec3&is=65d5d9c3&hm=b9b1c75ca9b8694e1780f7ffb1664e8d386610a39214a775a91b83d86a0e0d9a&',
       },
       {
-        name: 'Champions League',
+        name: 'champions league',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209823158866157628/championsleague_1179453.gif?ex=65e8529e&is=65d5dd9e&hm=5808ce8438e9908f7628368476479a7a29c4b52803211a2b8190a88a8899096d&',
       },
     ],
@@ -206,7 +206,7 @@ const categories = [
       },
       // Added from the original list
       {
-        name: 'Solar system',
+        name: 'solar system',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819148645961728/solar_system.jpeg?ex=65e84ee2&is=65d5d9e2&hm=7f34fb6a698bbf10338465a33e7f942ac7cdbbad074200dc936e9eee049a261d&',
       },
     ],
@@ -221,23 +221,23 @@ const categories = [
 
       // Added from the original list
       {
-        name: 'Disney',
+        name: 'disney',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819017104068608/disney.jpg?ex=65e84ec3&is=65d5d9c3&hm=037a0fa55d868af97d1a6f685e1940511739638f4ef0c95b2cb69b8688c8cb62&',
       },
       {
-        name: 'Movies since 2010',
+        name: 'movies since 2010',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209818997055430666/movies_since_2010.jpg?ex=65e84ebe&is=65d5d9be&hm=d4ed6377f03b49f31fbfcd96ea18f83a720f03e2824184b42d7c84522e5a2ad0&',
       },
       {
-        name: 'James Bond',
+        name: 'james bond',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819147387535390/james_bond.jpeg?ex=65e84ee2&is=65d5d9e2&hm=3cf92759e847682008b7a67bd36ea9a92f803d5b91c36319117d51ed968fce1b&',
       },
       {
-        name: 'Movie Quotes',
+        name: 'movie quotes',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819020338008084/movie_quotes.jpg?ex=65e84ec3&is=65d5d9c3&hm=3cc7086c789cd6b51e06b51a2014b5d8a0cabde3b0b3c85164cfc7c4e50d9b82&',
       },
       {
-        name: 'British films',
+        name: 'british films',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819016194035793/british_films.jpg?ex=65e84ec2&is=65d5d9c2&hm=25fa8ca30622b7858678066c6b4125e5e95808bcd33a420b5f17967a08316258&',
       },
     ],
