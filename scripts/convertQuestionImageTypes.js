@@ -20,7 +20,6 @@ const convertQuestionImageTypes = async () => {
 
     for (const question of questions) {
       try {
-        // Check if the image is already in the desired format or hosted on Cloudinary
         if (!question.helperImage) {
           continue;
         }
@@ -53,8 +52,6 @@ const convertQuestionImageTypes = async () => {
               .toFile(newHelperImage);
           });
 
-        return;
-
         const formData = new FormData();
 
         formData.append('file', fs.createReadStream(newHelperImage));
@@ -80,7 +77,6 @@ const convertQuestionImageTypes = async () => {
         fs.unlinkSync(newHelperImage);
       } catch (error) {
         console.log(`Error with image: ${question.helperImage}. Error: ${error.message}`);
-        // Continue to the next image despite the error
       }
     }
 
