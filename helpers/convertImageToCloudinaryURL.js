@@ -25,7 +25,7 @@ const convertImageToCloudinaryURL = async (imageUrl) => {
     }
 
     // Save the image locally after resizing, using a UUID for the filename
-    await sharp(response.data).resize({ width: 200 }).toFormat('jpeg').toFile(newAvatarPath);
+    await sharp(response.data).resize({ width: 300 }).toFormat('jpeg').toFile(newAvatarPath);
 
     // Prepare form data for upload
     const formData = new FormData();
