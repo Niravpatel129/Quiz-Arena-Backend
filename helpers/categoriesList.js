@@ -99,6 +99,14 @@ const categories = [
         name: 'attack on titan',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819036360118332/attack_on_titan.png?ex=65e84ec7&is=65d5d9c7&hm=9103e03b1e10b94cc8b5f092e5f3d2deed878e18118cf028533bafce560f3ed3&',
       },
+      {
+        name: 'hunter x hunter',
+        logo: 'https://wallpapers.com/images/hd/hunter-x-hunter-characters-phone-zjdpyw2h2b7b282a.jpg',
+      },
+      {
+        name: 'dragon ball series',
+        logo: 'https://i.pinimg.com/originals/60/60/ef/6060ef7fcf978530b51d7ee4f5690dd2.jpg',
+      },
     ],
   },
   {
