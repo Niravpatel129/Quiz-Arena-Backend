@@ -14,7 +14,6 @@ const convertQuestionImageTypes = async () => {
 
     const questions = await Question.find({
       helperImage: { $nin: [null, /cloudinary/], $exists: true, $ne: '' },
-      // category: 'logos',
     });
 
     let index = 0;
@@ -43,15 +42,18 @@ const convertQuestionImageTypes = async () => {
 
         const newHelperImage = path.join(__dirname, 'questionsImage', `question-${index}.jpeg`);
         await sharp(response.data)
-          .resize({ width: 200 })
-          .toFormat('jpeg')
+          .resize({ width: 400 })
+          .sharpen()
+          .toFormat('jpeg', { quality: 90 })
           .toBuffer()
           .then((data) => {
             return sharp(data)
               .flatten({ background: { r: 255, g: 255, b: 255 } }) // This changes black to white
-              .jpeg()
+              .jpeg({ quality: 90 })
               .toFile(newHelperImage);
           });
+
+        return;
 
         const formData = new FormData();
 
