@@ -21,31 +21,14 @@ async function processJsonFile(filePath) {
         return question;
       });
 
-      // make sure the format is correct
       const isFormatCorrect = parsedData.every((question) => {
-        // check question.answers has a optionText and isCorrect and isCorrect matches the isCorrect in the question object
         const isAnswersCorrect = question.answers.every((answer) => {
           return answer.optionText && answer.isCorrect !== undefined;
         });
 
         const isCorrect = question.answers.some((answer) => answer.isCorrect);
 
-        // log out the question that is not correct
-
-        if (!isAnswersCorrect) {
-          return false;
-        }
-
-        if (!isCorrect) {
-          return false;
-        }
-
-        if (
-          !question.question ||
-          !question.category ||
-          !question.correctAnswer ||
-          question.answers.length !== 4
-        ) {
+        if (!isAnswersCorrect || !isCorrect) {
           return false;
         }
 
@@ -59,25 +42,21 @@ async function processJsonFile(filePath) {
 
       if (!isFormatCorrect) {
         console.error('Invalid format');
-        // terminate the process
         process.exit(1);
       }
 
-      const array = parsedData;
+      for (const question of parsedData) {
+        const existingQuestion = await Question.findOne({ question: question.question });
+        if (existingQuestion) {
+          // If the question exists, update it
+          await Question.findByIdAndUpdate(existingQuestion._id, question);
+        } else {
+          // If the question does not exist, insert it as a new document
+          await new Question(question).save();
+        }
+      }
 
-      //   dont allow duplicates
-      const questions = await Question.find({ question: { $in: array.map((q) => q.question) } });
-      const questionsMap = questions.reduce((acc, q) => {
-        acc[q.question] = q;
-        return acc;
-      }, {});
-
-      const filteredArray = array.filter((q) => !questionsMap[q.question]);
-      console.log('🚀  filteredArray length:', filteredArray.length);
-
-      // add to the database
-      await Question.insertMany(filteredArray);
-      console.log('🚀  done adding');
+      console.log('🚀  done processing');
     } catch (err) {
       console.error('Error parsing JSON:', err);
     }
