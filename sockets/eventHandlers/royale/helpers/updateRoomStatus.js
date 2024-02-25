@@ -15,6 +15,7 @@ const updateRoomStatus = async (roomId, io) => {
     roomStatus: game.status,
     players: game.participants.map((player) => {
       return {
+        nextRoundStartTime: game.nextRoundStartTime,
         roomMessage: 'Welcome to the game!',
         socketId: player.socketId,
         username: player.id.username,

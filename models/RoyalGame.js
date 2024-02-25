@@ -22,6 +22,7 @@ const royalGameSchema = new mongoose.Schema({
   ],
   matches: [{ type: mongoose.Schema.Types.ObjectId, ref: 'GameSession' }],
   currentMatch: { type: mongoose.Schema.Types.ObjectId, ref: 'GameSession' },
+  nextRoundStartTime: Date,
   startTime: Date,
   endTime: Date,
   winnerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },

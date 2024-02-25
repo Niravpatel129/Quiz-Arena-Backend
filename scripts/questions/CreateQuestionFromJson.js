@@ -21,6 +21,48 @@ async function processJsonFile(filePath) {
         return question;
       });
 
+      // make sure the format is correct
+      const isFormatCorrect = parsedData.every((question) => {
+        // check question.answers has a optionText and isCorrect and isCorrect matches the isCorrect in the question object
+        const isAnswersCorrect = question.answers.every((answer) => {
+          return answer.optionText && answer.isCorrect !== undefined;
+        });
+
+        const isCorrect = question.answers.some((answer) => answer.isCorrect);
+
+        // log out the question that is not correct
+
+        if (!isAnswersCorrect) {
+          return false;
+        }
+
+        if (!isCorrect) {
+          return false;
+        }
+
+        if (
+          !question.question ||
+          !question.category ||
+          !question.correctAnswer ||
+          question.answers.length !== 4
+        ) {
+          return false;
+        }
+
+        return (
+          question.question &&
+          question.category &&
+          question.correctAnswer &&
+          question.answers.length === 4
+        );
+      });
+
+      if (!isFormatCorrect) {
+        console.error('Invalid format');
+        // terminate the process
+        process.exit(1);
+      }
+
       const array = parsedData;
 
       //   dont allow duplicates

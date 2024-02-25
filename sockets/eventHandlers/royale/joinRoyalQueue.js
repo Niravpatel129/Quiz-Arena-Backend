@@ -69,6 +69,8 @@ const joinRoyalQueue = (socket, io) => {
 
           await startRoyalGame(game, room, io);
         }
+
+        socket.emit('royaleMessage', { message: 'Joined queue, waiting for game to start' });
       } else {
         console.log("You're already in the queue.");
         socket.emit('royaleMessage', { message: 'You are already in queue' });

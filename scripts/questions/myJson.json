@@ -1,1 +1,3377 @@
-[]
+[
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these animals is the largest?",
+    "answers": [
+      {
+        "optionText": "African Elephant",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Giraffe",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Grizzly Bear",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Hippopotamus",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "African Elephant",
+    "helperImage": "https://upload.wikimedia.org/wikipedia/commons/9/99/African_Elephant.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "What is the tallest mountain on Earth?",
+    "answers": [
+      {
+        "optionText": "Mount Everest",
+        "isCorrect": true
+      },
+      {
+        "optionText": "K2",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Kangchenjunga",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Lhotse",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Mount Everest",
+    "helperImage": "https://i.redd.it/o9bewltpazg01.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of the following stars is the largest?",
+    "answers": [
+      {
+        "optionText": "UY Scuti",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Betelgeuse",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Sirius",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Sun",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "UY Scuti",
+    "helperImage": "https://i.ytimg.com/vi/ZToFQEzArV0/maxresdefault.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these objects is the largest?",
+    "answers": [
+      {
+        "optionText": "Blue Whale",
+        "isCorrect": true
+      },
+      {
+        "optionText": "African Elephant",
+        "isCorrect": false
+      },
+      {
+        "optionText": "School Bus",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Boeing 747",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Blue Whale",
+    "helperImage": "https://3.bp.blogspot.com/-KrSlRqEQv30/UmZa1I6UenI/AAAAAAAAFRU/7c9WjJBjr3k/s1600/Blue-Whale-2.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these countries has the largest area?",
+    "answers": [
+      {
+        "optionText": "Russia",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Canada",
+        "isCorrect": false
+      },
+      {
+        "optionText": "China",
+        "isCorrect": false
+      },
+      {
+        "optionText": "United States",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Russia",
+    "helperImage": "https://russiamap360.com/img/1200/detailed-map-of-russia.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "What is the largest ocean?",
+    "answers": [
+      {
+        "optionText": "Pacific Ocean",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Atlantic Ocean",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Indian Ocean",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Southern Ocean",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Pacific Ocean",
+    "helperImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Pacific_elevation.jpg/1200px-Pacific_elevation.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these buildings is the tallest?",
+    "answers": [
+      {
+        "optionText": "Burj Khalifa",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Shanghai Tower",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Abraj Al-Bait Clock Tower",
+        "isCorrect": false
+      },
+      {
+        "optionText": "One World Trade Center",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Burj Khalifa",
+    "helperImage": "https://c1.wallpaperflare.com/preview/346/526/470/u-a-e-dubai-burj-khalifa-architecture.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which planet in our solar system has the largest diameter?",
+    "answers": [
+      {
+        "optionText": "Jupiter",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Saturn",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Earth",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Neptune",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Jupiter",
+    "helperImage": "https://earthsky.org/upl/2020/09/hubble-blue-jupiter-aug2020.png"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these trees is the tallest?",
+    "answers": [
+      {
+        "optionText": "Redwood",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Douglas Fir",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Australian Mountain Ash",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Sitka Spruce",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Redwood",
+    "helperImage": "https://www.publicdomainpictures.net/pictures/80000/velka/giant-redwood-trees-in-yosemite-1392270888Lpg.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which dinosaur was the largest?",
+    "answers": [
+      {
+        "optionText": "Argentinosaurus",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Tyrannosaurus Rex",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Spinosaurus",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Triceratops",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Argentinosaurus",
+    "helperImage": "http://images.dinosaurpictures.org/Argentinosaurus-1_eb84.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "What is the longest river in the world?",
+    "answers": [
+      {
+        "optionText": "Nile River",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Amazon River",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Yangtze River",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mississippi River",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Nile River",
+    "helperImage": "https://smartours.com/wp-content/uploads/2019/05/nile_river_hero_iStock-960857756-e1556730437890.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these moons is the largest in the solar system?",
+    "answers": [
+      {
+        "optionText": "Ganymede",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Titan",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Callisto",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Io",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Ganymede",
+    "helperImage": "https://lightsinthedark.files.wordpress.com/2021/06/jpegpia24681-ganymede-crop.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these historical structures had the largest footprint?",
+    "answers": [
+      {
+        "optionText": "The Great Pyramid of Giza",
+        "isCorrect": true
+      },
+      {
+        "optionText": "The Colosseum",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Stonehenge",
+        "isCorrect": false
+      },
+      {
+        "optionText": "The Parthenon",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "The Great Pyramid of Giza",
+    "helperImage": "https://www.thehistoryhub.com/wp-content/uploads/2014/10/Great-Pyramid-of-Giza-Photos.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these sharks is the largest?",
+    "answers": [
+      {
+        "optionText": "Whale Shark",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Great White Shark",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Tiger Shark",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Hammerhead Shark",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Whale Shark",
+    "helperImage": "https://www.rd.com/wp-content/uploads/2019/07/Whale-Shark-with-mouth-open-1024x683.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these deserts is the largest by area?",
+    "answers": [
+      {
+        "optionText": "Sahara",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Arabian",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Gobi",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Kalahari",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Sahara",
+    "helperImage": "https://facts.net/wp-content/uploads/2021/06/Sahara-Desert.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these lakes is the largest by surface area?",
+    "answers": [
+      {
+        "optionText": "Caspian Sea",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Lake Superior",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Lake Victoria",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Lake Tanganyika",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Caspian Sea",
+    "helperImage": "https://images.fineartamerica.com/images-medium-large-5/caspian-sea-nasascience-photo-library.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these bridges spans the greatest distance?",
+    "answers": [
+      {
+        "optionText": "Danyang–Kunshan Grand Bridge",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Golden Gate Bridge",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Akashi Kaikyō Bridge",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Brooklyn Bridge",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Danyang–Kunshan Grand Bridge",
+    "helperImage": "https://i.pinimg.com/originals/23/2f/2a/232f2a476a8e55d72397cb8312ef216f.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "In terms of computing power, which of these historical computers was the most powerful?",
+    "answers": [
+      {
+        "optionText": "Cray-1",
+        "isCorrect": true
+      },
+      {
+        "optionText": "ENIAC",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Apple II",
+        "isCorrect": false
+      },
+      {
+        "optionText": "IBM PC 5150",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Cray-1",
+    "helperImage": "https://blog.hnf.de/wp-content/uploads/2020/12/Medium-sized-JPEG-1-2.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these planets has the largest ring system?",
+    "answers": [
+      {
+        "optionText": "Saturn",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Jupiter",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Uranus",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Neptune",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Saturn",
+    "helperImage": "https://planetary.s3.amazonaws.com/web/assets/pictures/saturn-voyager1-approach-reprocessed.png"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these ancient structures was built first?",
+    "answers": [
+      {
+        "optionText": "Stonehenge",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Great Pyramid of Giza",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Hanging Gardens of Babylon",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Lighthouse of Alexandria",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Stonehenge",
+    "helperImage": "https://images.pexels.com/photos/1448136/pexels-photo-1448136.jpeg?cs=srgb&dl=stonehenge-england-1448136.jpg&fm=jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these animals has the longest lifespan?",
+    "answers": [
+      {
+        "optionText": "Greenland Shark",
+        "isCorrect": true
+      },
+      {
+        "optionText": "African Elephant",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Galapagos Tortoise",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Bowhead Whale",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Greenland Shark",
+    "helperImage": "http://3.bp.blogspot.com/-xebKtgPxe_U/UpslUfVN86I/AAAAAAAAEbA/57x0Z-NB0oI/s1600/Greenland_Shark_3.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these space telescopes was launched first?",
+    "answers": [
+      {
+        "optionText": "Hubble Space Telescope",
+        "isCorrect": true
+      },
+      {
+        "optionText": "James Webb Space Telescope",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Chandra X-ray Observatory",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Spitzer Space Telescope",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Hubble Space Telescope",
+    "helperImage": "https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2010/04/the_joint_esa_nasa_hubble_space_telescope/9901722-2-eng-GB/The_joint_ESA_NASA_Hubble_Space_Telescope_pillars.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these computer storage devices has the highest capacity?",
+    "answers": [
+      {
+        "optionText": "Solid State Drive (SSD)",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Hard Disk Drive (HDD)",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Compact Disc (CD)",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Digital Versatile Disc (DVD)",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Solid State Drive (SSD)",
+    "helperImage": "https://i5.walmartimages.com/asr/47d2c8fc-0b5a-4c52-a7d3-b8c83497c05f_1.28bc96b0b7b8e41d5bcaeab5410b77f5.jpeg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these historical empires had the largest land area at its peak?",
+    "answers": [
+      {
+        "optionText": "The British Empire",
+        "isCorrect": true
+      },
+      {
+        "optionText": "The Mongol Empire",
+        "isCorrect": false
+      },
+      {
+        "optionText": "The Russian Empire",
+        "isCorrect": false
+      },
+      {
+        "optionText": "The Roman Empire",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "The British Empire",
+    "helperImage": "https://williambertrand.fr/wp-content/uploads/2016/02/British-Empire-1922.png"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these bodies of water is the deepest?",
+    "answers": [
+      {
+        "optionText": "Mariana Trench",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Tonga Trench",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Philippine Trench",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Kuril-Kamchatka Trench",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Mariana Trench",
+    "helperImage": "https://www.thoughtco.com/thmb/8AKGQnJ46AqvMQde9rNY8A25KRw=/1990x1506/filters:fill(auto,1)/GettyImages-1152368018-2012ab6f39054feeac5d16822aed9ca8.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these celestial objects is the largest?",
+    "answers": [
+      {
+        "optionText": "The Sun",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Jupiter",
+        "isCorrect": false
+      },
+      {
+        "optionText": "The Moon",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Halley's Comet",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "The Sun",
+    "helperImage": "https://static01.nyt.com/images/2015/11/04/multimedia/nasa-sun-hd/nasa-sun-hd-videoSixteenByNine1050.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these historical monuments is the tallest?",
+    "answers": [
+      {
+        "optionText": "Eiffel Tower",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Statue of Liberty",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Leaning Tower of Pisa",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Big Ben",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Eiffel Tower",
+    "helperImage": "http://www.thehistoryhub.com/wp-content/uploads/2014/09/Eiffel-Tower-Images.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these animals has the longest average lifespan?",
+    "answers": [
+      {
+        "optionText": "Bowhead Whale",
+        "isCorrect": true
+      },
+      {
+        "optionText": "African Elephant",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Galápagos Tortoise",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Koi Fish",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Bowhead Whale",
+    "helperImage": "https://d3d0lqu00lnqvz.cloudfront.net/media/media/f8e12358-045c-418d-bc44-82ce0014103d.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these rivers is the longest?",
+    "answers": [
+      {
+        "optionText": "Amazon River",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Nile River",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Yangtze River",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mississippi River",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Amazon River",
+    "helperImage": "https://www.worldatlas.com/upload/15/cb/6a/shutterstock-1288634608.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these buildings has the most floors?",
+    "answers": [
+      {
+        "optionText": "Burj Khalifa",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Shanghai Tower",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Abraj Al-Bait Endowment",
+        "isCorrect": false
+      },
+      {
+        "optionText": "One World Trade Center",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Burj Khalifa",
+    "helperImage": "http://emiratesrebarltd.com/wp-content/uploads/2015/01/Burj-Khalifa.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these space missions was the farthest from Earth at its peak?",
+    "answers": [
+      {
+        "optionText": "Voyager 1",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Pioneer 10",
+        "isCorrect": false
+      },
+      {
+        "optionText": "New Horizons",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Voyager 2",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Voyager 1",
+    "helperImage": "http://www.brownspaceman.com/wp-content/uploads/2013/09/voyager.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these libraries has the most volumes?",
+    "answers": [
+      {
+        "optionText": "Library of Congress",
+        "isCorrect": true
+      },
+      {
+        "optionText": "British Library",
+        "isCorrect": false
+      },
+      {
+        "optionText": "New York Public Library",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Library and Archives Canada",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Library of Congress",
+    "helperImage": "https://daycationdc.com/wp-content/uploads/2017/03/Library-of-Congress-scaled.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these paintings is the largest?",
+    "answers": [
+      {
+        "optionText": "The Wedding at Cana",
+        "isCorrect": true
+      },
+      {
+        "optionText": "The Last Supper",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Guernica",
+        "isCorrect": false
+      },
+      {
+        "optionText": "The Night Watch",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "The Wedding at Cana",
+    "helperImage": "https://callingcouplestochrist.files.wordpress.com/2019/01/wedding-at-cana-esteban-murillo.jpg?w=1024"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these countries has the largest population?",
+    "answers": [
+      {
+        "optionText": "China",
+        "isCorrect": true
+      },
+      {
+        "optionText": "India",
+        "isCorrect": false
+      },
+      {
+        "optionText": "United States",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Indonesia",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "China",
+    "helperImage": "https://cdn.mobal.com/blog/wp-content/uploads/2009/12/Great-Wall-Of-China.jpg?x73560"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these insects has the longest wingspan?",
+    "answers": [
+      {
+        "optionText": "Queen Alexandra's Birdwing",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Atlas Moth",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Madagascar Sunset Moth",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Giant Owl Butterfly",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Queen Alexandra's Birdwing",
+    "helperImage": "https://www.butterflyidentification.com/wp-content/uploads/2018/10/Queen-Alexandras-Birdwing-Butterfly-Male-and-Female.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these oceans is the smallest?",
+    "answers": [
+      {
+        "optionText": "Arctic Ocean",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Indian Ocean",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Atlantic Ocean",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Pacific Ocean",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Arctic Ocean",
+    "helperImage": "https://cff2.earth.com/uploads/2021/02/05165228/shutterstock_780681282-scaled.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these countries is the smallest by land area?",
+    "answers": [
+      {
+        "optionText": "Vatican City",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Monaco",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Nauru",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Tuvalu",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Vatican City",
+    "helperImage": "http://www.zastavki.com/pictures/originals/2017World_St_Peter_s_Cathedral__Vatican_City_114323_.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these animals has the shortest gestation period?",
+    "answers": [
+      {
+        "optionText": "Virginia Opossum",
+        "isCorrect": true
+      },
+      {
+        "optionText": "African Elephant",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Domestic Cat",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Giraffe",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Virginia Opossum",
+    "helperImage": "https://nhpbs.org/wild/images/virginiaopossumforestrydavidcapeaert.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these elements has the highest atomic mass?",
+    "answers": [
+      {
+        "optionText": "Uranium",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Iron",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Gold",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Carbon",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Uranium",
+    "helperImage": "http://www.chemistrylearner.com/wp-content/uploads/2018/07/Uranium-Pictures.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these volcanoes is the tallest?",
+    "answers": [
+      {
+        "optionText": "Mauna Kea",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Mount Kilimanjaro",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mount Everest",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mount Fuji",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Mauna Kea",
+    "helperImage": "https://mediaim.expedia.com/localexpert/381884/891e9afa-9f67-411a-94c0-abd308e73895.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these birds has the largest wingspan?",
+    "answers": [
+      {
+        "optionText": "Wandering Albatross",
+        "isCorrect": true
+      },
+      {
+        "optionText": "California Condor",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Royal Albatross",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Andean Condor",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Wandering Albatross",
+    "helperImage": "https://4.bp.blogspot.com/-ZkZ2RJS-C7Y/UUw_5g1gOuI/AAAAAAAAHCg/2Y14zhnmQjY/s1600/IMG_0560+Wandering+Albatross+5x5++060313.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these ancient wonders was the tallest?",
+    "answers": [
+      {
+        "optionText": "Great Pyramid of Giza",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Lighthouse of Alexandria",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Statue of Zeus at Olympia",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Colossus of Rhodes",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Great Pyramid of Giza",
+    "helperImage": "https://www.thehistoryhub.com/wp-content/uploads/2014/10/Great-Pyramid-of-Giza-Photos.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these planets has the largest number of moons?",
+    "answers": [
+      {
+        "optionText": "Saturn",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Jupiter",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Uranus",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Neptune",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Saturn",
+    "helperImage": "https://planetary.s3.amazonaws.com/web/assets/pictures/saturn-voyager1-approach-reprocessed.png"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these computer chips has the most transistors?",
+    "answers": [
+      {
+        "optionText": "Apple M1",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Intel Core i9",
+        "isCorrect": false
+      },
+      {
+        "optionText": "AMD Ryzen 9",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Qualcomm Snapdragon 888",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Apple M1",
+    "helperImage": "https://s.yimg.com/uu/api/res/1.2/25oOQ2kw4pDNxnRvlbN_3g--~B/aD0yMjQwO3c9MzU4NDthcHBpZD15dGFjaHlvbg--/https://s.yimg.com/os/creatr-uploaded-images/2020-11/992f8a90-238e-11eb-b37e-6eea1f6ced5f.cf.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these structures has the largest enclosed space by volume?",
+    "answers": [
+      {
+        "optionText": "Boeing Everett Factory",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Great Pyramid of Giza",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Vehicle Assembly Building at NASA",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Pentagon",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Boeing Everett Factory",
+    "helperImage": "http://static1.businessinsider.com/image/5a2b281ca3b4748a008b4ea0-1190-625/take-a-look-inside-the-boeing-factory-where-it-builds-its-most-iconic-jets.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these galaxies is the largest?",
+    "answers": [
+      {
+        "optionText": "Andromeda Galaxy",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Milky Way",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Triangulum Galaxy",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Whirlpool Galaxy",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Andromeda Galaxy",
+    "helperImage": "http://www.gannett-cdn.com/-mm-/414987c999396602f2d4a57b00240c702f293a5a/c=0-50-534-352&r=x1803&c=3200x1800/local/-/media/2015/01/20/USATODAY/USATODAY/635573577805533864-635573330936639965-Andromeda-Galaxy.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these fish species is the heaviest?",
+    "answers": [
+      {
+        "optionText": "Ocean Sunfish",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Great White Shark",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Beluga Sturgeon",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Giant Grouper",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Ocean Sunfish",
+    "helperImage": "https://www.thoughtco.com/thmb/_aPDSSEuIPnBTBmIVL18ec8V424=/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-135624383-5bd6181c46e0fb0026630817.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these trees is the oldest?",
+    "answers": [
+      {
+        "optionText": "Methuselah (Great Basin Bristlecone Pine)",
+        "isCorrect": true
+      },
+      {
+        "optionText": "General Sherman (Giant Sequoia)",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Pando (Quaking Aspen)",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Jomon Sugi (Cryptomeria)",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Methuselah (Great Basin Bristlecone Pine)",
+    "helperImage": "https://allthatsinteresting.com/wordpress/wp-content/uploads/2019/05/grove-of-the-methuselah-tree.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these deserts is the driest?",
+    "answers": [
+      {
+        "optionText": "Atacama Desert",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Sahara Desert",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Kalahari Desert",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Arabian Desert",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Atacama Desert",
+    "helperImage": "https://landedtravel.com/wp-content/uploads/2020/02/Atacama-Chile-Landed-Travel-Private-Travel.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these birds flies the fastest?",
+    "answers": [
+      {
+        "optionText": "Peregrine Falcon",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Golden Eagle",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Frigatebird",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Spur-winged Goose",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Peregrine Falcon",
+    "helperImage": "https://runic.com/gallery/albums/wildlife/birds/peregrine-falcon-2.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these waterfalls has the highest drop?",
+    "answers": [
+      {
+        "optionText": "Angel Falls",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Tugela Falls",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Niagara Falls",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Yosemite Falls",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Angel Falls",
+    "helperImage": "https://ospreyexpeditions.com/wp-content/uploads/2021/02/Angel-Falls-Venezuela-9.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these buildings was completed first?",
+    "answers": [
+      {
+        "optionText": "Empire State Building",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Burj Khalifa",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Taipei 101",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Shanghai Tower",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Empire State Building",
+    "helperImage": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Empire_State_Building_(HDR).jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these planets has the shortest day?",
+    "answers": [
+      {
+        "optionText": "Jupiter",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Earth",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mars",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Venus",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Jupiter",
+    "helperImage": "https://earthsky.org/upl/2020/09/hubble-blue-jupiter-aug2020.png"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these ancient civilizations lasted the longest?",
+    "answers": [
+      {
+        "optionText": "Ancient Egypt",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Roman Empire",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Ancient Greece",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mayan Civilization",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Ancient Egypt",
+    "helperImage": "http://destinationspoint.net/wp-content/uploads/2014/06/Pyramids-of-Giza-Egypt1.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these computer programming languages was developed first?",
+    "answers": [
+      {
+        "optionText": "Fortran",
+        "isCorrect": true
+      },
+      {
+        "optionText": "C",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Python",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Java",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Fortran",
+    "helperImage": "https://images3.alphacoders.com/165/thumb-1920-165265.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these galaxies is the largest?",
+    "answers": [
+      {
+        "optionText": "Andromeda Galaxy",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Milky Way",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Triangulum Galaxy",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Whirlpool Galaxy",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Andromeda Galaxy",
+    "helperImage": "http://www.gannett-cdn.com/-mm-/414987c999396602f2d4a57b00240c702f293a5a/c=0-50-534-352&r=x1803&c=3200x1800/local/-/media/2015/01/20/USATODAY/USATODAY/635573577805533864-635573330936639965-Andromeda-Galaxy.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these fish species is the heaviest?",
+    "answers": [
+      {
+        "optionText": "Ocean Sunfish",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Great White Shark",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Beluga Sturgeon",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Giant Grouper",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Ocean Sunfish",
+    "helperImage": "https://www.thoughtco.com/thmb/_aPDSSEuIPnBTBmIVL18ec8V424=/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-135624383-5bd6181c46e0fb0026630817.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these trees is the oldest?",
+    "answers": [
+      {
+        "optionText": "Methuselah (Great Basin Bristlecone Pine)",
+        "isCorrect": true
+      },
+      {
+        "optionText": "General Sherman (Giant Sequoia)",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Pando (Quaking Aspen)",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Jomon Sugi (Cryptomeria)",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Methuselah (Great Basin Bristlecone Pine)",
+    "helperImage": "https://allthatsinteresting.com/wordpress/wp-content/uploads/2019/05/grove-of-the-methuselah-tree.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these deserts is the driest?",
+    "answers": [
+      {
+        "optionText": "Atacama Desert",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Sahara Desert",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Kalahari Desert",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Arabian Desert",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Atacama Desert",
+    "helperImage": "https://landedtravel.com/wp-content/uploads/2020/02/Atacama-Chile-Landed-Travel-Private-Travel.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these birds flies the fastest?",
+    "answers": [
+      {
+        "optionText": "Peregrine Falcon",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Golden Eagle",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Frigatebird",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Spur-winged Goose",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Peregrine Falcon",
+    "helperImage": "https://optimise2.assets-servd.host/steadfast-tern/production/peregrine-falcon-close-up.jpg?w=1200&h=900&q=80&auto=format&fit=crop&fp-x=0.5&fp-y=0.5&dm=1616688953&s=039bc0169b07dccad14401904ed8b2eb"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these waterfalls has the highest drop?",
+    "answers": [
+      {
+        "optionText": "Angel Falls",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Tugela Falls",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Niagara Falls",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Yosemite Falls",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Angel Falls",
+    "helperImage": "https://ospreyexpeditions.com/wp-content/uploads/2021/02/Angel-Falls-Venezuela-9.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these buildings was completed first?",
+    "answers": [
+      {
+        "optionText": "Empire State Building",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Burj Khalifa",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Taipei 101",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Shanghai Tower",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Empire State Building",
+    "helperImage": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Empire_State_Building_(HDR).jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these planets has the shortest day?",
+    "answers": [
+      {
+        "optionText": "Jupiter",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Earth",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mars",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Venus",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Jupiter",
+    "helperImage": "https://www.zmescience.com/wp-content/uploads/2019/08/stsci-h-p1936a-m-1999x2000.png"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these ancient civilizations lasted the longest?",
+    "answers": [
+      {
+        "optionText": "Ancient Egypt",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Roman Empire",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Ancient Greece",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mayan Civilization",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Ancient Egypt",
+    "helperImage": "http://destinationspoint.net/wp-content/uploads/2014/06/Pyramids-of-Giza-Egypt1.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these computer programming languages was developed first?",
+    "answers": [
+      {
+        "optionText": "Fortran",
+        "isCorrect": true
+      },
+      {
+        "optionText": "C",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Python",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Java",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Fortran",
+    "helperImage": "https://images3.alphacoders.com/165/thumb-1920-165265.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these musical instruments typically has the most strings?",
+    "answers": [
+      {
+        "optionText": "Harp",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Guitar",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Violin",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Piano",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Harp",
+    "helperImage": "https://www.metmuseum.org/-/media/images/blogs/musical-instruments/2014/irish-harp-1.jpg?as=1&mh=902&mw=595&hash=EFD2840177E86CDC9BF390400434CFB7"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these elements has the largest atomic radius?",
+    "answers": [
+      {
+        "optionText": "Cesium",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Helium",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Iron",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Carbon",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Cesium",
+    "helperImage": "http://www.theodoregray.com/PeriodicTable/Samples/055/s15s.JPG"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these dinosaurs was the longest?",
+    "answers": [
+      {
+        "optionText": "Argentinosaurus",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Tyrannosaurus Rex",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Velociraptor",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Triceratops",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Argentinosaurus",
+    "helperImage": "http://images.dinosaurpictures.org/Argentinosaurus-1_eb84.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these planets has the largest ring system?",
+    "answers": [
+      {
+        "optionText": "Saturn",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Jupiter",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Uranus",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Neptune",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Saturn",
+    "helperImage": "https://planetary.s3.amazonaws.com/web/assets/pictures/saturn-voyager1-approach-reprocessed.png"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these mountains is the highest above sea level?",
+    "answers": [
+      {
+        "optionText": "Mount Everest",
+        "isCorrect": true
+      },
+      {
+        "optionText": "K2",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Kangchenjunga",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Lhotse",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Mount Everest",
+    "helperImage": "http://4.bp.blogspot.com/-R6R19xgZwW0/UrPm2bJb2tI/AAAAAAAAAJo/V7_hZ1DELgo/s1600/mount-everest.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these cities has the largest population?",
+    "answers": [
+      {
+        "optionText": "Tokyo",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Delhi",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Shanghai",
+        "isCorrect": false
+      },
+      {
+        "optionText": "New York City",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Tokyo",
+    "helperImage": "https://www.okvoyage.com/wp-content/uploads/2020/02/tokyo.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these animals has the largest brain?",
+    "answers": [
+      {
+        "optionText": "Sperm Whale",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Elephant",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Dolphin",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Human",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Sperm Whale",
+    "helperImage": "https://www.thoughtco.com/thmb/64EqdmbStdnjyWTR5RZqTGnjLho=/2121x1414/filters:fill(auto,1)/GettyImages-114809316-2189a0ec59b94bdea682646e19613174.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these ships was the longest?",
+    "answers": [
+      {
+        "optionText": "RMS Titanic",
+        "isCorrect": true
+      },
+      {
+        "optionText": "USS Enterprise (CVN-65)",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Queen Mary 2",
+        "isCorrect": false
+      },
+      {
+        "optionText": "SS Great Eastern",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "RMS Titanic",
+    "helperImage": "https://upload.wikimedia.org/wikipedia/commons/3/38/RMS_Titanic_4.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these structures is the tallest?",
+    "answers": [
+      {
+        "optionText": "Burj Khalifa",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Shanghai Tower",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Abraj Al Bait Clock Tower",
+        "isCorrect": false
+      },
+      {
+        "optionText": "One World Trade Center",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Burj Khalifa",
+    "helperImage": "https://c1.wallpaperflare.com/preview/346/526/470/u-a-e-dubai-burj-khalifa-architecture.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these lakes is the deepest?",
+    "answers": [
+      {
+        "optionText": "Lake Baikal",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Lake Tanganyika",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Caspian Sea",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Lake Superior",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Lake Baikal",
+    "helperImage": "https://www.lakebaikal.org/wp-content/uploads/2021/05/Lake-Baikal.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these space telescopes has the largest primary mirror?",
+    "answers": [
+      {
+        "optionText": "James Webb Space Telescope",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Hubble Space Telescope",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Kepler Space Telescope",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Chandra X-ray Observatory",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "James Webb Space Telescope",
+    "helperImage": "https://scitechdaily.com/images/James-Webb-Space-Telescope-Primary-Mirror-Fully-Deployed-1536x1233.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these ancient wonders of the world was the tallest?",
+    "answers": [
+      {
+        "optionText": "Lighthouse of Alexandria",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Great Pyramid of Giza",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Statue of Zeus at Olympia",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Colossus of Rhodes",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Lighthouse of Alexandria",
+    "helperImage": "http://1.bp.blogspot.com/-PIDU-uMTKok/VOW85DtYXyI/AAAAAAAAAX4/WjxkPNsy_j0/s1600/lighthousealexandria.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these mammals has the longest migration distance?",
+    "answers": [
+      {
+        "optionText": "Arctic Tern",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Humpback Whale",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Caribou",
+        "isCorrect": false
+      },
+      {
+        "optionText": "African Elephant",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Humpback Whale",
+    "helperImage": "https://au.whales.org/wp-content/uploads/sites/3/2018/06/humpback-whale-vanessa-mignon.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these countries has the longest coastline?",
+    "answers": [
+      {
+        "optionText": "Canada",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Indonesia",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Russia",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Australia",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Canada",
+    "helperImage": "https://www.hdwallpaper.nu/wp-content/uploads/2016/06/Canada_wallpaper_040.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these buildings has the largest total floor area?",
+    "answers": [
+      {
+        "optionText": "New Century Global Center",
+        "isCorrect": true
+      },
+      {
+        "optionText": "The Pentagon",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Burj Khalifa",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Abraj Al-Bait Towers",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "New Century Global Center",
+    "helperImage": "https://blog.structuralia.com/hubfs/Imported_Blog_Media/NewCenturyGlobalCentre4-5.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these ships is the longest?",
+    "answers": [
+      {
+        "optionText": "Symphony of the Seas",
+        "isCorrect": true
+      },
+      {
+        "optionText": "RMS Titanic",
+        "isCorrect": false
+      },
+      {
+        "optionText": "USS Enterprise (CVN-65)",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Queen Mary 2",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Symphony of the Seas",
+    "helperImage": "https://www.talkingcruise.com/wp-content/uploads/2018/03/SY-Aerial-New.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these rivers is the longest?",
+    "answers": [
+      {
+        "optionText": "Nile",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Amazon",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Yangtze",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mississippi",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Nile",
+    "helperImage": "https://smartours.com/wp-content/uploads/2019/05/nile_river_hero_iStock-960857756-e1556730437890.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these animals has the largest average litter size?",
+    "answers": [
+      {
+        "optionText": "Rabbit",
+        "isCorrect": true
+      },
+      {
+        "optionText": "House Cat",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Dog",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Pig",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Rabbit",
+    "helperImage": "https://images.pexels.com/photos/3828097/pexels-photo-3828097.jpeg?cs=srgb&dl=pexels-lavoni-islam-3828097.jpg&fm=jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these computer processors has the most cores?",
+    "answers": [
+      {
+        "optionText": "AMD Ryzen Threadripper",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Intel Core i9",
+        "isCorrect": false
+      },
+      {
+        "optionText": "AMD Ryzen 9",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Intel Xeon",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "AMD Ryzen Threadripper",
+    "helperImage": "https://images.idgesg.net/images/article/2017/05/dsc06715-100724348-orig.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these libraries holds the most volumes?",
+    "answers": [
+      {
+        "optionText": "Library of Congress",
+        "isCorrect": true
+      },
+      {
+        "optionText": "British Library",
+        "isCorrect": false
+      },
+      {
+        "optionText": "New York Public Library",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Library and Archives Canada",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Library of Congress",
+    "helperImage": "https://exploringrworld.com/wp-content/uploads/2018/05/DSC02333.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these solar system moons is the largest?",
+    "answers": [
+      {
+        "optionText": "Ganymede",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Titan",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Callisto",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Io",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Ganymede",
+    "helperImage": "https://lightsinthedark.files.wordpress.com/2021/06/jpegpia24681-ganymede-crop.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these birds has the longest beak?",
+    "answers": [
+      {
+        "optionText": "Australian Pelican",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Sword-billed Hummingbird",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Toco Toucan",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Great Hornbill",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Australian Pelican",
+    "helperImage": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Pelican_lakes_entrance02.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these ancient structures is the oldest?",
+    "answers": [
+      {
+        "optionText": "Stonehenge",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Pyramid of Djoser",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Machu Picchu",
+        "isCorrect": false
+      },
+      {
+        "optionText": "The Colosseum",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Stonehenge",
+    "helperImage": "https://images.pexels.com/photos/1448136/pexels-photo-1448136.jpeg?cs=srgb&dl=stonehenge-england-1448136.jpg&fm=jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these countries has the largest number of islands?",
+    "answers": [
+      {
+        "optionText": "Sweden",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Indonesia",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Canada",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Philippines",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Sweden",
+    "helperImage": "https://assets3.thrillist.com/v1/image/2706821/size/gn-gift_guide_variable_c.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these caves is the deepest known cave in the world?",
+    "answers": [
+      {
+        "optionText": "Veryovkina Cave",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Krubera Cave",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Lamprechtsofen",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Sistema Huautla",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Veryovkina Cave",
+    "helperImage": "https://i.natgeofe.com/n/904b3010-6628-4e97-9ce5-5d1fec68c92a/veryovkina-cave-escape-the-siphon-repel.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these water bodies is the largest by volume?",
+    "answers": [
+      {
+        "optionText": "Pacific Ocean",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Atlantic Ocean",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Indian Ocean",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Arctic Ocean",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Pacific Ocean",
+    "helperImage": "https://media.sciencephoto.com/image/e0700471/800wm/E0700471-Pacific_Ocean.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these natural landmarks is the highest above sea level?",
+    "answers": [
+      {
+        "optionText": "Mount Everest",
+        "isCorrect": true
+      },
+      {
+        "optionText": "K2",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Denali",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Kilimanjaro",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Mount Everest",
+    "helperImage": "https://i.redd.it/o9bewltpazg01.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these animals has the largest territory range?",
+    "answers": [
+      {
+        "optionText": "Blue Whale",
+        "isCorrect": true
+      },
+      {
+        "optionText": "African Elephant",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Siberian Tiger",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Polar Bear",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Blue Whale",
+    "helperImage": "https://3.bp.blogspot.com/-KrSlRqEQv30/UmZa1I6UenI/AAAAAAAAFRU/7c9WjJBjr3k/s1600/Blue-Whale-2.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these suspension bridges has the longest main span?",
+    "answers": [
+      {
+        "optionText": "Akashi Kaikyō Bridge",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Golden Gate Bridge",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mackinac Bridge",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Yangtze River Bridge",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Akashi Kaikyō Bridge",
+    "helperImage": "https://backiee.com/static/wpdb/wallpapers/3840x2160/292219.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these trees grows to the tallest height?",
+    "answers": [
+      {
+        "optionText": "Coast Redwood",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Mountain Ash",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Giant Sequoia",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Douglas Fir",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Coast Redwood",
+    "helperImage": "https://media1.popsugar-assets.com/files/thumbor/rCfIEukgo6XwjCu8DWiJJxLp8Bw/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/02/06/799/n/38761221/d08b862a0ad87ace_California_s_Redwood_Coast/i/California-Redwood-Coast.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these ancient civilizations existed for the longest period?",
+    "answers": [
+      {
+        "optionText": "Ancient Egypt",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Roman Empire",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Ancient Greece",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mayan Civilization",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Ancient Egypt",
+    "helperImage": "https://www.worldatlas.com/r/w1200/upload/60/8a/c7/shutterstock-1406550839.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these continents has the largest land area?",
+    "answers": [
+      {
+        "optionText": "Asia",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Africa",
+        "isCorrect": false
+      },
+      {
+        "optionText": "North America",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Antarctica",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Asia",
+    "helperImage": "https://www.mapsland.com/maps/asia/large-scale-political-map-of-asia-1997-small.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these animals has the largest number of teeth?",
+    "answers": [
+      {
+        "optionText": "Snail",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Shark",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Crocodile",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Dolphin",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Snail",
+    "helperImage": "http://ourmarinespecies.com/wp-content/uploads/2018/12/snails_8-1024x791.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these freshwater lakes is the largest by surface area?",
+    "answers": [
+      {
+        "optionText": "Lake Superior",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Lake Victoria",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Lake Huron",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Lake Michigan",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Lake Superior",
+    "helperImage": "http://thedreamwithinpictures.com/wp-content/uploads/2015/10/fce76__14fbb21b9da6c6d7ad8f5e2b076cc1e1.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these skyscrapers has the highest number of floors?",
+    "answers": [
+      {
+        "optionText": "Burj Khalifa",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Shanghai Tower",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Abraj Al-Bait Clock Tower",
+        "isCorrect": false
+      },
+      {
+        "optionText": "One World Trade Center",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Burj Khalifa",
+    "helperImage": "https://c1.wallpaperflare.com/preview/346/526/470/u-a-e-dubai-burj-khalifa-architecture.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these stars is the largest in diameter?",
+    "answers": [
+      {
+        "optionText": "UY Scuti",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Betelgeuse",
+        "isCorrect": false
+      },
+      {
+        "optionText": "VY Canis Majoris",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Sun",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "UY Scuti",
+    "helperImage": "https://i.dailymail.co.uk/i/pix/2017/04/05/19/3EFA8F8800000578-0-image-a-6_1491418232476.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these historical empires had the largest landmass at its peak?",
+    "answers": [
+      {
+        "optionText": "British Empire",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Mongol Empire",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Russian Empire",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Roman Empire",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "British Empire",
+    "helperImage": "https://williambertrand.fr/wp-content/uploads/2016/02/British-Empire-1922.png"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these computer memory types typically offers the largest storage capacity?",
+    "answers": [
+      {
+        "optionText": "Solid State Drive (SSD)",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Hard Disk Drive (HDD)",
+        "isCorrect": true
+      },
+      {
+        "optionText": "USB Flash Drive",
+        "isCorrect": false
+      },
+      {
+        "optionText": "DVD",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Hard Disk Drive (HDD)",
+    "helperImage": "https://purepng.com/public/uploads/large/purepng.com-hdd-hard-disk-driveelectronics-hard-disk-hard-drive-941524662478iqnno.png"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these oceanic trenches is the deepest?",
+    "answers": [
+      {
+        "optionText": "Mariana Trench",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Tonga Trench",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Philippine Trench",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Kermadec Trench",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Mariana Trench",
+    "helperImage": "https://www.thoughtco.com/thmb/8AKGQnJ46AqvMQde9rNY8A25KRw=/1990x1506/filters:fill(auto,1)/GettyImages-1152368018-2012ab6f39054feeac5d16822aed9ca8.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these creatures had the longest wingspan ever recorded?",
+    "answers": [
+      {
+        "optionText": "Quetzalcoatlus",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Pteranodon",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Hatzegopteryx",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Argentavis",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Quetzalcoatlus",
+    "helperImage": "https://s3-us-west-1.amazonaws.com/scifindr/articles/image2s/000/002/736/large/quetz3.jpg?1481380202"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these planets in our solar system has the largest circumference?",
+    "answers": [
+      {
+        "optionText": "Jupiter",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Saturn",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Earth",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Neptune",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Jupiter",
+    "helperImage": "https://www.zmescience.com/wp-content/uploads/2019/08/stsci-h-p1936a-m-1999x2000.png"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these African animals weighs the most on average?",
+    "answers": [
+      {
+        "optionText": "African Elephant",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Hippopotamus",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Rhinoceros",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Cape Buffalo",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "African Elephant",
+    "helperImage": "https://upload.wikimedia.org/wikipedia/commons/9/99/African_Elephant.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these structures is the longest?",
+    "answers": [
+      {
+        "optionText": "Great Wall of China",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Trans-Siberian Railway",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Panama Canal",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Hadrian's Wall",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Great Wall of China",
+    "helperImage": "https://i1.wp.com/beautifulplacestovisit.com/wp-content/uploads/2011/05/20090529_Great_Wall_8125.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these flowers has the largest bloom?",
+    "answers": [
+      {
+        "optionText": "Rafflesia arnoldii",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Titan arum",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Sunflower",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Corpse Flower",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Rafflesia arnoldii",
+    "helperImage": "https://blog.tripcetera.com/wp-content/uploads/2019/08/rafflesia-arnoldii.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these mountains is the furthest from the center of the Earth?",
+    "answers": [
+      {
+        "optionText": "Mount Everest",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mount Chimborazo",
+        "isCorrect": true
+      },
+      {
+        "optionText": "K2",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Denali",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Mount Chimborazo",
+    "helperImage": "https://mountainsmagleb.com/wp-content/uploads/2021/04/Chimborazo.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these ancient empires covered the largest area at its peak?",
+    "answers": [
+      {
+        "optionText": "Mongol Empire",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Roman Empire",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Persian Empire",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Ottoman Empire",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Mongol Empire",
+    "helperImage": "https://www.worldhistory.org/uploads/images/11305.png?v=1607953503"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these ships was the largest in terms of displacement when fully loaded?",
+    "answers": [
+      {
+        "optionText": "Seawise Giant",
+        "isCorrect": true
+      },
+      {
+        "optionText": "RMS Titanic",
+        "isCorrect": false
+      },
+      {
+        "optionText": "USS Enterprise (CVN-65)",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Symphony of the Seas",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Seawise Giant",
+    "helperImage": "http://4.bp.blogspot.com/-4lsLjR09XlA/T4MHGlCn42I/AAAAAAAAAEY/52uPuouyJJA/s1600/Knock_Nevis.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these birds has the largest wingspan?",
+    "answers": [
+      {
+        "optionText": "Wandering Albatross",
+        "isCorrect": true
+      },
+      {
+        "optionText": "California Condor",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Royal Albatross",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Andean Condor",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Wandering Albatross",
+    "helperImage": "https://4.bp.blogspot.com/-ZkZ2RJS-C7Y/UUw_5g1gOuI/AAAAAAAAHCg/2Y14zhnmQjY/s1600/IMG_0560+Wandering+Albatross+5x5++060313.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these lakes is the deepest in the world?",
+    "answers": [
+      {
+        "optionText": "Lake Baikal",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Lake Tanganyika",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Caspian Sea",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Lake Superior",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Lake Baikal",
+    "helperImage": "https://www.lakebaikal.org/wp-content/uploads/2021/05/Lake-Baikal.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these statues is the tallest?",
+    "answers": [
+      {
+        "optionText": "Statue of Unity",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Spring Temple Buddha",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Statue of Liberty",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Christ the Redeemer",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Statue of Unity",
+    "helperImage": "http://meinhardtindia.com/wp-content/uploads/2017/04/Statue-of-Unity.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these animals has the longest average lifespan?",
+    "answers": [
+      {
+        "optionText": "Greenland Shark",
+        "isCorrect": true
+      },
+      {
+        "optionText": "African Elephant",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Galápagos Tortoise",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Bowhead Whale",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Greenland Shark",
+    "helperImage": "https://i.pinimg.com/originals/56/a8/68/56a868d76844104786b9f49d41840425.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these structures is the tallest man-made structure as of 2023?",
+    "answers": [
+      {
+        "optionText": "Burj Khalifa",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Shanghai Tower",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Abraj Al Bait Clock Tower",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Merdeka 118",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Burj Khalifa",
+    "helperImage": "https://c1.wallpaperflare.com/preview/346/526/470/u-a-e-dubai-burj-khalifa-architecture.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these trees has the largest diameter?",
+    "answers": [
+      {
+        "optionText": "General Sherman (Giant Sequoia)",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Hyperion (Coast Redwood)",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Pando (Quaking Aspen)",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Methuselah (Great Basin Bristlecone Pine)",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "General Sherman (Giant Sequoia)",
+    "helperImage": "http://i.imgur.com/Ms0XeDG.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these insects has the largest wingspan?",
+    "answers": [
+      {
+        "optionText": "Queen Alexandra's Birdwing",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Atlas Moth",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Giant Owl Butterfly",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Madagascan Sunset Moth",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Queen Alexandra's Birdwing",
+    "helperImage": "https://www.butterflyidentification.com/wp-content/uploads/2018/10/Queen-Alexandras-Birdwing-Butterfly-Male-and-Female.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these countries has the largest area of rainforest?",
+    "answers": [
+      {
+        "optionText": "Brazil",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Democratic Republic of the Congo",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Indonesia",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Peru",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Brazil",
+    "helperImage": "https://ralphsmart.com/wp-content/uploads/2020/11/AdobeStock_259466563.jpeg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these planets has the most moons?",
+    "answers": [
+      {
+        "optionText": "Saturn",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Jupiter",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Uranus",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Neptune",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Saturn",
+    "helperImage": "https://scitechdaily.com/images/Cassini-delivers-a-glorious-view-of-Saturn.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these historical figures was the tallest?",
+    "answers": [
+      {
+        "optionText": "Abraham Lincoln",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Genghis Khan",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Napoleon Bonaparte",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Julius Caesar",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Abraham Lincoln",
+    "helperImage": "http://www.americamagazine.org/sites/default/files/main_image/abraham-lincoln-painting-abraham-lincoln-35948611-2886-3917.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these buildings was the first to surpass 500 meters in height?",
+    "answers": [
+      {
+        "optionText": "Taipei 101",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Petronas Towers",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Willis Tower",
+        "isCorrect": false
+      },
+      {
+        "optionText": "One World Trade Center",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Taipei 101",
+    "helperImage": "https://en.wikiarquitectura.com/wp-content/uploads/2017/01/Taipei-101.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these rivers is the longest?",
+    "answers": [
+      {
+        "optionText": "Amazon River",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Nile River",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Yangtze River",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mississippi River",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Amazon River",
+    "helperImage": "https://www.worldatlas.com/upload/15/cb/6a/shutterstock-1288634608.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these sharks is the largest?",
+    "answers": [
+      {
+        "optionText": "Whale Shark",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Great White Shark",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Tiger Shark",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Hammerhead Shark",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Whale Shark",
+    "helperImage": "https://www.rd.com/wp-content/uploads/2019/07/Whale-Shark-with-mouth-open.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these ancient structures has the largest base area?",
+    "answers": [
+      {
+        "optionText": "Great Pyramid of Giza",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Temple of Artemis at Ephesus",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Mausoleum at Halicarnassus",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Statue of Zeus at Olympia",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Great Pyramid of Giza",
+    "helperImage": "https://www.thehistoryhub.com/wp-content/uploads/2014/10/Great-Pyramid-of-Giza-Photos.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these satellites is the largest?",
+    "answers": [
+      {
+        "optionText": "International Space Station (ISS)",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Hubble Space Telescope",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Tiangong Space Station",
+        "isCorrect": false
+      },
+      {
+        "optionText": "James Webb Space Telescope",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "International Space Station (ISS)",
+    "helperImage": "https://cms.qz.com/wp-content/uploads/2018/11/International-Space-Station-Detail.jpg?quality=75&strip=all&w=1260"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these reptiles typically reaches the greatest length?",
+    "answers": [
+      {
+        "optionText": "Saltwater Crocodile",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Komodo Dragon",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Green Anaconda",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Leatherback Sea Turtle",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Saltwater Crocodile",
+    "helperImage": "http://upload.wikimedia.org/wikipedia/commons/3/35/Saltwater_crocodile.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these flowers typically has the largest seed?",
+    "answers": [
+      {
+        "optionText": "Coco de Mer (Sea Coconut)",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Lotus",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Sunflower",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Avocado",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Coco de Mer (Sea Coconut)",
+    "helperImage": "https://nottinghammuseums.org.uk/wp-content/uploads/2020/06/Life_Sci_Image_3.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these mammals has the most powerful bite force?",
+    "answers": [
+      {
+        "optionText": "Saltwater Crocodile",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Hippopotamus",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Great White Shark",
+        "isCorrect": false
+      },
+      {
+        "optionText": "African Lion",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Hippopotamus",
+    "helperImage": "https://www.thoughtco.com/thmb/Nad_jByBQB5WmjaWiDpZNw1wVuI=/2123x1412/filters:no_upscale():max_bytes(150000):strip_icc()/hippoGE-5943d0e45f9b58d58ab484b7.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these bodies of water is the largest by surface area?",
+    "answers": [
+      {
+        "optionText": "Caspian Sea",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Lake Superior",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Lake Victoria",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Dead Sea",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Caspian Sea",
+    "helperImage": "https://images.fineartamerica.com/images-medium-large-5/caspian-sea-nasascience-photo-library.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these animals typically has the longest migration?",
+    "answers": [
+      {
+        "optionText": "Arctic Tern",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Monarch Butterfly",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Humpback Whale",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Caribou",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Arctic Tern",
+    "helperImage": "https://visionarywild.com/wp-content/uploads/2016/05/Arctic-Tern-Vyn_070602_0001.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these historical periods lasted the longest?",
+    "answers": [
+      {
+        "optionText": "Jurassic Period",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Cretaceous Period",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Triassic Period",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Permian Period",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Jurassic Period",
+    "helperImage": "http://2.bp.blogspot.com/-VW69wybTvFQ/Ti72tKrJ4MI/AAAAAAAAA8Q/kMKuUmTCAq0/s1600/4.+Allosaurus_in_Baltow_20060916_1500%255B1%255D.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these Roman structures was the largest?",
+    "answers": [
+      {
+        "optionText": "Colosseum",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Pantheon",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Circus Maximus",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Baths of Diocletian",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Colosseum",
+    "helperImage": "https://upload.wikimedia.org/wikipedia/commons/5/53/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg"
+  },
+  {
+    "category": "Size Comparison",
+    "parentCategory": "Size Comparison",
+    "question": "Which of these natural phenomena is the most powerful based on energy release?",
+    "answers": [
+      {
+        "optionText": "Supernova",
+        "isCorrect": true
+      },
+      {
+        "optionText": "Earthquake",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Volcanic Eruption",
+        "isCorrect": false
+      },
+      {
+        "optionText": "Tsunami",
+        "isCorrect": false
+      }
+    ],
+    "correctAnswer": "Supernova",
+    "helperImage": "http://cdn.techgyd.com/cassiopeia-supernova-wallpaper.jpg"
+  }
+]

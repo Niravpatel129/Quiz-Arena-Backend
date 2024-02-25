@@ -27,6 +27,20 @@ const checkAllMatchesCompleted = async ({ prevGame, room, io }) => {
     (participant) => participant.status !== 'eliminated',
   );
 
+  const eliminatedParticipants = game.participants.filter(
+    (participant) => participant.status === 'eliminated',
+  );
+
+  eliminatedParticipants.forEach((participant) => {
+    io.to(participant.socketId).emit('royaleMessage', { message: 'You have been eliminated' });
+  });
+
+  activeParticipants.forEach((participant) => {
+    io.to(participant.socketId).emit('royaleMessage', {
+      message: 'You have qualified for the next round',
+    });
+  });
+
   if (activeParticipants.length > 1) {
     console.log('Preparing for the next round...');
     startRoyalGame(game, room, io);
@@ -41,8 +55,6 @@ const checkAllMatchesCompleted = async ({ prevGame, room, io }) => {
     game.participants = game.participants.map((participant) => {
       if (participant.id.toString() === activeParticipants[0].id.toString()) {
         participant.status = 'winner';
-
-        socket.emit('royaleMessage', { message: `Winner is ${participant.id.username}` });
       }
 
       return participant;
@@ -80,7 +92,8 @@ const startRoyalGame = async (game, room, io) => {
   // Pair participants and notify them
   const pairedParticipants = pairParticipants(activePartcipants);
   notifyParticipantsOfMatches(pairedParticipants, io, room);
-
+  // update nextRoundStartTime to 10 seconds from now
+  game.nextRoundStartTime = new Date(new Date().getTime() + 10000);
   setTimeout(() => {
     console.log('Checking for all matches completed');
 

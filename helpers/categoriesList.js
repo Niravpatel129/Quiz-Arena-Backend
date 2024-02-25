@@ -34,6 +34,23 @@ const categories = [
     ],
   },
   {
+    parentCategory: 'Facts & Wonders',
+    subCategories: [
+      {
+        name: 'size comparison',
+        logo: 'https://i.imgur.com/36E0YWn.png',
+      },
+      {
+        name: 'baby animals',
+        logo: 'https://i.imgur.com/8Oj1jBh.png',
+      },
+      {
+        name: 'what happened first',
+        logo: 'https://i.imgur.com/xx0yqNa.png',
+      },
+    ],
+  },
+  {
     parentCategory: 'games',
     subCategories: [
       {
@@ -42,7 +59,7 @@ const categories = [
       },
       {
         name: 'league of legends',
-        logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209822301848211586/league-of-legends-characters-poster_670x1192_xtrafondos.com.jpg?ex=65e851d2&is=65d5dcd2&hm=4591dc6052c3213a470fb6fdcbc8a1393994dc3a2584b0897c43d679f335e78d&',
+        logo: 'https://images.contentstack.io/v3/assets/blt370612131b6e0756/blt506e08edefd08617/5fad8432faf76f509e12fe13/WR_Cityscape_Channel_Header_Thailand_Vertical_01.jpg',
       },
       {
         name: 'overwatch',
@@ -247,6 +264,10 @@ const categories = [
       {
         name: 'british films',
         logo: 'https://cdn.discordapp.com/attachments/1110409819808079982/1209819016194035793/british_films.jpg?ex=65e84ec2&is=65d5d9c2&hm=25fa8ca30622b7858678066c6b4125e5e95808bcd33a420b5f17967a08316258&',
+      },
+      {
+        name: 'hunger games',
+        logo: 'https://i.imgur.com/RienNxC.jpeg',
       },
     ],
   },
