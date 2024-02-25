@@ -35,7 +35,7 @@ const questionSchema = new mongoose.Schema(
       required: true,
     },
     helperImage: {
-      type: String, // URL or path to the image
+      type: String,
       required: false,
     },
     upvotes: {
