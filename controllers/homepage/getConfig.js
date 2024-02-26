@@ -1,4 +1,8 @@
-const userIdsAllowedTriviaTuesday = ['6595bddf3871c3c0260be198', '456', '789'];
+const userIdsAllowedTriviaTuesday = [
+  '6595bddf3871c3c0260be198',
+  '65977a0767ddfcc07f94fae4',
+  '65a281db0a28fced58f6e06d',
+];
 
 const getConfig = async (req, res) => {
   try {
@@ -11,7 +15,7 @@ const getConfig = async (req, res) => {
     let queueTime = defaultQueueTime;
 
     if (version) {
-      queueTime = version === '57' ? 9999 : defaultQueueTime;
+      queueTime = version === '58' ? 9999 : defaultQueueTime;
     }
 
     if (parseInt(version) < 24) {
