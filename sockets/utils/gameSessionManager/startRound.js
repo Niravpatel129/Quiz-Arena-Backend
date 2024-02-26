@@ -82,6 +82,7 @@ const startRound = async (sessionId, roundNumber, players, io) => {
       roundNumber,
       questionId: currentRound.questionId,
       question: currentRound.questionText,
+      questionCorrectAnswerRatio: currentRound.questionCorrectAnswerRatio,
       timeLimit: currentRound.timeLimit,
       options: currentRound.options,
       helperImage: currentRound.helperImage,

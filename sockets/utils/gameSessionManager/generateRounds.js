@@ -17,6 +17,8 @@ async function fetchQuestionsForCategory(category, numberOfRounds) {
   const questions = questionsModel.map((question) => {
     return {
       questionId: question._id,
+      questionCorrectAnswerRatio:
+        (question.stats?.correctAnswers / question.stats?.totalAnswers) * 100 || 0,
       questionText: question.question,
       questionId: question._id,
       options: question.answers,

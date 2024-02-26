@@ -9,6 +9,7 @@ const roundSchema = new mongoose.Schema({
   questionId: { type: mongoose.Schema.Types.ObjectId, ref: 'Question' },
   questionText: String,
   options: [optionSchema],
+  questionCorrectAnswerRatio: Number,
   correctAnswer: String,
   helperImage: String,
   timeLimit: Number,
