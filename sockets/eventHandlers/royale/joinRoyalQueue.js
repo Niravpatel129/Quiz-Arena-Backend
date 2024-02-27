@@ -2,6 +2,7 @@ const RoyalGame = require('../../../models/RoyalGame');
 const startRoyalGame = require('./helpers/startRoyalGame');
 const updateRoomStatus = require('./helpers/updateRoomStatus');
 const getRoomId = require('./helpers/getRoomId');
+const User = require('../../../models/User');
 
 const joinRoyalQueue = (socket, io) => {
   socket.on('joinRoyalRoom', async () => {
@@ -36,33 +37,48 @@ const joinRoyalQueue = (socket, io) => {
         socket.emit('royaleMessage', { message: 'Game is already in progress' });
         return;
       }
+
       if (!game) {
         // Create and save the new game
         game = new RoyalGame({
           title: room,
           status: 'waiting',
-          participants: [{ id: userId, socketId: socket.id }],
         });
 
         await game.save();
 
-        // Emit message to the socket
         socket.emit('royaleMessage', { message: 'Royale Queue joined!' });
-
-        // Fetch the saved game with the necessary population
-        game = await RoyalGame.findById(game._id).populate({
-          path: 'participants.id',
-          select: 'username profile.avatar',
-        });
       }
 
       const isUserInQueue = game.participants.find((participant) =>
         participant.id._id.equals(userId),
       );
-      if (!isUserInQueue) {
-        console.log('Adding user to the queue:', userId);
 
-        game.participants.push({ id: userId, socketId: socket.id });
+      if (!isUserInQueue) {
+        // Fetch user details using the userId
+        const userDetails = await User.findById(userId).select('username profile'); // Adjust according to your schema
+
+        if (!userDetails) {
+          console.log('User details not found for ID:', userId);
+          return;
+        }
+
+        // Construct the participant object with a consistent structure for `id`
+        const participant = {
+          id: {
+            _id: userId, // Keep the ObjectId
+            username: userDetails.username, // Include the username
+            profile: userDetails.profile, // Include the profile, assuming it's structured correctly in your User model
+          },
+          socketId: socket.id,
+          wins: 0,
+          status: 'queued',
+          score: 0,
+        };
+
+        game.participants.push(participant);
+
+        console.log('🚀  game.participants:', game.participants);
 
         if (game.participants.length === 4) {
           game.status = 'in-progress';
@@ -77,7 +93,6 @@ const joinRoyalQueue = (socket, io) => {
       }
 
       await game.save();
-
       socket.emit('joinedRoyalQueue', { room });
       updateRoomStatus(roomId, io);
     } catch (error) {
