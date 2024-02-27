@@ -25,12 +25,22 @@ const handleMatchWin = async (socket, io) => {
       game.participants.forEach((participant, index) => {
         const participantId = participant.id.toString();
         if (participantId === winnerUserId) {
+          console.log('quallified emitted');
           game.participants[index].wins += 1; // Update wins for winner
           game.participants[index].status = 'waiting-next-round'; // Update status for winner
+
+          setTimeout(() => {
+            io.to(participant.socketId).emit('quallified');
+          }, 1000);
         }
 
         if (participantId === loserUserId) {
           game.participants[index].status = 'eliminated'; // Update status for loser
+          console.log('eliminated emitted');
+
+          setTimeout(() => {
+            io.to(participant.socketId).emit('eliminated');
+          }, 1000);
         }
       });
 
@@ -42,7 +52,7 @@ const handleMatchWin = async (socket, io) => {
         (participant) => participant.status !== 'eliminated',
       );
       if (activeParticipants.length > 1) {
-        console.log('Preparing for the next round...');
+        // Update room status
       } else if (activeParticipants.length === 1) {
         game.status = 'completed';
         game.endTime = new Date();

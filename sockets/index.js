@@ -7,6 +7,7 @@ const challengeHandlers = require('./eventHandlers/challengeHandlers');
 const { updateLastActiveSocket } = require('./middleware/updateLastActive');
 const rematchHandlers = require('./eventHandlers/rematchHandlers');
 const royalHandlers = require('./eventHandlers/royaleHandlers');
+const chatHandlers = require('./eventHandlers/chatHandlers');
 
 let connectedUsersCount = 0;
 
@@ -28,6 +29,7 @@ module.exports = (server, config) => {
     challengeHandlers(socket, io);
     rematchHandlers(socket, io);
     royalHandlers(socket, io);
+    chatHandlers(socket, io);
 
     socket.on('disconnect', () => {
       console.log(`🚀  ${socket.id} disconnected`);
