@@ -41,6 +41,10 @@ const categories = [
         logo: 'https://i.imgur.com/36E0YWn.png',
       },
       {
+        name: 'history of internet',
+        logo: 'https://i.imgur.com/t5NRicE.jpeg',
+      },
+      {
         name: 'baby animals',
         logo: 'https://i.imgur.com/8Oj1jBh.png',
       },
