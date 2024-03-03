@@ -138,6 +138,10 @@ const categories = [
         logo: 'https://res.cloudinary.com/dwu4qop1o/image/upload/v1709185885/soccer_uwpfur.png',
       },
       {
+        name: 'tennis',
+        logo: 'https://res.cloudinary.com/dwu4qop1o/image/upload/v1709499691/sportive-woman-holding-tennis-racket-with-ball_i1kvyb.jpg',
+      },
+      {
         name: 'cricket',
         logo: 'https://res.cloudinary.com/dwu4qop1o/image/upload/v1709185881/cricket_wypcmn.png',
       },
