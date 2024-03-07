@@ -18,7 +18,7 @@ const getConfig = async (req, res) => {
       queueTime = version === '62' ? 9999 : defaultQueueTime;
     }
 
-    if (parseInt(version) < 24) {
+    if (parseInt(version) < 60) {
       updatedRequired = true;
     }
 
