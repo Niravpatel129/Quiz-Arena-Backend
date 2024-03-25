@@ -34,7 +34,7 @@ const convertImageToCloudinaryURL = async (imageUrl) => {
 
     // Upload the image to Cloudinary
     const uploadResponse = await axios.post(
-      `https://api.cloudinary.com/v1_1/gamercoach/image/upload?api_key=997981818793491`,
+      `https://api.cloudinary.com/v1_1/gamercoach/image/upload?api_key=${process.env.CLOUDINARY_API_KEY}`,
       formData,
     );
 
