@@ -7,6 +7,11 @@ const { v4: uuidv4 } = require('uuid'); // UUID for unique file naming
 
 const convertImageToCloudinaryURL = async (imageUrl) => {
   try {
+    // if the imageUrl is already cloudinary just return cloudinary
+    if (imageUrl.includes('cloudinary')) {
+      return imageUrl;
+    }
+
     // Download the image
     const response = await axios({
       method: 'get',
