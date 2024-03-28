@@ -35,7 +35,7 @@ const convertImageToCloudinaryURL = async (imageUrl) => {
     // Prepare form data for upload
     const formData = new FormData();
     formData.append('file', fs.createReadStream(newAvatarPath));
-    formData.append('upload_preset', 'gamercoach');
+    formData.append('upload_preset', 'elo_mastery');
 
     // Upload the image to Cloudinary
     const uploadResponse = await axios.post(
