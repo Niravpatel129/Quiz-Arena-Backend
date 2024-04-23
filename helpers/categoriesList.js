@@ -1,4 +1,13 @@
 const categories = [
+    {
+    parentCategory: 'recently added',
+    subCategories: [
+      {
+        name: 'sports logos',
+        logo: 'https://res.cloudinary.com/dwu4qop1o/image/upload/v1709185883/logos_qh9zpj.png',
+      },
+    ],
+  },
   {
     parentCategory: 'general knowledge',
     subCategories: [
