@@ -1,4 +1,41 @@
 const categories = [
+    {
+        parentCategory: 'Recently Added',
+        subCategories: [
+          {
+            name: 'sports logos',
+            logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948894/quiz%20arena/v7g7bc0ulyztwrcvg5hl.png',
+          },
+          {
+            name: 'prehistoric facts',
+            logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948892/quiz%20arena/z0rvwxzjkc7exac2s6e7.png',
+          },
+          {
+            name: 'logos 2',
+            logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948892/quiz%20arena/bjw19wqus3abc5rywx0q.png',
+          },
+          {
+            name: 'riddles',
+            logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948888/quiz%20arena/jlxu7miwrqvuflarshcw.png',
+          },
+          {
+            name: 'animals',
+            logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948889/quiz%20arena/kbbs27xl0bvoihqnr0tq.png',
+          },
+          {
+            name: 'dogs',
+            logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948888/quiz%20arena/xtgzg7lnfowuzrqtsrdk.png',
+          },
+          {
+            name: 'prehistoric animals',
+            logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948895/quiz%20arena/mye1vsz0hefhcavf66nt.png',
+          },
+          {
+            name: 'paintings',
+            logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948888/quiz%20arena/hbinw3vffjhvgavrcgb5.webp',
+          },
+        ],
+    },
   {
     parentCategory: 'general knowledge',
     subCategories: [
