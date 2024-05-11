@@ -16,12 +16,20 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {});
 // Import the Question model
 const Question = require('../../models/Question');
 
+const isValidImage = async (url) => {
+  try {
+    const response = await fetch(url, { method: 'HEAD' });
+    const contentType = response.headers.get('content-type');
+    return response.ok && contentType && contentType.startsWith('image/');
+  } catch (error) {
+    console.error('Error checking image validity:', url, error);
+    return false;
+  }
+};
+
 const convertImages = async () => {
   const questions = await Question.find({
-    // category: 'sports logos',
-    // question:
-    //   'Guess the prehistoric animal: A large, carnivorous marine reptile with a streamlined body and four flippers, lived during the Jurassic period.',
-    helperImage: { $nin: [null, /cloudinary/], $exists: true, $ne: '' },
+    helperImage: { $regex: /cloudinary/ },
   });
 
   for (const question of questions) {
@@ -29,6 +37,13 @@ const convertImages = async () => {
     console.log('Processing image:', imageUrl);
 
     try {
+      // Check if the image URL is valid
+      const isValid = await isValidImage(imageUrl);
+      if (!isValid) {
+        console.warn('Invalid image URL:', imageUrl);
+        continue;
+      }
+
       // Fetch the image data from the URL
       const response = await fetch(imageUrl);
       const buffer = await response.buffer();
@@ -63,11 +78,12 @@ const convertImages = async () => {
       // Update the question's helperImage field with the Google Cloud Storage URL
       question.helperImage = blob.publicUrl();
       await question.save();
-
       console.log('Question updated with Google Cloud Storage URL:', question._id);
     } catch (error) {
       console.error('Error processing image:', imageUrl, error);
     }
+
+    console.log('----------------------------------------');
   }
 
   console.log('Image conversion completed.');
