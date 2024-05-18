@@ -25,10 +25,10 @@ const updateUser = async (req, res) => {
     updates.forEach(async (update) => {
       console.log('🚀  req.body.profile.avatar:', req?.body?.profile?.avatar);
       if (update === 'profile' && req?.body?.profile?.avatar) {
-        const response = await convertImageToCloudinaryURL(req?.body?.profile?.avatar);
+        // const response = await convertImageToCloudinaryURL(req?.body?.profile?.avatar);
 
-        console.log('🚀  response:', response);
-        user.profile.avatar = response;
+        // console.log('🚀  response:', response);
+        // user.profile.avatar = response;
         await user.save();
       } else {
         user[update] = req.body[update];

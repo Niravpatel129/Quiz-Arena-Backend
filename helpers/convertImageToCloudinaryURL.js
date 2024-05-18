@@ -15,6 +15,12 @@ const bucketName = 'quiz-arena-e2415.appspot.com';
 
 const convertImageToFirebaseURL = async (imageUrl) => {
   try {
+    // check if imageUrl is valid image
+    const isValidImage = await axios.head(imageUrl);
+    if (isValidImage.status !== 200) {
+      return 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/avatars/659cd4cef8bb297c1b3c3f38-1716018554690.jpg';
+    }
+
     // if the imageUrl is already in Firebase storage, just return it
     if (imageUrl.includes('firebase')) {
       return imageUrl;
