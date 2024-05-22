@@ -27,12 +27,12 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
       ratingChange = 0;
     }
 
+    const categoryKey = `elo.rating.${category.toLowerCase()}`;
     updatedRating = (player.elo.rating[category.toLowerCase()] || 1200) + ratingChange;
-    const setCategory = `elo.rating.${category.toLowerCase()}`;
 
     const user = await User.findByIdAndUpdate(playerId, {
       $set: {
-        [setCategory]: updatedRating,
+        [categoryKey]: updatedRating,
       },
       $inc: {
         'elo.gamesPlayed': 1,
@@ -221,8 +221,6 @@ async function endGame(sessionId, players, io) {
   gameSession.loserId = player1Score > player2Score ? player2.id : player1.id;
 
   await gameSession.save();
-  // player1.playerInformation.elo.ratingChange = player1RatingChange;
-  // player2.playerInformation.elo.ratingChange = player2RatingChange;
 
   players.forEach((playerSocketId) => {
     io.to(playerSocketId.socketId).emit('game_over', {
