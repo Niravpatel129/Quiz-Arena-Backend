@@ -107,7 +107,6 @@ const userSchema = new Schema(
       googleId: String,
       pushToken: String,
     },
-
     lastActive: {
       type: Date,
       default: Date.now(),
