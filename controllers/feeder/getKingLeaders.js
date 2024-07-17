@@ -8,7 +8,7 @@ const getKing = async (req, res) => {
     const topScorers = await Feeder.aggregate([
       { $match: { category: category } },
       { $sort: { scoreAchieved: -1 } },
-      { $limit: 10 }, // Limit
+      { $limit: 2 },
       {
         $lookup: {
           from: 'users',
@@ -24,7 +24,7 @@ const getKing = async (req, res) => {
           'userDetails.profile': 1,
           scoreAchieved: 1,
           category: 1,
-          updatedAt: 1, // Include the updatedAt field from the Feeder document
+          updatedAt: 1,
         },
       },
     ]);

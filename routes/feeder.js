@@ -7,5 +7,6 @@ router.get('/questions', feederController.getQuestions);
 router.post('/user-answers', verifyToken, feederController.addUserAnswersBatch);
 router.post('/results', verifyToken, feederController.createFeeder);
 router.get('/king/:category', feederController.getKing);
+// router.get('/king/leaders', feederController.getKingLeaders);
 
 module.exports = router;

@@ -3,4 +3,5 @@ module.exports = {
   addUserAnswersBatch: require('./addUserAnswersBatch.js'),
   createFeeder: require('./createFeederResults.js'),
   getKing: require('./getKing.js'),
+  getKingLeaders: require('./getKingLeaders.js'),
 };
