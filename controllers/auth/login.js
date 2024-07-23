@@ -30,13 +30,10 @@ const register = async (email, password, country) => {
 const login = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    console.log('🚀  errors:', errors);
     return res.status(400).json({ errors: errors.array() });
   }
 
   const { email, password, username, country, profile } = req.body;
-  console.log('🚀  username:', username);
-  console.log('🚀  profile:', profile);
 
   if (!email || !password) {
     return res.status(400).json({ msg: 'Please enter all fields' });
