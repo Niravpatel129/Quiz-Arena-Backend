@@ -14,18 +14,16 @@ const updateAvatar = async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    user.profile.username = username;
+    user.username = username;
     user.profile.avatar = avatar;
 
     await user.save();
 
-    res
-      .status(200)
-      .json({
-        message: 'Profile updated successfully',
-        avatar: user.profile.avatar,
-        username: user.profile.username,
-      });
+    res.status(200).json({
+      message: 'Profile updated successfully',
+      avatar: user.profile.avatar,
+      username: user.profile.username,
+    });
   } catch (error) {
     console.error('Error updating profile:', error);
     res.status(500).json({ message: 'Failed to update profile' });
