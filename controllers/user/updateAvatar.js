@@ -3,10 +3,9 @@ const User = require('../../models/User');
 const updateAvatar = async (req, res) => {
   try {
     const userId = req.userId;
-    const { userAvatar } = req.body;
-
-    if (!userAvatar) {
-      return res.status(400).json({ message: 'User avatar is required' });
+    const { avatar, username } = req.body;
+    if (!userId) {
+      return res.status(401).json({ message: 'Unauthorized' });
     }
 
     const user = await User.findById(userId);
@@ -15,15 +14,21 @@ const updateAvatar = async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    user.profile = user.profile || {};
-    user.profile.avatar = userAvatar;
+    user.profile.username = username;
+    user.profile.avatar = avatar;
 
     await user.save();
 
-    res.status(200).json({ message: 'Avatar updated successfully', avatar: user.profile.avatar });
+    res
+      .status(200)
+      .json({
+        message: 'Profile updated successfully',
+        avatar: user.profile.avatar,
+        username: user.profile.username,
+      });
   } catch (error) {
-    console.error('Error updating avatar:', error);
-    res.status(500).json({ message: 'Internal server error' });
+    console.error('Error updating profile:', error);
+    res.status(500).json({ message: 'Failed to update profile' });
   }
 };
 
