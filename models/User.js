@@ -24,10 +24,6 @@ const userSchema = new Schema(
       trim: true,
       minlength: 3,
     },
-    avatar: {
-      type: String,
-      default: 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg',
-    },
     friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     notifications: [
       {
@@ -63,8 +59,7 @@ const userSchema = new Schema(
     profile: {
       avatar: {
         type: String,
-        default:
-          'https://res.cloudinary.com/dwu4qop1o/image/upload/v1705695251/gamercoach/k3ty0buuliiib0aogtgc.jpg',
+        default: 'https://i.redd.it/zwfggeplutf61.jpg',
       },
       country: {
         type: String,
