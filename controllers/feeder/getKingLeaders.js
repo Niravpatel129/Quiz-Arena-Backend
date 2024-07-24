@@ -35,6 +35,7 @@ const getKingLeaders = async (req, res) => {
           updatedAt: 1,
         },
       },
+      { $sort: { scoreAchieved: -1 } }, // Add this stage to sort by scoreAchieved in descending order
     ]);
 
     if (!topScorers.length) {
