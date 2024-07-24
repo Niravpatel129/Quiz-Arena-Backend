@@ -1,6 +1,6 @@
 const Feeder = require('../../models/Feeder');
 
-const getKing = async (req, res) => {
+const getKingLeaders = async (req, res) => {
   try {
     const category = req.params.category.replaceAll('-', ' ') || 'general knowledge';
     console.log('🚀  category:', category);
@@ -8,11 +8,19 @@ const getKing = async (req, res) => {
     const topScorers = await Feeder.aggregate([
       { $match: { category: category } },
       { $sort: { scoreAchieved: -1 } },
+      {
+        $group: {
+          _id: '$user',
+          scoreAchieved: { $first: '$scoreAchieved' },
+          category: { $first: '$category' },
+          updatedAt: { $first: '$updatedAt' },
+        },
+      },
       { $limit: 20 },
       {
         $lookup: {
           from: 'users',
-          localField: 'user',
+          localField: '_id',
           foreignField: '_id',
           as: 'userDetails',
         },
@@ -40,4 +48,4 @@ const getKing = async (req, res) => {
   }
 };
 
-module.exports = getKing;
+module.exports = getKingLeaders;
