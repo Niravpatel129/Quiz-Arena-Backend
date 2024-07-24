@@ -8,7 +8,7 @@ const getKing = async (req, res) => {
     const topScorers = await Feeder.aggregate([
       { $match: { category: category } },
       { $sort: { scoreAchieved: -1 } },
-      { $limit: 2 },
+      { $limit: 10 },
       {
         $lookup: {
           from: 'users',
