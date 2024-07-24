@@ -33,7 +33,7 @@ const updateAllAvatars = async () => {
   }
 };
 
-updateAllAvatars();
+// updateAllAvatars();
 
 const updateAvatar = async (req, res) => {
   try {
