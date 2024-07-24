@@ -9,6 +9,7 @@ const getUserNotifications = require('./getUserNotifications');
 const createUserNotification = require('./createUserNotification');
 const deleteUserNotification = require('./deleteUserNotification');
 const syncContacts = require('./syncContacts');
+const updateAvatar = require('./updateAvatar');
 
 module.exports = {
   createUser,
@@ -22,4 +23,5 @@ module.exports = {
   deleteUserNotification,
   getUserById,
   syncContacts,
+  updateAvatar,
 };

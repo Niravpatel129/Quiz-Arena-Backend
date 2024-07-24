@@ -24,6 +24,10 @@ const userSchema = new Schema(
       trim: true,
       minlength: 3,
     },
+    avatar: {
+      type: String,
+      default: 'https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg',
+    },
     friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
     notifications: [
       {
