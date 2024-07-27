@@ -393,7 +393,7 @@ const executeTask = async () => {
     // ----------------------------------------
 
     console.log('📤 Sending daily task report...');
-    await sendMessageToChannel(process.env.DISCORD_DAILY_TASK_CHANNEL_ID, {
+    await sendMessageToChannel(process.env.DISCORD_DAILY_TASK_CHANNEL_ID || '1266618395093373009', {
       content: `# 📊 ${dayOfWeek}'s Daily Task Report\n\n🕒 Generated on: ${today.toLocaleString()}\n\n---\n\n**Quick Summary:**\n• Total Users: \`${totalUsers.toLocaleString()}\`\n• Total Game Sessions: \`${totalGameSessions.toLocaleString()}\`\n• Total Feeders: \`${totalFeeders.toLocaleString()}\`\n\n---`,
       embeds: [gameSessionEmbed, userEmbed, feederEmbed, top10CategoriesEmbed],
       files: [
