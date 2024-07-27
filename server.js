@@ -3,6 +3,7 @@ const http = require('http');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const routes = require('./routes');
+const { initializeDailyTasks } = require('./services/dailyTasks');
 const initializeSockets = require('./sockets');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
@@ -55,11 +56,14 @@ app.use(routes);
 
 app.use(Sentry.Handlers.errorHandler());
 
+// Add middleware for daily async tasks
+
 // initalize discord
 
 const PORT = process.env.PORT || 8001;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  initializeDailyTasks();
 });
 
 initializeDiscord();
