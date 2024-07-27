@@ -6,6 +6,10 @@ const { sendMessageToChannel } = require('../services/discord_bot');
 const { EmbedBuilder } = require('discord.js');
 const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
 
+// ======================================
+// Chart Creation Function
+// ======================================
+
 const createChart = async (data, labels, title) => {
   const width = 800;
   const height = 400;
@@ -40,25 +44,16 @@ const createChart = async (data, labels, title) => {
     options: {
       responsive: true,
       plugins: {
-        legend: {
-          position: 'top',
-        },
-        title: {
-          display: true,
-          text: title,
-        },
+        legend: { position: 'top' },
+        title: { display: true, text: title },
       },
       scales: {
         y: {
           beginAtZero: true,
-          grid: {
-            color: 'rgba(0, 0, 0, 0.1)',
-          },
+          grid: { color: 'rgba(0, 0, 0, 0.1)' },
         },
         x: {
-          grid: {
-            color: 'rgba(0, 0, 0, 0.1)',
-          },
+          grid: { color: 'rgba(0, 0, 0, 0.1)' },
         },
       },
       animation: {
@@ -72,50 +67,51 @@ const createChart = async (data, labels, title) => {
   return image;
 };
 
+// ======================================
+// Main Task Execution Function
+// ======================================
+
 const executeTask = async () => {
-  console.log('Executing daily task...', new Date());
+  const today = new Date();
+  const dayOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][
+    today.getDay()
+  ];
+  console.log(`📅 Executing daily task for ${dayOfWeek}...`, today.toLocaleString());
+
   try {
+    // ----------------------------------------
+    // Fetch Statistics
+    // ----------------------------------------
+
     // Game Session Statistics
     const totalGameSessions = await GameSession.countDocuments();
-
-    const oneMonthAgo = new Date();
-    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+    const oneMonthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
     const lastMonthGameSessions = await GameSession.countDocuments({
       startTime: { $gte: oneMonthAgo },
     });
-
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    const todayGameSessions = await GameSession.countDocuments({ startTime: { $gte: today } });
-
+    const todayGameSessions = await GameSession.countDocuments({
+      startTime: { $gte: new Date(today.setHours(0, 0, 0, 0)) },
+    });
     const avgGamesPerDay = Math.round(lastMonthGameSessions / 30);
 
     // User Statistics
     const totalUsers = await User.countDocuments();
-
     const lastMonthUsers = await User.countDocuments({ createdAt: { $gte: oneMonthAgo } });
-
     const todayUsers = await User.countDocuments({ createdAt: { $gte: today } });
-
     const avgSignupsPerDay = Math.round(lastMonthUsers / 30);
 
     // Feeder Statistics
     const totalFeeders = await Feeder.countDocuments();
-
     const lastMonthFeeders = await Feeder.countDocuments({ createdAt: { $gte: oneMonthAgo } });
-
     const todayFeeders = await Feeder.countDocuments({ createdAt: { $gte: today } });
-
     const avgFeedersPerDay = Math.round(lastMonthFeeders / 30);
 
     // User Retention
-    const activeUsersLastMonth = await User.countDocuments({
-      lastActive: { $gte: oneMonthAgo },
-    });
+    const activeUsersLastMonth = await User.countDocuments({ lastActive: { $gte: oneMonthAgo } });
     const retentionRate = ((activeUsersLastMonth / totalUsers) * 100).toFixed(2);
 
     // Most Active Category
-    const mostActiveCategory = await GameSession.aggregate([
+    const [mostActiveCategory] = await GameSession.aggregate([
       { $match: { startTime: { $gte: oneMonthAgo } } },
       { $group: { _id: '$category', count: { $sum: 1 } } },
       { $sort: { count: -1 } },
@@ -130,7 +126,10 @@ const executeTask = async () => {
       { $limit: 10 },
     ]);
 
-    // Create charts
+    // ----------------------------------------
+    // Create Charts
+    // ----------------------------------------
+
     const gameSessionChartImage = await createChart(
       [totalGameSessions, lastMonthGameSessions, todayGameSessions, avgGamesPerDay],
       ['Total', 'Last 30 Days', 'Today', 'Avg/Day'],
@@ -155,33 +154,45 @@ const executeTask = async () => {
       'Top 10 Categories (Last 30 Days)',
     );
 
+    // ----------------------------------------
+    // Create Embeds
+    // ----------------------------------------
+
     const gameSessionEmbed = new EmbedBuilder()
       .setColor('#0099ff')
-      .setTitle('Daily Task Report - Game Sessions')
-      .setDescription('Game Session Statistics')
+      .setTitle(`🎮 ${dayOfWeek}'s Daily Task Report - Game Sessions`)
+      .setDescription('📊 Game Session Statistics')
       .addFields(
-        { name: 'Total GameSessions', value: totalGameSessions.toString(), inline: true },
         {
-          name: 'Games played in the last 30 days',
-          value: lastMonthGameSessions.toString(),
-          inline: true,
-        },
-        { name: 'Games played today', value: todayGameSessions.toString(), inline: true },
-        {
-          name: 'Average games per day (last month)',
-          value: avgGamesPerDay.toString(),
+          name: '🔢 Total GameSessions',
+          value: `\`${totalGameSessions.toLocaleString()}\``,
           inline: true,
         },
         {
-          name: 'Most Active Category (last month)',
-          value: mostActiveCategory[0]
-            ? `${mostActiveCategory[0]._id}: ${mostActiveCategory[0].count} games`
-            : 'N/A',
+          name: '📅 Games played in the last 30 days',
+          value: `\`${lastMonthGameSessions.toLocaleString()}\``,
           inline: true,
         },
         {
-          name: 'Monthly Growth Rate',
-          value: `${((lastMonthGameSessions / totalGameSessions - 1) * 100).toFixed(2)}%`,
+          name: '📆 Games played today',
+          value: `\`${todayGameSessions.toLocaleString()}\``,
+          inline: true,
+        },
+        {
+          name: '📈 Average games per day (last month)',
+          value: `\`${avgGamesPerDay.toLocaleString()}\``,
+          inline: true,
+        },
+        {
+          name: '🏆 Most Active Category (last month)',
+          value: mostActiveCategory
+            ? `\`${mostActiveCategory._id}: ${mostActiveCategory.count.toLocaleString()} games\``
+            : '`N/A`',
+          inline: true,
+        },
+        {
+          name: '📊 Monthly Growth Rate',
+          value: `\`${((lastMonthGameSessions / totalGameSessions - 1) * 100).toFixed(2)}%\``,
           inline: true,
         },
       )
@@ -190,30 +201,34 @@ const executeTask = async () => {
 
     const userEmbed = new EmbedBuilder()
       .setColor('#00ff99')
-      .setTitle('Daily Task Report - Users')
-      .setDescription('User Statistics')
+      .setTitle(`👥 ${dayOfWeek}'s Daily Task Report - Users`)
+      .setDescription('📊 User Statistics')
       .addFields(
-        { name: 'Total Users', value: totalUsers.toString(), inline: true },
-        { name: 'Signups in the last 30 days', value: lastMonthUsers.toString(), inline: true },
-        { name: 'Signups today', value: todayUsers.toString(), inline: true },
+        { name: '🔢 Total Users', value: `\`${totalUsers.toLocaleString()}\``, inline: true },
         {
-          name: 'Average signups per day (last month)',
-          value: avgSignupsPerDay.toString(),
+          name: '📅 Signups in the last 30 days',
+          value: `\`${lastMonthUsers.toLocaleString()}\``,
+          inline: true,
+        },
+        { name: '📆 Signups today', value: `\`${todayUsers.toLocaleString()}\``, inline: true },
+        {
+          name: '📈 Average signups per day (last month)',
+          value: `\`${avgSignupsPerDay.toLocaleString()}\``,
           inline: true,
         },
         {
-          name: 'User Retention Rate (last 30 days)',
-          value: `${retentionRate}%`,
+          name: '🔄 User Retention Rate (last 30 days)',
+          value: `\`${retentionRate}%\``,
           inline: true,
         },
         {
-          name: 'Active Users (last 30 days)',
-          value: activeUsersLastMonth.toString(),
+          name: '🏃‍♂️ Active Users (last 30 days)',
+          value: `\`${activeUsersLastMonth.toLocaleString()}\``,
           inline: true,
         },
         {
-          name: 'Monthly Growth Rate',
-          value: `${((lastMonthUsers / totalUsers - 1) * 100).toFixed(2)}%`,
+          name: '📊 Monthly Growth Rate',
+          value: `\`${((lastMonthUsers / totalUsers - 1) * 100).toFixed(2)}%\``,
           inline: true,
         },
       )
@@ -222,25 +237,29 @@ const executeTask = async () => {
 
     const feederEmbed = new EmbedBuilder()
       .setColor('#ff9900')
-      .setTitle('Daily Task Report - Feeders')
-      .setDescription('Feeder Statistics')
+      .setTitle(`🍽️ ${dayOfWeek}'s Daily Task Report - Feeders`)
+      .setDescription('📊 Feeder Statistics')
       .addFields(
-        { name: 'Total Feeders', value: totalFeeders.toString(), inline: true },
-        { name: 'Feeders in the last 30 days', value: lastMonthFeeders.toString(), inline: true },
-        { name: 'Feeders today', value: todayFeeders.toString(), inline: true },
+        { name: '🔢 Total Feeders', value: `\`${totalFeeders.toLocaleString()}\``, inline: true },
         {
-          name: 'Average feeders per day (last month)',
-          value: avgFeedersPerDay.toString(),
+          name: '📅 Feeders in the last 30 days',
+          value: `\`${lastMonthFeeders.toLocaleString()}\``,
+          inline: true,
+        },
+        { name: '📆 Feeders today', value: `\`${todayFeeders.toLocaleString()}\``, inline: true },
+        {
+          name: '📈 Average feeders per day (last month)',
+          value: `\`${avgFeedersPerDay.toLocaleString()}\``,
           inline: true,
         },
         {
-          name: 'Feeder to User Ratio',
-          value: (totalFeeders / totalUsers).toFixed(2),
+          name: '⚖️ Feeder to User Ratio',
+          value: `\`${(totalFeeders / totalUsers).toFixed(2)}\``,
           inline: true,
         },
         {
-          name: 'Monthly Growth Rate',
-          value: `${((lastMonthFeeders / totalFeeders - 1) * 100).toFixed(2)}%`,
+          name: '📊 Monthly Growth Rate',
+          value: `\`${((lastMonthFeeders / totalFeeders - 1) * 100).toFixed(2)}%\``,
           inline: true,
         },
       )
@@ -249,20 +268,25 @@ const executeTask = async () => {
 
     const top10CategoriesEmbed = new EmbedBuilder()
       .setColor('#9932CC')
-      .setTitle('Daily Task Report - Top 10 Categories')
-      .setDescription('Top 10 Categories (Last 30 Days)')
+      .setTitle(`🏆 ${dayOfWeek}'s Daily Task Report - Top 10 Categories`)
+      .setDescription('📊 Top 10 Categories (Last 30 Days)')
       .addFields(
         top10Categories.map((cat, index) => ({
-          name: `${index + 1}. ${cat._id}`,
-          value: `${cat.count} games`,
+          name: `${['🥇', '🥈', '🥉', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣', '🔟'][index]} ${cat._id}`,
+          value: `\`${cat.count.toLocaleString()} games\``,
           inline: true,
         })),
       )
       .setImage('attachment://top_10_categories_chart.png')
       .setTimestamp();
 
-    console.log('Sending daily task report...');
+    // ----------------------------------------
+    // Send Report
+    // ----------------------------------------
+
+    console.log('📤 Sending daily task report...');
     await sendMessageToChannel(process.env.DISCORD_DAILY_TASK_CHANNEL_ID, {
+      content: `# 📊 ${dayOfWeek}'s Daily Task Report\n\n🕒 Generated on: ${today.toLocaleString()}\n\n---\n\n**Quick Summary:**\n• Total Users: \`${totalUsers.toLocaleString()}\`\n• Total Game Sessions: \`${totalGameSessions.toLocaleString()}\`\n• Total Feeders: \`${totalFeeders.toLocaleString()}\`\n\n---`,
       embeds: [gameSessionEmbed, userEmbed, feederEmbed, top10CategoriesEmbed],
       files: [
         { attachment: gameSessionChartImage, name: 'game_sessions_chart.png' },
@@ -272,24 +296,30 @@ const executeTask = async () => {
       ],
     });
   } catch (error) {
-    console.error('Error in daily task:', error);
+    console.error('❌ Error in daily task:', error);
     const errorEmbed = new EmbedBuilder()
       .setColor('#FF0000')
-      .setTitle('Daily Task Error')
-      .setDescription(`Error in daily task: ${error.message}`)
+      .setTitle(`❌ ${dayOfWeek}'s Daily Task Error`)
+      .setDescription(
+        `An error occurred during the daily task execution:\n\`\`\`${error.message}\`\`\``,
+      )
       .setTimestamp();
     await sendMessageToChannel(process.env.DISCORD_DAILY_TASK_CHANNEL_ID, { embeds: [errorEmbed] });
   }
 };
 
+// ======================================
+// Task Initialization Function
+// ======================================
+
 const initializeDailyTasks = () => {
-  console.log('Initializing daily tasks...', new Date());
+  console.log('🚀 Initializing daily tasks...', new Date().toLocaleString());
   // Execute the task immediately on initialization
   executeTask();
 
   // Schedule a job to run every day at 1:00 PM
   const job = schedule.scheduleJob('0 13 * * *', executeTask);
-  console.log('Next scheduled run:', job.nextInvocation());
+  console.log('⏰ Next scheduled run:', job.nextInvocation().toLocaleString());
 };
 
 module.exports = { initializeDailyTasks };
