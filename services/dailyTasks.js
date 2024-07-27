@@ -114,57 +114,80 @@ const executeTask = async () => {
     // Fetch Statistics
     // ----------------------------------------
 
-    // Game Session Statistics
-    const totalGameSessions = await GameSession.countDocuments();
     const oneMonthAgo = new Date(today.getTime() - 30 * 24 * 60 * 60 * 1000);
-    const lastMonthGameSessions = await GameSession.countDocuments({
-      startTime: { $gte: oneMonthAgo },
-    });
-    const todayGameSessions = await GameSession.countDocuments({
-      startTime: { $gte: new Date(today.setHours(0, 0, 0, 0)) },
-    });
+    const sevenDaysAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+
+    // Optimized queries
+    const [
+      totalGameSessions,
+      lastMonthGameSessions,
+      todayGameSessions,
+      totalUsers,
+      lastMonthUsers,
+      todayUsers,
+      totalFeeders,
+      lastMonthFeeders,
+      todayFeeders,
+      activeUsersLastMonth,
+      mostActiveCategory,
+      top10Categories,
+    ] = await Promise.all([
+      GameSession.countDocuments(),
+      GameSession.countDocuments({ startTime: { $gte: oneMonthAgo } }),
+      GameSession.countDocuments({ startTime: { $gte: new Date(today.setHours(0, 0, 0, 0)) } }),
+      User.countDocuments(),
+      User.countDocuments({ createdAt: { $gte: oneMonthAgo } }),
+      User.countDocuments({ createdAt: { $gte: today } }),
+      Feeder.countDocuments(),
+      Feeder.countDocuments({ createdAt: { $gte: oneMonthAgo } }),
+      Feeder.countDocuments({ createdAt: { $gte: today } }),
+      User.countDocuments({ lastActive: { $gte: oneMonthAgo } }),
+      GameSession.aggregate([
+        { $match: { startTime: { $gte: oneMonthAgo } } },
+        { $group: { _id: '$category', count: { $sum: 1 } } },
+        { $sort: { count: -1 } },
+        { $limit: 1 },
+      ]).then((results) => results[0]),
+      GameSession.aggregate([
+        { $match: { startTime: { $gte: oneMonthAgo } } },
+        { $group: { _id: '$category', count: { $sum: 1 } } },
+        { $sort: { count: -1 } },
+        { $limit: 10 },
+      ]),
+    ]);
+
     const avgGamesPerDay = Math.round(lastMonthGameSessions / 30);
-
-    // User Statistics
-    const totalUsers = await User.countDocuments();
-    const lastMonthUsers = await User.countDocuments({ createdAt: { $gte: oneMonthAgo } });
-    const todayUsers = await User.countDocuments({ createdAt: { $gte: today } });
     const avgSignupsPerDay = Math.round(lastMonthUsers / 30);
-
-    // Feeder Statistics
-    const totalFeeders = await Feeder.countDocuments();
-    const lastMonthFeeders = await Feeder.countDocuments({ createdAt: { $gte: oneMonthAgo } });
-    const todayFeeders = await Feeder.countDocuments({ createdAt: { $gte: today } });
     const avgFeedersPerDay = Math.round(lastMonthFeeders / 30);
-
-    // User Retention
-    const activeUsersLastMonth = await User.countDocuments({ lastActive: { $gte: oneMonthAgo } });
     const retentionRate = ((activeUsersLastMonth / totalUsers) * 100).toFixed(2);
 
-    // Most Active Category
-    const [mostActiveCategory] = await GameSession.aggregate([
-      { $match: { startTime: { $gte: oneMonthAgo } } },
-      { $group: { _id: '$category', count: { $sum: 1 } } },
-      { $sort: { count: -1 } },
-      { $limit: 1 },
-    ]);
-
-    // Top 10 Categories
-    const top10Categories = await GameSession.aggregate([
-      { $match: { startTime: { $gte: oneMonthAgo } } },
-      { $group: { _id: '$category', count: { $sum: 1 } } },
-      { $sort: { count: -1 } },
-      { $limit: 10 },
-    ]);
+    // Fetch historical data for the last 7 days
+    const last7DaysData = await Promise.all(
+      Array.from({ length: 7 }, (_, i) => {
+        const date = new Date(today);
+        date.setDate(date.getDate() - i);
+        const startOfDay = new Date(date.setHours(0, 0, 0, 0));
+        const endOfDay = new Date(date.setHours(23, 59, 59, 999));
+        return Promise.all([
+          GameSession.countDocuments({ startTime: { $gte: startOfDay, $lte: endOfDay } }),
+          User.countDocuments({ createdAt: { $gte: startOfDay, $lte: endOfDay } }),
+          Feeder.countDocuments({ createdAt: { $gte: startOfDay, $lte: endOfDay } }),
+        ]);
+      }),
+    );
 
     // ----------------------------------------
     // Create Charts
     // ----------------------------------------
 
     const gameSessionChartImage = await createChart(
-      [totalGameSessions, lastMonthGameSessions, todayGameSessions, avgGamesPerDay],
-      ['Total', 'Last 30 Days', 'Today', 'Avg/Day'],
-      'Game Sessions',
+      last7DaysData.map((day) => day[0]).reverse(),
+      Array.from({ length: 7 }, (_, i) => {
+        const d = new Date(today);
+        d.setDate(d.getDate() - i);
+        return d.toLocaleDateString('en-US', { weekday: 'short' });
+      }).reverse(),
+      'Game Sessions (Last 7 Days)',
       'line',
       {
         backgroundColor: 'rgba(255, 99, 132, 0.8)',
@@ -173,9 +196,13 @@ const executeTask = async () => {
     );
 
     const userChartImage = await createChart(
-      [totalUsers, lastMonthUsers, todayUsers, avgSignupsPerDay],
-      ['Total', 'Last 30 Days', 'Today', 'Avg/Day'],
-      'Users',
+      last7DaysData.map((day) => day[1]).reverse(),
+      Array.from({ length: 7 }, (_, i) => {
+        const d = new Date(today);
+        d.setDate(d.getDate() - i);
+        return d.toLocaleDateString('en-US', { weekday: 'short' });
+      }).reverse(),
+      'New Users (Last 7 Days)',
       'line',
       {
         backgroundColor: 'rgba(153, 102, 255, 0.8)',
@@ -184,9 +211,13 @@ const executeTask = async () => {
     );
 
     const feederChartImage = await createChart(
-      [totalFeeders, lastMonthFeeders, todayFeeders, avgFeedersPerDay],
-      ['Total', 'Last 30 Days', 'Today', 'Avg/Day'],
-      'Feeders',
+      last7DaysData.map((day) => day[2]).reverse(),
+      Array.from({ length: 7 }, (_, i) => {
+        const d = new Date(today);
+        d.setDate(d.getDate() - i);
+        return d.toLocaleDateString('en-US', { weekday: 'short' });
+      }).reverse(),
+      'Feeders (Last 7 Days)',
       'line',
       {
         backgroundColor: 'rgba(255, 159, 64, 0.8)',
@@ -394,8 +425,8 @@ const initializeDailyTasks = () => {
   // Execute the task immediately on initialization
   executeTask();
 
-  // Schedule a job to run every day at 1:00 PM
-  const job = schedule.scheduleJob('0 13 * * *', executeTask);
+  // Schedule a job to run every day at 11:59 PM EST
+  const job = schedule.scheduleJob('59 23 * * *', executeTask);
   console.log('⏰ Next scheduled run:', job.nextInvocation().toLocaleString());
 };
 
