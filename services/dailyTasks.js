@@ -11,8 +11,8 @@ const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
 // ======================================
 
 const createChart = async (data, labels, title, type = 'bar', colors) => {
-  const width = 800;
-  const height = 400;
+  const width = 1600;
+  const height = 800;
   const chartJSNodeCanvas = new ChartJSNodeCanvas({ width, height });
 
   const configuration = {
@@ -165,20 +165,10 @@ const executeTask = async () => {
       [totalGameSessions, lastMonthGameSessions, todayGameSessions, avgGamesPerDay],
       ['Total', 'Last 30 Days', 'Today', 'Avg/Day'],
       'Game Sessions',
-      'bar',
+      'line',
       {
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(255, 206, 86, 0.8)',
-          'rgba(75, 192, 192, 0.8)',
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-        ],
+        backgroundColor: 'rgba(255, 99, 132, 0.8)',
+        borderColor: 'rgba(255, 99, 132, 1)',
       },
     );
 
@@ -197,20 +187,10 @@ const executeTask = async () => {
       [totalFeeders, lastMonthFeeders, todayFeeders, avgFeedersPerDay],
       ['Total', 'Last 30 Days', 'Today', 'Avg/Day'],
       'Feeders',
-      'polarArea',
+      'line',
       {
-        backgroundColor: [
-          'rgba(255, 159, 64, 0.8)',
-          'rgba(255, 99, 132, 0.8)',
-          'rgba(75, 192, 192, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-        ],
-        borderColor: [
-          'rgba(255, 159, 64, 1)',
-          'rgba(255, 99, 132, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(54, 162, 235, 1)',
-        ],
+        backgroundColor: 'rgba(255, 159, 64, 0.8)',
+        borderColor: 'rgba(255, 159, 64, 1)',
       },
     );
 
@@ -218,7 +198,7 @@ const executeTask = async () => {
       top10Categories.map((cat) => cat.count),
       top10Categories.map((cat) => cat._id),
       'Top 10 Categories (Last 30 Days)',
-      'doughnut',
+      'bar',
       {
         backgroundColor: [
           'rgba(255, 99, 132, 0.8)',
