@@ -19,15 +19,51 @@ const createChart = async (data, labels, title) => {
         {
           label: title,
           data: data,
-          backgroundColor: 'rgba(54, 162, 235, 0.8)',
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.8)',
+            'rgba(54, 162, 235, 0.8)',
+            'rgba(255, 206, 86, 0.8)',
+            'rgba(75, 192, 192, 0.8)',
+            'rgba(153, 102, 255, 0.8)',
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+          ],
+          borderWidth: 1,
         },
       ],
     },
     options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        title: {
+          display: true,
+          text: title,
+        },
+      },
       scales: {
         y: {
           beginAtZero: true,
+          grid: {
+            color: 'rgba(0, 0, 0, 0.1)',
+          },
         },
+        x: {
+          grid: {
+            color: 'rgba(0, 0, 0, 0.1)',
+          },
+        },
+      },
+      animation: {
+        duration: 2000,
+        easing: 'easeOutBounce',
       },
     },
   };
@@ -72,6 +108,28 @@ const executeTask = async () => {
 
     const avgFeedersPerDay = Math.round(lastWeekFeeders / 7);
 
+    // User Retention
+    const activeUsersLastWeek = await User.countDocuments({
+      lastLogin: { $gte: oneWeekAgo },
+    });
+    const retentionRate = ((activeUsersLastWeek / totalUsers) * 100).toFixed(2);
+
+    // Most Active Category
+    const mostActiveCategory = await GameSession.aggregate([
+      { $match: { startTime: { $gte: oneWeekAgo } } },
+      { $group: { _id: '$category', count: { $sum: 1 } } },
+      { $sort: { count: -1 } },
+      { $limit: 1 },
+    ]);
+
+    // Top 10 Categories
+    const top10Categories = await GameSession.aggregate([
+      { $match: { startTime: { $gte: oneWeekAgo } } },
+      { $group: { _id: '$category', count: { $sum: 1 } } },
+      { $sort: { count: -1 } },
+      { $limit: 10 },
+    ]);
+
     // Create charts
     const gameSessionChartImage = await createChart(
       [totalGameSessions, lastWeekGameSessions, todayGameSessions, avgGamesPerDay],
@@ -91,6 +149,12 @@ const executeTask = async () => {
       'Feeders',
     );
 
+    const top10CategoriesChartImage = await createChart(
+      top10Categories.map((cat) => cat.count),
+      top10Categories.map((cat) => cat._id),
+      'Top 10 Categories (Last 7 Days)',
+    );
+
     const gameSessionEmbed = new EmbedBuilder()
       .setColor('#0099ff')
       .setTitle('Daily Task Report - Game Sessions')
@@ -106,6 +170,18 @@ const executeTask = async () => {
         {
           name: 'Average games per day (last week)',
           value: avgGamesPerDay.toString(),
+          inline: true,
+        },
+        {
+          name: 'Most Active Category (last week)',
+          value: mostActiveCategory[0]
+            ? `${mostActiveCategory[0]._id}: ${mostActiveCategory[0].count} games`
+            : 'N/A',
+          inline: true,
+        },
+        {
+          name: 'Daily Growth Rate',
+          value: `${((todayGameSessions / avgGamesPerDay - 1) * 100).toFixed(2)}%`,
           inline: true,
         },
       )
@@ -125,6 +201,21 @@ const executeTask = async () => {
           value: avgSignupsPerDay.toString(),
           inline: true,
         },
+        {
+          name: 'User Retention Rate (last 7 days)',
+          value: `${retentionRate}%`,
+          inline: true,
+        },
+        {
+          name: 'Active Users (last 7 days)',
+          value: activeUsersLastWeek.toString(),
+          inline: true,
+        },
+        {
+          name: 'User Growth Rate',
+          value: `${((todayUsers / avgSignupsPerDay - 1) * 100).toFixed(2)}%`,
+          inline: true,
+        },
       )
       .setImage('attachment://users_chart.png')
       .setTimestamp();
@@ -142,17 +233,42 @@ const executeTask = async () => {
           value: avgFeedersPerDay.toString(),
           inline: true,
         },
+        {
+          name: 'Feeder to User Ratio',
+          value: (totalFeeders / totalUsers).toFixed(2),
+          inline: true,
+        },
+        {
+          name: 'Feeder Growth Rate',
+          value: `${((todayFeeders / avgFeedersPerDay - 1) * 100).toFixed(2)}%`,
+          inline: true,
+        },
       )
       .setImage('attachment://feeders_chart.png')
       .setTimestamp();
 
+    const top10CategoriesEmbed = new EmbedBuilder()
+      .setColor('#9932CC')
+      .setTitle('Daily Task Report - Top 10 Categories')
+      .setDescription('Top 10 Categories (Last 7 Days)')
+      .addFields(
+        top10Categories.map((cat, index) => ({
+          name: `${index + 1}. ${cat._id}`,
+          value: `${cat.count} games`,
+          inline: true,
+        })),
+      )
+      .setImage('attachment://top_10_categories_chart.png')
+      .setTimestamp();
+
     console.log('Sending daily task report...');
     await sendMessageToChannel(process.env.DISCORD_DAILY_TASK_CHANNEL_ID, {
-      embeds: [gameSessionEmbed, userEmbed, feederEmbed],
+      embeds: [gameSessionEmbed, userEmbed, feederEmbed, top10CategoriesEmbed],
       files: [
         { attachment: gameSessionChartImage, name: 'game_sessions_chart.png' },
         { attachment: userChartImage, name: 'users_chart.png' },
         { attachment: feederChartImage, name: 'feeders_chart.png' },
+        { attachment: top10CategoriesChartImage, name: 'top_10_categories_chart.png' },
       ],
     });
   } catch (error) {
