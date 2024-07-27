@@ -17,7 +17,6 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
     }
 
     let ratingChange;
-    // let updatedRating;
 
     if (gameResults === 'win') {
       ratingChange = randomNumberBetween;
@@ -32,9 +31,6 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
     const updatedRating = currentRating + ratingChange;
 
     const updateObject = {
-      $set: {
-        [categoryKey]: updatedRating,
-      },
       $inc: {
         'elo.gamesPlayed': 1,
         'elo.wins': gameResults === 'win' ? 1 : 0,
@@ -53,12 +49,16 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
       },
     };
 
-    // If the category doesn't exist, set it with default values
-    updateObject.$setOnInsert = {
-      [`elo.rating.${category.toLowerCase()}`]: 1200,
-    };
+    // Use $set only if the category doesn't exist
+    if (!(category.toLowerCase() in player.elo.rating)) {
+      updateObject.$set = {
+        [categoryKey]: updatedRating,
+      };
+    } else {
+      updateObject.$inc[categoryKey] = ratingChange;
+    }
 
-    const user = await User.findByIdAndUpdate(playerId, updateObject, { upsert: true, new: true });
+    const user = await User.findByIdAndUpdate(playerId, updateObject, { new: true });
 
     console.log('🚀  user, results, new rating:', player.username, gameResults, updatedRating);
     return ratingChange;
