@@ -10,50 +10,68 @@ const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
 // Chart Creation Function
 // ======================================
 
-const createChart = async (data, labels, title) => {
+const createChart = async (data, labels, title, type = 'bar', colors) => {
   const width = 800;
   const height = 400;
   const chartJSNodeCanvas = new ChartJSNodeCanvas({ width, height });
 
   const configuration = {
-    type: 'bar',
+    type: type,
     data: {
       labels: labels,
       datasets: [
         {
           label: title,
           data: data,
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.8)',
-            'rgba(54, 162, 235, 0.8)',
-            'rgba(255, 206, 86, 0.8)',
-            'rgba(75, 192, 192, 0.8)',
-            'rgba(153, 102, 255, 0.8)',
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-          ],
+          backgroundColor: colors.backgroundColor,
+          borderColor: colors.borderColor,
           borderWidth: 1,
+          fill: type === 'line' ? false : undefined,
         },
       ],
     },
     options: {
       responsive: true,
       plugins: {
-        legend: { position: 'top' },
-        title: { display: true, text: title },
+        legend: {
+          position: 'top',
+          labels: {
+            font: {
+              family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+              size: 14,
+              weight: 'bold',
+            },
+          },
+        },
+        title: {
+          display: true,
+          text: title,
+          font: {
+            family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+            size: 18,
+            weight: 'bold',
+          },
+        },
       },
       scales: {
         y: {
           beginAtZero: true,
-          grid: { color: 'rgba(0, 0, 0, 0.1)' },
+          grid: { color: 'rgba(255, 255, 255, 0.1)' },
+          ticks: {
+            font: {
+              family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+              size: 12,
+            },
+          },
         },
         x: {
-          grid: { color: 'rgba(0, 0, 0, 0.1)' },
+          grid: { color: 'rgba(255, 255, 255, 0.1)' },
+          ticks: {
+            font: {
+              family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+              size: 12,
+            },
+          },
         },
       },
       animation: {
@@ -61,6 +79,19 @@ const createChart = async (data, labels, title) => {
         easing: 'easeOutBounce',
       },
     },
+    plugins: [
+      {
+        id: 'custom_canvas_background_color',
+        beforeDraw: (chart) => {
+          const ctx = chart.canvas.getContext('2d');
+          ctx.save();
+          ctx.globalCompositeOperation = 'destination-over';
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fillRect(0, 0, chart.width, chart.height);
+          ctx.restore();
+        },
+      },
+    ],
   };
 
   const image = await chartJSNodeCanvas.renderToBuffer(configuration);
@@ -134,24 +165,86 @@ const executeTask = async () => {
       [totalGameSessions, lastMonthGameSessions, todayGameSessions, avgGamesPerDay],
       ['Total', 'Last 30 Days', 'Today', 'Avg/Day'],
       'Game Sessions',
+      'bar',
+      {
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.8)',
+          'rgba(54, 162, 235, 0.8)',
+          'rgba(255, 206, 86, 0.8)',
+          'rgba(75, 192, 192, 0.8)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+        ],
+      },
     );
 
     const userChartImage = await createChart(
       [totalUsers, lastMonthUsers, todayUsers, avgSignupsPerDay],
       ['Total', 'Last 30 Days', 'Today', 'Avg/Day'],
       'Users',
+      'line',
+      {
+        backgroundColor: 'rgba(153, 102, 255, 0.8)',
+        borderColor: 'rgba(153, 102, 255, 1)',
+      },
     );
 
     const feederChartImage = await createChart(
       [totalFeeders, lastMonthFeeders, todayFeeders, avgFeedersPerDay],
       ['Total', 'Last 30 Days', 'Today', 'Avg/Day'],
       'Feeders',
+      'polarArea',
+      {
+        backgroundColor: [
+          'rgba(255, 159, 64, 0.8)',
+          'rgba(255, 99, 132, 0.8)',
+          'rgba(75, 192, 192, 0.8)',
+          'rgba(54, 162, 235, 0.8)',
+        ],
+        borderColor: [
+          'rgba(255, 159, 64, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(54, 162, 235, 1)',
+        ],
+      },
     );
 
     const top10CategoriesChartImage = await createChart(
       top10Categories.map((cat) => cat.count),
       top10Categories.map((cat) => cat._id),
       'Top 10 Categories (Last 30 Days)',
+      'doughnut',
+      {
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.8)',
+          'rgba(54, 162, 235, 0.8)',
+          'rgba(255, 206, 86, 0.8)',
+          'rgba(75, 192, 192, 0.8)',
+          'rgba(153, 102, 255, 0.8)',
+          'rgba(255, 159, 64, 0.8)',
+          'rgba(199, 199, 199, 0.8)',
+          'rgba(83, 102, 255, 0.8)',
+          'rgba(40, 159, 64, 0.8)',
+          'rgba(210, 99, 132, 0.8)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(199, 199, 199, 1)',
+          'rgba(83, 102, 255, 1)',
+          'rgba(40, 159, 64, 1)',
+          'rgba(210, 99, 132, 1)',
+        ],
+      },
     );
 
     // ----------------------------------------
@@ -197,10 +290,11 @@ const executeTask = async () => {
         },
       )
       .setImage('attachment://game_sessions_chart.png')
-      .setTimestamp();
+      .setTimestamp()
+      .setFooter({ text: 'Game Sessions Report' });
 
     const userEmbed = new EmbedBuilder()
-      .setColor('#00ff99')
+      .setColor('#9966cc')
       .setTitle(`👥 ${dayOfWeek}'s Daily Task Report - Users`)
       .setDescription('📊 User Statistics')
       .addFields(
@@ -233,7 +327,8 @@ const executeTask = async () => {
         },
       )
       .setImage('attachment://users_chart.png')
-      .setTimestamp();
+      .setTimestamp()
+      .setFooter({ text: 'User Statistics Report' });
 
     const feederEmbed = new EmbedBuilder()
       .setColor('#ff9900')
@@ -264,10 +359,11 @@ const executeTask = async () => {
         },
       )
       .setImage('attachment://feeders_chart.png')
-      .setTimestamp();
+      .setTimestamp()
+      .setFooter({ text: 'Feeder Statistics Report' });
 
     const top10CategoriesEmbed = new EmbedBuilder()
-      .setColor('#9932CC')
+      .setColor('#4CAF50')
       .setTitle(`🏆 ${dayOfWeek}'s Daily Task Report - Top 10 Categories`)
       .setDescription('📊 Top 10 Categories (Last 30 Days)')
       .addFields(
@@ -278,7 +374,8 @@ const executeTask = async () => {
         })),
       )
       .setImage('attachment://top_10_categories_chart.png')
-      .setTimestamp();
+      .setTimestamp()
+      .setFooter({ text: 'Top 10 Categories Report' });
 
     // ----------------------------------------
     // Send Report
