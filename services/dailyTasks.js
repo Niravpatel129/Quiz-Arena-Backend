@@ -78,45 +78,45 @@ const executeTask = async () => {
     // Game Session Statistics
     const totalGameSessions = await GameSession.countDocuments();
 
-    const oneWeekAgo = new Date();
-    oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-    const lastWeekGameSessions = await GameSession.countDocuments({
-      startTime: { $gte: oneWeekAgo },
+    const oneMonthAgo = new Date();
+    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+    const lastMonthGameSessions = await GameSession.countDocuments({
+      startTime: { $gte: oneMonthAgo },
     });
 
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const todayGameSessions = await GameSession.countDocuments({ startTime: { $gte: today } });
 
-    const avgGamesPerDay = Math.round(lastWeekGameSessions / 7);
+    const avgGamesPerDay = Math.round(lastMonthGameSessions / 30);
 
     // User Statistics
     const totalUsers = await User.countDocuments();
 
-    const lastWeekUsers = await User.countDocuments({ createdAt: { $gte: oneWeekAgo } });
+    const lastMonthUsers = await User.countDocuments({ createdAt: { $gte: oneMonthAgo } });
 
     const todayUsers = await User.countDocuments({ createdAt: { $gte: today } });
 
-    const avgSignupsPerDay = Math.round(lastWeekUsers / 7);
+    const avgSignupsPerDay = Math.round(lastMonthUsers / 30);
 
     // Feeder Statistics
     const totalFeeders = await Feeder.countDocuments();
 
-    const lastWeekFeeders = await Feeder.countDocuments({ createdAt: { $gte: oneWeekAgo } });
+    const lastMonthFeeders = await Feeder.countDocuments({ createdAt: { $gte: oneMonthAgo } });
 
     const todayFeeders = await Feeder.countDocuments({ createdAt: { $gte: today } });
 
-    const avgFeedersPerDay = Math.round(lastWeekFeeders / 7);
+    const avgFeedersPerDay = Math.round(lastMonthFeeders / 30);
 
     // User Retention
-    const activeUsersLastWeek = await User.countDocuments({
-      lastLogin: { $gte: oneWeekAgo },
+    const activeUsersLastMonth = await User.countDocuments({
+      lastActive: { $gte: oneMonthAgo },
     });
-    const retentionRate = ((activeUsersLastWeek / totalUsers) * 100).toFixed(2);
+    const retentionRate = ((activeUsersLastMonth / totalUsers) * 100).toFixed(2);
 
     // Most Active Category
     const mostActiveCategory = await GameSession.aggregate([
-      { $match: { startTime: { $gte: oneWeekAgo } } },
+      { $match: { startTime: { $gte: oneMonthAgo } } },
       { $group: { _id: '$category', count: { $sum: 1 } } },
       { $sort: { count: -1 } },
       { $limit: 1 },
@@ -124,7 +124,7 @@ const executeTask = async () => {
 
     // Top 10 Categories
     const top10Categories = await GameSession.aggregate([
-      { $match: { startTime: { $gte: oneWeekAgo } } },
+      { $match: { startTime: { $gte: oneMonthAgo } } },
       { $group: { _id: '$category', count: { $sum: 1 } } },
       { $sort: { count: -1 } },
       { $limit: 10 },
@@ -132,27 +132,27 @@ const executeTask = async () => {
 
     // Create charts
     const gameSessionChartImage = await createChart(
-      [totalGameSessions, lastWeekGameSessions, todayGameSessions, avgGamesPerDay],
-      ['Total', 'Last 7 Days', 'Today', 'Avg/Day'],
+      [totalGameSessions, lastMonthGameSessions, todayGameSessions, avgGamesPerDay],
+      ['Total', 'Last 30 Days', 'Today', 'Avg/Day'],
       'Game Sessions',
     );
 
     const userChartImage = await createChart(
-      [totalUsers, lastWeekUsers, todayUsers, avgSignupsPerDay],
-      ['Total', 'Last 7 Days', 'Today', 'Avg/Day'],
+      [totalUsers, lastMonthUsers, todayUsers, avgSignupsPerDay],
+      ['Total', 'Last 30 Days', 'Today', 'Avg/Day'],
       'Users',
     );
 
     const feederChartImage = await createChart(
-      [totalFeeders, lastWeekFeeders, todayFeeders, avgFeedersPerDay],
-      ['Total', 'Last 7 Days', 'Today', 'Avg/Day'],
+      [totalFeeders, lastMonthFeeders, todayFeeders, avgFeedersPerDay],
+      ['Total', 'Last 30 Days', 'Today', 'Avg/Day'],
       'Feeders',
     );
 
     const top10CategoriesChartImage = await createChart(
       top10Categories.map((cat) => cat.count),
       top10Categories.map((cat) => cat._id),
-      'Top 10 Categories (Last 7 Days)',
+      'Top 10 Categories (Last 30 Days)',
     );
 
     const gameSessionEmbed = new EmbedBuilder()
@@ -162,26 +162,26 @@ const executeTask = async () => {
       .addFields(
         { name: 'Total GameSessions', value: totalGameSessions.toString(), inline: true },
         {
-          name: 'Games played in the last 7 days',
-          value: lastWeekGameSessions.toString(),
+          name: 'Games played in the last 30 days',
+          value: lastMonthGameSessions.toString(),
           inline: true,
         },
         { name: 'Games played today', value: todayGameSessions.toString(), inline: true },
         {
-          name: 'Average games per day (last week)',
+          name: 'Average games per day (last month)',
           value: avgGamesPerDay.toString(),
           inline: true,
         },
         {
-          name: 'Most Active Category (last week)',
+          name: 'Most Active Category (last month)',
           value: mostActiveCategory[0]
             ? `${mostActiveCategory[0]._id}: ${mostActiveCategory[0].count} games`
             : 'N/A',
           inline: true,
         },
         {
-          name: 'Daily Growth Rate',
-          value: `${((todayGameSessions / avgGamesPerDay - 1) * 100).toFixed(2)}%`,
+          name: 'Monthly Growth Rate',
+          value: `${((lastMonthGameSessions / totalGameSessions - 1) * 100).toFixed(2)}%`,
           inline: true,
         },
       )
@@ -194,26 +194,26 @@ const executeTask = async () => {
       .setDescription('User Statistics')
       .addFields(
         { name: 'Total Users', value: totalUsers.toString(), inline: true },
-        { name: 'Signups in the last 7 days', value: lastWeekUsers.toString(), inline: true },
+        { name: 'Signups in the last 30 days', value: lastMonthUsers.toString(), inline: true },
         { name: 'Signups today', value: todayUsers.toString(), inline: true },
         {
-          name: 'Average signups per day (last week)',
+          name: 'Average signups per day (last month)',
           value: avgSignupsPerDay.toString(),
           inline: true,
         },
         {
-          name: 'User Retention Rate (last 7 days)',
+          name: 'User Retention Rate (last 30 days)',
           value: `${retentionRate}%`,
           inline: true,
         },
         {
-          name: 'Active Users (last 7 days)',
-          value: activeUsersLastWeek.toString(),
+          name: 'Active Users (last 30 days)',
+          value: activeUsersLastMonth.toString(),
           inline: true,
         },
         {
-          name: 'User Growth Rate',
-          value: `${((todayUsers / avgSignupsPerDay - 1) * 100).toFixed(2)}%`,
+          name: 'Monthly Growth Rate',
+          value: `${((lastMonthUsers / totalUsers - 1) * 100).toFixed(2)}%`,
           inline: true,
         },
       )
@@ -226,10 +226,10 @@ const executeTask = async () => {
       .setDescription('Feeder Statistics')
       .addFields(
         { name: 'Total Feeders', value: totalFeeders.toString(), inline: true },
-        { name: 'Feeders in the last 7 days', value: lastWeekFeeders.toString(), inline: true },
+        { name: 'Feeders in the last 30 days', value: lastMonthFeeders.toString(), inline: true },
         { name: 'Feeders today', value: todayFeeders.toString(), inline: true },
         {
-          name: 'Average feeders per day (last week)',
+          name: 'Average feeders per day (last month)',
           value: avgFeedersPerDay.toString(),
           inline: true,
         },
@@ -239,8 +239,8 @@ const executeTask = async () => {
           inline: true,
         },
         {
-          name: 'Feeder Growth Rate',
-          value: `${((todayFeeders / avgFeedersPerDay - 1) * 100).toFixed(2)}%`,
+          name: 'Monthly Growth Rate',
+          value: `${((lastMonthFeeders / totalFeeders - 1) * 100).toFixed(2)}%`,
           inline: true,
         },
       )
@@ -250,7 +250,7 @@ const executeTask = async () => {
     const top10CategoriesEmbed = new EmbedBuilder()
       .setColor('#9932CC')
       .setTitle('Daily Task Report - Top 10 Categories')
-      .setDescription('Top 10 Categories (Last 7 Days)')
+      .setDescription('Top 10 Categories (Last 30 Days)')
       .addFields(
         top10Categories.map((cat, index) => ({
           name: `${index + 1}. ${cat._id}`,
