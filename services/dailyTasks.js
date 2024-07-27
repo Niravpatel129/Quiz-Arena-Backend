@@ -423,7 +423,7 @@ const executeTask = async () => {
 const initializeDailyTasks = () => {
   console.log('🚀 Initializing daily tasks...', new Date().toLocaleString());
   // Execute the task immediately on initialization
-  executeTask();
+  //   executeTask();
 
   // Schedule a job to run every day at 11:59 PM EST
   const job = schedule.scheduleJob('59 23 * * *', executeTask);
