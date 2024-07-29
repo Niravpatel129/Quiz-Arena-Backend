@@ -425,8 +425,8 @@ const initializeDailyTasks = () => {
   // Execute the task immediately on initialization
   //   executeTask();
 
-  // Schedule a job to run every day at 11:59 PM EST
-  const job = schedule.scheduleJob('59 23 * * *', executeTask);
+  // Schedule a job to run every day at 3:59 AM EST (11:59 PM EST + 4 hours)
+  const job = schedule.scheduleJob('59 4 * * *', executeTask);
   console.log('⏰ Next scheduled run:', job.nextInvocation().toLocaleString());
 };
 
