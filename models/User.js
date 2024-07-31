@@ -111,6 +111,10 @@ const userSchema = new Schema(
       type: Date,
       default: Date.now(),
     },
+    playToken: {
+      type: Number,
+      default: 160,
+    },
   },
   {
     timestamps: true,
