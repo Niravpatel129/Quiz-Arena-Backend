@@ -49,14 +49,29 @@ const updateAvatar = async (req, res) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    user.username = username;
-    user.profile.avatar = avatar;
+    let isUpdated = false;
 
-    await user.save();
+    if (username !== undefined) {
+      user.username = username;
+      isUpdated = true;
+    }
+
+    if (avatar !== undefined) {
+      if (!user.profile) {
+        user.profile = { avatar };
+      } else {
+        user.profile.avatar = avatar;
+      }
+      isUpdated = true;
+    }
+
+    if (isUpdated) {
+      await user.save();
+    }
 
     res.status(200).json({
       message: 'Profile updated successfully',
-      avatar: user.profile.avatar,
+      avatar: user.profile?.avatar,
       username: user.username,
     });
   } catch (error) {
