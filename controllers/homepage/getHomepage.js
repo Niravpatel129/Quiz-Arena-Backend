@@ -1,4 +1,4 @@
-const categories = require('../../helpers/categoriesList');
+const categories = require('../../helpers/categoriesList2');
 const User = require('../../models/User');
 
 const getHomepage = async (req, res) => {

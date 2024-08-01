@@ -1,4 +1,4 @@
-const categories = require('../../helpers/categoriesList');
+const categories = require('../../helpers/categoriesList2');
 
 const getQuestionList = async (req, res) => {
   try {

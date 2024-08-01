@@ -2,74 +2,50 @@ const categories = [
   {
     parentCategory: 'Recently Added',
     subCategories: [
-      // {
-      //   name: 'sports logos',
-      //   logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948894/quiz%20arena/v7g7bc0ulyztwrcvg5hl.png',
-      // },
       {
         name: 'prehistoric facts',
-        logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948892/quiz%20arena/z0rvwxzjkc7exac2s6e7.png',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550665345-mb10mf.webp',
       },
-      // {
-      //   name: 'logos 2',
-      //   logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948892/quiz%20arena/bjw19wqus3abc5rywx0q.png',
-      // },
       {
         name: 'riddles',
-        logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948888/quiz%20arena/jlxu7miwrqvuflarshcw.png',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550666420-fh787.webp',
       },
       {
         name: 'animals',
-        logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948889/quiz%20arena/kbbs27xl0bvoihqnr0tq.png',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550667125-2wmaqp.webp',
       },
-      // {
-      //   name: 'dogs',
-      //   logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948888/quiz%20arena/xtgzg7lnfowuzrqtsrdk.png',
-      // },
       {
         name: 'prehistoric animals',
-        logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948895/quiz%20arena/mye1vsz0hefhcavf66nt.png',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550668163-ztfudd.webp',
       },
       {
         name: 'paintings',
-        logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948888/quiz%20arena/hbinw3vffjhvgavrcgb5.webp',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550668772-ivba6.webp',
       },
     ],
   },
   {
     parentCategory: 'general knowledge',
     subCategories: [
-      // {
-      //   name: 'sports logos',
-      //   logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948894/quiz%20arena/v7g7bc0ulyztwrcvg5hl.png',
-      // },
       {
         name: 'prehistoric facts',
-        logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948892/quiz%20arena/z0rvwxzjkc7exac2s6e7.png',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550669789-kozdag.webp',
       },
-      // {
-      //   name: "logos 2",
-      //   logo: "https://res.cloudinary.com/ddassnfo8/image/upload/v1713948892/quiz%20arena/bjw19wqus3abc5rywx0q.png",
-      // },
       {
         name: 'riddles',
-        logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948888/quiz%20arena/jlxu7miwrqvuflarshcw.png',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550670451-z9k3kq.webp',
       },
       {
         name: 'animals',
-        logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948889/quiz%20arena/kbbs27xl0bvoihqnr0tq.png',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550671165-0p0jv2.webp',
       },
-      // {
-      //   name: 'dogs',
-      //   logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948888/quiz%20arena/xtgzg7lnfowuzrqtsrdk.png',
-      // },
       {
         name: 'prehistoric animals',
-        logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948895/quiz%20arena/mye1vsz0hefhcavf66nt.png',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550672133-08i48.webp',
       },
       {
         name: 'paintings',
-        logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948888/quiz%20arena/hbinw3vffjhvgavrcgb5.webp',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550672818-wfub2n.webp',
       },
     ],
   },
@@ -78,32 +54,31 @@ const categories = [
     subCategories: [
       {
         name: 'logos',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Flogos-1.jpg?alt=media&token=e6c42c4b-4239-4904-aad4-672498dabb4e',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550673825-9wble.webp',
       },
       {
         name: 'flags',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fflags.jpg?alt=media&token=7bd84900-9699-4915-bd2b-73da403e60cd',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550674559-ste6vo.webp',
       },
       {
         name: 'capitals',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fcapital-citys.jpg?alt=media&token=adcfe900-2e7d-40cb-9085-c90d9c567fd3',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550675280-k3xh4f.webp',
       },
       {
         name: 'landmarks',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Flandmarks.jpg?alt=media&token=dd57bb24-fa3a-47dd-8320-059903af8f78',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550675919-vqof1c.webp',
       },
       {
         name: 'general knowledge',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fgeneral-knowledge.jpg?alt=media&token=f504f732-f6ae-433a-ae70-4d6266a449e9',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550676661-qag28o.webp',
       },
-      // Added from the original list
       {
         name: 'us geography',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fus-geography.jpg?alt=media&token=5ce4b496-20ad-4301-b031-8209e899639a',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550677362-pk0iy.webp',
       },
       {
         name: 'world war 1',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fworld-war-1.jpg?alt=media&token=34fadb47-369f-4f38-ab57-910c7b38cf52',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550678028-nrn36h.webp',
       },
     ],
   },
@@ -112,19 +87,19 @@ const categories = [
     subCategories: [
       {
         name: 'size comparison',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fsize-comparison.jpg?alt=media&token=f16367e4-6bee-45c3-b7c8-5660cfd1ce8a',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550678647-v0550j.webp',
       },
       {
         name: 'history of internet',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fhistory-of-internet.jpg?alt=media&token=9399ebd0-1428-4d15-84d4-049b22bc70c5',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550679350-of6ed.webp',
       },
       {
         name: 'baby animals',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fbaby-animals.jpg?alt=media&token=c0a425a7-ae7e-4f92-bc51-f79bb3f16d9f',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550679991-adk0of.webp',
       },
       {
         name: 'what happened first',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fwhat-happened-first.jpg?alt=media&token=72a5037b-a221-4d8e-89b8-7e2e1ecb86a9',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550680696-k0q76g.webp',
       },
     ],
   },
@@ -133,19 +108,19 @@ const categories = [
     subCategories: [
       {
         name: 'valorant',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fvalorant.jpg?alt=media&token=3829c987-3c87-49ea-939c-a67c3273551d',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550681417-2zhxvr.webp',
       },
       {
         name: 'league of legends',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fleague-of-legends.jpg?alt=media&token=da56cd80-aff8-4fe3-ae18-6449713f7c69',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550682234-s2x8gb.webp',
       },
       {
         name: 'overwatch',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Foverwatch.jpg?alt=media&token=d4be0136-e079-4fe2-96df-e672de65d7a6',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550683191-vvgjl.webp',
       },
       {
         name: 'pokemon gen 1',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fpokemon-gen-1.jpg?alt=media&token=d828d002-5d7d-4597-bfcc-6f2b7d1a3619',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550683895-0lxdm.webp',
       },
     ],
   },
@@ -154,28 +129,27 @@ const categories = [
     subCategories: [
       {
         name: 'friends',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Ffriends-tv-show.jpg?alt=media&token=ce07a1f2-4381-4819-b0cd-cd7e51abc80c',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550684799-vjz1y.webp',
       },
       {
         name: 'the office',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fthe-office.jpg?alt=media&token=e54139ca-de6d-4fc8-b252-691297781e49',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550685466-twv0hb.webp',
       },
       {
         name: 'game of thrones',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fgame-of-thrones.jpg?alt=media&token=bcc66116-f351-489d-aa7b-9c1823585131',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550686353-2ibwu.webp',
       },
-      // Added from the original list
       {
         name: 'british sitcoms',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fbritish-sitcoms.jpg?alt=media&token=79ab554b-154c-42dd-bcf9-a4809d665503',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550687039-86bb2t.webp',
       },
       {
         name: 'soap opera',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fsoap-opera.jpg?alt=media&token=469864ac-4549-4b8b-99b9-10642bf1b56c',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550687736-08l5ab.webp',
       },
       {
         name: 'The Simpsons',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fthe-simpsons.jpg?alt=media&token=683f58ef-cf1f-4b05-b608-64e2e32ea611',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550688567-1xuhzn.webp',
       },
     ],
   },
@@ -184,23 +158,23 @@ const categories = [
     subCategories: [
       {
         name: 'naruto',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fnaruto.jpg?alt=media&token=4035291b-4ec5-43fd-8381-cf5a3cb93379',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550689270-p8grz.webp',
       },
       {
         name: 'one piece',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fone-piece.jpg?alt=media&token=63b371d4-076e-4573-90a0-cbcefb451055',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550690020-5x7ycp.webp',
       },
       {
         name: 'attack on titan',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fattack-on-titan.jpg?alt=media&token=888a5624-ff95-4c84-91a9-93911b840bbf',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550690766-wayrxm.webp',
       },
       {
         name: 'hunter x hunter',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fhunter-x-hunter.jpg?alt=media&token=74a1a94c-454d-4594-9f5e-4679222ce894',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550691481-8brvjs.webp',
       },
       {
         name: 'dragon ball series',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fdragon-ball-z.jpg?alt=media&token=6fad4f3f-8c90-4765-be75-8b0af20245e7',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550692233-oj281.webp',
       },
     ],
   },
@@ -209,60 +183,59 @@ const categories = [
     subCategories: [
       {
         name: 'soccer',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fsoccer.jpg?alt=media&token=4125efa9-d19b-432f-9c12-b97382a1e8ae',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550692904-baywg.webp',
       },
       {
         name: 'tennis',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Ftennis.jpg?alt=media&token=28737701-b18f-4cff-a7c6-faa3c27680ea',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550693626-y2pamd.webp',
       },
       {
         name: 'cricket',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fcricket.jpg?alt=media&token=665e8b66-e931-4461-97a3-3a7d018f0ccb',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550694385-t2qh6.webp',
       },
       {
         name: 'basketball',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fbasketball.jpg?alt=media&token=46d97218-0d4b-4d52-a892-18888629f97f',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550695098-f5hiac.webp',
       },
-      // Added from the original list
       {
         name: 'formula 1',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fformula-1.jpg?alt=media&token=d6f6e3d0-a9f4-4079-a228-c5309c208c18',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550695802-rz4hj7b.webp',
       },
       {
         name: 'golf',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fgolf.jpg?alt=media&token=83a6b87f-ce0f-4ac9-9f85-81c0a9fcbed6',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550696482-bttqaa.webp',
       },
       {
         name: 'horse racing',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fhorse-racing.jpg?alt=media&token=fca01de7-6b52-489d-9ecf-0f22a1a8058a',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550697183-6i658r.webp',
       },
       {
         name: 'nascar',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fnascar.jpg?alt=media&token=141b4ca3-a941-4f82-bbee-3ee6ce1fd290',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550697904-m9qp6r.webp',
       },
       {
         name: 'rugby league',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Frugby.jpg?alt=media&token=935b9837-6e64-449b-a226-cc62940efb2d',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550698598-bjfujk.webp',
       },
       {
         name: 'winter sports',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fwinter-sports.jpg?alt=media&token=b1d57ef7-e5df-417c-a373-5c3fe45a8af1',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550699316-kl4waw.webp',
       },
       {
         name: 'world cup',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Ffifa-world-cup.jpg?alt=media&token=24bc6d5e-2162-4f10-9afa-d9cf137bd10a',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550700012-owk9lb.webp',
       },
       {
         name: 'liverpool football club',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fliverpool.jpg?alt=media&token=1a50ec8e-7dd1-467f-8ffd-39191fa28a9a',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550700690-c25n07.webp',
       },
       {
         name: 'golden state warriors',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fgolden-state-warriors.jpg?alt=media&token=f5416379-3fc8-4bd7-8d8f-108983d79d78',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550701588-vkagq.webp',
       },
       {
         name: 'champions league',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fchampions-league.jpg?alt=media&token=3638ea7d-a530-4113-a286-fb86c16d6681',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550702302-g0c6r.webp',
       },
     ],
   },
@@ -271,36 +244,35 @@ const categories = [
     subCategories: [
       {
         name: 'chemistry',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fchemistry.jpg?alt=media&token=9b0f49d5-0c1b-4a60-b5e6-488f4d869f9a',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550702990-rhs0ss.webp',
       },
       {
         name: 'biology',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fbiology.jpg?alt=media&token=f2a83983-a1d8-49ee-9ad9-dc91a0921ca4',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550703677-zur7s9.webp',
       },
       {
         name: 'mathematics',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fmathematics.jpg?alt=media&token=ac0f5c80-307e-4da1-a9bc-e18ca0dc510d',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550704454-ir0zlc.webp',
       },
       {
         name: 'physics',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fphysics.jpg?alt=media&token=85533331-5922-455c-be91-e6f4c9df6d11',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550705136-2mf9zc.webp',
       },
       {
         name: 'scientists',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fscientists.jpg?alt=media&token=0bd8f393-b8e0-4459-ba31-f72c8399519b',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550705849-ol5noi.webp',
       },
       {
         name: 'psychology',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fpsychology.jpg?alt=media&token=d87f5ee8-93c4-4282-844f-0232b3acdfd1',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550706639-is4xrm.webp',
       },
-      // Added from the original list
       {
         name: 'science general',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fscience-general.jpg?alt=media&token=eced1839-0d12-4de4-a925-1c4886cae64f',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550707392-87975b.webp',
       },
       {
         name: 'mental math',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fmental-math.jpg?alt=media&token=c67ccbea-61de-438f-8c02-9266b755e411',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550708059-vrwqb6.webp',
       },
     ],
   },
@@ -309,12 +281,11 @@ const categories = [
     subCategories: [
       {
         name: 'space',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fspace.jpg?alt=media&token=3d69b15d-777e-450c-bd11-a03ec57d6695',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550708752-2i2pqc.webp',
       },
-      // Added from the original list
       {
         name: 'solar system',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fsolar-system.jpg?alt=media&token=46569ad8-240a-4831-b1e6-37fac2f3e5e8',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550709496-ozt1n3c.webp',
       },
     ],
   },
@@ -323,33 +294,31 @@ const categories = [
     subCategories: [
       {
         name: 'harry potter',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fharry-potter.jpg?alt=media&token=8cc7a529-f611-4837-b1b2-627fd141f05d',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550710246-5ohbbn.webp',
       },
-
-      // Added from the original list
       {
         name: 'disney',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fdisney.jpg?alt=media&token=c156edfe-3eab-41a0-97ab-a03f32aeaea0',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550710920-96he2p.webp',
       },
       {
         name: 'movies since 2010',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fmovies-since-2010.jpg?alt=media&token=c316023d-a20e-4760-81fa-95b1a6a0fc27',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550711616-m9gich.webp',
       },
       {
         name: 'james bond',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fjames-bond.jpg?alt=media&token=dc4bfbd6-bf2c-48bc-9e73-b0f6aedd180c',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550712229-uq4s38.webp',
       },
       {
         name: 'movie quotes',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fmovie-quotes.jpg?alt=media&token=a3e04a70-1d72-465f-96ab-41ab3d979dc4',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550712932-884n9w.webp',
       },
       {
         name: 'british films',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fbritish-film.jpg?alt=media&token=3745b178-30d5-4efb-b2e6-b4b7116f7c24',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550713656-h1nf34.webp',
       },
       {
         name: 'hunger games',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fhunger-games.jpg?alt=media&token=064c3c66-1d4a-4957-9279-09be3ef89c4c',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550714356-uwp28j.webp',
       },
     ],
   },
@@ -358,7 +327,7 @@ const categories = [
     subCategories: [
       {
         name: 'taarak mehta ka ooltah chashmah',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Ftkmkoc.jpg?alt=media&token=0c559ff9-97c4-4cea-83d2-8fc2c16efccd',
+        logo: 'https://storage.googleapis.com/quiz-arena-e2415.appspot.com/optimized-logos/1722550715050-id892a.webp',
       },
     ],
   },

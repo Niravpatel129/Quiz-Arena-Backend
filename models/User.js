@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const eloSchema = require('./Elo');
 const generateRandomUsername = require('../helpers/generateRandomUsername');
-const categories = require('../helpers/categoriesList');
+const categories = require('../helpers/categoriesList2');
 
 const userSchema = new Schema(
   {
