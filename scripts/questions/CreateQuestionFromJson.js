@@ -21,31 +21,26 @@ async function processJsonFile(filePath) {
         return question;
       });
 
-      const isFormatCorrect = parsedData.every((question) => {
+      for (const question of parsedData) {
         const isAnswersCorrect = question.answers.every((answer) => {
           return answer.optionText && answer.isCorrect !== undefined;
         });
 
         const isCorrect = question.answers.some((answer) => answer.isCorrect);
 
-        if (!isAnswersCorrect || !isCorrect) {
-          return false;
-        }
-
-        return (
+        const isFormatCorrect =
           question.question &&
           question.category &&
           question.correctAnswer &&
-          question.answers.length === 4
-        );
-      });
+          question.answers.length === 4 &&
+          isAnswersCorrect &&
+          isCorrect;
 
-      if (!isFormatCorrect) {
-        console.error('Invalid format');
-        process.exit(1);
-      }
+        if (!isFormatCorrect) {
+          console.warn('Skipping invalid format question:', question);
+          continue;
+        }
 
-      for (const question of parsedData) {
         const existingQuestion = await Question.findOne({ question: question.question });
         if (existingQuestion) {
           // If the question exists, update it
@@ -63,4 +58,9 @@ async function processJsonFile(filePath) {
   });
 }
 
-processJsonFile('scripts/questions/myJson.json');
+// processJsonFile('scripts/questions/myJson.json');
+// processJsonFile('scripts/questions/myJson2.json');
+// processJsonFile('scripts/questions/myJson3.json');
+// processJsonFile('scripts/questions/myJson4.json');
+// processJsonFile('scripts/questions/myJson5.json');
+processJsonFile('scripts/questions/myJson6.json');

@@ -38,6 +38,20 @@ function processJsonFile(filePath) {
   });
 }
 
-// Replace 'yourfile.json' with the path to your JSON file
 const filePath = path.join(__dirname, 'myJson.json');
 processJsonFile(filePath);
+
+const filePath2 = path.join(__dirname, 'myJson2.json');
+processJsonFile(filePath2);
+
+const filePath3 = path.join(__dirname, 'myJson3.json');
+processJsonFile(filePath3);
+
+const filePath4 = path.join(__dirname, 'myJson4.json');
+processJsonFile(filePath4);
+
+const filePath5 = path.join(__dirname, 'myJson5.json');
+processJsonFile(filePath5);
+
+const filePath6 = path.join(__dirname, 'myJson6.json');
+processJsonFile(filePath6);
