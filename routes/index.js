@@ -12,6 +12,7 @@ router.use('/homepage', require('./homepage'));
 router.use('/notifications', require('./notifications'));
 router.use('/feeder', require('./feeder'));
 router.use('/feedback', require('./feedback'));
+router.use('/report-question', require('./report-question'));
 
 // Exporting the base router
 module.exports = router;
