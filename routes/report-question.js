@@ -6,6 +6,7 @@ const UserModel = require('../models/User');
 
 router.post('/', async (req, res) => {
   console.log('Received report question request');
+  console.log('🚀  req.body:', req.body);
   const questionId = req.body?.id;
   const reportData = req.body?.data;
 
