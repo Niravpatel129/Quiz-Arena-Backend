@@ -41,8 +41,12 @@ async function processJsonFile(filePath) {
           continue;
         }
 
-        const existingQuestion = await Question.findOne({ question: question.question });
+        const existingQuestion = await Question.findOne({
+          question: question.question,
+          correctAnswer: question.correctAnswer,
+        });
         if (existingQuestion) {
+          console.log('Question already exists, updating');
           // If the question exists, update it
           await Question.findByIdAndUpdate(existingQuestion._id, question);
         } else {
@@ -63,4 +67,4 @@ async function processJsonFile(filePath) {
 // processJsonFile('scripts/questions/myJson3.json');
 // processJsonFile('scripts/questions/myJson4.json');
 // processJsonFile('scripts/questions/myJson5.json');
-processJsonFile('scripts/questions/myJson6.json');
+processJsonFile('scripts/questions/myJson.json');
