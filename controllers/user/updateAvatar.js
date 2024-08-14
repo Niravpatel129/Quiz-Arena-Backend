@@ -38,7 +38,7 @@ const updateAllAvatars = async () => {
 const updateAvatar = async (req, res) => {
   try {
     const userId = req.userId;
-    const { avatar, username } = req.body;
+    const { avatar, username, background } = req.body;
     if (!userId) {
       return res.status(401).json({ message: 'Unauthorized' });
     }
@@ -61,6 +61,15 @@ const updateAvatar = async (req, res) => {
         user.profile = { avatar };
       } else {
         user.profile.avatar = avatar;
+      }
+      isUpdated = true;
+    }
+
+    if (background !== undefined) {
+      if (!user.profile) {
+        user.profile = { background };
+      } else {
+        user.profile.background = background;
       }
       isUpdated = true;
     }
