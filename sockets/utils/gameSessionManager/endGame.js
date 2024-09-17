@@ -52,7 +52,7 @@ const updatePlayerRating = async ({ playerId, category, gameResults }) => {
     // Use $set only if the category doesn't exist
     if (!(category.toLowerCase() in player.elo.rating)) {
       updateObject.$set = {
-        [categoryKey]: updatedRating,
+        [categoryKey]: updatedRating || 1200,
       };
     } else {
       updateObject.$inc[categoryKey] = ratingChange;
