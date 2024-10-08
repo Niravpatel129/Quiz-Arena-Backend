@@ -5,15 +5,11 @@ const getQuestions = async (req, res) => {
   try {
     const category = req.query?.category || 'general knowledge';
     const count = parseInt(req.query.count) || 10;
-    const startOrder = parseInt(req.query.startOrder) || 0;
 
-    let questions = await Question.find({
-      category,
-      order: { $gte: startOrder },
-    })
-      .sort('order')
-      .limit(count)
-      .lean();
+    let questions = await Question.aggregate([
+      { $match: { category } },
+      { $sample: { size: count } },
+    ]);
 
     if (questions.length === 0) {
       return res.json([]);
