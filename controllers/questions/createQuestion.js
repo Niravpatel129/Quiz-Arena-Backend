@@ -1,5 +1,6 @@
 const QuestionModel = require('../../models/Question');
 const { sendMessageToChannel } = require('../../services/discord_bot');
+const optimizeAndUploadImage = require('../../scripts/uploadToFireStore');
 
 const createQuestion = async (req, res) => {
   try {
@@ -39,6 +40,9 @@ const createQuestion = async (req, res) => {
         }
 
         let parsedHelperImage = helperImage;
+        if (helperImage && !helperImage.includes('googleapis.com')) {
+          parsedHelperImage = await optimizeAndUploadImage(helperImage);
+        }
 
         if (
           typeof question !== 'string' ||
@@ -64,7 +68,7 @@ const createQuestion = async (req, res) => {
           parentCategory: parentCategory.toLowerCase(),
           answers,
           correctAnswer,
-          helperImage: helperImage || null,
+          helperImage: parsedHelperImage || null,
           order: ++currentMaxOrder,
           addedBy: userId,
         };
