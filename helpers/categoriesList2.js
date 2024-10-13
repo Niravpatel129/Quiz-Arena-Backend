@@ -2,10 +2,10 @@ const categories = [
   {
     parentCategory: 'Recently Added',
     subCategories: [
-      {
-        name: 'sports logos',
-        logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fsports-logo.jpg?alt=media&token=f084abaf-c477-4741-9894-e37d0953bbc9',
-      },
+      // {
+      //   name: 'sports logos',
+      //   logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fsports-logo.jpg?alt=media&token=f084abaf-c477-4741-9894-e37d0953bbc9',
+      // },
       {
         name: 'logos 2',
         logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948892/quiz%20arena/bjw19wqus3abc5rywx0q.png',
@@ -157,10 +157,10 @@ const categories = [
         name: 'landmarks',
         logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Flandmarks.jpg?alt=media&token=dd57bb24-fa3a-47dd-8320-059903af8f78',
       },
-      {
-        name: 'sports logos',
-        logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948894/quiz%20arena/v7g7bc0ulyztwrcvg5hl.png',
-      },
+      // {
+      //   name: 'sports logos',
+      //   logo: 'https://res.cloudinary.com/ddassnfo8/image/upload/v1713948894/quiz%20arena/v7g7bc0ulyztwrcvg5hl.png',
+      // },
       {
         name: 'general knowledge',
         logo: 'https://firebasestorage.googleapis.com/v0/b/quiz-arena-e2415.appspot.com/o/home_page_imgs%2Fgeneral-knowledge.jpg?alt=media&token=f504f732-f6ae-433a-ae70-4d6266a449e9',
